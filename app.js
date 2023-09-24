@@ -14,7 +14,8 @@ app.get('/sobrenos',function(req,res){
     res.render('pages/sobrenos.handlebars')
 })
 
-app.get('/', (req, res) => res.render('pages/index.handlebars'));
+app.get('/', (req, res) => res.render('pages/paginaInicial.handlebars'));
+
 
 
 app.listen(8080,function(){

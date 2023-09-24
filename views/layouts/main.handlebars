@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,35 +9,52 @@
     <title>House e Lar</title>
 </head>
 <body>
-    <p>MAIN</p>
+    {{!-- Header --}}
     <header>
-        <img src="../../img/logo_icon.png">
-        <nav>
-            <ul>
-                <li>Página Inicial</li>
-                <li>Buscar imóveis <i class="fa-solid fa-chevron-down"></i></li>
-                <li>Publicar</li>
-                
-                <li>
+        <nav class="navegacao">
+            <a href="/"><img src="../../img/logo_icon.png" width="60%" height="50%"></a>
+            <ul class="nav-lista">
+                <li class="pagina-inicial nav-item"><a href="/">Página Inicial</a></li>
+                <li class="nav-item">
                     <div class="dropdown">
-                        A imobiliária <i class="fa-solid fa-chevron-down"></i>
-                        <div class="dropdown-content">
-                           
-                            <div class="elemento-drop"> <p> Sobre nós </p> </div>
-                            <div class="elemento-drop"> <p> Fale conosco </p>  </div>
-                             
-                           
-                        </div>
+                        Buscar imóveis <i class="fa-solid fa-chevron-down"></i>
+                            <div class="dropdown-content">
+                                <div class="elemento-drop"> <a href="/"> Comprar </a> </div>
+                                <div class="elemento-drop"> <a href="/"> Alugar </a>  </div>
+                            </div>
                     </div>
-                    
+                </li>
+
+                <li class="publicar nav-item">
+                    <a href="/">Publicar</a>
                 </li>
                 
-                
-                <li><i class="fa-solid fa-arrow-right-to-bracket"></i> Log in</li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        A imobiliária <i class="fa-solid fa-chevron-down"></i>
+                            <div class="dropdown-content">
+                                <div class="elemento-drop"> <a href="/sobrenos"> Sobre nós </a> </div>
+                                <div class="elemento-drop"> <a href="/faleconosco"> Fale Conosco </a>  </div>
+                            </div>
+                    </div>
+                </li>
+
+                <li style="font-weight: 600;" class="log-in nav-item">
+                    <a href="/login"> <i class="fa-solid fa-arrow-right-to-bracket"></i> Log in  </a>
+                </li>
             </ul>
+            <div class="hamburguer">
+                <div class="barra"></div>
+                <div class="barra"></div>
+                <div class="barra"></div>
+            </div>
         </nav>
     </header>
     
+    
     {{{body}}}
+    
+  
+    <script src="../../js/main.js"></script>
 </body>
 </html>

@@ -1,6 +1,17 @@
+// import { createRequire } from 'module'
+// const require = createRequire(import.meta.url);
+
+// import { fileURLToPath } from 'url';
+// import { dirname } from 'path';
+
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
+
+
 //Inicializando express
 const express = require('express')
 const app = express()
+
 
 //Configurando handlebars
 const handlebars = require('express-handlebars')
@@ -10,6 +21,13 @@ app.set('view engine', 'handlebars')
 
 app.use(express.static('public'))
 
+
+//Configurando body parser
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
+
+// Rotas
 app.get('/sobrenos',function(req,res){
     res.render('pages/sobrenos.handlebars')
 })

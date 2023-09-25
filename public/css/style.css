@@ -45,9 +45,6 @@ a{
     align-items: center;
     gap: 32px;
 }
-/* header > nav > ul > li, header > nav > ul > .dropdown{
-    margin-left: 32px;
-} */
 
 
 /*Estilizando os ícones*/
@@ -124,20 +121,53 @@ a{
     transition: all 0.3s ease-in-out;
 }
 
+/*Estilizando o footer*/
 
+.nav-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 0 34px; /*top, bottom, left, right*/
 
-#elementoSurgindo {
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-    transition: opacity 0.9s ease, height 0.5s ease; /* Transição para a opacidade e altura */
+}
+.nav-lista-footer{
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+.nav-lista-footer > li, .nav-lista-footer > li > a{
+    color: #505050;
+}
+.nav-item-footer{
+    height: 40px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 100px;
+    border: 1px solid #DFDFDF;  
+    font-size: 12px;
+}
+
+hr{
+    border-color:  #ffffff;
+    opacity: 0.5;
+    width: 100vw;
+}
+.texto-footer{
+    font-size: 12px;
+    width: 420px;
+    color: #505050;
+}
+.texto-footer.end{
+    margin: 16px auto;
+    
 }
 
 
-
 /*Estilizando o nav bar responsivo*/
-
-/* começando por minimo 768 de width */
 
 @media (max-width: 768px){
     .hamburguer{

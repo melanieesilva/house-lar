@@ -19,11 +19,16 @@ app.use(bodyParser.json());
 
 
 // Rotas
+
+app.get('/', (req, res) => res.render('pages/paginaInicial.handlebars'));
+
 app.get('/sobrenos',function(req,res){
     res.render('pages/sobrenos.handlebars')
 })
 
-app.get('/', (req, res) => res.render('pages/paginaInicial.handlebars'));
+app.get('/noticias',function(req,res){
+    res.render('pages/noticias.handlebars')
+})
 
 
 

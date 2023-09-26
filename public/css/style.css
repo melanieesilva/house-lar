@@ -14,11 +14,15 @@ body{
     padding: 0;
 }
 
+main{
+    padding: 60px 34px 34px; 
+}
+
 /*Estilizando o header*/
 header{
     min-height: 8vh;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding: 8px 0;
+    margin-top: 20px;
 }
 
 li{
@@ -36,7 +40,7 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 34px; /*top, bottom, left, right*/
+    padding: 0 34px;
 }
 
 /*Estilizando a lista não ordenada*/
@@ -44,6 +48,8 @@ a{
     display: flex;
     align-items: center;
     gap: 32px;
+    margin-bottom: 0;
+    padding: 0;
 }
 
 
@@ -148,9 +154,9 @@ a{
     font-size: 12px;
 }
 
-hr{
-    border-color:  #ffffff;
-    opacity: 0.5;
+.linha{
+    border-color:  #000000;
+    opacity: 0.2;
     width: 100vw;
 }
 .texto-footer{

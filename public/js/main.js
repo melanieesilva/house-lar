@@ -7,25 +7,37 @@ hamburguer.addEventListener('click',()=>{
 })
 
 
+
+
+
+
+
+
+
+
+
+//teste google
+
+
 // import { createRequire } from 'module'
 // const require = createRequire(import.meta.url);
 
-const translate = require('google-translate');
+// const translate = require('google-translate');
 
-const conteudoPagina = document.body.innerText;
-var text = "olá";
-
-
-const btn = document.getElementById('btn-traduzir')
+// const conteudoPagina = document.body.innerText;
+// var text = "olá";
 
 
-function traduzirPagina(){
-    translate(text,'en',function(err, translation){
-        console.log("Inglês :>",translation.translatedText);
-        // var paginaTraduzida = translation.translatedText;
-        // document.body.innerText = paginaTraduzida;
-    });
-    console.log("traduzido")
-}
+// const btn = document.getElementById('btn-traduzir')
 
-btn.addEventListener('click',traduzirPagina)
+
+// function traduzirPagina(){
+//     translate(text,'en',function(err, translation){
+//         console.log("Inglês :>",translation.translatedText);
+//         // var paginaTraduzida = translation.translatedText;
+//         // document.body.innerText = paginaTraduzida;
+//     });
+//     console.log("traduzido")
+// }
+
+// btn.addEventListener('click',traduzirPagina)

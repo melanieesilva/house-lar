@@ -1,12 +1,3 @@
-// import { createRequire } from 'module'
-// const require = createRequire(import.meta.url);
-
-// import { fileURLToPath } from 'url';
-// import { dirname } from 'path';
-
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
-
 
 //Inicializando express
 const express = require('express')
@@ -33,6 +24,30 @@ app.get('/sobrenos',function(req,res){
 })
 
 app.get('/', (req, res) => res.render('pages/paginaInicial.handlebars'));
+
+
+
+// //google
+
+// const API_KEY = "AIzaSyDdAjyOOuBbhIL4T8jxMHRwoYXsEgPrbn4";
+
+// const axios = require('axios')
+
+// async translate(text){
+//     let res = await axios.post(
+//     `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`,
+//     { q: text, target: "tr" }
+//     );
+//     let translation = res.data.data.translations[0].translatedText;
+//     return translation;
+// }
+
+// var msg = "Azul";
+
+
+
+
+
 
 
 

@@ -72,12 +72,9 @@ a{
     z-index: 1;
     border-radius: 8px;
     padding: 4px 0px 8px 0px; /*top, right, bottom, left*/
-    opacity: 0;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 .dropdown:hover .dropdown-content {
     display: block;
-    opacity: 1;
 }
 .dropdown-content > .elemento-drop{
     width: 100%;
@@ -163,13 +160,63 @@ hr{
 }
 .texto-footer.end{
     margin: 16px auto;
+    width: fit-content;
     
 }
 
+/*Estilizando dropdown footer*/
+.dropdown-footer{
+    width: 100%;
+}
+.nav-lista-footer> :nth-child(2){
+    padding: 0;
+    border: none;
+    border-radius: 0;
+}
+.item-drop-main{
+    height: 40px;
+    padding: 0 32px;
+    border: 1px solid #DFDFDF; 
+    border-radius: 1000px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.drop-content-footer{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #DFDFDF; 
+    border-radius: 100px;
+    background-color: white;
+    z-index: 1;
+    margin-top: 2px;
+    position: absolute;
+    width: 14em;
+    height: 40px;
+}
+.dropdown-footer:hover .drop-content-footer{
+    display: flex;
+}
+.elemento-drop-footer{
+    width: calc(100% - 16px);
+    height: calc(40px - 16px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+}
+.drop-content-footer > .elemento-drop-footer:hover{
+    background-color: #F9F9F9;
+    font-weight: 600;
+}
 
-/*Estilizando o nav bar responsivo*/
+
+
 
 @media (max-width: 768px){
+
+    /*Estilizando o nav bar responsivo*/
     .hamburguer{
         display: block;
     }
@@ -226,4 +273,41 @@ hr{
     .dropdown-content > .elemento-drop:hover{
         background-color: #F9F9F9;
     }
+
+    /*Estilizando o footer responsivo*/
+
+    .nav-lista-footer {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        margin: 0;
+    }
+
+    .nav-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        padding: 0 34px;
+        flex-wrap: wrap;
+        margin-bottom: 24px;
+    }
+    .texto-footer {
+        margin: 0;
+    }
 }
+
+@media (max-width: 425px){
+
+    /*Estilizando footer*/
+    .texto-footer{
+        text-align: center;
+    }
+    .nav-lista-footer {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+

@@ -34,7 +34,9 @@ app.get('/artigoNoticia',function(req,res){
     res.render('pages/Noticias/artigoNoticia.handlebars')
 })
 
-
+app.get('/faleConosco',function(req,res){
+    res.render('pages/faleConosco.handlebars')
+})
 
 // //google
 

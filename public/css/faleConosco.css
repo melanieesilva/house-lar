@@ -1,0 +1,138 @@
+.hero-form{
+    display: flex;
+    align-items: center;
+    gap: 64px;
+}
+
+.img-hero{
+    width: 530px;
+    height: 560px;
+    border-radius: 16px;
+    background: linear-gradient(rgba(186, 186, 186, 0.5), rgba(0, 0, 0, 0.5)), url("../img/img-hero-form.jpeg"), lightgray 50% / cover no-repeat;
+    background-position: center;
+    background-attachment:fixed;
+    color: white;
+    padding: 32px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 16px;
+
+}
+.img-hero > h4{
+    font-size: 24px;
+}
+.img-hero > :last-child{
+    font-size: 14px;
+    font-weight: 400;
+}
+.img-hero > :nth-child(2){
+    font-weight: 500;
+}
+.img-hero > h4, .img-hero > p{
+    width: 450px;
+    margin: 0;
+}
+
+
+.area-form{
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+}
+
+.area-form > h3{
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.area-form > form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.area-form > form > div{
+    display: flex;
+    flex-direction: column;
+    width: calc((100% / 2) - 10px);
+    gap: 4px;
+}
+
+.area-form > form > div > label{
+    font-size: 14px;
+}
+.area-form > form > div > input{
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #cdcdcd;
+    background: #FFF;
+}
+
+.area-form > form > .mensagem{
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 200px;
+    min-height: 200px;
+    margin-bottom: 20px;
+}
+.area-form > form > .mensagem > textarea{
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #B8B8B8;
+    background: #FFF;
+}
+
+.enviar-mensagem{
+    padding: 12px;
+    border-radius: 8px;
+    background: #B00063;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.enviar-mensagem > iconify-icon{
+    font-size: 18px;
+}
+
+
+.endereco{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 204px;
+    align-items: center;
+}
+
+.dados-endereco{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.dados-endereco > h4{
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.dados-endereco > div{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.dados-endereco > div > iconify-icon{
+    font-size: 24px;
+}
+.mapa-endereco{
+    width: 560px;
+    height: 380px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #D4D4D4;
+    background: url("../img/img-map-temp.png"), lightgray 50% / contain no-repeat;
+}

@@ -27,7 +27,11 @@ app.get('/sobrenos',function(req,res){
 })
 
 app.get('/noticias',function(req,res){
-    res.render('pages/noticias.handlebars')
+    res.render('pages/Noticias/noticias.handlebars')
+})
+
+app.get('/artigoNoticia',function(req,res){
+    res.render('pages/Noticias/artigoNoticia.handlebars')
 })
 
 

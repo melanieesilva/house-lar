@@ -38,6 +38,11 @@ app.get('/faleConosco',function(req,res){
     res.render('pages/faleConosco.handlebars')
 })
 
+
+
+
+
+
 // //google
 
 // const API_KEY = "AIzaSyDdAjyOOuBbhIL4T8jxMHRwoYXsEgPrbn4";

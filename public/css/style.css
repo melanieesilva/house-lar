@@ -16,6 +16,7 @@ body{
 
 main{
     padding: 60px 34px 34px; 
+    overflow: visible;
 }
 
 /*Estilizando o header*/

@@ -1,0 +1,217 @@
+/* Estilizando hero da página */
+.hero-fale-conosco{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.img-hero{
+    width: calc(85% / 2 - 40px);
+    height: 626px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.img-hero > img{
+    width: 100%;
+    height: 100%;
+}
+
+.texto-hero{
+    width: 400px;
+    font-weight: 600;
+}
+.texto-hero > h2{
+    font-size: 32px;
+}
+.texto-hero > h2 > span{
+    color: #9D0058;
+}
+.texto-hero > p{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+
+/* Estilizando section feedback com slide */
+.feedback{
+    width: 100vw;
+    position: relative;
+    left: -34px;
+    background: #fafafa;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.div-feedback{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+.aspas{
+    font-size: 80px;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.conteudo-feedback{
+    width: 600px;
+    text-align: center;
+}
+.conteudo-feedback > h4{
+    font-weight: 600;
+}
+.conteudo-feedback > p {
+    color: #3F3F3F;
+}
+
+.voltar,.proximo{
+    position: absolute;
+    background-color: #ececec;
+    color: rgb(106, 106, 106);
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.6s ease;
+}
+.voltar > iconify-icon, .proximo > iconify-icon{
+    font-size: 24px;
+}
+.voltar:hover, .proximo:hover {
+    background-color:#ffc0e3;
+  }
+.voltar{
+    left: 80px;
+}
+.proximo{
+    right: 80px;
+}
+
+/* Editando section motivos  */
+.motivos{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.motivos > h2{
+    color: #9D0058;
+}
+.motivos > p{
+    width: 700px
+}
+
+.cards-motivos{
+    display: flex;
+    width: 100vw;
+    margin-top: 80px;
+}
+
+.card-motivo{
+    width: 25%;
+    padding: 24px 24px;
+    border: 1px solid #e7e7e7;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+}
+.card-motivo > p{
+    color: #3F3F3F;
+}
+.card-motivo > .fundo-icon{
+    background-color: #FFF0F8;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fundo-icon > iconify-icon{
+    font-size: 40px;
+    color: #9D0058;
+}
+
+/* Estilizando section decisão */
+.decisao{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px;
+}
+.decisao > p {
+    margin: 16px 0;
+    color: #3F3F3F;
+}
+.decisao > h2{
+    margin: 0px;
+}
+
+.img-decisao{
+    width: calc(100vw);
+    height: 511px;
+    position: relative;
+    margin-top: 32px;
+}
+.img-decisao > img{
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilizando section contato  */
+.entrar-contato{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    text-align: center;
+    margin-top: 120px;
+}
+
+.texto-contato{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+.texto-contato > h2{
+    margin: 0;
+}
+.texto-contato > p{
+    width: 600px;
+    margin: 0;
+}
+
+.link-fale-conosco{
+    padding: 10px 16px;
+    background-color: #9D0058;
+    color: white;
+    font-size: 14px;
+    border-radius: 8px;
+}
+.link-fale-conosco:hover{
+    background: #FFE4F3;
+    color: #9D0058;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.08);
+}
+.link-fale-conosco:active{
+    transform: translateY(2px);
+}

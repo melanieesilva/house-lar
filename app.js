@@ -4,11 +4,22 @@ const express = require('express')
 const app = express()
 
 
-//Configurando handlebars
+//Configurando handlebars e layouts
 const handlebars = require('express-handlebars')
 
+// Layout principal
 app.engine('handlebars',handlebars.engine({defaultLayout:'main'}))
 app.set('view engine', 'handlebars')
+
+// Layout painel de controle
+app.get('/painelControle', (req,res) => {
+    res.render('pages/imoveisPublicados', {
+        layout: 'painelControle',
+        pageTitle: 'Painel de Controle'
+    });
+});
+
+
 
 app.use(express.static('public'))
 
@@ -19,7 +30,7 @@ app.use(bodyParser.json());
 
 
 // Rotas
-
+// Usuário final 
 app.get('/', (req, res) => res.render('pages/paginaInicial.handlebars'));
 
 app.get('/sobrenos',function(req,res){
@@ -38,8 +49,14 @@ app.get('/faleConosco',function(req,res){
     res.render('pages/faleConosco.handlebars')
 })
 
+// Corretor - Painel de Controle
 
-
+app.get('/calendario', (req,res) => {
+    res.render('pages/calendario.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Calendário - Painel De Controle'
+    })
+})
 
 
 

@@ -49,6 +49,10 @@ app.get('/faleConosco',function(req,res){
     res.render('pages/faleConosco.handlebars')
 })
 
+app.get('/detalheImovel',function(req,res){
+    res.render('pages/detalheImovel.handlebars')
+})
+
 // Corretor - Painel de Controle
 
 app.get('/calendario', (req,res) => {

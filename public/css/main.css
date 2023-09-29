@@ -19,6 +19,30 @@ main{
     overflow: visible;
 }
 
+/* Estilizando retorno das páginas */
+.retorno{
+    display: flex;
+    align-items: center;
+    color: black;
+    font-weight: 500;
+}
+.retorno > a{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.retorno > iconify-icon{
+    color: black;
+    font-size: 20px;
+}
+.retorno > span{
+    color: #717171;
+}
+.retorno > a:visited{
+    color: black;
+}
+
+
 /*Estilizando o header*/
 header{
     min-height: 8vh;

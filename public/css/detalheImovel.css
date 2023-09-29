@@ -1,0 +1,46 @@
+.imagens-imovel{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-grid {
+    width: 85%;
+    height: 412px;
+    display: grid;
+    grid-template-columns: 1.8fr 0.8fr;
+    grid-template-rows: repeat(1,1fr);
+    grid-column-gap: 8px;
+    grid-row-gap: 0px;
+    margin-top: 40px;
+}
+
+.imagem-imovel{
+    border-radius: 8px;
+    overflow: hidden;
+    height: 200px;
+}
+.imagem-imovel > img{
+    width: 100%;
+    height: 100%;
+}
+
+.imagem-imovel.primeiro {
+    grid-area: 1 / 1 / 3 / 2; 
+    height: 100%;
+}
+.imagem-imovel.segundo { 
+    grid-area: 1 / 2 / 2 / 3; 
+}
+.imagem-imovel.terceiro {
+    grid-area: 2 / 2 / 3 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mais-imagens{
+    position: absolute;
+
+}

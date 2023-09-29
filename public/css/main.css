@@ -56,8 +56,11 @@ li{
 }
 /*Estilizando os links*/
 a{
-    text-decoration: none;
+    text-decoration: none !important;
     color:black;
+}
+a:visited{
+    text-decoration: none !important;
 }
 
 /*Estilizando a nav*/
@@ -244,6 +247,9 @@ footer{
     align-items: center;
     justify-content: center;
     border-radius: 50px;
+}
+.elemento-drop-footer > p{
+    margin: 0;
 }
 .drop-content-footer > .elemento-drop-footer:hover{
     background-color: #F9F9F9;

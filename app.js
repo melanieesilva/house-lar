@@ -1,4 +1,3 @@
-
 //Inicializando express
 const express = require('express')
 const app = express()
@@ -53,6 +52,13 @@ app.get('/detalheImovel',function(req,res){
     res.render('pages/detalheImovel.handlebars')
 })
 
+app.get('/loginCorretor',function(req,res){
+    res.render('pages/loginCorretor.handlebars',{
+        layout: '',
+        pageTitle: 'Login Imobiliária'
+    })
+})
+
 // Corretor - Painel de Controle
 
 app.get('/calendario', (req,res) => {
@@ -62,6 +68,26 @@ app.get('/calendario', (req,res) => {
     })
 })
 
+app.get('/solicitacoes', (req,res)=>{
+    res.render('pages/solicitacoes.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Solicitações - Painel de Controle'
+    })
+})
+
+app.get('/mensagens', (req,res)=>{
+    res.render('pages/Mensagens/mensagens.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Mensagens - Painel de Controle'
+    })
+})
+
+app.get('/viewMensagem',(req,res)=>{
+    res.render('pages/Mensagens/viewMensagem.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Visualização Mensagem - Painel de Controle'
+})
+})
 
 
 // //google
@@ -80,11 +106,6 @@ app.get('/calendario', (req,res) => {
 // }
 
 // var msg = "Azul";
-
-
-
-
-
 
 
 

@@ -16,7 +16,7 @@ body{
     margin: 0;
     display: flex;
     padding-left: 40px;
-    background: #F4F4F4;
+    background: #F4F4F4 !important;
 }
 
 main{
@@ -26,7 +26,10 @@ main{
 }
 
 a{
-    text-decoration: none;
+    text-decoration: none !important;
+}
+a:visited{
+    text-decoration: none !important;
 }
 
 /* Estilizando menu lateral  */
@@ -89,7 +92,7 @@ aside{
     padding: 8px 24px;
     font-size: 16px;
     border: none;
-    background: #F4F4F4;
+    background: #F4F4F4 !important;
     color: #616161;
     cursor: pointer;
 }

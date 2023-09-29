@@ -1,0 +1,119 @@
+img {
+    max-width: 100%;
+    width: 85%;
+}
+
+#div-imagem{
+    display: flex;
+    justify-content: right;
+    margin-right: 15%;
+    margin-bottom: 2%;
+}
+
+.conteiner {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#cabecalho{
+    margin-top: 15%;
+    display: block;
+    text-align: center;
+}
+
+#cabecalho h3{
+    font-weight: 500;
+}
+
+#metade1 {
+    background-color: #FFFFFF;
+    width: 45%;
+    min-width: 45%;
+    display: grid;
+    place-items: center;
+}
+
+#metade1 h3{
+    font-size: 32;
+}
+
+#metade1 p{
+    font-size: 16;
+}
+
+#div-form{
+    width: 70%;
+    display: grid;
+    margin-bottom: 20%;
+}
+
+input[type=email], input[type=password]{
+    margin-bottom: 5%;
+    padding-top: 3%; padding-bottom: 3%;
+}
+
+.form-control{
+    text-overflow: ellipsis;
+}
+
+.form-table{
+    font-size: 16;
+}
+
+#esqueceu-senha{
+    display: flex;
+    justify-content: end;
+    font-size: 12px; 
+    font-weight: 500;
+    color: #9D0058; 
+}
+
+#metade1 button[type=submit]{
+    background-color: #9D0058;
+    text-align: center;
+    display: grid;
+    margin: auto;
+    margin-top: 10%;
+    border: none;
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 2%; padding-bottom: 2%;
+    font-size: 16px; 
+    font-weight: 600;
+}
+
+#metade2 {
+    display: grid;
+    place-items: center;
+    background: linear-gradient(180deg, white 0%, rgba(255, 206.13, 233.52, 0) 100%);
+    box-shadow: 2px 0px 12px rgba(0, 0, 0, 0.10) inset;
+    text-align: center;
+    width: 55%;
+    min-width: 55%;
+}
+
+#metade2 h3{
+    font-weight: 600;
+    text-align: center;
+    font-size: 24;
+    margin-top: 10%;
+}
+
+#metade2 p{
+    margin-top: 5%;
+    margin-left: 5%;
+    display: flex;
+    width: 80%;
+    text-align: left;
+    font-size: 14;
+}
+
+#div-imagem{
+    margin-top: 5%;
+    margin-bottom: 40%;
+}
+
+::placeholder{
+    font-size: 12;
+}

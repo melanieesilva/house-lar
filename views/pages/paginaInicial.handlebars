@@ -1,12 +1,543 @@
-
-{{!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/paginaInicial.css">
+    <title>House & Lar</title>
 </head>
+
 <body>
-    
+    <div id="central">
+        <H1>Lorem ipsum dolor sit amet</H1>
+        <div id="hud">
+            <div id="pf">
+                <input type="button" value="Comprar" id="compra" class="botao" name="compra"
+                    onclick="alternaCores('compra')" style="    border-top-left-radius: 16px;">
+                <input type="button" value="Alugar" id="alugar" class="botao" name="alugar"
+                    onclick="alternaCores('alugar')" style="    border-top-right-radius: 16px;">
+            </div>
+
+            <form action="" method="get">
+                <div>
+                    <div id="mba">
+                        <h4>Pesquise por cidade ou bairro</h4>
+
+                        <div id="iconback">
+                            <a href="http://" target="_blank" rel="noopener noreferrer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="#FFFFFF"
+                                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                                    <path fill="none" d="M0 0h24v24H0z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="emgloba">
+                        <div>
+                            <label class="labelde">Tipo do Imovel</label> <br>
+                            <select name="Tipo do Imovel" id="">
+                                <option value="">Apartamento</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="labelde">N° de quartos</label> <br>
+                            <select name="quartos" id="">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                                <option value="">5</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="labelde">Preço</label> <br>
+                            <select name="Preço" id="">
+                                <option value="">Até 300.000</option>
+                                <option value="">Até 500.000</option>
+                                <option value="">Até 1.000.000</option>
+                                <option value="">Acima de 1.500.000</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="labelde">Área</label> <br>
+                            <select name="Área" id="">
+                                <option value="">Até 80m²</option>
+                                <option value="">Até 150m²</option>
+                                <option value="">Até 200m²</option>
+                                <option value="">Até 500m²</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <div id="imoveis">
+        <h3>Imóveis Recentes</h3>
+        <input type="button" value="Ver Tudo" class="btn btn-primary" style="background-color: #9D0058;
+        color: white; border-color: #9D0058;">
+    </div>
+
+    <div class="card-deck">
+        <div class="card">
+            <img class="card-img-top" src="../../img/Rectangle 13.png" alt="Imagem de capa do card">
+            <div class="card-body">
+                <div id="textcarda">
+                    <h5>Apartamento</h5>
+                    <h5 id="valor">R$ 500.000</h5>
+                </div>
+                <div id="textcarda">
+                    <p> <small class="text-muted">Pituba - Salvador</small></p>
+                    <p><small class="text-muted">ID:
+                            478547</small></p>
+                </div>
+                <div id="icone">
+
+                    <div id="iconalinha">
+                        <p>
+                            <small><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <g fill="none">
+                                        <path
+                                            d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z" />
+                                        <path fill="currentColor"
+                                            d="M17 3a2 2 0 0 1 2 2v14h1a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2h1V5a2 2 0 0 1 2-2h10Zm0 2H7v14h10V5Zm-2.5 6a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3Z" />
+                                    </g>
+                                </svg> 14 salas</small>
+                        </p>
+
+                        <p>
+                            <small>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="m5 11l1.5-4.5h11L19 11m-1.5 5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m-11 0A1.5 1.5 0 0 1 5 14.5A1.5 1.5 0 0 1 6.5 13A1.5 1.5 0 0 1 8 14.5A1.5 1.5 0 0 1 6.5 16M18.92 6c-.2-.58-.76-1-1.42-1h-11c-.66 0-1.22.42-1.42 1L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8l-2.08-6Z" />
+                                </svg>
+                                2 Vagas
+                            </small>
+                        </p>
+                        <p>
+                            <small>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                                    <g transform="translate(28 0) scale(-1 1)">
+                                        <path fill="currentColor"
+                                            d="M10.75 2A2.75 2.75 0 0 0 8 4.75v18.5A2.75 2.75 0 0 0 10.75 26h6.5A2.75 2.75 0 0 0 20 23.25V4.75A2.75 2.75 0 0 0 17.25 2h-6.5ZM9.5 14.75h2.75a.75.75 0 0 0 0-1.5H9.5V11h4.75a.75.75 0 0 0 0-1.5H9.5V7.25h2.75a.75.75 0 0 0 0-1.5H9.5v-1c0-.69.56-1.25 1.25-1.25h6.5c.69 0 1.25.56 1.25 1.25v18.5c0 .69-.56 1.25-1.25 1.25h-6.5c-.69 0-1.25-.56-1.25-1.25v-1h2.75a.75.75 0 0 0 0-1.5H9.5V18.5h4.75a.75.75 0 0 0 0-1.5H9.5v-2.25Z" />
+                                    </g>
+                                </svg>
+                                108m²
+                            </small>
+                        </p>
+                    </div>
+
+                    <div id="iconalinha">
+                        <p>
+                            <small>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <g transform="translate(24 0) scale(-1 1)">
+                                        <g fill="none">
+                                            <path stroke="currentColor" stroke-width="1.5"
+                                                d="M3 13.083c0-.077 0-.116.002-.148a1 1 0 0 1 .933-.933c.033-.002.07-.002.148-.002h15.834c.077 0 .115 0 .148.002a1 1 0 0 1 .933.933c.002.032.002.07.002.148c0 .395 0 .593-.014.815c-.209 3.287-3.003 6.189-6.28 6.52c-.221.023-.35.028-.608.038A56.87 56.87 0 0 1 12 20.5c-.65 0-1.364-.017-2.098-.044c-.258-.01-.387-.015-.607-.037c-3.278-.332-6.072-3.234-6.28-6.521C3 13.676 3 13.478 3 13.083Z" />
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+                                                d="m6 20l-1 2m13-2l1 2M2 12h20" />
+                                            <path fill="currentColor"
+                                                d="M2.25 13a.75.75 0 0 0 1.5 0h-1.5ZM7.6 3.5l.696-.28l-.696.28Zm.379.947l.328.674l-.328-.674ZM6.362 6.192l.695.283l-.695-.283Zm4.215-1.814l-.295.69l.295-.69ZM6.346 8.742l-.698.275a.75.75 0 0 0 .994.413l-.296-.688Zm5.96-2.567l.297.69a.75.75 0 0 0 .401-.964l-.698.274ZM3.75 13V4.385h-1.5V13h1.5ZM5.385 2.75c.669 0 1.27.407 1.518 1.028l1.393-.557a3.135 3.135 0 0 0-2.91-1.971v1.5ZM3.75 4.385c0-.903.732-1.635 1.635-1.635v-1.5A3.135 3.135 0 0 0 2.25 4.385h1.5Zm3.153-.607l.38.948l1.392-.557l-.379-.948l-1.393.557Zm.14 4.689a2.679 2.679 0 0 1 .014-1.992l-1.39-.565a4.179 4.179 0 0 0-.02 3.107l1.396-.55Zm4.967-2.98L6.049 8.053l.593 1.377l5.96-2.566l-.592-1.377Zm-1.728-.42c.622.266 1.085.77 1.327 1.383l1.395-.55a3.973 3.973 0 0 0-2.132-2.212l-.59 1.38ZM7.057 6.476a2.565 2.565 0 0 1 1.25-1.354l-.656-1.348A4.065 4.065 0 0 0 5.667 5.91l1.39.565Zm1.25-1.354a2.361 2.361 0 0 1 1.975-.053l.59-1.38a3.861 3.861 0 0 0-3.221.085l.656 1.348Z" />
+                                        </g>
+                                    </g>
+                                </svg>
+                                2 ban.
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card">
+            <img class="card-img-top" src="../../img/Rectangle 13.png" alt="Imagem de capa do card">
+            <div class="card-body">
+                <div id="textcarda">
+                    <h5>Sala comercial</h5>
+                    <h5 id="valor">R$ 10.000</h5>
+                </div>
+                <div id="textcarda">
+                    <p><small class="text-muted">Vitória - Salvador</small></p>
+                    <p><small class="text-muted">ID: 478556</small></p>
+                </div>
+                <div id="icone">
+
+                    <div id="iconalinha">
+                        <p>
+                            <small>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="m5 11l1.5-4.5h11L19 11m-1.5 5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m-11 0A1.5 1.5 0 0 1 5 14.5A1.5 1.5 0 0 1 6.5 13A1.5 1.5 0 0 1 8 14.5A1.5 1.5 0 0 1 6.5 16M18.92 6c-.2-.58-.76-1-1.42-1h-11c-.66 0-1.22.42-1.42 1L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8l-2.08-6Z" />
+                                </svg>
+                                2 Vagas
+                            </small>
+                        </p>
+                        <p>
+                            <small>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                                    <g transform="translate(28 0) scale(-1 1)">
+                                        <path fill="currentColor"
+                                            d="M10.75 2A2.75 2.75 0 0 0 8 4.75v18.5A2.75 2.75 0 0 0 10.75 26h6.5A2.75 2.75 0 0 0 20 23.25V4.75A2.75 2.75 0 0 0 17.25 2h-6.5ZM9.5 14.75h2.75a.75.75 0 0 0 0-1.5H9.5V11h4.75a.75.75 0 0 0 0-1.5H9.5V7.25h2.75a.75.75 0 0 0 0-1.5H9.5v-1c0-.69.56-1.25 1.25-1.25h6.5c.69 0 1.25.56 1.25 1.25v18.5c0 .69-.56 1.25-1.25 1.25h-6.5c-.69 0-1.25-.56-1.25-1.25v-1h2.75a.75.75 0 0 0 0-1.5H9.5V18.5h4.75a.75.75 0 0 0 0-1.5H9.5v-2.25Z" />
+                                    </g>
+                                </svg>
+                                108m²
+                            </small>
+                        </p>
+                    </div>
+
+                    <div id="iconalinha">
+                        <p>
+                            <small>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <g transform="translate(24 0) scale(-1 1)">
+                                        <g fill="none">
+                                            <path stroke="currentColor" stroke-width="1.5"
+                                                d="M3 13.083c0-.077 0-.116.002-.148a1 1 0 0 1 .933-.933c.033-.002.07-.002.148-.002h15.834c.077 0 .115 0 .148.002a1 1 0 0 1 .933.933c.002.032.002.07.002.148c0 .395 0 .593-.014.815c-.209 3.287-3.003 6.189-6.28 6.52c-.221.023-.35.028-.608.038A56.87 56.87 0 0 1 12 20.5c-.65 0-1.364-.017-2.098-.044c-.258-.01-.387-.015-.607-.037c-3.278-.332-6.072-3.234-6.28-6.521C3 13.676 3 13.478 3 13.083Z" />
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+                                                d="m6 20l-1 2m13-2l1 2M2 12h20" />
+                                            <path fill="currentColor"
+                                                d="M2.25 13a.75.75 0 0 0 1.5 0h-1.5ZM7.6 3.5l.696-.28l-.696.28Zm.379.947l.328.674l-.328-.674ZM6.362 6.192l.695.283l-.695-.283Zm4.215-1.814l-.295.69l.295-.69ZM6.346 8.742l-.698.275a.75.75 0 0 0 .994.413l-.296-.688Zm5.96-2.567l.297.69a.75.75 0 0 0 .401-.964l-.698.274ZM3.75 13V4.385h-1.5V13h1.5ZM5.385 2.75c.669 0 1.27.407 1.518 1.028l1.393-.557a3.135 3.135 0 0 0-2.91-1.971v1.5ZM3.75 4.385c0-.903.732-1.635 1.635-1.635v-1.5A3.135 3.135 0 0 0 2.25 4.385h1.5Zm3.153-.607l.38.948l1.392-.557l-.379-.948l-1.393.557Zm.14 4.689a2.679 2.679 0 0 1 .014-1.992l-1.39-.565a4.179 4.179 0 0 0-.02 3.107l1.396-.55Zm4.967-2.98L6.049 8.053l.593 1.377l5.96-2.566l-.592-1.377Zm-1.728-.42c.622.266 1.085.77 1.327 1.383l1.395-.55a3.973 3.973 0 0 0-2.132-2.212l-.59 1.38ZM7.057 6.476a2.565 2.565 0 0 1 1.25-1.354l-.656-1.348A4.065 4.065 0 0 0 5.667 5.91l1.39.565Zm1.25-1.354a2.361 2.361 0 0 1 1.975-.053l.59-1.38a3.861 3.861 0 0 0-3.221.085l.656 1.348Z" />
+                                        </g>
+                                    </g>
+                                </svg>
+                                2 ban.
+                            </small>
+                        </p>
+                        <p>
+                            <small>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M7 12.5a3 3 0 1 0-3-3a3 3 0 0 0 3 3Zm0-4a1 1 0 1 1-1 1a1 1 0 0 1 1-1Zm13-2h-8a1 1 0 0 0-1 1v6H3v-8a1 1 0 0 0-2 0v13a1 1 0 0 0 2 0v-3h18v3a1 1 0 0 0 2 0v-9a3 3 0 0 0-3-3Zm1 7h-8v-5h7a1 1 0 0 1 1 1Z" />
+                                </svg>
+                                14 qua.
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card">
+            <img class="card-img-top" src="../../img/Rectangle 13.png" alt="Imagem de capa do card">
+            <div class="card-body">
+                <div id="textcarda">
+                    <h5>Apartamento</h5>
+                    <h5 id="valor">R$ 500.000 </h5>
+                </div>
+                <div id="textcarda">
+                    <p> <small class="text-muted">Pituba - Salvador</small></p>
+                    <p><small class="text-muted">ID: 478547</small></p>
+                </div>
+                <div id="icone">
+
+                    <div id="iconalinha">
+                        <p>
+                            <small><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <g fill="none">
+                                        <path
+                                            d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z" />
+                                        <path fill="currentColor"
+                                            d="M17 3a2 2 0 0 1 2 2v14h1a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2h1V5a2 2 0 0 1 2-2h10Zm0 2H7v14h10V5Zm-2.5 6a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3Z" />
+                                    </g>
+                                </svg> 14 salas</small>
+                        </p>
+                        <p>
+                            <small>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="m5 11l1.5-4.5h11L19 11m-1.5 5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m-11 0A1.5 1.5 0 0 1 5 14.5A1.5 1.5 0 0 1 6.5 13A1.5 1.5 0 0 1 8 14.5A1.5 1.5 0 0 1 6.5 16M18.92 6c-.2-.58-.76-1-1.42-1h-11c-.66 0-1.22.42-1.42 1L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8l-2.08-6Z" />
+                                </svg>
+                                2 Vagas
+                            </small>
+                        </p>
+                        <p>
+                            <small>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                                    <g transform="translate(28 0) scale(-1 1)">
+                                        <path fill="currentColor"
+                                            d="M10.75 2A2.75 2.75 0 0 0 8 4.75v18.5A2.75 2.75 0 0 0 10.75 26h6.5A2.75 2.75 0 0 0 20 23.25V4.75A2.75 2.75 0 0 0 17.25 2h-6.5ZM9.5 14.75h2.75a.75.75 0 0 0 0-1.5H9.5V11h4.75a.75.75 0 0 0 0-1.5H9.5V7.25h2.75a.75.75 0 0 0 0-1.5H9.5v-1c0-.69.56-1.25 1.25-1.25h6.5c.69 0 1.25.56 1.25 1.25v18.5c0 .69-.56 1.25-1.25 1.25h-6.5c-.69 0-1.25-.56-1.25-1.25v-1h2.75a.75.75 0 0 0 0-1.5H9.5V18.5h4.75a.75.75 0 0 0 0-1.5H9.5v-2.25Z" />
+                                    </g>
+                                </svg>
+                                108m²
+                            </small>
+                        </p>
+                    </div>
+
+                    <div id="iconalinha">
+                        <p>
+                            <small>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <g transform="translate(24 0) scale(-1 1)">
+                                        <g fill="none">
+                                            <path stroke="currentColor" stroke-width="1.5"
+                                                d="M3 13.083c0-.077 0-.116.002-.148a1 1 0 0 1 .933-.933c.033-.002.07-.002.148-.002h15.834c.077 0 .115 0 .148.002a1 1 0 0 1 .933.933c.002.032.002.07.002.148c0 .395 0 .593-.014.815c-.209 3.287-3.003 6.189-6.28 6.52c-.221.023-.35.028-.608.038A56.87 56.87 0 0 1 12 20.5c-.65 0-1.364-.017-2.098-.044c-.258-.01-.387-.015-.607-.037c-3.278-.332-6.072-3.234-6.28-6.521C3 13.676 3 13.478 3 13.083Z" />
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+                                                d="m6 20l-1 2m13-2l1 2M2 12h20" />
+                                            <path fill="currentColor"
+                                                d="M2.25 13a.75.75 0 0 0 1.5 0h-1.5ZM7.6 3.5l.696-.28l-.696.28Zm.379.947l.328.674l-.328-.674ZM6.362 6.192l.695.283l-.695-.283Zm4.215-1.814l-.295.69l.295-.69ZM6.346 8.742l-.698.275a.75.75 0 0 0 .994.413l-.296-.688Zm5.96-2.567l.297.69a.75.75 0 0 0 .401-.964l-.698.274ZM3.75 13V4.385h-1.5V13h1.5ZM5.385 2.75c.669 0 1.27.407 1.518 1.028l1.393-.557a3.135 3.135 0 0 0-2.91-1.971v1.5ZM3.75 4.385c0-.903.732-1.635 1.635-1.635v-1.5A3.135 3.135 0 0 0 2.25 4.385h1.5Zm3.153-.607l.38.948l1.392-.557l-.379-.948l-1.393.557Zm.14 4.689a2.679 2.679 0 0 1 .014-1.992l-1.39-.565a4.179 4.179 0 0 0-.02 3.107l1.396-.55Zm4.967-2.98L6.049 8.053l.593 1.377l5.96-2.566l-.592-1.377Zm-1.728-.42c.622.266 1.085.77 1.327 1.383l1.395-.55a3.973 3.973 0 0 0-2.132-2.212l-.59 1.38ZM7.057 6.476a2.565 2.565 0 0 1 1.25-1.354l-.656-1.348A4.065 4.065 0 0 0 5.667 5.91l1.39.565Zm1.25-1.354a2.361 2.361 0 0 1 1.975-.053l.59-1.38a3.861 3.861 0 0 0-3.221.085l.656 1.348Z" />
+                                        </g>
+                                    </g>
+                                </svg>
+                                2 ban.
+                            </small>
+                        </p>
+                        <p>
+                            <small>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M7 12.5a3 3 0 1 0-3-3a3 3 0 0 0 3 3Zm0-4a1 1 0 1 1-1 1a1 1 0 0 1 1-1Zm13-2h-8a1 1 0 0 0-1 1v6H3v-8a1 1 0 0 0-2 0v13a1 1 0 0 0 2 0v-3h18v3a1 1 0 0 0 2 0v-9a3 3 0 0 0-3-3Zm1 7h-8v-5h7a1 1 0 0 1 1 1Z" />
+                                </svg>
+                                14 qua.
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="imoveis">
+        <h3>Últimas notícias</h3>
+        <input type="button" value="Ver Tudo" class="btn btn-primary" style="background-color: #9D0058;
+        color: white; border-color: #9D0058;">
+    </div>
+
+    <div class="card-deck">
+        <div class="card">
+            <img class="card-img-top" src="../../img/Rectangle 17.png" alt="Imagem de capa do card">
+            <div class="card-body">
+                <div class="tudoedata">
+                    <div class="oportunidade">
+                        <small>
+                            Oportunidade Tenda
+                        </small>
+                    </div>
+                    <div class="data">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2">
+                                <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                                <path d="M16 2v4M8 2v4m-5 4h18" />
+                            </g>
+                        </svg>
+                        <p>
+                            <small>
+                                14/08/2023
+                            </small>
+                        </p>
+                    </div>
+                </div>
+                <h5 class="card-title">Lorem ipsum dolor sit amet consectetur. Eget curabitur nec sit et euismod diam
+                    commodo sed nullam.</h5>
+                <p class="card-text">Este é um card mais longo com suporte a texto embaixo, que funciona como uma
+                    introdução a um conteúdo adicional. Este conteúdo é um pouco maior.</p>
+                <div class="noticia">
+                    <div>
+                        <p class="card-text"><small class="text-rosa"> Ler Noticia</small> </p>
+                    </div>
+                    <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
+                            <g transform="rotate(90 32 32)">
+                                <path fill="#9d0058"
+                                    d="M32 2C15.432 2 2 15.432 2 32s13.432 30 30 30s30-13.432 30-30S48.568 2 32 2zm5.143 28.305V49H26.857V30.305H16L32 15l16 15.305H37.143z" />
+                            </g>
+
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="../../img/Rectangle 17.png" alt="Imagem de capa do card">
+            <div class="card-body">
+                <div class="tudoedata">
+                    <div class="oportunidade">
+                        <small>
+                            Oportunidade Tenda
+                        </small>
+                    </div>
+                    <div class="data">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2">
+                                <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                                <path d="M16 2v4M8 2v4m-5 4h18" />
+                            </g>
+                        </svg>
+                        <p>
+                            <small>
+                                14/08/2023
+                            </small>
+                        </p>
+                    </div>
+                </div>
+                <h5 class="card-title">Lorem ipsum dolor sit amet consectetur. Eget curabitur nec sit et euismod diam
+                    commodo sed nullam.</h5>
+                <p class="card-text">Este é um card com suporte a texto embaixo, que funciona como uma introdução a um
+                    conteúdo adicional.</p>
+                <div class="noticia">
+                    <div>
+                        <p class="card-text"><small class="text-rosa"> Ler Noticia</small> </p>
+                    </div>
+                    <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
+                            <g transform="rotate(90 32 32)">
+                                <path fill="#9d0058"
+                                    d="M32 2C15.432 2 2 15.432 2 32s13.432 30 30 30s30-13.432 30-30S48.568 2 32 2zm5.143 28.305V49H26.857V30.305H16L32 15l16 15.305H37.143z" />
+                            </g>
+
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="../../img/Rectangle 17.png" alt="Imagem de capa do card">
+            <div class="card-body">
+                <div class="tudoedata">
+                    <div class="oportunidade">
+                        <small>
+                            Oportunidade Tenda
+                        </small>
+                    </div>
+                    <div class="data">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2">
+                                <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                                <path d="M16 2v4M8 2v4m-5 4h18" />
+                            </g>
+                        </svg>
+                        <p>
+                            <small>
+                                14/08/2023
+                            </small>
+                        </p>
+                    </div>
+                </div>
+                <h5 class="card-title">Lorem ipsum dolor sit amet consectetur. Eget curabitur nec sit et euismod diam
+                    commodo sed nullam.</h5>
+                <p class="card-text">Este é um card maior com suporte a texto embaixo, que funciona como uma introdução
+                    a um conteúdo adicional. Este card tem o conteúdo ainda maior que o primeiro, para mostrar a altura
+                    igual, em ação.</p>
+                <div class="noticia">
+                    <div>
+                        <p class="card-text"><small class="text-rosa"> Ler Noticia</small> </p>
+                    </div>
+                    <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
+                            <g transform="rotate(90 32 32)">
+                                <path fill="#9d0058"
+                                    d="M32 2C15.432 2 2 15.432 2 32s13.432 30 30 30s30-13.432 30-30S48.568 2 32 2zm5.143 28.305V49H26.857V30.305H16L32 15l16 15.305H37.143z" />
+                            </g>
+
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="txtgera">
+        <div id="txtcentral">
+            <h4> Simplifique a venda do seu imóvel</h4>
+            <h1>Por que você devia publicar seu imóvel com a gente?</h1>
+            <p>Lorem ipsum dolor sit amet consectetur. Nulla fermentum condimentum massa tempus. Sed pulvinar et nibh
+                egestas et risus cum varius. Volutpat interdum urna fringilla ultricies.</p>
+        </div>
+    </div>
+
+    <div id="cardbaixo">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <div class="rosio">
+                    <div >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <text x="0" y="50%" fill="#9D0058" font-size="24" dy=".3em">$</text>
+                            <text x="20" y="50%" fill="#9D0058" font-size="14" dy=".3em">-</text>
+                          </svg>
+                    </div>
+                    </div>
+                <h5 class="card-title">Segurança garantida</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur. Nulla fermentum condimentum massa tempus.
+                    Sed pulvinar et nibh egestas et..</p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <div class="rosio">
+                    <div >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <text x="0" y="50%" fill="#9D0058" font-size="24" dy=".3em">$</text>
+                            <text x="20" y="50%" fill="#9D0058" font-size="14" dy=".3em">-</text>
+                          </svg>
+                    </div>
+                    </div>
+                <h5 class="card-title">Menos burocracia</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur. Nulla fermentum condimentum massa tempus.
+                    Sed pulvinar et nibh egestas et..</p>
+
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <div class="rosio">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <text x="0" y="50%" fill="#9D0058" font-size="24" dy=".3em">$</text>
+                            <text x="20" y="50%" fill="#9D0058" font-size="14" dy=".3em">-</text>
+                        </svg>
+                    </div>
+                </div>
+                <h5 class="card-title">Custos mais baixos</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur. Nulla fermentum condimentum massa tempus.
+                    Sed pulvinar et nibh egestas et..</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner">
+
+        <div id="botetit">
+
+            <div id="espa">
+                <h3>
+                    Publique seu imóvel agora
+                </h3>
+                <p>Lorem ipsum dolor sit amet consectetur. Orci mi consequat consectetur in ut. Augue commodo.</p>
+            </div>
+            <div id="txtbot">
+                <button type="button" class="btn btn-primary btn-lg" style="background-color: #9D0058;
+                 color: white; border-color: #9D0058;">Saiba como publicar</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- bootstrap cabeça -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../../js/paginaInicial.js"></script>
 </body>
-</html> --}}
+
+</html>

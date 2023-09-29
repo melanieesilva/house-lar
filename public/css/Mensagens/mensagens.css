@@ -1,0 +1,162 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+#Nome_Indi {
+  font-size: 25px;
+}
+
+.Caixa1 {
+  padding-right: 20%;
+  margin: 2%;
+  font-size: small;
+}
+
+.Caixa2 {
+  padding-right: 20%;
+  margin: 2%;
+  font-size: small;
+}
+
+.Caixa3 {
+  padding-right: 20%;
+  margin: 2%;
+  font-size: small;
+}
+
+.Caixa4 {
+  padding-right: 20%;
+  margin: 2%;
+  font-size: small;
+}
+
+
+.Caixa5 {
+  padding-right: 20%;
+  margin: 2%;
+  font-size: small;
+}
+
+
+.All {
+  display: flex;
+  margin: 0%;
+}
+
+.Bars {
+  margin: 2%;
+}
+
+.linka {
+  display: flex;
+  flex-direction: column;
+}
+
+.Bars ul a {
+  margin: 5%;
+}
+
+.Geral {
+  display: flex;
+  margin: 0%;
+  height: 500px;
+}
+
+.Geral1 {
+  width: 100%;
+}
+
+.Geral2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.mini-calendar {
+  display: flex;
+  margin-top: 20px;
+  padding: 20px;
+  align-items: center;
+  position: relative;
+}
+
+/* Seus estilos CSS existentes */
+
+/* Estilo da linha divisória vertical */
+.vertical-divider {
+  border-left: 3px solid #ccc; /* Cor da linha divisória vertical */
+  margin-top: -17px; /* Espaçamento superior */
+  margin-bottom: 2px; /* Espaçamento inferior */
+}
+
+/* Estilo para as colunas */
+.column {
+  display: flex;
+  justify-content: center;
+  width: 140%; /* Ajuste a largura conforme necessário */
+  align-items: stretch;
+  height: 120%;
+  border: 1px solid #ddd;
+  border-top: white;
+  border-bottom: white;
+}
+
+/* Seus estilos CSS existentes */
+.circle-icon {
+  width: 100px; /* Ajuste o tamanho do círculo conforme necessário */
+  height: 100px; /* Ajuste o tamanho do círculo conforme necessário */
+  border: 2px solid black; /* Borda preta */
+  border-radius: 50%; /* Faz o círculo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.conversa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Caixa_de_Mensagem {
+  height: 105%;
+  overflow-y: scroll;
+}
+
+.Caixa_de_Mensagem a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Estilos para a barra de rolagem */
+.Caixa_de_Mensagem::-webkit-scrollbar {
+  width: 8px; /* Largura da barra de rolagem */
+}
+
+.Caixa_de_Mensagem::-webkit-scrollbar-thumb {
+  background-color: #888; /* Cor da alça da barra de rolagem */
+  border-radius: 4px; /* Borda arredondada da alça */
+}
+
+.Caixa_de_Mensagem::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Cor da alça da barra de rolagem ao passar o mouse */
+}
+
+/* Estilos para a barra de rolagem de fundo (track) */
+.Caixa_de_Mensagem::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Cor de fundo da barra de rolagem */
+  border-radius: 4px; /* Borda arredondada do fundo */
+}
+
+.unico {
+  margin: 0;
+  color: inherit;
+  border: 0;
+  border-top: var(--bs-border-width) solid;
+  opacity: 0.25;
+}
+
+.envia{
+  margin-top: 5%;
+}

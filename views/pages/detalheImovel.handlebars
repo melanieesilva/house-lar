@@ -9,25 +9,176 @@
         <span>Imóvel</span> 
     </div>
 
-    <section class="imagens-imovel" id="imagens-imovel">
-        
+    <section class="container-imovel" id="container-imovel">
+
         <div class="container-grid">
-            <div class="imagem-imovel primeiro" id="imagem-imovel">
-                <img src="../../img/img-detalhe-imovel.jpeg" alt="">
+
+            <div class="grid">
+                <div class="imagem-imovel primeiro" id="imagem-imovel">
+                    <img src="../../img/img-detalhe-imovel.jpeg" alt="">
+                </div>
+
+                <div class="imagem-imovel segundo" id="imagem-imovel">
+                    <img src="../../img/img-detalhe-imovel.jpeg" alt="">
+                </div>
+
+                <div class="imagem-imovel terceiro" id="imagem-imovel">
+                    <img src="../../img/img-detalhe-imovel.jpeg" alt="">
+                    
+                </div>
+
+                <div class="imagem-imovel quarto" id="imagem-imovel">
+                    <button class="mais-imagens" onclick="verImagens()">Ver mais imagens</button>
+                </div>
             </div>
 
-            <div class="imagem-imovel segundo" id="imagem-imovel">
-                <img src="../../img/img-detalhe-imovel.jpeg" alt="">
+        </div>
+        
+        <div class="detalhes-imovel">
+            <div class="info-imovel">
+                <div class="cabecalho-info">
+                    <div class="operacao-imovel" id="operacao-imovel">
+                        <p class="operacao">Venda</p>
+                    </div>
+                    <div class="data-publicacao" id="data-publicacao">
+                        <iconify-icon icon="lucide:calendar"></iconify-icon>
+                        <p class="data-publi" id="data-publi">08/09/2023</p>
+                    </div>
+                    <p class="id-imovel" id="id-imovel">ID: 789654</p>
+                </div>
+
+                <p class="tipo-imovel" id="tipo-imovel">Apartamento</p>
+
+                <div class="localizacao">
+
+                    <div class="titulo-localizacao">
+                        <iconify-icon icon="icon-park-outline:local-two"></iconify-icon>
+                        Localização
+                    </div>
+
+                    <div class="endereco-mapa">
+                        <p class="endereco-imovel" id="endereco-imovel">
+                            Rua dos Sargentos, 32, Vitória, Salvador
+                        </p>
+                        <button class="abrir-mapa" id="abrir-mapa">
+                            <iconify-icon icon="material-symbols:map-outline"></iconify-icon>
+                            Abrir no mapa
+                        </button>
+                    </div>
+                    
+                    <div class="descricao">
+                        Descrição
+
+                        <p class="descricao-imovel" id="descricao-imovel">
+                            Lorem ipsum dolor sit amet consectetur. Et donec adipiscing orci non et et. 
+                            Est tortor gravida orci eu egestas in placerat. Dui mauris eget odio ipsum tortor 
+                            dictum adipiscing integer arcu. Mi tempor hac purus semper ultricies. Etiam urna faucibus proin nunc 
+                            eu. Risus ut erat venenatis fames. Tristique a placerat lacus vel nunc quis mauris. Sit iaculis 
+                            sodales viverra eu id sed porttitor sagittis. Massa commodo condimentum quam donec. 
+                            Lacus euismod arcu cras elit amet.
+                            Pretium a pellentesque tempor eu curabitur nisl felis. Sit scelerisque donec venenatis 
+                            felis etiam. Risus volutpat arcu sed ut pellentesque sed. Sapien.
+                        </p>
+                    </div>
+                    <div class="carac-imovel" id="carac-imovel">
+                        <div class="quartos" id="quartos">
+
+                            <div class="titulo-carac">
+                                <iconify-icon icon="mdi:bed-outline"></iconify-icon>
+                                Quartos
+                            </div>
+                            14
+                        </div>
+                        <div class="banheiros" id="banheiros">
+
+                            <div class="titulo-carac">
+                                <iconify-icon icon="iconoir:bathroom"></iconify-icon>
+                                Banheiros
+                            </div>
+                            2
+                        </div>
+                        <div class="vagas" id="vagas">
+                            <div class="titulo-carac">
+                                <iconify-icon icon="majesticons:car-line"></iconify-icon>
+                                Vagas
+                            </div>
+                            3
+                        </div>
+                        <div class="area" id="area">
+                            <div class="titulo-carac">
+                               <iconify-icon icon="iconoir:ruler"></iconify-icon>
+                                Área do imóvel
+                            </div>
+                            108 m²
+                        </div>
+
+                    </div>
+                </div>
 
             </div>
 
-            <div class="imagem-imovel terceiro" id="imagem-imovel">
-                <img src="../../img/img-detalhe-imovel.jpeg" alt="">
-                <button class="mais-imagens" onclick="verImagens()">Ver mais imagens</button>
+            <div class="lateral-info-imovel">
+
+                <div class="preco-imovel" id="preco-imovel">
+                    <p class="titulo-info">Valor do imóvel</p>
+                    <p class="valor"> R$ 200.000,00</p>
+                </div>
+                
+                <div class="line-info">
+                    <div class="sub-info-imovel">
+                        <p class="sub-titulo-info">Condomínio</p>
+                        <p class="valor-info"  id="valor-condominio-imovel">R$ 600,00</p>
+                    </div>
+                    <div class="sub-info-imovel">
+                        <p class="sub-titulo-info">IPTU</p>
+                        <p class="valor-info"  id="iptu-imovel">R$ 1.200 <span id="parcela">(12x)</span></p>
+                    </div>
+                </div>
+                <div class="line-info">
+                    <div class="sub-info-imovel">
+                        <p class="sub-titulo-info">Em construção</p>
+                        <p class="valor-info"  id="construcao-imovel">Não</p>
+                    </div>
+                    <div class="sub-info-imovel">
+                        <p class="sub-titulo-info">Data de entrega</p>
+                        <p class="valor-info"  id="iptu-imovel">02/08/2019</p>
+                    </div>
+                </div>
+                <div class="line-info">
+                    <div class="sub-info-imovel">
+                        <p class="sub-titulo-info">N° Andares</p>
+                        <p class="valor-info"  id="andares-imovel">11</p>
+                    </div>
+                    <div class="sub-info-imovel">
+                        <p class="sub-titulo-info">Em condomínio</p>
+                        <p class="valor-info"  id="condominio-imovel">Sim</p>
+                    </div>
+                </div>
+
+                <div class="buttons-lateral">
+                    <button class="tirar-duvida" id="tirar-duvida">
+                        <iconify-icon icon="majesticons:chat-line"></iconify-icon>
+                        Tirar uma dúvida
+                    </button>
+                    <button class="agendar-visita" id="agendar-visita">
+                        <iconify-icon icon="lucide:calendar"></iconify-icon>
+                        Agendar visita
+                    </button>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="imovel-footer">
+            <h3>Parecido com o que você buscou</h3>
+            <div class="cards-imoveis">
+                <div class="card-imovel">
+
+                </div>
             </div>
         </div>
     </section>
 
 </main>
-
 <script src="../../js/detalheImovel.js"></script>

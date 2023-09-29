@@ -1,3 +1,268 @@
 .pagina-inicial > a{
     font-weight: 600;
 }
+
+/* * {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    width: 99vw;
+} */
+
+a{
+    text-decoration: none !important;
+    color:black;
+}
+a:visited{
+    text-decoration: none !important;
+}
+
+
+#central {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-image: url("Rectangle 1.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+    background-position: 0;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#central H1 {
+    align-self: center;
+    text-align: center;
+    color: white;
+}
+
+#hud {
+    display: block;
+    align-self: center;
+    height: 34%;
+    width: 50%;
+}
+
+form {
+    align-items: baseline;
+    justify-content: space-between;
+    display: flex;
+    background-color: white;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.labelde {
+    color: #878787;
+}
+
+form h4{
+    padding: 3%;
+}
+#emgloba {
+    display: flex;
+}
+
+#emgloba div {
+    margin: 2%;
+}
+
+#pf{
+    display: flex;
+}
+
+.botao {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+}
+
+.botao.ativo {
+    background-color: white;
+    color: #0C0B0B;
+}
+
+.botao:not(.ativo) {
+    background-color: gray;
+    color: #4D4D4D;
+}
+
+#iconback{
+    background-color: #9D0058;
+    width: 10%;
+    border-radius: 36px;
+    padding: 2%;
+    align-self: center;
+    justify-self: center;
+    justify-items: center;
+    text-align: center;
+}
+#mba{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: baseline;
+}
+/*
+cards
+*/
+#imoveis {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 2%;
+    width: 97%;
+}
+
+#imoveis input {
+    background-color: #B00063;
+    color: white;
+}
+
+.cards {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    width: 70%;
+}
+
+
+.card-deck {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#textcarda {
+    display: flex;
+    justify-content: space-between;
+}
+
+#valor {
+    color: #9D0058;
+}
+
+#iconalinha {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    margin-top: 4%;
+}
+
+.text-rosa {
+    color: #9D0058;
+}
+
+.noticia {
+    display: flex;
+    align-items: center;
+}
+
+.noticia div {
+    margin-left: 2%;
+}
+
+.data {
+    color: #828282;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.oportunidade {
+    display: flex;
+    background-color: #FFE1E1;
+    color: #C80000;
+    height: fit-content;
+    justify-content: center;
+    border-radius: 8px;
+    border-color: #FFE1E1;
+    border-width: 40%;
+    width: 40%;
+    height: 40%;
+    margin-right: 4%;
+}
+
+.tudoedata {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+/* texto central*/
+
+#txtgera {
+    margin-top: 8%;
+    margin-bottom: 8%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#txtcentral {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+}
+
+#txtcentral h4 {
+    color: #B00063;
+}
+
+/* card baixo*/
+
+#cardbaixo {
+    display: flex;
+    justify-content: space-evenly;
+}
+.rosio{
+    display: flex;
+    justify-content: center;
+}
+.rosio   div{
+    display: flex;
+    justify-content: center;
+    background-color: #FFEDF7;
+    width: 20%;
+    height: 100%;
+    padding: 3%;
+    border-radius: 36px;
+    margin-bottom: 3%;
+}
+/*
+banner final
+*/
+
+.banner {
+    display: flex;
+    align-self: center;
+    height: 40%;
+    width: 100%;
+    margin-left: 0;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+#botetit {
+    display: flex;
+    background-color: #FFE9F5;
+    width: 90%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 16px;
+}
+
+#espa {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}

@@ -26,7 +26,10 @@ switch (nomePagina) {
     case 'calendario':
             setCorMenu(2);
         break;
-     case 'mensagens':
+    case 'mensagens':
+            setCorMenu(3);
+        break;
+    case 'viewMensagem':
             setCorMenu(3);
         break;
     case 'noticiasCorretor':

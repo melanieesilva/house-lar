@@ -1,11 +1,29 @@
+button{
+  cursor: pointer;
+}
+
+.cabecalho-edicao{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+}
+
+hr{
+  border: 1px solid #EBEBEB;
+}
+
 .container {
   width: 100%;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
 }
-.container .calendario {
+.container .titulo-pagina {
   text-indent: 25px;
+  margin-top: 40px;
+  margin-bottom: 24px;
 }
 
 .calendar {
@@ -15,14 +33,11 @@
 .calendar .header {
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
   text-indent: 15px;
 }
 .calendar .header .month {
   display: flex;
   align-items: flex-start;
-  font-size: px;
   font-weight: 600;
   justify-content: flex-start;
   color: var(--text-color);
@@ -43,7 +58,7 @@
 
 }
 #icone{
-color: #ccc;
+color: white;
 font-size: 16px
 
 }
@@ -54,19 +69,18 @@ font-size: 16px
   justify-content: flex-start;
 }
 .calendar .header .continuar {
-  width: 145px;
-  height: 40px;
-  display: flex;
-  border-radius: 45px;
-  background-color:#9d0058;
-  justify-content: space-evenly;
-  float: right;
-  align-items: center;
-  margin-right: 3%;
+    display: flex;
+    border-radius: 12px;
+    background-color: #9d0058;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 12px;
 }
 
+
 .days{
-  background-color: rgb(189, 184, 184);
+  background-color: white;
 }
 .days .day.next,
 .days .day.prev {
@@ -74,14 +88,11 @@ font-size: 16px
 }
 
 
-
-
-
 .weekdays {
   display: flex;
   gap: 10px;
-  margin-bottom: 10px;
-  background-color: #f1f1fb !important; 
+  border-top:1px solid #EBEBEB;
+  padding: 8px 0;
 }
 .weekdays .day {
   width: calc(100% / 7 - 10px);
@@ -112,13 +123,17 @@ font-size: 16px
 .days .day:not(.next):not(.prev):hover {
   background-color: #ebccde;
   color:rgb(34, 30, 30)
-
-  
-
 }
 .days .day.today {
-  background-color: #d899bc;
   color:rgb(34, 30, 30)
+}
 
-  
+.day.today > p{
+  background-color: #9d0058;
+  color: white;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  width: 50px;
+  align-items: center;
+  justify-content: center;
 }

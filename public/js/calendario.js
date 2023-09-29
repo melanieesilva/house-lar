@@ -62,10 +62,10 @@ function renderCalendar() {
       currentYear === new Date().getFullYear()
     ) {
       // if date month year matches add today
-      days += `<div class="day today">${i}</div>`;
+      days += `<div class="day today"><p>${i}</p></div>`;
     } else {
       //else dont add today
-      days += `<div class="day ">${i}</div>`;
+      days += `<div class="day "><p>${i}</p></div>`;
     }
   }
 

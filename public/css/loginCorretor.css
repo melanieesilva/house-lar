@@ -1,3 +1,11 @@
+a{
+    text-decoration: none !important;
+    color: white;
+}
+a:visited{
+    text-decoration: none !important;
+}
+
 img {
     max-width: 100%;
     width: 85%;
@@ -71,6 +79,7 @@ input[type=email], input[type=password]{
 
 #metade1 button[type=submit]{
     background-color: #9D0058;
+    color: white !important;
     text-align: center;
     display: grid;
     margin: auto;

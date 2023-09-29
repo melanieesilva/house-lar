@@ -68,6 +68,9 @@
     width: 65%;
     height: 100%;
     padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 .info-imovel > .tipo-imovel{
     font-size: 24px;
@@ -102,10 +105,72 @@
     gap: 8px;
 }
 
+.descricao > :nth-child(1){
+    color: #606060;
+    font-weight: 500;
+}
+
+
+.titulo-localizacao{
+    color: #606060;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.endereco-mapa{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.abrir-mapa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #FFE9F5;
+    color: black;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+.carac-imovel{
+    display: flex;
+    gap: 48px;
+}
+
+.sub-carac{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.sub-carac > p{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.titulo-carac{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #747474;
+    font-weight: 600;
+}
+.titulo-carac > iconify-icon{
+    font-size: 22px;
+}
+
 .lateral-info-imovel{
     width: 33%;
     height: 100%;
-    padding: 16px 16px;
+    padding: 20px 16px;
     border-radius: 12px;
     border: 1px solid #D9D9D9;
     background: #FFF;
@@ -113,6 +178,7 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
+    font-weight: 500;
 }
 .lateral-info-imovel *{
     margin: 0;
@@ -165,6 +231,7 @@
     border: none;
     background-color: #9D0058;
     color: white;
+    cursor: pointer;
 }
 .buttons-lateral > .tirar-duvida{
     border: 1px solid #9D0058;
@@ -176,7 +243,141 @@
 }
 
 .imovel-footer{
+    margin-top: 60px;
     width: 85%;
-    height: 100%;
-    background-color: rgb(174, 91, 91);
 }
+.imovel-footer > p{
+    font-size: 18px;
+    font-weight: 500;
+    color: #9D0058;
+}
+
+
+.cards-imoveis{
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    margin-top: 32px;
+}
+
+.card-imovel{
+    width: calc(33.333% - 20px);
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.08);
+    border: 1px solid #E2E2E2;
+    overflow: hidden;
+}
+
+.img-card{
+    width: 100%;
+    display: flex;
+}
+.img-card > img{
+    width: 100%;
+}
+
+.conteudo-card{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 20px 16px;
+}
+
+.line-conteudo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.line-conteudo > :nth-child(1) > :nth-child(1){
+    font-weight: 600;
+}
+
+.line-conteudo > :nth-child(1) > :nth-child(2){
+    color: #9D0058;
+    font-weight: 600;
+}
+
+.line-conteudo > :nth-child(2) > *{
+    color: #515151;
+    font-size: 14px;
+}
+
+
+.line{
+    display: flex;
+    justify-content: space-between;
+}
+.line > p{
+    margin: 0;
+}
+.caracteristicas{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.item-carac{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.item-carac > p{
+    margin: 0;
+}
+.item-carac > :nth-child(2){
+    color: #515151;
+}
+.item-carac > iconify-icon{
+    font-size: 20px;
+}
+
+.operacao-imovel-card{
+    position: absolute;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.80);
+    backdrop-filter: blur(2px);
+    padding: 10px 24px;
+    margin-top: 16px;
+    margin-left: 16px;
+}
+.operacao-imovel-card > p{
+    margin: 0;
+    font-weight: 500;
+}
+
+
+.mapa{
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.blur{
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transition: width 2s;
+}
+
+.area-mapa{
+    width: 0%;
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transition: width 2s;
+}
+

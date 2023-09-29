@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="../../css/detalheImovel.css">
 
-<main>
+<main id="main">
     <div class="retorno"> 
         <a href="/">
             <iconify-icon icon="ep:arrow-left"></iconify-icon>
@@ -35,10 +35,12 @@
         </div>
         
         <div class="detalhes-imovel">
+
             <div class="info-imovel">
+
                 <div class="cabecalho-info">
-                    <div class="operacao-imovel" id="operacao-imovel">
-                        <p class="operacao">Venda</p>
+                    <div class="operacao-imovel">
+                        <p class="operacao" id="operacao-imovel">Venda</p>
                     </div>
                     <div class="data-publicacao" id="data-publicacao">
                         <iconify-icon icon="lucide:calendar"></iconify-icon>
@@ -60,14 +62,14 @@
                         <p class="endereco-imovel" id="endereco-imovel">
                             Rua dos Sargentos, 32, Vitória, Salvador
                         </p>
-                        <button class="abrir-mapa" id="abrir-mapa">
+                        <button class="abrir-mapa" id="abrir-mapa" onclick="abrirMapa()">
                             <iconify-icon icon="material-symbols:map-outline"></iconify-icon>
                             Abrir no mapa
                         </button>
                     </div>
-                    
+                </div>  
                     <div class="descricao">
-                        Descrição
+                        <p>Descrição</p>
 
                         <p class="descricao-imovel" id="descricao-imovel">
                             Lorem ipsum dolor sit amet consectetur. Et donec adipiscing orci non et et. 
@@ -81,40 +83,38 @@
                         </p>
                     </div>
                     <div class="carac-imovel" id="carac-imovel">
-                        <div class="quartos" id="quartos">
-
+                        <div class="sub-carac">
                             <div class="titulo-carac">
                                 <iconify-icon icon="mdi:bed-outline"></iconify-icon>
                                 Quartos
                             </div>
-                            14
+                            <p id="valor-quarto">14</p>
                         </div>
-                        <div class="banheiros" id="banheiros">
+
+                        <div class="sub-carac">
 
                             <div class="titulo-carac">
                                 <iconify-icon icon="iconoir:bathroom"></iconify-icon>
                                 Banheiros
                             </div>
-                            2
+                            <p id="valor-banheiro">6</p>
                         </div>
-                        <div class="vagas" id="vagas">
+                        <div class="sub-carac" >
                             <div class="titulo-carac">
                                 <iconify-icon icon="majesticons:car-line"></iconify-icon>
                                 Vagas
                             </div>
-                            3
+                            <p id="valor-vaga">3</p>
                         </div>
-                        <div class="area" id="area">
+                        <div class="sub-carac">
                             <div class="titulo-carac">
                                <iconify-icon icon="iconoir:ruler"></iconify-icon>
                                 Área do imóvel
                             </div>
-                            108 m²
+                            <p id="valor-area">108 m²</p>
                         </div>
 
                     </div>
-                </div>
-
             </div>
 
             <div class="lateral-info-imovel">
@@ -168,17 +168,140 @@
 
 
             </div>
+
         </div>
 
         <div class="imovel-footer">
-            <h3>Parecido com o que você buscou</h3>
+            <p>Parecido com o que você buscou</p>
             <div class="cards-imoveis">
                 <div class="card-imovel">
-
+                    <div class="img-card">
+                        <img src="../../img/img-card-imovel.jfif" alt="">
+                        <div class="operacao-imovel-card">
+                            <p id="operacao-imovel">Comprar</p>
+                        </div>
+                    </div>
+                        <div class="conteudo-card">
+                            <div class="line-conteudo">
+                                <div class="line">
+                                    <p class="tipo-imovel" id="tipo-imovel">Apartamento</p>
+                                    <p class="preco-imovel" id="preco-imovel">R$ 500.000</p>
+                                </div>
+                                <div class="line">
+                                    <p class="endereco-imovel" id="endereco-imovel"> Pituba - Salvador </p>
+                                    <p class="id-imovel" id="id-imovel">ID: 478547</p>
+                                </div>
+                            </div>
+                            
+                            <div class="caracteristicas">
+                                <div class="item-carac">
+                                    <iconify-icon icon="mdi:bed-outline"></iconify-icon>
+                                    <p id="quarto-imovel">8 qua.</p>
+                                </div>
+                                <div class="item-carac">
+                                    <iconify-icon icon="iconoir:bathroom"></iconify-icon>
+                                    <p id="banheiro-imovel">4 ban.</p>
+                                </div>
+                                <div class="item-carac">
+                                    <iconify-icon icon="majesticons:car-line"></iconify-icon>
+                                    <p id="vaga-imovel">2 vagas</p>
+                                </div>
+                                <div class="item-carac">
+                                    <iconify-icon icon="iconoir:ruler"></iconify-icon>
+                                    <p id="area-imovel">104m²</p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="card-imovel">
+                    <div class="img-card">
+                        <img src="../../img/img-card-imovel.jfif" alt="">
+                        <div class="operacao-imovel-card">
+                            <p id="operacao-imovel">Comprar</p>
+                        </div>
+                    </div>
+                        <div class="conteudo-card">
+                            <div class="line-conteudo">
+                                <div class="line">
+                                    <p class="tipo-imovel" id="tipo-imovel">Apartamento</p>
+                                    <p class="preco-imovel" id="preco-imovel">R$ 500.000</p>
+                                </div>
+                                <div class="line">
+                                    <p class="endereco-imovel" id="endereco-imovel"> Pituba - Salvador </p>
+                                    <p class="id-imovel" id="id-imovel">ID: 478547</p>
+                                </div>
+                            </div>
+                            <div class="caracteristicas">
+                                <div class="item-carac">
+                                    <iconify-icon icon="mdi:bed-outline"></iconify-icon>
+                                    <p id="quarto-imovel">8 qua.</p>
+                                </div>
+                                <div class="item-carac">
+                                    <iconify-icon icon="iconoir:bathroom"></iconify-icon>
+                                    <p id="banheiro-imovel">4 ban.</p>
+                                </div>
+                                <div class="item-carac">
+                                    <iconify-icon icon="majesticons:car-line"></iconify-icon>
+                                    <p id="vaga-imovel">2 vagas</p>
+                                </div>
+                                <div class="item-carac">
+                                    <iconify-icon icon="iconoir:ruler"></iconify-icon>
+                                    <p id="area-imovel">104m²</p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="card-imovel">
+                    <div class="img-card">
+                        <img src="../../img/img-card-imovel.jfif" alt="">
+                        <div class="operacao-imovel-card">
+                            <p id="operacao-imovel">Comprar</p>
+                        </div>
+                    </div>
+                        <div class="conteudo-card">
+                            <div class="line-conteudo">
+                                <div class="line">
+                                    <p class="tipo-imovel" id="tipo-imovel">Apartamento</p>
+                                    <p class="preco-imovel" id="preco-imovel">R$ 500.000</p>
+                                </div>
+                                <div class="line">
+                                    <p class="endereco-imovel" id="endereco-imovel"> Pituba - Salvador </p>
+                                    <p class="id-imovel" id="id-imovel">ID: 478547</p>
+                                </div>
+                            </div>
+                            <div class="caracteristicas">
+                                <div class="item-carac">
+                                    <iconify-icon icon="mdi:bed-outline"></iconify-icon>
+                                    <p id="quarto-imovel">8 qua.</p>
+                                </div>
+                                <div class="item-carac">
+                                    <iconify-icon icon="iconoir:bathroom"></iconify-icon>
+                                    <p id="banheiro-imovel">4 ban.</p>
+                                </div>
+                                <div class="item-carac">
+                                    <iconify-icon icon="majesticons:car-line"></iconify-icon>
+                                    <p id="vaga-imovel">2 vagas</p>
+                                </div>
+                                <div class="item-carac">
+                                    <iconify-icon icon="iconoir:ruler"></iconify-icon>
+                                    <p id="area-imovel">104m²</p>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
+        
     </section>
 
+    <section class="mapa" id="mapa">
+        <div class="blur" id="blur">
+            <div class="area-mapa" id="area-mapa">mapaaaa</div>
+        </div>
+        
+    </section>
+    
+        
+        
 </main>
 <script src="../../js/detalheImovel.js"></script>

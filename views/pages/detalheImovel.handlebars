@@ -40,7 +40,7 @@
 
                 <div class="cabecalho-info">
                     <div class="operacao-imovel">
-                        <p class="operacao" id="operacao-imovel">Venda</p>
+                        <p class="operacao" id="operacao-imovel">Comprar</p>
                     </div>
                     <div class="data-publicacao" id="data-publicacao">
                         <iconify-icon icon="lucide:calendar"></iconify-icon>
@@ -294,14 +294,57 @@
         
     </section>
 
-    <section class="mapa" id="mapa">
-        <div class="blur" id="blur">
-            <div class="area-mapa" id="area-mapa">mapaaaa</div>
+    <div class="teste">
+            <div class="bloco">
+                <div class="card">1</div>
+                <div class="card">2</div>
+                <div class="card">3</div>
+                <div class="card">4</div>
+                <div class="card">5</div>
+                <div class="card">6</div>
+            </div>
+            <div class="bloco">
+                <div class="card">7</div>
+                <div class="card">8</div>
+                <div class="card">9</div>
+                <div class="card">10</div>
+                <div class="card">11</div>
+                <div class="card">12</div>
+            </div>
+           
+           <button class="antes" onclick="add(-1)"> <= </button>
+           <button class="depois" onclick="add(1)"> => </button>
+    </div>
+
+    <div class="mapaContainer" id="mapaContainer">
+        <div class="area-mapa" id="area-mapa">
         </div>
-        
-    </section>
+    </div>
     
-        
-        
+    <div class="modalImagens" id="modalImagens">
+        <div class="conteudoModal">
+            <div class="imagem-slide">
+                IMAGEM 1
+            </div>
+            <div class="imagens-carrossel">
+                <div class="imagem-carrossel">1</div>
+                <div class="imagem-carrossel">2</div>
+                <div class="imagem-carrossel">3</div>
+                {{!-- <div class="imagem-carrossel">4</div>
+                <div class="imagem-carrossel">5</div>
+                <div class="imagem-carrossel">6</div>
+                <div class="imagem-carrossel">7</div>
+                <div class="imagem-carrossel">4</div>
+                <div class="imagem-carrossel">5</div>
+                <div class="imagem-carrossel">6</div>
+                <div class="imagem-carrossel">8</div>
+                <div class="imagem-carrossel">4</div>
+                <div class="imagem-carrossel">5</div>
+                <div class="imagem-carrossel">6</div>
+                <div class="imagem-carrossel">8</div> --}}
+            </div>
+        </div>
+    </div>
+             
 </main>
 <script src="../../js/detalheImovel.js"></script>

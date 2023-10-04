@@ -17,12 +17,14 @@ body{
     display: flex;
     padding-left: 40px;
     background: #F4F4F4 !important;
+    overflow: hidden;
 }
 
 main{
     width: 100%;
     height: 100vh;
     background-color: rgb(255, 255, 255);
+    overflow-y: scroll;
 }
 
 a{
@@ -32,13 +34,35 @@ a:visited{
     text-decoration: none !important;
 }
 
+/* Estilizando retorno das páginas */
+.retorno{
+    display: flex;
+    align-items: center;
+    color: black;
+    font-weight: 500;
+}
+.retorno > a{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.retorno > iconify-icon{
+    color: black;
+    font-size: 20px;
+}
+.retorno > span{
+    color: #717171;
+}
+.retorno > a:visited{
+    color: black;
+}
+
 /* Estilizando menu lateral  */
 aside{
     width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-bottom: 72px;
     padding-top: 40px;
 }
 
@@ -103,4 +127,244 @@ aside{
     background-color: white;;
     color: var(--primary-color);
     border-radius: 8px;
+}
+
+
+/* Perfil usuário */
+
+/*Retorno usuário*/
+.retornoPerfil{
+    display: flex;
+    align-items: center;
+    color: black;
+    font-weight: 500;
+}
+
+.retornoPerfil > a{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.retornoPerfil > a > iconify-icon{
+    color: black;
+    font-size: 24px;
+}
+
+.retornoPerfil > a:visited{
+    color: black;
+}
+
+/*Container - blur*/
+
+.containerPerfil{
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+}
+
+
+.mainPerfil{
+    background-color: rgb(255, 255, 255);
+    width: 35%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 24px 24px;
+    display: none;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.mainPerfil p{
+    margin: 0;
+}
+
+.detalhesPerfil{
+    display: none;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.containerImgPerfil{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.containerImagem{
+    display: flex;
+    align-items: flex-end;
+}
+
+.addImagem{
+    position: relative;
+    left: -48px;
+    bottom: 0;
+    width: 52px;
+    height: 52px;
+    background-color: #9D0058;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.tituloImgPerfil{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+    color: #616161;
+}
+
+.imgPerfil{
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    background-color: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 96px;
+    color: #8C8C8C;
+}
+
+.dadosPerfil{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.colunaPerfil{
+    width: calc(100% / 2);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.infoPerfil{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.infoPerfil > :nth-child(1){
+    color: #616161;
+    font-size: 14px;
+}
+
+.jornadaUsuario{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.tituloJornada{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #616161;
+}
+
+.dadosJornada{
+    display: grid;
+    /* flex-wrap: wrap; */
+    padding: 24px 24px;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    height: 100%;
+    background-color: #FFF5FB;
+    border-radius: 8px;
+}
+
+.infoJornada{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.infoJornada > :nth-child(1){
+    color: #616161;
+}
+.infoJornada > :nth-child(2){
+    font-size: 18px;
+}
+
+.btnEditarPerfil{
+    width: fit-content;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 10px;
+    border: none;
+    background-color: #9D0058;
+    color: white;
+    cursor: pointer;
+}
+
+.btnEditarPerfil > iconify-icon{
+    font-size: 16px;
+}
+
+.editarPerfil{
+    display: none;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.formularioEdicao > form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formularioEdicao > form > .input{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 65%;
+}
+
+.formularioEdicao > form > .input > input{
+    padding: 8px 8px;
+    border-radius: 6px;
+    border: 1px solid #B0B0B0;
+}
+
+.salvarEdicao{
+    width: fit-content;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 10px;
+    border: none;
+    background-color: #9D0058;
+    color: white;
+    cursor: pointer;
+}
+
+.salvarEdicao > iconify-icon{
+    font-size: 16px;
 }

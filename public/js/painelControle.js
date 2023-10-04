@@ -60,3 +60,38 @@ function diminuirMenu(){
     const menu = document.getElementById('aside')
     menu.style.width = "90px"
 }
+
+
+//Controle da visualização do perfil
+const containerPerfil = document.getElementById('containerPerfil');
+const mainPerfil = document.getElementById('mainPerfil');
+const containerDetalhesPerfil = document.getElementById('detalhesPerfil');
+const containerEditarPerfil = document.getElementById('editarPerfil');
+
+
+function AbrirPerfil() {
+    containerPerfil.style.display = "flex";
+    mainPerfil.style.display = "flex";
+    containerDetalhesPerfil.style.display = "flex";
+    containerEditarPerfil.style.display = "none";
+}
+
+function AbrirEdicao() {
+    containerDetalhesPerfil.style.display = "none";
+    containerEditarPerfil.style.display = "flex";
+}
+
+function SalvarEdicao(){
+    containerEditarPerfil.style.display = "none";
+    containerDetalhesPerfil.style.display = "flex";
+}
+
+function FecharPerfil() {
+    containerPerfil.style.display = "none";
+}
+
+window.addEventListener('click',(event) =>{
+    if(event.target == containerPerfil){
+        containerPerfil.style.display = "none";
+    }
+})

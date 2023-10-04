@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../../img/logo_icon.ico">
     <title>{{pageTitle}}</title>
 </head>
+
 <body>
     {{!-- Menu Lateral --}}
     <aside id="aside">
@@ -18,34 +20,34 @@
                 <p>MENU</p>
                 <div class="nav-lista-menu" id="nav-lista-menu">
 
-                    <a href="/painelControle" class="nav-item-menu"  id="nav-item-menu">
+                    <a href="/painelControle" class="nav-item-menu" id="nav-item-menu">
                         <iconify-icon icon="heroicons:building-office"></iconify-icon>
                         Imóveis
                     </a>
 
                     <a class="nav-item-menu" href="/solicitacoes" id="nav-item-menu">
-                            <iconify-icon icon="charm:git-request"></iconify-icon>
-                            Solicitações
+                        <iconify-icon icon="charm:git-request"></iconify-icon>
+                        Solicitações
                     </a>
 
                     <a class="nav-item-menu" href="/calendario" id="nav-item-menu">
-                            <iconify-icon icon="lucide:calendar"></iconify-icon>
-                            Calendário
+                        <iconify-icon icon="lucide:calendar"></iconify-icon>
+                        Calendário
                     </a>
 
                     <a class="nav-item-menu" href="/mensagens" id="nav-item-menu">
-                            <iconify-icon icon="majesticons:chat-line"></iconify-icon>
-                            Mensagens
+                        <iconify-icon icon="majesticons:chat-line"></iconify-icon>
+                        Mensagens
                     </a>
 
                     <a class="nav-item-menu" href="/noticiasCorretor" id="nav-item-menu">
-                            <iconify-icon icon="tabler:news"></iconify-icon>
-                            Notícias
+                        <iconify-icon icon="tabler:news"></iconify-icon>
+                        Notícias
                     </a>
 
-                    <a class="nav-item-menu" onclick="" id="nav-item-menu">
-                            <iconify-icon icon="iconoir:profile-circle"></iconify-icon>
-                            Seu perfil
+                    <a class="nav-item-menu" onclick="AbrirPerfil()" id="buttonSeuPerfil">
+                        <iconify-icon icon="iconoir:profile-circle"></iconify-icon>
+                        Seu perfil
                     </a>
 
                 </div>
@@ -61,7 +63,133 @@
         {{{body}}}
     </main>
 
+    <div class="containerPerfil" id="containerPerfil">
+        <nav class="mainPerfil" id="mainPerfil">
+            <div class="detalhesPerfil" id="detalhesPerfil">
+                <div class="retornoPerfil" onclick="FecharPerfil()">
+                    <a>
+                        <iconify-icon icon="ep:arrow-left"></iconify-icon>
+                        Voltar
+                    </a>
+                </div>
+    
+                <div class="containerImgPerfil">
+                    <div class="tituloImgPerfil">
+                        <iconify-icon icon="iconoir:profile-circle"></iconify-icon>
+                        Seu perfil
+                    </div>
+                    <div class="imgPerfil">
+                        <!-- <img src="" alt="" class="imagemUsuario" id="imagemUsuario"> -->
+                        <iconify-icon icon="iconoir:profile-circle"></iconify-icon>
+                    </div>
+                </div>
+    
+                <div class="dadosPerfil">
+                    <div class="colunaPerfil">
+                        <div class="infoPerfil">
+                            <p>Nome perfil</p>
+                            <p  id="nomePerfil">Islania Silva</p>
+                        </div>
+                        <div class="infoPerfil">
+                            <p>Telefone</p>
+                            <p id="telefonePerfil">(71) 9-8869-4569</p>
+                        </div>
+                    </div>
+                    <div class="colunaPerfil">
+                        <div class="infoPerfil">
+                            <p>E-mail cadastrado</p>
+                            <p id="emailPerfil">islaniasilva21@gmail.com</p>
+                        </div>
+                        <div class="infoPerfil">
+                            <p>Data de cadastro</p>
+                            <p id="dataCadastroPerfil">21/08/2023</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="jornadaUsuario">
+                    <div class="tituloJornada">
+                        <iconify-icon icon="ant-design:node-index-outlined"></iconify-icon>
+                        Sua jornada
+                    </div>
+                    <div class="dadosJornada">
+                        <div class="infoJornada">
+                            <p>Imóveis publicados</p>
+                            <p id="imoveisPublicados">34</p>
+                        </div>
+                        <div class="infoJornada">
+                            <p>Notícias publicadas</p>
+                            <p id="noticiasPublicadas">32</p>
+                        </div>
+                        <div class="infoJornada">
+                            <p>Dúvidas recebidas</p>
+                            <p id="duvidasRecebidas">20</p>
+                        </div>
+                        <div class="infoJornada">
+                            <p>Visitas marcadas</p>
+                            <p id="visitasMarcadas">33</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <button class="btnEditarPerfil" id="btnEditarPerfil" onclick="AbrirEdicao()">
+                    <iconify-icon icon="solar:pen-outline"></iconify-icon>
+                    Editar Perfil
+                </button>
+            </div>
+            <div class="editarPerfil" id="editarPerfil">
+                <div class="retornoPerfil">
+                    <a onclick="AbrirPerfil()">
+                        <iconify-icon icon="ep:arrow-left"></iconify-icon>
+                        Voltar
+                    </a>
+                </div>
+                <div class="containerImgPerfil">
+                    <div class="tituloImgPerfil">
+                        <iconify-icon icon="iconoir:profile-circle"></iconify-icon>
+                        Seu perfil
+                    </div>
+                    <div class="containerImagem">
+                        <div class="imgPerfil">
+                            <iconify-icon icon="iconoir:profile-circle"></iconify-icon>
+                        </div>
+                        <div class="addImagem" id="addImagem">
+                            <iconify-icon icon="tabler:photo-plus"></iconify-icon>
+                        </div>
+                    </div>
+                    </div>
+                    
+                <div class="formularioEdicao">
+                    <form action="">
+                        <div class="input">
+                            <label for="nomeUsuario"> Nome e sobrenome </label>
+                            <input type="text" name="nomeUsuario" id="nomeUsuario">
+                        </div>
+                        <div class="input">
+                            <label for="emailUsuario"> E-mail </label>
+                            <input type="email" name="emailUsuario" id="emailUsuario">
+                        </div>
+                        <div class="input">
+                            <label for="telefoneUsuario"> Telefone </label>
+                            <input type="text" name="telefoneUsuario" id="telefoneUsuario">
+                        </div>
+                        <div class="input">
+                            <label for="senhaUsuario"> Senha </label>
+                            <input type="password" name="senhaUsuario" id="senhaUsuario">
+                        </div>
+                    
+                    </form>
+                </div>
+                <button onclick="SalvarEdicao()" class="salvarEdicao" id="salvarEdicao">
+                    <iconify-icon icon="uil:save"></iconify-icon>
+                    Salvar
+                </button>
+            </div>
+        </nav>
+    </div>
+
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="../../js/painelControle.js"></script>
 </body>
+
 </html>

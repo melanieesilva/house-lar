@@ -44,6 +44,36 @@ function criarCardNoticia() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    const itensPorPagina = 5;
+    const totalCards = [...Array(10).keys()];
+
+    function showItens(page) {
+        const inicio = (page - 1) * itensPorPagina;
+        const fim = inicio + itensPorPagina;
+        const itensDaPagina = totalCards.slice(inicio,fim)
+
+        itensDaPagina.forEach(item =>{
+            const card = document.createElement("div");
+            card.className = "card";
+            containerCards.appendChild(card);
+        })
+    }
+
+    function criarPaginacao(){
+        const totalPaginas = Math.ceil(totalCards.length / itensPorPagina)
+
+        for (let i = 0; i < totalPaginas; i++) {
+            const botaoPaginacao = document.createElement("p")
+            botaoPaginacao.textContent = i;
+            botaoPaginacao.addEventListener('click',() =>{
+                showItens(i)
+            })
+            pagination.appendChild(botaoPaginacao)
+        }
+    }
+
+    // criarPaginacao();
+    // showItens(1);
     criarCardNoticia()
 })
 

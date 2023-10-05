@@ -107,6 +107,9 @@ app.get('/viewMensagem',(req,res)=>{
 
 // var msg = "Azul";
 
+const mensagem = "Olá";
+
+module.exports = mensagem;
 
 
 app.listen(8080,function(){

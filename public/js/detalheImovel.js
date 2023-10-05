@@ -111,3 +111,4 @@ function showSlide(n){
     }
     slide[posicaoSlide - 1].style.display = "flex";
 }
+

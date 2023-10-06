@@ -9,7 +9,7 @@ const connection = new Sequelize('OBJETO','root','cimatec',{
 const conexao = connection.authenticate().then(function(){
     console.log("Conexão feita com sucesso!")
 }).catch(function(err){
-    console.log("Não foi possível conectar")
+    console.log("Não foi possível conectar ao banco de dados")
 })
 
 //criando tabelas no banco OBJETO

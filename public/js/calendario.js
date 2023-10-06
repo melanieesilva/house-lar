@@ -126,3 +126,6 @@ function hideTodayBtn() {
     todayBtn.style.display = "flex";
   }
 }
+
+// abrir editar agenda
+

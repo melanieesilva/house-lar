@@ -1,65 +1,271 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../../css/calendario.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link rel="stylesheet" href="../../css/calendario.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <title>Calendário</title>
 </head>
+
 <body>
-    <div class="container">
-      <div class="titulo-pagina">
-        <h1> Calendário </h1>
-      </div>
-        <hr>
-        
-      <div class="calendar">
-        <div class="header">
-       <div>
-          
+  <div class="container">
+    <div class="titulo-pagina">
+      <h1> Calendário </h1>
+    </div>
+    <hr>
+    <div class="calendar">
+      <div class="header">
+        <div>
+
           <div class="cabecalho-edicao">
-          
+
             <div class="btns">
-                <div class="btn prev-btn">
-                  <i class="fas fa-chevron-left"></i>
-                </div>
-                <div class="month">
-              
-                </div>
-                <div class="btn next-btn">
-                  <i class="fas fa-chevron-right"></i>
-                </div>
-                <div class="btn today-btn">
-                  <i class="fas fa-calendar-day"></i>
-                </div>
+              <div class="btn prev-btn">
+                <i class="fas fa-chevron-left"></i>
+              </div>
+              <div class="month">
+
+              </div>
+              <div class="btn next-btn">
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <div class="btn today-btn">
+                <i class="fas fa-calendar-day"></i>
+              </div>
             </div>
             <div class="continuar">
-                <iconify-icon id="icone" icon="uil:pen"></iconify-icon>
-                <button id="botao">Editar legenda </button>
-              </div>
+              <iconify-icon id="icone" icon="uil:pen"></iconify-icon>
+              <button id="botao">Editar legenda </button>
+            </div>
 
           </div>
-          
-        <div class="weekdays">
-          <div class="day" >Dom</div>
-          <div class="day">Seg</div>
-          <div class="day">Ter</div>
-          <div class="day">Qua</div>
-          <div class="day">Qui</div>
-          <div class="day">Sex</div>
-          <div class="day">Sab</div>
+
+          <div class="weekdays">
+            <div class="day">Dom</div>
+            <div class="day">Seg</div>
+            <div class="day">Ter</div>
+            <div class="day">Qua</div>
+            <div class="day">Qui</div>
+            <div class="day">Sex</div>
+            <div class="day">Sab</div>
+          </div>
+          <hr>
+          <div class="days">
+
+          </div>
         </div>
         <hr>
-        <div class="days">
+      </div>
+    </div>
 
-        </div>
+    <div class="containerEditar">
+      <div class="conteudoEditar">
+        <nav>
+          <div id="inicio-agendar">
+            <section id="agendar-visita">
+              <h2>Editar Agenda</h2>
+
+            </section>
+            <div id="div-button">
+              <button type="button"><iconify-icon icon="mdi:remove" id="icone-fechar"></iconify-icon></button>
+            </div>
+          </div>
+
+          <section id="data">
+            <h3>Defina os horários</h3>
+            <p>Selecione um dia para personalizar os horários</p>
+            <div class="wrapper">
+              <header>
+                <div class="icons">
+                  <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                  <p class="current-date" id="calendario-mes"></p>
+                  <span id="next" class="material-symbols-rounded">chevron_right</span>
+                </div>
+              </header>
+              <div class="calendar">
+                <ul class="weeks">
+                  <li>DOM</li>
+                  <li>SEG</li>
+                  <li>TER</li>
+                  <li>QUA</li>
+                  <li>QUI</li>
+                  <li>SEX</li>
+                  <li>SAB</li>
+                </ul>
+                <ul class="days"></ul>
+              </div>
+            </div>
+          </section>
+
+
+          <section id="horario">
+            <h3>Horário</h3>
+            <p>Defina os horários para visitação</p>
+
+
+          </section>
+          <div class="testedia">
+
+            <h4>Manhã</h4>
+            <h4>Tarde</h4>
+            <h4>Noite</h4>
+
+
+
+            <div id="botao-submit">
+              <button type="submit" class="btn btn-primary"> 07:00 AM</button>
+            </div>
+            <div id="botao-submit">
+              <button type="submit" class="btn btn-primary"> 12:00 PM</button>
+            </div>
+            <div id="botao-submit">
+              <button type="submit" class="btn btn-primary"> 06:00 PM</button>
+            </div>
+            <div id="botao-submit">
+              <button type="submit" class="btn btn-primary"> 08:00 AM</button>
+            </div>
+            <div id="botao-submit">
+              <button type="submit" class="btn btn-primary"> 01:00 PM</button>
+            </div>
+            <div id="botao-submit">
+              <button type="submit" class="btn btn-primary"> 07:00 PM</button>
+            </div>
+            <div id="botao-submit">
+              <button type="submit" class="btn btn-primary"> 09:00 AM</button>
+            </div>
+            <div id="botao-submit">
+              <button type="submit" class="btn btn-primary"> 02:00 PM</button>
+            </div>
+            <div id="botao-submit">
+              <button type="submit" class="btn btn-primary"> 08:00 AM</button>
+            </div>
+            <div id="botao-submit">
+              <button type="submit" class="btn btn-primary"> 10:00 AM</button>
+            </div>
+            <div id="botao-submit">
+              <button type="submit" class="btn btn-primary"> 04:00 PM</button>
+            </div>
+            <div id="botao-submit">
+              <button type="submit" class="btn btn-primary"> 09:00 PM</button>
+            </div>
+            <div id="botao-submit">
+              <button type="submit" class="btn btn-primary"> 11:00 AM</button>
+            </div>
+            <div id="botao-submit">
+              <button type="submit" class="btn btn-primary"> 05:00 PM</button>
+            </div>
+            <div id="botao-submit">
+              <button type="submit" class="btn btn-primary"> 10:00 PM</button>
+            </div>
+            <br>
+
+          </div>
+          <div id="botao-submit2">
+            <button type="submit" class="btn btn-primary"> <iconify-icon id="Salvar"
+                icon="uil:save"></iconify-icon>Salvar </button>
+          </div>
+
+        </nav>
       </div>
-      <hr>
-        </div>
+    </div>
+
+    <div class="containerVisitas">
+      <div class="conteudoVisitas">
+        <nav>
+            <div id="inicio-agendar">
+                <section id="agendar-visita">
+                    <h2>Visitas do Dia</h2>
+                    <p>Aqui está o detalhamento das visitas do dia. Selecione um horário para ver as visitas marcadas. </p>
+                </section>
+                <div id="div-button">
+                    <button type="button"><iconify-icon icon="mdi:remove" id="icone-fechar"></iconify-icon></button>
+                </div>
+            </div>
+    
+      
+
+    
+            <section id="horario">
+       
+                
+                <div id="conteiner">
+                  <iconify-icon icon="carbon:time" id="icone-relogio"></iconify-icon>
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected> HORARIO </option>
+                    <option value="1">Hora 1</option>
+                    <option value="2">Hora 2</option>
+                    <option value="3">Hora 3</option>
+                    <option value="3">Hora 4</option>
+                    <option value="3">Hora 5</option>
+                 </select>
+                </div>
+
+            </section>
+            <h2 id="lista">Lista de visitas</h2>
+
+            <div class="grid">
+                <div class="item2">
+                    <h1> Prévia</h1>
+                    <hr>
+                
+                    <h1 id="TESTE1"> Maria Conceição 
+                      <br>
+                      09:00
+                   </h1>
+                   <hr>
+                   <h1 > Maria Conceição 
+                      <br>
+                      09:00
+                   </h1>
+                   <hr>
+                   <h1 > Maria Conceição 
+                    <br>
+                    09:00
+                   </h1>
+                   <hr>
+                   <h1 > Maria Conceição 
+                      <br>
+                      09:00
+                   </h1>
+                   <hr>
+                   <h1 > Maria Conceição 
+                    <br>
+                    09:00
+                 </h1>
+                  </div>
+      
+             
+             <div class="item3">
+                <h4 class="TESTE2"> Dados dos visitantes</h4>
+                <hr>
+                <h3 class="TESTE2"> Nome </h3>
+                <h3 class="TESTE2"> Maria Conceição </h3>
+                <hr>
+                <h3 class="TESTE2"> Email</h3>
+                <h3 class="TESTE2"> mariaconceicao45@gmail.com</h3>
+                <hr>
+                <h3 class="TESTE2"> Telefone </h3>
+                <h3 class="TESTE2"> (71) 9-9856-7899 </h3>
+
+
+              </div>
+             
+            </div>
+        
+        </nav>
       </div>
+    </div>
+
+
     <script src="../../js/calendario.js"></script>
+    <script src="../../js/editarAgenda.js"></script>
+    <script src="../../js/verVisitas.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-  </body>
+</body>
+
 </html>

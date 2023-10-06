@@ -101,6 +101,13 @@ app.get('/calendario', (req,res) => {
     })
 })
 
+app.get('/noticiasCorretor', (req,res) => {
+    res.render('pages/noticiasCorretor.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Notícias - Painel De Controle'
+    })
+})
+
 app.get('/solicitacoes', (req,res)=>{
     res.render('pages/solicitacoes.handlebars',{
         layout: 'painelControle',
@@ -127,7 +134,6 @@ app.get('/publicarImovelCorretor',(req,res)=>{
         layout: 'painelControle',
         pageTitle: 'Publicar Imóvel - Painel de Controle'
 })
-
 })
 
 app.get('/publiImovelCorretor2',(req,res)=>{

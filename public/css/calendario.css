@@ -137,3 +137,549 @@ font-size: 16px
   align-items: center;
   justify-content: center;
 }
+
+
+/* EDITAR AGENDA */
+/* NÃO ESTÁ RESPONSIVO!!!!!!!!!1 */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Poppins:wght@400;500&display=swap');
+
+:root {
+    --margem-geral: 2%;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+} */
+
+.containerEditar{
+  display: none;
+  align-items:flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  padding: 48px 0;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  overflow: scroll;
+}
+
+.conteudoEditar{
+  padding: 32px 32px;
+  width: fit-content;
+  background-color: white;
+  border-radius: 12px;
+}
+
+
+nav{
+  width:fit-content;
+}
+
+
+#inicio-agendar{
+  display: flex;
+  margin-left: var(--margem-geral);
+  margin-top:  var(--margem-geral);
+  margin-bottom: var(--margem-geral);
+}
+
+#inicio-agendar #div-button{
+  margin-left: auto;
+  margin-right: var(--margem-geral);
+}
+
+#inicio-agendar button{
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #CECECE;
+  width: 40px;
+  height: 40px;  
+  min-width: 40px;
+  min-height: 40px;
+}
+
+#inicio-agendar button #icone-fechar{
+  font-size: 24px;
+  margin-top: 16%;
+}
+
+#agendar-visita h2{
+  font-size: 24px;
+  font-weight: 500;
+}
+
+#agendar-visita p{
+  color: #515151; 
+  font-size: 16px; 
+  font-weight: 400;
+}
+
+#data{
+  margin-left: var(--margem-geral);
+  margin-bottom: 3%;
+}
+
+#data h3{
+  font-size: 20px;
+  font-weight: 400; 
+}
+
+#data p{
+  color: #515151; 
+  font-size: 16px;
+  font-weight: 400; 
+}
+
+#data #calendario-mes{
+color: black;
+font-size: 20px;
+margin-top: var(--margem-geral);
+}
+
+#horario{
+  margin-left: var(--margem-geral);
+  margin-bottom: 4%;
+}
+
+#horario h3{
+  font-size: 20px;
+  font-weight: 400; 
+}
+
+#horario p{
+  color: #515151;
+  font-size: 16px;
+  font-weight: 400; 
+}
+
+#horario #conteiner{
+position: relative;
+}
+
+#horario #conteiner #icone-relogio{
+position: absolute;
+margin-top: 1%;
+margin-left: 1%;
+font-size: 17px;
+font-weight: bold;
+color: black;
+}
+
+#horario select{
+  width: 230px;
+  padding-left: 4%;
+  font-size: 14px;
+}
+
+
+
+
+
+/* <---- Estilização do Calendário ----> */
+
+.wrapper{
+width: 61%;
+background: #fff;
+border-radius: 20px;
+box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+.wrapper header{
+display: flex;
+padding: 25px 30px 10px;
+justify-content: center;
+}
+header .icons{
+display: flex;
+}
+header .icons span{
+height: 38px;
+width: 38px;
+margin: 0 1px;
+cursor: pointer;
+color: #878787;
+text-align: center;
+line-height: 38px;
+font-size: 40px;
+font-weight: 210;
+user-select: none;
+border-radius: 50%;
+color: black;
+}
+.icons span:last-child{
+margin-right: -10px;
+}
+header .icons span:hover{
+background: #f2f2f2;
+}
+header .current-date{
+font-size: 20px;
+font-weight: 500;
+
+}
+.calendar{
+padding: 20px;
+}
+.calendar ul{
+display: flex;
+flex-wrap: wrap;
+list-style: none;
+text-align: center;
+}
+.calendar .days{
+margin-bottom: 20px;
+}
+.calendar li{
+color: #333;
+width: calc(100% / 7);
+font-size: 1.07rem;
+}
+.calendar .weeks li{
+font-weight: 500;
+cursor: default;
+}
+.calendar .days li{
+z-index: 1;
+cursor: pointer;
+position: relative;
+margin-top: 30px;
+}
+.days li.inactive{
+color: #aaa;
+}
+.days li.active{
+color: #fff;
+}
+.days li::before{
+position: absolute;
+content: "";
+left: 50%;
+top: 50%;
+height: 40px;
+width: 40px;
+z-index: -1;
+border-radius: 4px; 
+transform: translate(-50%, -50%);
+}
+.days li.active::before{
+background: #9D0058;
+}
+.days li:not(.active):hover::before{
+background: #f2f2f2;
+}
+.testedia{
+display: grid;
+margin: 2%;
+grid-gap: 15px;
+grid-template-columns: [left] 1fr [middle1] 1fr [middle2] 1fr [right]
+
+}
+#botao-submit button{
+background-color: #faf6f8;
+color: #333;
+display: flex;
+cursor: pointer;
+width: 65%;
+padding: 1% 2%;
+justify-content: center;
+align-items: center;
+}
+
+#botao-submit button:hover
+{
+background-color: #9D0058;
+color: #f2f2f2;
+}
+#botao-submit button:focus{
+background-color: #9D0058;
+color: #f2f2f2;
+}
+#botao-submit2 button{
+display: flex;
+width: 20%;
+padding: 1% 2%;
+justify-content: center;
+align-items: center;
+gap: 11%;
+margin-left: var(--margem-geral);
+background-color: #9D0058;
+}
+#Salvar{
+font-size: 150%;
+
+}
+
+
+
+
+
+/*            VER VISITAS           */
+
+.containerVisitas{
+  display: flex;
+  align-items:flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  padding: 48px 0;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  overflow: scroll;
+}
+
+.conteudoVisitas{
+  padding: 32px 32px;
+  width: fit-content;
+  background-color: white;
+  border-radius: 16px;
+}
+
+
+
+/* EDIÇÃO DO MODAL */
+
+/* NÃO ESTÁ RESPONSIVO!!!!!!!!!1 */
+/* 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Poppins:wght@400;500&display=swap');
+
+:root {
+    --margem-geral: 5%;
+} */
+/* 
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+} */
+
+nav{
+  width:fit-content;
+}
+
+.form-select{
+  width: 15%;
+  font-size: 14px;
+  font-weight: 500; 
+}
+
+.mb-3{
+  margin-right: 3%;
+  min-width: 220px;
+  width: 25%;
+}
+
+#inicio-agendar{
+  display: flex;
+  margin-left: var(--margem-geral);
+  margin-top:  var(--margem-geral);
+  margin-bottom: var(--margem-geral);
+}
+
+#inicio-agendar #div-button{
+  margin-left: auto;
+  margin-right: var(--margem-geral);
+}
+
+#inicio-agendar button{
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #CECECE;
+  width: 40px;
+  height: 40px;  
+  min-width: 40px;
+  min-height: 40px;
+}
+
+#inicio-agendar button #icone-fechar{
+  font-size: 24px;
+  margin-top: 16%;
+}
+
+
+#lista{
+
+color: #000;
+margin-left: var(--margem-geral);
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+#agendar-visita p{
+color: #000;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+
+
+#horario{
+  margin-left: var(--margem-geral);
+  margin-bottom: 4%;
+}
+
+#horario h3{
+  font-size: 20px;
+  font-weight: 400; 
+}
+
+#horario p{
+  color: #515151;
+  font-size: 16px;
+  font-weight: 400; 
+}
+
+#horario #conteiner{
+position: relative;
+}
+
+#horario #conteiner #icone-relogio{
+position: absolute;
+margin-top: 1%;
+margin-left: 1%;
+font-size: 17px;
+font-weight: bold;
+color: black;
+}
+
+#horario select{
+  width: 230px;
+  padding-left: 7%;
+  font-size: 14px;
+}
+
+
+
+
+.grid{
+display: grid;
+margin-left: var(--margem-geral); 
+width: 494px;
+height: 369px;
+flex-shrink: 0;
+
+
+grid-template-columns: [left] 1fr [middle2] 1fr [right];
+padding: 1px;
+gap: 1px;
+grid-gap: 1px;
+padding-right: 45%;
+
+
+}
+h1{
+margin-left: var(--margem-geral); 
+color: #1C1C1C;
+width: 223px;
+height: 68px;
+flex-shrink: 0;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+border-radius: 12px 0px 0px 0px;
+
+
+}
+h4{
+  margin-left: var(--margem-geral); 
+color: #1C1C1C;
+width: 223px;
+height: 68px;
+flex-shrink: 0;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+border-radius: 12px 0px 0px 0px;
+
+}
+#TESTE1{
+  
+width: 223px;
+height: 68px;
+flex-shrink: 0;
+
+
+}
+.item2{
+  color: #1C1C1C;
+width: 287px;
+height: 100%;
+flex-shrink: 0;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+border-radius: 12px 0px 0px 0px;
+border: 1px solid #D9D9D9;
+background: #FFF;
+
+
+}
+
+.item1{
+
+color: #1C1C1C;
+width: 272px;
+height: 48px;
+flex-shrink: 0;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+border-radius: 0px 12px 0px 0px;
+border: 1px solid #D9D9D9;
+background: #FFF;
+}
+h3{
+  margin-left: var(--margem-geral); 
+color: #1C1C1C;
+width: 223px;
+height: 48px;
+flex-shrink: 0;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+border-radius: 12px 0px 0px 0px;
+
+}
+
+.item3{
+   
+color: #1C1C1C;
+width: 287px;
+height: 100%;
+flex-shrink: 0;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+border-radius: 0px 12px 0px 0px;
+border: 1px solid #D9D9D9;
+background: #FFF;
+
+
+}
+
+h1:hover{
+      background: #F5F5F5;
+
+}
+  
+

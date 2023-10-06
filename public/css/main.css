@@ -57,7 +57,7 @@ li{
 /*Estilizando os links*/
 a{
     text-decoration: none !important;
-    color:black;
+    color:black !important;
 }
 a:visited{
     text-decoration: none !important;
@@ -86,8 +86,8 @@ a:visited{
     margin: 0 8px;
 }
 .nav-item > a:hover{
-    color: #9D0058;
-    font-weight: 600;
+    color: #9D0058 !important;
+    font-weight: 600 !important;
 }
 
 

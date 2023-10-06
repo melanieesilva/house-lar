@@ -1,0 +1,194 @@
+<link rel="stylesheet" href="../../css/buscaAvancada.css">
+
+<main>
+
+<section id="topo">
+        <div class="botoes-topo">
+            <button class="botao-estilo botao-esquerdo grupo1" onclick="ler('botao-esquerdo')">
+                Filtre por data
+            </button>
+            <button class="botao-estilo botao-direito grupo1" onclick="ler('botao-direito')">
+                Filtre por preço
+            </button>
+        </div>
+        <div class="botoes-topo">
+            <button class="botao-estilo botao-esquerdo grupo2" onclick="ler('botao-esquerdo')">
+                <iconify-icon icon="ion:list"></iconify-icon>
+            </button>
+            <button class="botao-estilo botao-direito grupo2" onclick="ler('botao-direito')">
+                <iconify-icon icon="basil:layout-outline"></iconify-icon>
+            </button>
+        </div>
+    </section>
+
+    <section id="conteudo">
+        <section id="barra-filtro">
+            <div id="titulo-conteudo">
+                <iconify-icon icon="system-uicons:filter"></iconify-icon>
+                <label for="">Filtre por</label>
+            </div>
+            <div id="tipo-botoes">
+                <button class="tipo-botao">
+                    <iconify-icon icon="icons8:buy"></iconify-icon>
+                    Comprar
+                </button>
+                <button class="tipo-botao">
+                    <iconify-icon icon="heroicons:key"></iconify-icon>
+                    Alugar
+                </button>
+            </div>
+            <div id="pesquisa-cidade">
+                <input type="text" placeholder="Pesquise uma cidade..." class="pesquisa">
+                <button class="pesquisa" id="lupa">
+                    <iconify-icon icon="tabler:search"></iconify-icon>
+                </button>
+            </div>
+
+            <div id="filtros-opcoes">
+                <select name="Tipo imóvel" id="" class="select-opcao">
+                    <option value="">Tipo imóvel</option>
+                </select>
+                <select name="Tipo imóvel" id="" class="select-opcao">
+                    <option value="">Quartos</option>
+                </select>
+                <select name="Tipo imóvel" id="" class="select-opcao">
+                    <option value="">Banheiro</option>
+                </select>
+                <select name="Tipo imóvel" id="" class="select-opcao">
+                    <option value="">Vagas</option>
+                </select>
+
+            </div>
+            <div class="caixa-quantidade">
+                <label for="" class="label-quantidade">Faixa de preço</label>
+                <div class="inputs-quantidade" id="quantidades-um">
+                    <input type="text" placeholder="De" class="input-quantidade">
+                    <input type="text" placeholder="Até" class="input-quantidade">
+                </div>
+            </div>
+            <div class="caixa-quantidade">
+                <label for="" class="label-quantidade">Área</label>
+                <div class="inputs-quantidade">
+                    <input type="text" placeholder="Mínimo" class="input-quantidade">
+                    <input type="text" placeholder="Máximo" class="input-quantidade">
+                </div>
+            </div>
+        </section>
+
+        <section id="imoveis">
+            <div class="info-movel">
+                <img src="../../img/img-imovel-busca-avanc.jpeg" alt="" id="imagem-venda">
+                <div class="teto" id="info-direita">
+                    <div id="imovel-meio">
+                        <h3>Apartamento</h3>
+                        <h4 class="escrita-imovel">Vitória - Salvador</h4>
+                        <h5 class="escrita-imovel escrita-cinza">COD: 789654</h5>
+                        <div id="detalhe-imovel" class="escrita-imovel">
+                            <div class="mini-info">
+                                <iconify-icon icon="cil:room" class="icone"></iconify-icon>
+                                <h6 class="escrita-cinza">14 salas</h6>
+                            </div>
+                            <div class="mini-info">
+                                <iconify-icon icon="iconoir:bathroom" class="icone"></iconify-icon>
+                                <h6 class="escrita-cinza">8 ban.</h6>
+                            </div>
+                            <div class="mini-info">
+                                <iconify-icon icon="majesticons:car-line" class="icone"></iconify-icon>
+                                <h6 class="escrita-cinza">12 vagas</h6>
+                            </div>
+                            <div class="mini-info">
+                                <iconify-icon icon="iconoir:ruler" class="icone"></iconify-icon>
+                                <h6 class="escrita-cinza">108m²</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teto" id="venda-imovel">
+                        <button id="botao-venda">
+                            Venda
+                        </button>
+                        <h3 id="valor">
+                            R$200.000
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-movel">
+                <img src="./../img/img-imovel-busca-avanc.jpeg" alt="" id="imagem-venda">
+                <div class="teto" id="info-direita">
+                    <div id="imovel-meio">
+                        <h3>Apartamento</h3>
+                        <h4 class="escrita-imovel">Vitória - Salvador</h4>
+                        <h5 class="escrita-imovel escrita-cinza">COD: 789654</h5>
+                        <div id="detalhe-imovel" class="escrita-imovel">
+                            <div class="mini-info">
+                                <iconify-icon icon="cil:room" class="icone"></iconify-icon>
+                                <h6 class="escrita-cinza">14 salas</h6>
+                            </div>
+                            <div class="mini-info">
+                                <iconify-icon icon="iconoir:bathroom" class="icone"></iconify-icon>
+                                <h6 class="escrita-cinza">8 ban.</h6>
+                            </div>
+                            <div class="mini-info">
+                                <iconify-icon icon="majesticons:car-line" class="icone"></iconify-icon>
+                                <h6 class="escrita-cinza">12 vagas</h6>
+                            </div>
+                            <div class="mini-info">
+                                <iconify-icon icon="iconoir:ruler" class="icone"></iconify-icon>
+                                <h6 class="escrita-cinza">108m²</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teto" id="venda-imovel">
+                        <button id="botao-venda">
+                            Venda
+                        </button>
+                        <h3 id="valor">
+                            R$200.000
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-movel">
+                <img src="./../img/img-imovel-busca-avanc.jpeg" alt="" id="imagem-venda">
+                <div class="teto" id="info-direita">
+                    <div id="imovel-meio">
+                        <h3>Apartamento</h3>
+                        <h4 class="escrita-imovel">Vitória - Salvador</h4>
+                        <h5 class="escrita-imovel escrita-cinza">COD: 789654</h5>
+                        <div id="detalhe-imovel" class="escrita-imovel">
+                            <div class="mini-info">
+                                <iconify-icon icon="cil:room" class="icone"></iconify-icon>
+                                <h6 class="escrita-cinza">14 salas</h6>
+                            </div>
+                            <div class="mini-info">
+                                <iconify-icon icon="iconoir:bathroom" class="icone"></iconify-icon>
+                                <h6 class="escrita-cinza">8 ban.</h6>
+                            </div>
+                            <div class="mini-info">
+                                <iconify-icon icon="majesticons:car-line" class="icone"></iconify-icon>
+                                <h6 class="escrita-cinza">12 vagas</h6>
+                            </div>
+                            <div class="mini-info">
+                                <iconify-icon icon="iconoir:ruler" class="icone"></iconify-icon>
+                                <h6 class="escrita-cinza">108m²</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teto" id="venda-imovel">
+                        <button id="botao-venda">
+                            Venda
+                        </button>
+                        <h3 id="valor">
+                            R$200.000
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            
+        </section>
+    </section>
+</main>
+<script src="../../js/buscaAvancada.js"></script>

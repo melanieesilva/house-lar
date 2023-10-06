@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    width: 90%;
+    height: 1024px;
+    overflow: hidden;
+}
+
+#topo {
+    display: flex;
+    justify-content: space-between;
+    height: 5em;
+    width: 100%;
+}
+
+#filtros-opcoes {
+    display: flex;
+    flex-direction: column;
+}
+
+#barra-filtro {
+    width: 25%;
+    height: 100%;
+}
+
+#conteudo {
+    display: flex;
+    width: 100%;
+    gap: 2%;
+}
+
+h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 500;
+}
+
+#venda-imovel {
+    text-align: right;
+}
+
+#moveis {
+    display: flex;
+    gap: 2%;
+    height: 50%;
+    margin-bottom: 2%;
+}
+
+#linhas-moveis {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+
+.mini-info {
+    display: flex;
+    align-items: center;
+    width: 107px;
+}
+
+#detalhe-imovel {
+    display: flex;
+    height: 10%;
+    margin-right: 5%;
+}
+
+.botoes-topo {
+    display: flex;
+    height: 50%;
+}
+
+.botao-estilo {
+    border: none;
+    background-color: #FFFFFF;
+    color: #212121;
+}
+
+.botao-direito {
+    border: 1px solid #E7E7E7;
+    border-radius: 0 8px 8px 0;
+}
+
+.botao-esquerdo {
+    border: 1px solid #E7E7E7;
+    border-radius: 8px 0 0 8px;
+}
+
+.selecionad {
+    background-color: #9D0058;
+    color: #FFFFFF;
+    border-radius: 8px 0 0 8px;
+}
+
+.selecionado {
+    background-color: #9D0058;
+    color: #FFFFFF;
+    border-radius: 0 8px 8px 0;
+}
+
+#titulo-conteudo {
+    margin-bottom: 15px;
+}
+
+.tipo-botao {
+    display: flex;
+    border: 1px solid #E7E7E7;
+    background-color: #FFFFFF;
+    align-items: center;
+    justify-content: center;
+    height: 2.8em;
+    width: 60%;
+    border-radius: 8px;
+    gap: 5%;
+    margin-bottom: 5%;
+}
+
+.tipo-botao:focus {
+    border-color: #9D0058;
+    color: #9D0058;
+    background-color: #FFE3F3;
+}
+
+#tipo-botoes {
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+}
+
+.pesquisa {
+    border: none;
+    background-color: #FFFFFF;
+    color: #A0A0A0;
+    outline: none;
+}
+
+#pesquisa-cidade {
+    display: flex;
+    border: 1px solid #A0A0A0;
+    width: 93%;
+    justify-content: space-between;
+    height: 3em;
+    border-radius: 5px;
+    margin-bottom: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+    align-items: center;
+}
+
+.select-opcao {
+    border: none;
+    width: 93%;
+    font-weight: bold;
+    color: #676767;
+    margin-bottom: 3%;
+    outline: none;
+}
+
+.label-quantidade {
+    font-size: small;
+    font-weight: bold;
+    color: #676767;
+    margin-left: 1.5%;
+}
+
+.caixa-quantidade {
+    height: 21%;
+}
+
+.inputs-quantidade {
+    display: flex;
+    width: 97%;
+    gap: 3%;
+    margin-left: 1.5%;
+    height: 3em;
+    margin-top: 4%;
+}
+
+.input-quantidade {
+    width: 47%;
+    border: 1px solid #E2E2E2;
+    border-radius: 5px;
+    display: flex;
+    padding-left: 3%;
+    outline: none;
+}
+
+.input-quantidade::placeholder {
+    font-size: smaller;
+}
+
+#quantidades-um {
+    margin-bottom: 3%;
+}
+
+.container {
+    position: relative; /* Define a posição relativa para o contêiner */
+}
+
+.botao {
+    position: absolute; /* Define a posição absoluta para o botão */
+    top: 15%; /* Posiciona o botão 50% do topo do contêiner */
+    left: 20%; /* Posiciona o botão 50% da esquerda do contêiner */
+    transform: translate(-50%, -50%); /* Centraliza o botão no centro do contêiner */
+    background-color: #ffffffa8;
+    color: #000000;
+    border: none;
+    border-radius: 20px;
+    padding: 2% 5% 2% 5%;
+}
+
+#imagem-movel {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+.movel {
+    border: 1px solid #E2E2E2;
+    width: 33%;
+    border-radius: 8px;
+}
+
+.detalhes-imovel {
+    display: flex;
+    justify-content: space-around;
+}
+
+.detalhes-direito {
+    display: flex;
+    text-align: right;
+    flex-direction: column;
+}
+
+.mini-detalhes {
+    display: flex;
+    justify-content: center;
+}
+
+.mini-info {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.valor {
+    color: #9D0058;
+}
+
+.negrito {
+    font-weight: bold;
+}
+
+.escrita-cinza {
+    color: #515151;
+}
+
+.cinza {
+    color: #878787;
+}
+
+.espaco {
+    margin-bottom: 5%;
+}
+
+
+
+

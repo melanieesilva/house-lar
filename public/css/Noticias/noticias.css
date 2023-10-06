@@ -109,8 +109,8 @@
     float: right;
     border: none;
     background-color: white;
-    color: #9D0058;
-    font-weight: 500;
+    color: #9D0058 !important;
+    font-weight: 500 !important;
     font-size: 16px;
     display: flex;
     align-items: center;
@@ -118,7 +118,7 @@
     cursor: pointer;
 }
 .btn-ler-noticia > iconify-icon{
-    font-size: 20px;
+    font-size: 20px !important;
 }
 
 
@@ -149,25 +149,26 @@
 .paginacao > :nth-child(1){
     background-color: white;
     border: 1px solid #D2D2D2;
-    color: #D2D2D2;
+    color: #D2D2D2 !important;
     pointer-events: none;
 }
 .paginacao > :nth-child(2){
     background-color: #9D0058;
+    color: white !important;
 }
 .paginacao > :last-child{
     background-color: rgb(255, 255, 255);
     border: 1px solid #9D0058;
-    color: #9D0058;
+    color: #9D0058 !important;
     font-size: 600;
 }
 .paginacao > li > a{
-    color: #655A60;
+    color: #655A60 !important;
 }
 .paginacao > li:hover , .paginacao > li:hover a{
     background-color: #970756;
-    color: white;
+    color: white !important;
 }
 .paginacao > :nth-child(2) > a{
-    color: white;
+    color: white !important;
 }

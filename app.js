@@ -71,6 +71,39 @@ app.get('/detalheImovel',function(req,res){
     res.render('pages/detalheImovel.handlebars')
 })
 
+app.get('/buscaAvancada',(req,res)=> res.render('pages/buscaAvancada.handlebars'));
+
+// PUBLICAR IMÓVEL CLIENTE
+app.get('/publicarImovelCliente',(req,res) => res.render(
+'pages/PublicarImovelCliente/publicarImovelCliente.handlebars'));
+
+app.get('/publicarImovel2',(req,res) => res.render(
+    'pages/PublicarImovelCliente/publicarImovel2.handlebars'));
+
+app.get('/publicarImovel3',(req,res) => res.render(
+    'pages/PublicarImovelCliente/publicarImovel3.handlebars'));
+
+app.get('/publicarImovel4',(req,res) => res.render(
+    'pages/PublicarImovelCliente/publicarImovel4.handlebars'));
+
+app.get('/publicarImovel5',(req,res) => res.render(
+    'pages/PublicarImovelCliente/publicarImovel5.handlebars'));
+
+app.get('/publicarImovel6',(req,res) => res.render(
+    'pages/PublicarImovelCliente/publicarImovel6.handlebars'));
+
+app.get('/publicarImovel7',(req,res) => res.render(
+    'pages/PublicarImovelCliente/publicarImovel7.handlebars'));
+
+app.get('/publicarImovel8',(req,res) => res.render(
+    'pages/PublicarImovelCliente/publicarImovel8.handlebars'));
+
+app.get('/publicarImovel9',(req,res) => res.render(
+    'pages/PublicarImovelCliente/publicarImovel9.handlebars'));
+
+app.get('/publicarImovel10',(req,res) => res.render(
+    'pages/PublicarImovelCliente/publicarImovel10.handlebars'));
+
 app.get('/loginCorretor',function(req,res){
     res.render('pages/loginCorretor.handlebars',{
         layout: '',
@@ -84,6 +117,13 @@ app.get('/calendario', (req,res) => {
     res.render('pages/calendario.handlebars',{
         layout: 'painelControle',
         pageTitle: 'Calendário - Painel De Controle'
+    })
+})
+
+app.get('/noticiasCorretor', (req,res) => {
+    res.render('pages/noticiasCorretor.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Notícias - Painel De Controle'
     })
 })
 
@@ -108,6 +148,76 @@ app.get('/viewMensagem',(req,res)=>{
 })
 })
 
+app.get('/publicarImovelCorretor',(req,res)=>{
+    res.render('pages/PublicarImovelCorretor/publicarImovelCorretor.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Publicar Imóvel - Painel de Controle'
+})
+})
+
+app.get('/publiImovelCorretor2',(req,res)=>{
+    res.render('pages/PublicarImovelCorretor/publiImovelCorretor2.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Publicar Imóvel - Painel de Controle'
+})
+})
+
+app.get('/publiImovelCorretor3',(req,res)=>{
+    res.render('pages/PublicarImovelCorretor/publiImovelCorretor3.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Publicar Imóvel - Painel de Controle'
+})
+})
+
+app.get('/publiImovelCorretor4',(req,res)=>{
+    res.render('pages/PublicarImovelCorretor/publiImovelCorretor4.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Publicar Imóvel - Painel de Controle'
+})
+})
+
+app.get('/publiImovelCorretor5',(req,res)=>{
+    res.render('pages/PublicarImovelCorretor/publiImovelCorretor5.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Publicar Imóvel - Painel de Controle'
+})
+})
+
+app.get('/publiImovelCorretor6',(req,res)=>{
+    res.render('pages/PublicarImovelCorretor/publiImovelCorretor6.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Publicar Imóvel - Painel de Controle'
+})
+})
+
+app.get('/publiImovelCorretor7',(req,res)=>{
+    res.render('pages/PublicarImovelCorretor/publiImovelCorretor7.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Publicar Imóvel - Painel de Controle'
+})
+})
+
+app.get('/publiImovelCorretor8',(req,res)=>{
+    res.render('pages/PublicarImovelCorretor/publiImovelCorretor8.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Publicar Imóvel - Painel de Controle'
+})
+})
+
+app.get('/publiImovelCorretor9',(req,res)=>{
+    res.render('pages/PublicarImovelCorretor/publiImovelCorretor9.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Publicar Imóvel - Painel de Controle'
+})
+})
+
+app.get('/publiImovelCorretor10',(req,res)=>{
+    res.render('pages/PublicarImovelCorretor/publiImovelCorretor10.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Publicar Imóvel - Painel de Controle'
+})
+})
+
 
 // //google
 
@@ -126,6 +236,9 @@ app.get('/viewMensagem',(req,res)=>{
 
 // var msg = "Azul";
 
+const mensagem = "Olá";
+
+module.exports = mensagem;
 
 
 app.listen(8080,function(){

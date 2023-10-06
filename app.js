@@ -219,6 +219,8 @@ app.get('/publiImovelCorretor10',(req,res)=>{
 })
 
 
+
+
 // //google
 
 // const API_KEY = "AIzaSyDdAjyOOuBbhIL4T8jxMHRwoYXsEgPrbn4";

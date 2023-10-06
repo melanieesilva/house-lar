@@ -1,5 +1,721 @@
-<p>Primeira página do painel de controle - Imóveis Publicados</p>
-
+{{!-- <p>Primeira página do painel de controle - Imóveis Publicados</p>
 <button class="menu-responsivo" id="menu-responsivo" onclick="diminuirMenu()">
     Clique aqui para diminuir o menu
-</button>
+</button> --}}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="../../css/painelControle.css">
+
+<div id="head">
+    <h2>
+        Imóveis
+    </h2>
+    <div id="txtbot">
+        <a href="/publicarImovelCorretor">
+            <button type="button" class="btn btn-primary btn-lg" type="button" style="background-color: #9D0058;
+            color: white; border-color: #9D0058;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
+                    <path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12.75 7.75h-10m5-5v10" />
+                </svg>
+                Novo imóvel</button>
+        </a>
+    </div>
+</div>
+
+<div id="car">
+    <div id="af">
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="Pesquise por código... ">
+        </div>
+    </div>
+
+
+    <div class="dropdown">
+        <button class="dropbtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" onclick="">
+                <path fill="currentColor"
+                    d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+            </svg>
+
+            Filtre por
+        </button>
+        <div class="dropdown-content" id="blz">
+            <form action="" id="forma">
+
+                <input type="email" class="ajuda" id="floatingInput" placeholder="Pesquise por cidade... ">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <option selected>Tipo imovel</option>
+                    <option value="1">Comprar</option>
+                    <option value="2">alugar</option>
+                </select>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <option selected>Quartos</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <option selected>Banheiros</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <option selected>Vagas</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label class="soc"> Faixa de preço</label>
+                <div id="org">
+                    <input type="email" class="ajuda" placeholder="de">
+                    <input type="email" class="ajuda" placeholder="até">
+                </div>
+
+                <label class="soc"> Area</label>
+                <div id="org">
+                    <input type="email" class="ajuda" id="floatingInput" placeholder="minimo">
+                    <input type="email" class="ajuda" id="floatingInput" placeholder="maximo">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<div id="atvd" class="border-bottom">
+    <div class="public">
+
+        <button class="socorro" id="pub" onclick="('pub')">
+            <h5>
+                Publicados
+            </h5>
+
+            <small class="botetit">
+                34
+            </small>
+        </button>
+    </div>
+
+    <div class="public">
+        <button class="socorro" id="des" onclick="('pub')">
+            <h5>
+                Desativados
+            </h5>
+
+            <small class="botetit">
+                34
+            </small>
+        </button>
+
+    </div>
+</div>
+
+<div id="publicados">
+   
+    <div class="cardv" id="cardv">
+        <div class="imga">
+            <img src="../../img/img-imovel-busca-avanc.jpeg" alt="" id="cara">
+        </div>
+
+        <div class="txt">
+            <div class="titulo-operacao">
+                <h5>Apartamento </h5>
+
+                <div class="operacao-icone">
+                    <!-- Botão operação e ícone mais para dropdown -->
+
+                    <button id="btnv"> Venda </button>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <path fill="currentColor"
+                                    d="M10 2a2 2 0 1 1-3.999.001A2 2 0 0 1 10 2zm0 6a2 2 0 1 1-3.999.001A2 2 0 0 1 10 8zm0 6a2 2 0 1 1-3.999.001A2 2 0 0 1 10 14z" />
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 512 512">
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="32"
+                                        d="m112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320" />
+                                    <path fill="currentColor" stroke="currentColor" stroke-linecap="round"
+                                        stroke-miterlimit="10" stroke-width="32" d="M80 112h352" />
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="32"
+                                        d="M192 112V72h0a23.93 23.93 0 0 1 24-24h80a23.93 23.93 0 0 1 24 24h0v40m-64 64v224m-72-224l8 224m136-224l-8 224" />
+                                </svg> Excluir imóvel</a>
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 32 32">
+                                    <path fill="currentColor"
+                                        d="M8 8h2v4H8zm0 6h2v4H8zm6-6h2v4h-2zm0 6h2v4h-2zm-6 6h2v4H8zm6 0h2v4h-2z" />
+                                    <path fill="currentColor"
+                                        d="M30 14a2 2 0 0 0-2-2h-6V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v26h28ZM4 4h16v24H4Zm18 24V14h6v14Z" />
+                                </svg> Reativar imóvel</a>
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24">
+                                    <g fill="none">
+                                        <path
+                                            d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z" />
+                                        <path fill="currentColor"
+                                            d="M16.035 3.015a3 3 0 0 1 4.099-.135l.144.135l.707.707a3 3 0 0 1 .135 4.098l-.135.144L9.773 19.177a1.5 1.5 0 0 1-.562.354l-.162.047l-4.454 1.028a1.001 1.001 0 0 1-1.22-1.088l.02-.113l1.027-4.455a1.5 1.5 0 0 1 .29-.598l.111-.125L16.035 3.015Zm-.707 3.535l-8.99 8.99l-.636 2.758l2.758-.637l8.99-8.99l-2.122-2.12Zm3.536-2.121a1 1 0 0 0-1.32-.083l-.094.083l-.708.707l2.122 2.121l.707-.707a1 1 0 0 0 .083-1.32l-.083-.094l-.707-.707Z" />
+                                    </g>
+                                </svg> Editar imóvel</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="localizacao">
+                <h6>Pituba - Salvador</h6>
+                <p><small class="text-muted">COD: 789654</small></p>
+            </div>
+
+            <div class="footer-card">
+                <div id="iconalinha"> <!-- display flex -->
+                    <div class="icone"> <!-- display flex -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="none">
+                                <path
+                                    d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z" />
+                                <path fill="currentColor"
+                                    d="M17 3a2 2 0 0 1 2 2v14h1a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2h1V5a2 2 0 0 1 2-2h10Zm0 2H7v14h10V5Zm-2.5 6a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3Z" />
+                            </g>
+                        </svg> 14 salas
+                    </div>
+                    <div class="icone">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="m5 11l1.5-4.5h11L19 11m-1.5 5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m-11 0A1.5 1.5 0 0 1 5 14.5A1.5 1.5 0 0 1 6.5 13A1.5 1.5 0 0 1 8 14.5A1.5 1.5 0 0 1 6.5 16M18.92 6c-.2-.58-.76-1-1.42-1h-11c-.66 0-1.22.42-1.42 1L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8l-2.08-6Z" />
+                        </svg>
+                        2 Vagas
+
+                    </div>
+                    <div class="icone">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                            <g transform="translate(28 0) scale(-1 1)">
+                                <path fill="currentColor"
+                                    d="M10.75 2A2.75 2.75 0 0 0 8 4.75v18.5A2.75 2.75 0 0 0 10.75 26h6.5A2.75 2.75 0 0 0 20 23.25V4.75A2.75 2.75 0 0 0 17.25 2h-6.5ZM9.5 14.75h2.75a.75.75 0 0 0 0-1.5H9.5V11h4.75a.75.75 0 0 0 0-1.5H9.5V7.25h2.75a.75.75 0 0 0 0-1.5H9.5v-1c0-.69.56-1.25 1.25-1.25h6.5c.69 0 1.25.56 1.25 1.25v18.5c0 .69-.56 1.25-1.25 1.25h-6.5c-.69 0-1.25-.56-1.25-1.25v-1h2.75a.75.75 0 0 0 0-1.5H9.5V18.5h4.75a.75.75 0 0 0 0-1.5H9.5v-2.25Z" />
+                            </g>
+                        </svg>
+                        108m²
+
+                    </div>
+                </div>
+                <p id="valor-imovel"> <strong>R$ 2.000.000</strong> </p>
+            </div>
+
+        </div>
+    </div>
+
+    
+    <div class="cardv" id="cardv">
+        <div class="imga">
+            <img src="../../img/img-imovel-busca-avanc.jpeg" alt="" id="cara">
+        </div>
+
+        <div class="txt">
+            <div class="titulo-operacao">
+                <h5>Apartamento </h5>
+
+                <div class="operacao-icone">
+                    <!-- Botão operação e ícone mais para dropdown -->
+
+                    <button id="btnv"> Venda </button>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <path fill="currentColor"
+                                    d="M10 2a2 2 0 1 1-3.999.001A2 2 0 0 1 10 2zm0 6a2 2 0 1 1-3.999.001A2 2 0 0 1 10 8zm0 6a2 2 0 1 1-3.999.001A2 2 0 0 1 10 14z" />
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 512 512">
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="32"
+                                        d="m112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320" />
+                                    <path fill="currentColor" stroke="currentColor" stroke-linecap="round"
+                                        stroke-miterlimit="10" stroke-width="32" d="M80 112h352" />
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="32"
+                                        d="M192 112V72h0a23.93 23.93 0 0 1 24-24h80a23.93 23.93 0 0 1 24 24h0v40m-64 64v224m-72-224l8 224m136-224l-8 224" />
+                                </svg> Excluir imóvel</a>
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 32 32">
+                                    <path fill="currentColor"
+                                        d="M8 8h2v4H8zm0 6h2v4H8zm6-6h2v4h-2zm0 6h2v4h-2zm-6 6h2v4H8zm6 0h2v4h-2z" />
+                                    <path fill="currentColor"
+                                        d="M30 14a2 2 0 0 0-2-2h-6V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v26h28ZM4 4h16v24H4Zm18 24V14h6v14Z" />
+                                </svg> Reativar imóvel</a>
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24">
+                                    <g fill="none">
+                                        <path
+                                            d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z" />
+                                        <path fill="currentColor"
+                                            d="M16.035 3.015a3 3 0 0 1 4.099-.135l.144.135l.707.707a3 3 0 0 1 .135 4.098l-.135.144L9.773 19.177a1.5 1.5 0 0 1-.562.354l-.162.047l-4.454 1.028a1.001 1.001 0 0 1-1.22-1.088l.02-.113l1.027-4.455a1.5 1.5 0 0 1 .29-.598l.111-.125L16.035 3.015Zm-.707 3.535l-8.99 8.99l-.636 2.758l2.758-.637l8.99-8.99l-2.122-2.12Zm3.536-2.121a1 1 0 0 0-1.32-.083l-.094.083l-.708.707l2.122 2.121l.707-.707a1 1 0 0 0 .083-1.32l-.083-.094l-.707-.707Z" />
+                                    </g>
+                                </svg> Editar imóvel</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="localizacao">
+                <h6>Pituba - Salvador</h6>
+                <p><small class="text-muted">COD: 789654</small></p>
+            </div>
+
+            <div class="footer-card">
+                <div id="iconalinha"> <!-- display flex -->
+                    <div class="icone"> <!-- display flex -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="none">
+                                <path
+                                    d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z" />
+                                <path fill="currentColor"
+                                    d="M17 3a2 2 0 0 1 2 2v14h1a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2h1V5a2 2 0 0 1 2-2h10Zm0 2H7v14h10V5Zm-2.5 6a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3Z" />
+                            </g>
+                        </svg> 14 salas
+                    </div>
+                    <div class="icone">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="m5 11l1.5-4.5h11L19 11m-1.5 5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m-11 0A1.5 1.5 0 0 1 5 14.5A1.5 1.5 0 0 1 6.5 13A1.5 1.5 0 0 1 8 14.5A1.5 1.5 0 0 1 6.5 16M18.92 6c-.2-.58-.76-1-1.42-1h-11c-.66 0-1.22.42-1.42 1L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8l-2.08-6Z" />
+                        </svg>
+                        2 Vagas
+
+                    </div>
+                    <div class="icone">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                            <g transform="translate(28 0) scale(-1 1)">
+                                <path fill="currentColor"
+                                    d="M10.75 2A2.75 2.75 0 0 0 8 4.75v18.5A2.75 2.75 0 0 0 10.75 26h6.5A2.75 2.75 0 0 0 20 23.25V4.75A2.75 2.75 0 0 0 17.25 2h-6.5ZM9.5 14.75h2.75a.75.75 0 0 0 0-1.5H9.5V11h4.75a.75.75 0 0 0 0-1.5H9.5V7.25h2.75a.75.75 0 0 0 0-1.5H9.5v-1c0-.69.56-1.25 1.25-1.25h6.5c.69 0 1.25.56 1.25 1.25v18.5c0 .69-.56 1.25-1.25 1.25h-6.5c-.69 0-1.25-.56-1.25-1.25v-1h2.75a.75.75 0 0 0 0-1.5H9.5V18.5h4.75a.75.75 0 0 0 0-1.5H9.5v-2.25Z" />
+                            </g>
+                        </svg>
+                        108m²
+
+                    </div>
+                </div>
+                <p id="valor-imovel"> <strong>R$ 2.000.000</strong> </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="cardv" id="cardv">
+        <div class="imga">
+            <img src="../../img/img-imovel-busca-avanc.jpeg" alt="" id="cara">
+        </div>
+
+        <div class="txt">
+            <div class="titulo-operacao">
+                <h5>Apartamento </h5>
+
+                <div class="operacao-icone">
+                    <!-- Botão operação e ícone mais para dropdown -->
+
+                    <button id="btnv"> Venda </button>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <path fill="currentColor"
+                                    d="M10 2a2 2 0 1 1-3.999.001A2 2 0 0 1 10 2zm0 6a2 2 0 1 1-3.999.001A2 2 0 0 1 10 8zm0 6a2 2 0 1 1-3.999.001A2 2 0 0 1 10 14z" />
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 512 512">
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="32"
+                                        d="m112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320" />
+                                    <path fill="currentColor" stroke="currentColor" stroke-linecap="round"
+                                        stroke-miterlimit="10" stroke-width="32" d="M80 112h352" />
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="32"
+                                        d="M192 112V72h0a23.93 23.93 0 0 1 24-24h80a23.93 23.93 0 0 1 24 24h0v40m-64 64v224m-72-224l8 224m136-224l-8 224" />
+                                </svg> Excluir imóvel</a>
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 32 32">
+                                    <path fill="currentColor"
+                                        d="M8 8h2v4H8zm0 6h2v4H8zm6-6h2v4h-2zm0 6h2v4h-2zm-6 6h2v4H8zm6 0h2v4h-2z" />
+                                    <path fill="currentColor"
+                                        d="M30 14a2 2 0 0 0-2-2h-6V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v26h28ZM4 4h16v24H4Zm18 24V14h6v14Z" />
+                                </svg> Reativar imóvel</a>
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24">
+                                    <g fill="none">
+                                        <path
+                                            d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z" />
+                                        <path fill="currentColor"
+                                            d="M16.035 3.015a3 3 0 0 1 4.099-.135l.144.135l.707.707a3 3 0 0 1 .135 4.098l-.135.144L9.773 19.177a1.5 1.5 0 0 1-.562.354l-.162.047l-4.454 1.028a1.001 1.001 0 0 1-1.22-1.088l.02-.113l1.027-4.455a1.5 1.5 0 0 1 .29-.598l.111-.125L16.035 3.015Zm-.707 3.535l-8.99 8.99l-.636 2.758l2.758-.637l8.99-8.99l-2.122-2.12Zm3.536-2.121a1 1 0 0 0-1.32-.083l-.094.083l-.708.707l2.122 2.121l.707-.707a1 1 0 0 0 .083-1.32l-.083-.094l-.707-.707Z" />
+                                    </g>
+                                </svg> Editar imóvel</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="localizacao">
+                <h6>Pituba - Salvador</h6>
+                <p><small class="text-muted">COD: 789654</small></p>
+            </div>
+
+            <div class="footer-card">
+                <div id="iconalinha"> <!-- display flex -->
+                    <div class="icone"> <!-- display flex -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="none">
+                                <path
+                                    d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z" />
+                                <path fill="currentColor"
+                                    d="M17 3a2 2 0 0 1 2 2v14h1a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2h1V5a2 2 0 0 1 2-2h10Zm0 2H7v14h10V5Zm-2.5 6a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3Z" />
+                            </g>
+                        </svg> 14 salas
+                    </div>
+                    <div class="icone">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="m5 11l1.5-4.5h11L19 11m-1.5 5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m-11 0A1.5 1.5 0 0 1 5 14.5A1.5 1.5 0 0 1 6.5 13A1.5 1.5 0 0 1 8 14.5A1.5 1.5 0 0 1 6.5 16M18.92 6c-.2-.58-.76-1-1.42-1h-11c-.66 0-1.22.42-1.42 1L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8l-2.08-6Z" />
+                        </svg>
+                        2 Vagas
+
+                    </div>
+                    <div class="icone">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                            <g transform="translate(28 0) scale(-1 1)">
+                                <path fill="currentColor"
+                                    d="M10.75 2A2.75 2.75 0 0 0 8 4.75v18.5A2.75 2.75 0 0 0 10.75 26h6.5A2.75 2.75 0 0 0 20 23.25V4.75A2.75 2.75 0 0 0 17.25 2h-6.5ZM9.5 14.75h2.75a.75.75 0 0 0 0-1.5H9.5V11h4.75a.75.75 0 0 0 0-1.5H9.5V7.25h2.75a.75.75 0 0 0 0-1.5H9.5v-1c0-.69.56-1.25 1.25-1.25h6.5c.69 0 1.25.56 1.25 1.25v18.5c0 .69-.56 1.25-1.25 1.25h-6.5c-.69 0-1.25-.56-1.25-1.25v-1h2.75a.75.75 0 0 0 0-1.5H9.5V18.5h4.75a.75.75 0 0 0 0-1.5H9.5v-2.25Z" />
+                            </g>
+                        </svg>
+                        108m²
+
+                    </div>
+                </div>
+                <p id="valor-imovel"> <strong>R$ 2.000.000</strong> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="desativados">
+    <div class="cardv" id="cardv">
+        <div class="imga">
+            <img src="../../img/img-imovel-busca-avanc.jpeg" alt="" id="cara">
+        </div>
+
+        <div class="txt">
+            <div class="titulo-operacao">
+                <h5>não é um Apartamento </h5>
+
+                <div class="operacao-icone">
+                    <!-- Botão operação e ícone mais para dropdown -->
+
+                    <button id="btnv"> Venda </button>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <path fill="currentColor"
+                                    d="M10 2a2 2 0 1 1-3.999.001A2 2 0 0 1 10 2zm0 6a2 2 0 1 1-3.999.001A2 2 0 0 1 10 8zm0 6a2 2 0 1 1-3.999.001A2 2 0 0 1 10 14z" />
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 512 512">
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="32"
+                                        d="m112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320" />
+                                    <path fill="currentColor" stroke="currentColor" stroke-linecap="round"
+                                        stroke-miterlimit="10" stroke-width="32" d="M80 112h352" />
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="32"
+                                        d="M192 112V72h0a23.93 23.93 0 0 1 24-24h80a23.93 23.93 0 0 1 24 24h0v40m-64 64v224m-72-224l8 224m136-224l-8 224" />
+                                </svg> Excluir imóvel</a>
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 32 32">
+                                    <path fill="currentColor"
+                                        d="M8 8h2v4H8zm0 6h2v4H8zm6-6h2v4h-2zm0 6h2v4h-2zm-6 6h2v4H8zm6 0h2v4h-2z" />
+                                    <path fill="currentColor"
+                                        d="M30 14a2 2 0 0 0-2-2h-6V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v26h28ZM4 4h16v24H4Zm18 24V14h6v14Z" />
+                                </svg> Reativar imóvel</a>
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24">
+                                    <g fill="none">
+                                        <path
+                                            d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z" />
+                                        <path fill="currentColor"
+                                            d="M16.035 3.015a3 3 0 0 1 4.099-.135l.144.135l.707.707a3 3 0 0 1 .135 4.098l-.135.144L9.773 19.177a1.5 1.5 0 0 1-.562.354l-.162.047l-4.454 1.028a1.001 1.001 0 0 1-1.22-1.088l.02-.113l1.027-4.455a1.5 1.5 0 0 1 .29-.598l.111-.125L16.035 3.015Zm-.707 3.535l-8.99 8.99l-.636 2.758l2.758-.637l8.99-8.99l-2.122-2.12Zm3.536-2.121a1 1 0 0 0-1.32-.083l-.094.083l-.708.707l2.122 2.121l.707-.707a1 1 0 0 0 .083-1.32l-.083-.094l-.707-.707Z" />
+                                    </g>
+                                </svg> Editar imóvel</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="localizacao">
+                <h6>Pituba - Salvador</h6>
+                <p><small class="text-muted">COD: 789654</small></p>
+            </div>
+
+            <div class="footer-card">
+                <div id="iconalinha"> <!-- display flex -->
+                    <div class="icone"> <!-- display flex -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="none">
+                                <path
+                                    d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z" />
+                                <path fill="currentColor"
+                                    d="M17 3a2 2 0 0 1 2 2v14h1a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2h1V5a2 2 0 0 1 2-2h10Zm0 2H7v14h10V5Zm-2.5 6a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3Z" />
+                            </g>
+                        </svg> 14 salas
+                    </div>
+                    <div class="icone">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="m5 11l1.5-4.5h11L19 11m-1.5 5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m-11 0A1.5 1.5 0 0 1 5 14.5A1.5 1.5 0 0 1 6.5 13A1.5 1.5 0 0 1 8 14.5A1.5 1.5 0 0 1 6.5 16M18.92 6c-.2-.58-.76-1-1.42-1h-11c-.66 0-1.22.42-1.42 1L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8l-2.08-6Z" />
+                        </svg>
+                        2 Vagas
+
+                    </div>
+                    <div class="icone">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                            <g transform="translate(28 0) scale(-1 1)">
+                                <path fill="currentColor"
+                                    d="M10.75 2A2.75 2.75 0 0 0 8 4.75v18.5A2.75 2.75 0 0 0 10.75 26h6.5A2.75 2.75 0 0 0 20 23.25V4.75A2.75 2.75 0 0 0 17.25 2h-6.5ZM9.5 14.75h2.75a.75.75 0 0 0 0-1.5H9.5V11h4.75a.75.75 0 0 0 0-1.5H9.5V7.25h2.75a.75.75 0 0 0 0-1.5H9.5v-1c0-.69.56-1.25 1.25-1.25h6.5c.69 0 1.25.56 1.25 1.25v18.5c0 .69-.56 1.25-1.25 1.25h-6.5c-.69 0-1.25-.56-1.25-1.25v-1h2.75a.75.75 0 0 0 0-1.5H9.5V18.5h4.75a.75.75 0 0 0 0-1.5H9.5v-2.25Z" />
+                            </g>
+                        </svg>
+                        108m²
+
+                    </div>
+                </div>
+                <p id="valor-imovel"> <strong>R$ 2.000.000</strong> </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="cardv" id="cardv">
+        <div class="imga">
+            <img src="../../img/img-imovel-busca-avanc.jpeg" alt="" id="cara">
+        </div>
+
+        <div class="txt">
+            <div class="titulo-operacao">
+                <h5>Apartamento </h5>
+
+                <div class="operacao-icone">
+                    <!-- Botão operação e ícone mais para dropdown -->
+
+                    <button id="btnv"> Venda </button>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <path fill="currentColor"
+                                    d="M10 2a2 2 0 1 1-3.999.001A2 2 0 0 1 10 2zm0 6a2 2 0 1 1-3.999.001A2 2 0 0 1 10 8zm0 6a2 2 0 1 1-3.999.001A2 2 0 0 1 10 14z" />
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 512 512">
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="32"
+                                        d="m112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320" />
+                                    <path fill="currentColor" stroke="currentColor" stroke-linecap="round"
+                                        stroke-miterlimit="10" stroke-width="32" d="M80 112h352" />
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="32"
+                                        d="M192 112V72h0a23.93 23.93 0 0 1 24-24h80a23.93 23.93 0 0 1 24 24h0v40m-64 64v224m-72-224l8 224m136-224l-8 224" />
+                                </svg> Excluir imóvel</a>
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 32 32">
+                                    <path fill="currentColor"
+                                        d="M8 8h2v4H8zm0 6h2v4H8zm6-6h2v4h-2zm0 6h2v4h-2zm-6 6h2v4H8zm6 0h2v4h-2z" />
+                                    <path fill="currentColor"
+                                        d="M30 14a2 2 0 0 0-2-2h-6V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v26h28ZM4 4h16v24H4Zm18 24V14h6v14Z" />
+                                </svg> Reativar imóvel</a>
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24">
+                                    <g fill="none">
+                                        <path
+                                            d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z" />
+                                        <path fill="currentColor"
+                                            d="M16.035 3.015a3 3 0 0 1 4.099-.135l.144.135l.707.707a3 3 0 0 1 .135 4.098l-.135.144L9.773 19.177a1.5 1.5 0 0 1-.562.354l-.162.047l-4.454 1.028a1.001 1.001 0 0 1-1.22-1.088l.02-.113l1.027-4.455a1.5 1.5 0 0 1 .29-.598l.111-.125L16.035 3.015Zm-.707 3.535l-8.99 8.99l-.636 2.758l2.758-.637l8.99-8.99l-2.122-2.12Zm3.536-2.121a1 1 0 0 0-1.32-.083l-.094.083l-.708.707l2.122 2.121l.707-.707a1 1 0 0 0 .083-1.32l-.083-.094l-.707-.707Z" />
+                                    </g>
+                                </svg> Editar imóvel</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="localizacao">
+                <h6>Pituba - Salvador</h6>
+                <p><small class="text-muted">COD: 789654</small></p>
+            </div>
+
+            <div class="footer-card">
+                <div id="iconalinha"> <!-- display flex -->
+                    <div class="icone"> <!-- display flex -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="none">
+                                <path
+                                    d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z" />
+                                <path fill="currentColor"
+                                    d="M17 3a2 2 0 0 1 2 2v14h1a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2h1V5a2 2 0 0 1 2-2h10Zm0 2H7v14h10V5Zm-2.5 6a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3Z" />
+                            </g>
+                        </svg> 14 salas
+                    </div>
+                    <div class="icone">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="m5 11l1.5-4.5h11L19 11m-1.5 5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m-11 0A1.5 1.5 0 0 1 5 14.5A1.5 1.5 0 0 1 6.5 13A1.5 1.5 0 0 1 8 14.5A1.5 1.5 0 0 1 6.5 16M18.92 6c-.2-.58-.76-1-1.42-1h-11c-.66 0-1.22.42-1.42 1L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8l-2.08-6Z" />
+                        </svg>
+                        2 Vagas
+
+                    </div>
+                    <div class="icone">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                            <g transform="translate(28 0) scale(-1 1)">
+                                <path fill="currentColor"
+                                    d="M10.75 2A2.75 2.75 0 0 0 8 4.75v18.5A2.75 2.75 0 0 0 10.75 26h6.5A2.75 2.75 0 0 0 20 23.25V4.75A2.75 2.75 0 0 0 17.25 2h-6.5ZM9.5 14.75h2.75a.75.75 0 0 0 0-1.5H9.5V11h4.75a.75.75 0 0 0 0-1.5H9.5V7.25h2.75a.75.75 0 0 0 0-1.5H9.5v-1c0-.69.56-1.25 1.25-1.25h6.5c.69 0 1.25.56 1.25 1.25v18.5c0 .69-.56 1.25-1.25 1.25h-6.5c-.69 0-1.25-.56-1.25-1.25v-1h2.75a.75.75 0 0 0 0-1.5H9.5V18.5h4.75a.75.75 0 0 0 0-1.5H9.5v-2.25Z" />
+                            </g>
+                        </svg>
+                        108m²
+
+                    </div>
+                </div>
+                <p id="valor-imovel"> <strong>R$ 2.000.000</strong> </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="cardv" id="cardv">
+        <div class="imga">
+            <img src="../../img/img-imovel-busca-avanc.jpeg" alt="" id="cara">
+        </div>
+
+        <div class="txt">
+            <div class="titulo-operacao">
+                <h5>Apartamento </h5>
+
+                <div class="operacao-icone">
+                    <!-- Botão operação e ícone mais para dropdown -->
+
+                    <button id="btnv"> Venda </button>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <path fill="currentColor"
+                                    d="M10 2a2 2 0 1 1-3.999.001A2 2 0 0 1 10 2zm0 6a2 2 0 1 1-3.999.001A2 2 0 0 1 10 8zm0 6a2 2 0 1 1-3.999.001A2 2 0 0 1 10 14z" />
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 512 512">
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="32"
+                                        d="m112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320" />
+                                    <path fill="currentColor" stroke="currentColor" stroke-linecap="round"
+                                        stroke-miterlimit="10" stroke-width="32" d="M80 112h352" />
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="32"
+                                        d="M192 112V72h0a23.93 23.93 0 0 1 24-24h80a23.93 23.93 0 0 1 24 24h0v40m-64 64v224m-72-224l8 224m136-224l-8 224" />
+                                </svg> Excluir imóvel</a>
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 32 32">
+                                    <path fill="currentColor"
+                                        d="M8 8h2v4H8zm0 6h2v4H8zm6-6h2v4h-2zm0 6h2v4h-2zm-6 6h2v4H8zm6 0h2v4h-2z" />
+                                    <path fill="currentColor"
+                                        d="M30 14a2 2 0 0 0-2-2h-6V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v26h28ZM4 4h16v24H4Zm18 24V14h6v14Z" />
+                                </svg> Reativar imóvel</a>
+                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24">
+                                    <g fill="none">
+                                        <path
+                                            d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z" />
+                                        <path fill="currentColor"
+                                            d="M16.035 3.015a3 3 0 0 1 4.099-.135l.144.135l.707.707a3 3 0 0 1 .135 4.098l-.135.144L9.773 19.177a1.5 1.5 0 0 1-.562.354l-.162.047l-4.454 1.028a1.001 1.001 0 0 1-1.22-1.088l.02-.113l1.027-4.455a1.5 1.5 0 0 1 .29-.598l.111-.125L16.035 3.015Zm-.707 3.535l-8.99 8.99l-.636 2.758l2.758-.637l8.99-8.99l-2.122-2.12Zm3.536-2.121a1 1 0 0 0-1.32-.083l-.094.083l-.708.707l2.122 2.121l.707-.707a1 1 0 0 0 .083-1.32l-.083-.094l-.707-.707Z" />
+                                    </g>
+                                </svg> Editar imóvel</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="localizacao">
+                <h6>Pituba - Salvador</h6>
+                <p><small class="text-muted">COD: 789654</small></p>
+            </div>
+
+            <div class="footer-card">
+                <div id="iconalinha"> <!-- display flex -->
+                    <div class="icone"> <!-- display flex -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="none">
+                                <path
+                                    d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z" />
+                                <path fill="currentColor"
+                                    d="M17 3a2 2 0 0 1 2 2v14h1a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2h1V5a2 2 0 0 1 2-2h10Zm0 2H7v14h10V5Zm-2.5 6a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3Z" />
+                            </g>
+                        </svg> 14 salas
+                    </div>
+                    <div class="icone">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="m5 11l1.5-4.5h11L19 11m-1.5 5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m-11 0A1.5 1.5 0 0 1 5 14.5A1.5 1.5 0 0 1 6.5 13A1.5 1.5 0 0 1 8 14.5A1.5 1.5 0 0 1 6.5 16M18.92 6c-.2-.58-.76-1-1.42-1h-11c-.66 0-1.22.42-1.42 1L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8l-2.08-6Z" />
+                        </svg>
+                        2 Vagas
+
+                    </div>
+                    <div class="icone">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                            <g transform="translate(28 0) scale(-1 1)">
+                                <path fill="currentColor"
+                                    d="M10.75 2A2.75 2.75 0 0 0 8 4.75v18.5A2.75 2.75 0 0 0 10.75 26h6.5A2.75 2.75 0 0 0 20 23.25V4.75A2.75 2.75 0 0 0 17.25 2h-6.5ZM9.5 14.75h2.75a.75.75 0 0 0 0-1.5H9.5V11h4.75a.75.75 0 0 0 0-1.5H9.5V7.25h2.75a.75.75 0 0 0 0-1.5H9.5v-1c0-.69.56-1.25 1.25-1.25h6.5c.69 0 1.25.56 1.25 1.25v18.5c0 .69-.56 1.25-1.25 1.25h-6.5c-.69 0-1.25-.56-1.25-1.25v-1h2.75a.75.75 0 0 0 0-1.5H9.5V18.5h4.75a.75.75 0 0 0 0-1.5H9.5v-2.25Z" />
+                            </g>
+                        </svg>
+                        108m²
+
+                    </div>
+                </div>
+                <p id="valor-imovel"> <strong>R$ 2.000.000</strong> </p>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+<script src="../../js/painelControle.js"></script>

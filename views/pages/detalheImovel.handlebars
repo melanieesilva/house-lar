@@ -1,4 +1,9 @@
 <link rel="stylesheet" href="../../css/detalheImovel.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+
 
 <main id="main">
     <div class="retorno">
@@ -157,11 +162,11 @@
                 </div>
 
                 <div class="buttons-lateral">
-                    <button class="tirar-duvida" id="tirar-duvida">
+                    <button class="tirar-duvida" id="tirar-duvida" onclick="TirarDuvida()">
                         <iconify-icon icon="majesticons:chat-line"></iconify-icon>
                         Tirar uma dúvida
                     </button>
-                    <button class="agendar-visita" id="agendar-visita">
+                    <button class="agendar-visita" id="agendar-visita" onclick="AgendarVisita()">
                         <iconify-icon icon="lucide:calendar"></iconify-icon>
                         Agendar visita
                     </button>
@@ -295,28 +300,6 @@
 
     </section>
 
-    <div class="teste">
-        <div class="bloco">
-            <div class="card">1</div>
-            <div class="card">2</div>
-            <div class="card">3</div>
-            <div class="card">4</div>
-            <div class="card">5</div>
-            <div class="card">6</div>
-        </div>
-        <div class="bloco">
-            <div class="card">7</div>
-            <div class="card">8</div>
-            <div class="card">9</div>
-            <div class="card">10</div>
-            <div class="card">11</div>
-            <div class="card">12</div>
-        </div>
-
-        <button class="antes" id="antes"> <= </button>
-        <button class="depois" id="depois"> => </button>
-    </div>
-
     <div class="mapaContainer" id="mapaContainer">
         <div class="area-mapa" id="area-mapa">
 
@@ -347,10 +330,10 @@
                 </div>
 
                 <div class="botoes-slide" id="botoesSlide">
-                    <button class="btn-antes-slide" id="antesSlide" onclick="addSlide(-1)"> 
-                        <iconify-icon icon="ep:arrow-left"></iconify-icon> 
+                    <button class="btn-antes-slide" id="antesSlide" onclick="addSlide(-1)">
+                        <iconify-icon icon="ep:arrow-left"></iconify-icon>
                     </button>
-                    <button class="btn-depois-slide" id="depoisSlide" onclick="addSlide(1)"> 
+                    <button class="btn-depois-slide" id="depoisSlide" onclick="addSlide(1)">
                         <iconify-icon icon="ep:arrow-right"></iconify-icon>
                     </button>
                 </div>
@@ -374,12 +357,12 @@
                     <div class="imagem-carrossel" id="imagemCarrossel"></div>
                     <div class="imagem-carrossel" id="imagemCarrossel"></div>
                 </div>
-            
+
                 <div class="botoes-control" id="botoesControl">
-                    <button class="antes" id="antes" onclick="addCarrossel(-1)"> 
-                        <iconify-icon icon="ep:arrow-left"></iconify-icon> 
+                    <button class="antes" id="antes" onclick="addCarrossel(-1)">
+                        <iconify-icon icon="ep:arrow-left"></iconify-icon>
                     </button>
-                    <button class="depois" id="depois" onclick="addCarrossel(1)"> 
+                    <button class="depois" id="depois" onclick="addCarrossel(1)">
                         <iconify-icon icon="ep:arrow-right"></iconify-icon>
                     </button>
                 </div>
@@ -387,5 +370,150 @@
         </div>
     </div>
 
+    <div class="modalAgendarVisita" id="modalAgendarVisita">
+        <div class="conteudoModalAgendar" id="conteudoModalAgendar">
+            <nav class="navegacao-modal-agendar">
+                <div id="inicio-agendar">
+                    <section id="agendar-visita">
+                        <h2>Agendar visita</h2>
+                        <p>Escolha uma data e um horário de visita disponibilizados pela imobiliária</p>
+                    </section>
+                    <div id="div-button">
+                        <button id="btnCloseModalAgenda"><iconify-icon icon="mdi:remove"
+                                id="icone-fechar"></iconify-icon></button>
+                    </div>
+                </div>
+
+                <section id="data">
+                    <h3>Data</h3>
+                    <p>Selecione uma data no calendário</p>
+                    <div class="wrapper">
+                        <div class="header">
+                            <div class="icons">
+                                <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                                <p class="current-date" id="calendario-mes"></p>
+                                <span id="next" class="material-symbols-rounded">chevron_right</span>
+                            </div>
+                        </div class="header">
+                        <div class="calendar">
+                            <ul class="weeks">
+                                <li>DOM</li>
+                                <li>SEG</li>
+                                <li>TER</li>
+                                <li>QUA</li>
+                                <li>QUI</li>
+                                <li>SEX</li>
+                                <li>SAB</li>
+                            </ul>
+                            <ul class="days"></ul>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="horario">
+                    <h3>Horário</h3>
+                    <p>Selecione um horário para a visita</p>
+
+                    <div id="conteiner">
+                        <iconify-icon icon="carbon:time" id="icone-relogio"></iconify-icon>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>HORA DISPONÍVEL</option>
+                            <option value="1">Hora 1</option>
+                            <option value="2">Hora 2</option>
+                            <option value="3">Hora 3</option>
+                            <option value="3">Hora 4</option>
+                            <option value="3">Hora 5</option>
+                        </select>
+                    </div>
+
+                </section>
+
+                <div id="dados-usuario">
+                    <section id="seus-dados">
+                        <h3>Seus dados</h3>
+                        <p>Informe seus dados para o corretor entrar em contato caso necessário</p>
+                    </section>
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleInputText1" class="form-label">Nome e sobrenome</label>
+                            <input type="text" class="form-control" id="exampleInputText1" placeholder="Digite aqui...">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                placeholder="Seu endereço de e-mail...">
+                        </div>
+                        <div class="mb-3" id="telefone">
+                            <label for="exampleInputTel1" class="form-label">Telefone</label>
+                            <input type="tel" class="form-control" id="exampleInputTel1" placeholder="(DDD) + número">
+                        </div>
+                    </form>
+                    <div id="botao-submit">
+                        <button type="submit" class="btn btn-primary" id="btnAgendar">Agendar visita</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="modalTirarDuvida" id="modalTirarDuvida">
+        <div class="conteudoTirarDuvida">
+            <nav class="formDuvida" id="formDuvida">
+                <div class="publicacao">
+                    <div class="publi2">
+                        <div class="legenda">
+                            <div class="divbotao">
+                                <h1> Tirar Dúvida</h1>
+                                <button id="botaoicon"><iconify-icon icon="ph:x-bold" id="icon"></iconify-icon></button>
+                            </div>
+                            <h5 class="cinza">Informe seus dados para o corretor responder sua dúvidas por email
+                            </h5>
+                        </div>
+                        <br>
+                        <form action="">
+                            <div class="input">
+                                <label for="nome-usuario">Nome e Sobrenome</label>
+                                <input type="text" placeholder="Digite aqui..." name="nome-usuario" id="nome-usuario"
+                                    class="info">
+                            </div>
+                            <div class="input">
+                                <label>E-mail</label>
+                                <input type="text" placeholder="O Endereço de e-mail..." class="info">
+                            </div>
+
+                            <div class="input">
+                                <label for="telefone-usuario">Telefone</label>
+                                <input type="tel" name="telefone-usuario" id="telefone-usuario" autocomplete="tel"
+                                    pattern="^\(\d{2}\)\d{4,5}-\d{4}$" placeholder="(xx)xxxx-xxxx" class="info">
+                            </div>
+                            <div class="input2">
+                                <label for="mensagem-usuario"> Sua Mensagem</label>
+                                <textarea name="mensagem-usuario" id="mensagem-usuario" cols="30" rows="10"
+                                    placeholder="Digite aqui..." class="info2"></textarea>
+                                <div id="btn-form">
+                                    <button id="botaoEnviarDuvida"> Enviar Mensagem </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+            </nav>
+            <nav class="formConfirmacao" id="formConfirmacao">
+                <button id="fecharModalConfirmacao">
+                    <iconify-icon icon="mdi:remove"></iconify-icon>
+                </button>
+                <div class="textoConfirmacao">
+                    {{!-- <iconify-icon icon="line-md:circle-to-confirm-circle-transition"></iconify-icon> --}}
+                    <p>Mensagem enviada com sucesso!</p>
+                    <p>Enviamos sua questão para o corretor responsável. A resposta chegará no e-mail que você
+                        forneceu, fique atento na sua Caixa de Entrada ou Spam.</p>
+                </div>
+            </nav>
+        </div>
+    </div>
+
 </main>
-<script type="module"src="../../js/detalheImovel.js"></script>
+<script src="../../js/detalheImovel.js"></script>

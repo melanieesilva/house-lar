@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,23 +11,28 @@
 </head>
 
 <body>
-    <div id="central">
-        <H1>Lorem ipsum dolor sit amet</H1>
-        <div id="hud">
-            <div id="pf">
+<section class="main-container">
+    <div class="hero-img" id="heroImg">
+        <div id="texto">
+            <h1>Lorem Ipsum Dolor Sit <span>Amet</span></h1>
+            <p>Lorem ipsum dolor sit amet. Lorem ipsum 
+                dolor sit amet. Lorem ipsum dolor sit amet.
+            </p>
+        </div>
+        <div id="areaPesquisa">
+            <div id="escolhas">
                 <input type="button" value="Comprar" id="compra" class="botao" name="compra"
                     onclick="alternaCores('compra')" style="    border-top-left-radius: 16px;">
                 <input type="button" value="Alugar" id="alugar" class="botao" name="alugar"
                     onclick="alternaCores('alugar')" style="    border-top-right-radius: 16px;">
             </div>
-
-            <form action="" method="get">
-                <div>
-                    <div id="mba">
-                        <h4>Pesquise por cidade ou bairro</h4>
+            <div id="areaForm">
+                <form action="" method="get">
+                    <div id="pesquisa">
+                        <input type="text" placeholder="Pesquise por cidade ou bairro|">
 
                         <div id="iconback">
-                            <a href="http://" target="_blank" rel="noopener noreferrer">
+                            <a href="/buscaAvancada" target="_blank" rel="noopener noreferrer">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                     <path fill="#FFFFFF"
                                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
@@ -38,15 +42,15 @@
                         </div>
                     </div>
 
-                    <div id="emgloba">
-                        <div>
+                    <div id="selecoes">
+                        <div id="select">
                             <label class="labelde">Tipo do Imovel</label> <br>
                             <select name="Tipo do Imovel" id="">
                                 <option value="">Apartamento</option>
                             </select>
                         </div>
 
-                        <div>
+                        <div id="select">
                             <label class="labelde">N° de quartos</label> <br>
                             <select name="quartos" id="">
                                 <option value="">1</option>
@@ -57,7 +61,7 @@
                             </select>
                         </div>
 
-                        <div>
+                        <div id="select">
                             <label class="labelde">Preço</label> <br>
                             <select name="Preço" id="">
                                 <option value="">Até 300.000</option>
@@ -67,7 +71,7 @@
                             </select>
                         </div>
 
-                        <div>
+                        <div id="select">
                             <label class="labelde">Área</label> <br>
                             <select name="Área" id="">
                                 <option value="">Até 80m²</option>
@@ -77,17 +81,21 @@
                             </select>
                         </div>
                     </div>
-                </div>
+               
 
             </form>
+            </div>
+            
 
         </div>
     </div>
 
     <div id="imoveis">
         <h3>Imóveis Recentes</h3>
-        <input type="button" value="Ver Tudo" class="btn btn-primary" style="background-color: #9D0058;
-        color: white; border-color: #9D0058;">
+        <a href="/buscaAvancada">
+            <input type="button" value="Ver Tudo" class="btn btn-primary" style="background-color: #9D0058;
+            color: white; border-color: #9D0058;">
+        </a>
     </div>
 
     <div class="card-deck">
@@ -313,8 +321,11 @@
 
     <div id="imoveis">
         <h3>Últimas notícias</h3>
-        <input type="button" value="Ver Tudo" class="btn btn-primary" style="background-color: #9D0058;
+        <a href="/noticias">
+            <input type="button" value="Ver Tudo" class="btn btn-primary" style="background-color: #9D0058;
         color: white; border-color: #9D0058;">
+        </a>
+        
     </div>
 
     <div class="card-deck">
@@ -346,19 +357,23 @@
                     commodo sed nullam.</h5>
                 <p class="card-text">Este é um card mais longo com suporte a texto embaixo, que funciona como uma
                     introdução a um conteúdo adicional. Este conteúdo é um pouco maior.</p>
-                <div class="noticia">
-                    <div>
-                        <p class="card-text"><small class="text-rosa"> Ler Noticia</small> </p>
+                
+                <a href="/artigoNoticia">
+                    <div class="noticia">
+                        <div>
+                            <p class="card-text"><small class="text-rosa"> Ler Noticia</small> </p>
+                        
+                        </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
+                                <g transform="rotate(90 32 32)">
+                                    <path fill="#9d0058"
+                                        d="M32 2C15.432 2 2 15.432 2 32s13.432 30 30 30s30-13.432 30-30S48.568 2 32 2zm5.143 28.305V49H26.857V30.305H16L32 15l16 15.305H37.143z" />
+                                </g>
+                            </svg>
+                        </div>
                     </div>
-                    <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
-                            <g transform="rotate(90 32 32)">
-                                <path fill="#9d0058"
-                                    d="M32 2C15.432 2 2 15.432 2 32s13.432 30 30 30s30-13.432 30-30S48.568 2 32 2zm5.143 28.305V49H26.857V30.305H16L32 15l16 15.305H37.143z" />
-                            </g>
-
-                        </svg>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
         <div class="card">
@@ -389,19 +404,21 @@
                     commodo sed nullam.</h5>
                 <p class="card-text">Este é um card com suporte a texto embaixo, que funciona como uma introdução a um
                     conteúdo adicional.</p>
-                <div class="noticia">
-                    <div>
-                        <p class="card-text"><small class="text-rosa"> Ler Noticia</small> </p>
-                    </div>
-                    <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
-                            <g transform="rotate(90 32 32)">
-                                <path fill="#9d0058"
-                                    d="M32 2C15.432 2 2 15.432 2 32s13.432 30 30 30s30-13.432 30-30S48.568 2 32 2zm5.143 28.305V49H26.857V30.305H16L32 15l16 15.305H37.143z" />
-                            </g>
+                <a href="/artigoNoticia">
+                    <div class="noticia">
+                        <div>
+                            <p class="card-text"><small class="text-rosa"> Ler Noticia</small> </p>
+                        </div>
+                        <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
+                                <g transform="rotate(90 32 32)">
+                                    <path fill="#9d0058"
+                                        d="M32 2C15.432 2 2 15.432 2 32s13.432 30 30 30s30-13.432 30-30S48.568 2 32 2zm5.143 28.305V49H26.857V30.305H16L32 15l16 15.305H37.143z" />
+                                </g>
 
-                        </svg>
+                            </svg>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
         <div class="card">
@@ -433,19 +450,21 @@
                 <p class="card-text">Este é um card maior com suporte a texto embaixo, que funciona como uma introdução
                     a um conteúdo adicional. Este card tem o conteúdo ainda maior que o primeiro, para mostrar a altura
                     igual, em ação.</p>
-                <div class="noticia">
-                    <div>
-                        <p class="card-text"><small class="text-rosa"> Ler Noticia</small> </p>
-                    </div>
-                    <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
-                            <g transform="rotate(90 32 32)">
-                                <path fill="#9d0058"
-                                    d="M32 2C15.432 2 2 15.432 2 32s13.432 30 30 30s30-13.432 30-30S48.568 2 32 2zm5.143 28.305V49H26.857V30.305H16L32 15l16 15.305H37.143z" />
-                            </g>
+                <a href="/artigoNoticia">
+                    <div class="noticia">
+                        <div>
+                            <p class="card-text"><small class="text-rosa"> Ler Noticia</small> </p>
+                        </div>
+                        <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
+                                <g transform="rotate(90 32 32)">
+                                    <path fill="#9d0058"
+                                        d="M32 2C15.432 2 2 15.432 2 32s13.432 30 30 30s30-13.432 30-30S48.568 2 32 2zm5.143 28.305V49H26.857V30.305H16L32 15l16 15.305H37.143z" />
+                                </g>
 
-                        </svg>
+                            </svg>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
@@ -518,16 +537,21 @@
                 </h3>
                 <p>Lorem ipsum dolor sit amet consectetur. Orci mi consequat consectetur in ut. Augue commodo.</p>
             </div>
-            <div id="txtbot">
-                <button type="button" class="btn btn-primary btn-lg" style="background-color: #9D0058;
-                 color: white; border-color: #9D0058;">Saiba como publicar</button>
-            </div>
-
+            <a href="/publicarImovelCliente">
+                <div id="txtbot">
+                    <button type="button" class="btn btn-primary btn-lg" style="background-color: #9D0058;
+                    color: white; border-color: #9D0058;">Saiba como publicar</button>
+                </div>
+            </a>
         </div>
     </div>
+</section>
 
 
-    <!-- bootstrap cabeça -->
+
+
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -541,3 +565,4 @@
 </body>
 
 </html>
+

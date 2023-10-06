@@ -1,25 +1,16 @@
-
-/* * {
-    font-family: 'Poppins', sans-serif;
-} */
-
-/* Alterado */
-/* body {
+.main{
     display: flex;
     justify-content: space-around;
     height: 100vh;
     align-items: start;
-} */
+    padding-top: 90px;
+}
 
 #publicacao {
     width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
-}
-
-form{
-    width: 100%;
 }
 
 #colunas{
@@ -60,7 +51,6 @@ form{
     border-radius: 7px;
     padding: 0% 5%;
     border-width: thin;
-    margin-top: 2%;
 }
 
 #etapas {
@@ -69,6 +59,46 @@ form{
     justify-content: end;
     padding: 11% 11% 0% 0%;
 
+}
+
+.escolha {
+    background-color: #FFFFFF;
+    border: 1px solid #DCDCDC;
+    display: flex;
+    align-items: center;
+    height: 6em;
+    border-radius: 8px;
+    padding-left: 5%;
+    outline: none;
+}
+
+.icones {
+    border: 1px solid #9D0058;
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-radius: 8px;
+    margin-right: 5%;
+    color: #9D0058;
+}
+
+.opcao {
+    font-weight: 500;
+}
+
+.escolha:focus {
+    background-color: #FFE1F2;
+    box-shadow: none;
+    border-color: #9D0058;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    height: 12em;
+    justify-content: space-around;
+    width: 75%;
 }
 
 #titulo {
@@ -93,11 +123,6 @@ h4 {
 .check {
     width: 13%;
     padding: 0% 5% 0% 0%;
-}
-
-/* Alterado - removido espaçamento*/
-#legenda {
-    
 }
 
 .cinza {
@@ -132,6 +157,7 @@ main{
     flex-direction: column;
     gap: 24px;
 }
+
 .legenda > :last-child{
     width: 600px;
 }
@@ -148,45 +174,21 @@ main{
     gap: 16px;
 }
 
-.formulario{
-    width: 600px;
-}
-
-.formulario > form{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.formulario > form > div{
-    display: flex;
-    flex-direction: column;
-    width: calc((100% / 2) - 10px);
-}
-
-.formulario > form > div > input{
-    padding: 14px;
-    border-radius: 6px;
-    border: 1px solid #B0B0B0;
-}
-
-
 .botoes > button{
     float: right;
     background-color: #9D0058;
     color: WHITE;
     border: none;
     border-radius: 12px;
-    padding: 12px 24px;
     font-size: 14px;
 }
-
 
 .etapas{
     display: flex;
     flex-direction: column;
     gap: 32px;
 }
+
 .etapas > .etapa{
     gap: 12px;
     color: rgb(126, 126, 126);
@@ -202,12 +204,23 @@ main{
 }
 
 /* Pegando a primeira etapa para preencher */
-.etapas > :first-child{
+.etapas > :nth-child(2){
     color: black;
     font-weight: 500;
 }
-.etapas > :first-child > .icon, .bar-mobile > :first-child > .icon{
+
+.etapas > :nth-child(2) > .icon, .bar-mobile > :nth-child(2) > .icon{
     border: 1px solid rgb(0, 0, 0);
+}
+
+.etapas > :nth-child(-n+1){
+    color: #00833C;
+    font-weight: 500;
+}
+
+.etapas > :nth-child(-n+1) > .icon, .bar-mobile > :nth-child(-n+1) > .icon{
+    background-color: #00833C;
+    color: #FFFFFF;
 }
 
 .etapa-bar{
@@ -241,4 +254,41 @@ main{
     background-color: #B8B8B8;
     width: 1px;
     height: 50%;
+}
+
+#direcao {
+    display: flex;
+    height: 2.8em;
+    gap: 50%;
+}
+
+.botoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 8px;
+    height: 100%;
+}
+
+#botaovoltar {
+    background-color: #989898;
+    color: #FFFFFF;
+    padding-right: 40%;
+}
+
+#flechavoltar {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+#botaocontinuar {
+    background-color: #9D0058;
+    color: #FFFFFF;
+    padding-left: 25%;
+}
+
+#flechacontinuar {
+    padding-left: 5%;
+    padding-right: 10%;
 }

@@ -1,15 +1,13 @@
+/* style 1 */
 
-/* * {
-    font-family: 'Poppins', sans-serif;
-} */
-
-/* Alterado */
-/* body {
+.main{
     display: flex;
     justify-content: space-around;
     height: 100vh;
     align-items: start;
-} */
+    padding-top: 90px;
+    gap: 80px;
+}
 
 #publicacao {
     width: 50%;

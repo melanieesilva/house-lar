@@ -1,3 +1,22 @@
+//Configurando Sequelize
+const Sequelize = require('sequelize')
+const dbHost = "localhost"
+const connection = new Sequelize('OBJETO','root','cimatec',{
+    dialect: "mysql",
+    host: dbHost
+}) //conectando a um banco de dados chamado Objeto, na máquina do CIMATEC
+
+const conexao = connection.authenticate().then(function(){
+    console.log("Conexão feita com sucesso!")
+}).catch(function(err){
+    console.log("Não foi possível conectar")
+})
+
+//criando tabelas no banco OBJETO
+//define = define uma entidade / create = insere dados / findAll = apresenta todos os atributos de uma tabela
+
+
+
 //Inicializando express
 const express = require('express')
 const app = express()

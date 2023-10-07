@@ -1,0 +1,265 @@
+/* NÃO ESTÁ RESPONSIVO!!!!!!!!!1 */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Poppins:wght@400;500&display=swap');
+
+:root {
+    --margem-geral: 2%;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav{
+    width:fit-content;
+}
+
+.form-select{
+    width: 15%;
+    font-size: 14px;
+    font-weight: 500; 
+}
+
+.mb-3{
+    margin-right: 3%;
+    min-width: 220px;
+    width: 25%;
+}
+
+#inicio-agendar{
+    display: flex;
+    margin-left: var(--margem-geral);
+    margin-top:  var(--margem-geral);
+    margin-bottom: var(--margem-geral);
+}
+
+#inicio-agendar #div-button{
+    margin-left: auto;
+    margin-right: var(--margem-geral);
+}
+
+#inicio-agendar button{
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #CECECE;
+    width: 40px;
+    height: 40px;  
+    min-width: 40px;
+    min-height: 40px;
+}
+
+#inicio-agendar button #icone-fechar{
+    font-size: 24px;
+    margin-top: 16%;
+}
+
+#agendar-visita h2{
+    font-size: 24px;
+    font-weight: 500;
+}
+
+#agendar-visita p{
+    color: #515151; 
+    font-size: 16px; 
+    font-weight: 400;
+}
+
+#data{
+    margin-left: var(--margem-geral);
+    margin-bottom: 3%;
+}
+
+#data h3{
+    font-size: 20px;
+    font-weight: 400; 
+}
+
+#data p{
+    color: #515151; 
+    font-size: 16px;
+    font-weight: 400; 
+}
+
+#data #calendario-mes{
+  color: black;
+  font-size: 20px;
+  margin-top: var(--margem-geral);
+}
+
+#horario{
+    margin-left: var(--margem-geral);
+    margin-bottom: 4%;
+}
+
+#horario h3{
+    font-size: 20px;
+    font-weight: 400; 
+}
+
+#horario p{
+    color: #515151;
+    font-size: 16px;
+    font-weight: 400; 
+}
+
+#horario #conteiner{
+  position: relative;
+}
+
+#horario #conteiner #icone-relogio{
+  position: absolute;
+  margin-top: 1%;
+  margin-left: 1%;
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+}
+
+#horario select{
+    width: 230px;
+    padding-left: 4%;
+    font-size: 14px;
+}
+
+#dados-usuario{
+    margin-left: var(--margem-geral);
+    margin-bottom: 3%;
+}
+
+#dados-usuario #seus-dados{
+    margin-bottom: 3%;
+}
+
+#dados-usuario #seus-dados h3{
+    font-size: 20px;
+    font-weight: 400; 
+}
+
+#dados-usuario #seus-dados p{
+    color: #515151;
+    font-size: 16px;
+    font-weight: 400; 
+}
+
+#dados-usuario form{
+    display: flex;
+}
+
+#dados-usuario form label{
+    font-size: 14px;
+    font-family: Montserrat;
+    font-weight: 500; 
+}
+
+#dados-usuario #telefone{
+    margin-right: 0px;
+}
+
+#botao-submit{
+    text-align: right;
+}
+
+#botao-submit button{
+    background-color: #9D0058;
+    border: none;
+    display: inline-block;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 12px; 
+}
+
+/* <---- Estilização do Calendário ----> */
+
+.wrapper{
+  width: 45%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+.wrapper header{
+  display: flex;
+  padding: 25px 30px 10px;
+  justify-content: center;
+}
+header .icons{
+  display: flex;
+}
+header .icons span{
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  color: #878787;
+  text-align: center;
+  line-height: 38px;
+  font-size: 40px;
+  font-weight: 210;
+  user-select: none;
+  border-radius: 50%;
+  color: black;
+}
+.icons span:last-child{
+  margin-right: -10px;
+}
+header .icons span:hover{
+  background: #f2f2f2;
+}
+header .current-date{
+  font-size: 20px;
+  font-weight: 500;
+
+}
+.calendar{
+  padding: 20px;
+}
+.calendar ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+}
+.calendar .days{
+  margin-bottom: 20px;
+}
+.calendar li{
+  color: #333;
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+}
+.calendar .weeks li{
+  font-weight: 500;
+  cursor: default;
+}
+.calendar .days li{
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 30px;
+}
+.days li.inactive{
+  color: #aaa;
+}
+.days li.active{
+  color: #fff;
+}
+.days li::before{
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: -1;
+  border-radius: 4px; 
+  transform: translate(-50%, -50%);
+}
+.days li.active::before{
+  background: #9D0058;
+}
+.days li:not(.active):hover::before{
+  background: #f2f2f2;
+}
+

@@ -51,6 +51,10 @@ app.use(bodyParser.json());
 // Usuário final 
 app.get('/', (req, res) => res.render('pages/paginaInicial.handlebars'));
 
+app.get('/perfilUsuario',function(req,res){
+    res.render('pages/perfilUsuario.handlebars')
+})
+
 app.get('/sobrenos',function(req,res){
     res.render('pages/sobrenos.handlebars')
 })
@@ -110,6 +114,20 @@ app.get('/loginCorretor',function(req,res){
         pageTitle: 'Login Imobiliária'
     })
 })
+
+// Login Corretor - Esqueceu a Senha
+
+app.get('/esqueceuSenha', function (req,res){
+    res.render('pages/EsqueceuSenha/esqueceuSenha');
+});
+
+app.get('/esqueceuSenha2', function (req,res){
+    res.render('pages/EsqueceuSenha/esqueceuSenha2');
+});
+
+app.get('/esqueceuSenha3', function (req,res){
+    res.render('pages/EsqueceuSenha/esqueceuSenha3');
+});
 
 // Corretor - Painel de Controle
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../../css/EsqueceuSenha/esqueceuSenha.css">
+        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+        <script src="../../../js/EsqueceuSenha/esqueceuSenha.js"></script>
+        <title>Esqueceu a senha?</title>
+    </head>
+
+    <body>
+        <div id="voltar-pagina">
+            <a href="login.html"><iconify-icon icon="ep:arrow-left" id="icone-seta"></iconify-icon><h6>Login/Esqueceu a senha</h6></a>
+        </div>
+        <div id="conteiner">
+            <section id="texto-inicial">
+                <h3>Esqueceu a senha?</h3>
+                <p>Escolha uma das opções para validar que é você mesmo</p>
+            </section>
+            <div id="selecionar">
+                <button type="button" class="botoes" id="email" onclick="ativarBotao()">
+                    <iconify-icon icon="ic:outline-email" id="icone-carta"></iconify-icon>
+                    <p>Receber código por e-mail</p>
+                </button>
+                <button type="button" class="botoes" id="sms" onclick="ativarBotao()">
+                    <iconify-icon icon="bi:phone" id="icone-celular"></iconify-icon>
+                    <p>Receber código por sms</p>
+                </button>
+            </div>
+            <a href="esqueceuSenha2" id="ancora"><button type="button" id="botao-enviar">Enviar Código</button></a>
+        </div>
+    </body>
+</html>

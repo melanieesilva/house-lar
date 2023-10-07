@@ -1,9 +1,17 @@
-a{
-    text-decoration: none !important;
-    color: white;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
-a:visited{
-    text-decoration: none !important;
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover{
+    text-decoration: underline;
 }
 
 img {
@@ -79,7 +87,6 @@ input[type=email], input[type=password]{
 
 #metade1 button[type=submit]{
     background-color: #9D0058;
-    color: white !important;
     text-align: center;
     display: grid;
     margin: auto;

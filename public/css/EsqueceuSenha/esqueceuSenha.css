@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#voltar-pagina{
+    display: flex;
+    margin-top: 5%;
+    margin-left: 3%;
+}
+
+#voltar-pagina a{
+    display: inherit;
+    color: inherit;
+    text-decoration: none;
+}
+
+#voltar-pagina a:hover{
+    text-decoration: underline;
+}
+
+#voltar-pagina #icone-seta{
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+#voltar-pagina h6{
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 500;
+    margin-top: 3px; 
+}
+
+.botoes{
+    display: flex;
+    width: 100%;
+    padding: 40px 15px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px; 
+    text-align: center;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.08);
+    border-radius: 8px; 
+    background-color: white;
+    text-decoration: none;
+    border: 0;
+}
+ 
+.botoes:focus{
+    border: 1px solid #B00063; 
+    background: #FFE1F2; 
+    color: #B00063; 
+}
+
+.botoes p{
+    font-size: 24px;
+    font-weight: 500; 
+}
+
+#conteiner{
+    height: 80vh;
+    display: grid;
+    place-items: center;
+}
+
+#conteiner #texto-inicial{
+    text-align: center;
+}
+
+#conteiner #texto-inicial h3{
+    font-size: 36px;
+    font-weight: 600; 
+    margin-bottom: 30px;
+}
+
+#conteiner #texto-inicial p{
+    font-size: 24px; 
+    width: 95%;
+}
+
+#conteiner #ancora{
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+}
+
+#selecionar{
+    display: flex;
+    justify-content: center;
+}
+
+#selecionar #email{
+    margin-right: 3%;
+}
+
+#selecionar #email #icone-carta{
+    font-size: 40px;
+}
+
+#selecionar #sms #icone-celular{
+    font-size: 40px;
+}
+
+#botao-enviar{
+    width: 35%;
+    padding: 1%;
+    border-radius: 8px;
+    background: #A8A8A8; 
+    border: none;
+    color: #DDDDDD;
+    font-size: 16px;
+    font-weight: 600; 
+    min-width: 300px;
+    min-height: 40px;
+    cursor: pointer;
+}

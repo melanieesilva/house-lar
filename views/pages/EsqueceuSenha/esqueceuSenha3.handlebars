@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="../../../css/EsqueceuSenha/esqueceuSenha3.css">
+        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+        <script src="../../../js/EsqueceuSenha/esqueceuSenha3.js"></script>
+        <title>Alterar senha</title>
+    </head>
+
+    <body>
+        <div id="voltar-pagina">
+            <a href="login.html" id="anchor1"><iconify-icon icon="ep:arrow-left" id="icone-seta"></iconify-icon><h6>Login/Esqueceu a senha</h6></a>
+        </div>
+        <div id="conteiner">
+            <section id="texto-inicial">
+                <h3>Altere sua senha</h3>
+                <p>Crie uma nova senha, com no mínimo 8 caracteres.</p>
+            </section>
+            <form id="inputs">
+                <div class="form-group">
+                  <label for="exampleInputText1">Nova senha</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" aria-describedby="passwordHelp" placeholder="Digite aqui...">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputText1">Confirme sua senha</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" aria-describedby="passwordHelp" placeholder="Confirme a senha acima...">
+                  </div>
+            </form>
+            <button type="button" id="botao-redefinir" onclick="darFiltro()">Redefinir senha</button></a>
+        </div>
+        <div id="confirmacao">
+            <iconify-icon icon="line-md:circle-to-confirm-circle-transition" style="color: #00833c;" id="icone-confirmar"></iconify-icon>
+             <section id="texto-confirmar">
+                <h3>Senha alterada com sucesso</h3>
+                <p>Sua senha foi alterada, você já pode tentar fazer seu login novamente.</p>
+            </section>
+            <a href="/"><button type="button" id="botao-confirmar">Voltar à página inicial</button></a>
+        </div>
+    </body>
+</html>

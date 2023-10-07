@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+h4{
+    color: #616161;
+    font-size: 16px;
+}
+
+label{
+    margin-bottom: 2%;
+}
+
+p{
+    font-size: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    display: inherit;
+    margin: 0px;
+    padding: 0px;
+}
+
+button{
+    color: #9D0058;
+    margin-left: 2%;
+}
+
+.form-group{
+    margin-bottom: 7%;
+}
+
+.form-control{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-overflow: ellipsis;
+}
+
+.editar-perfil{
+    display: none;
+}
+
+.fileira{
+    display: grid;
+    grid-template-columns: 250px 173px;
+    margin-left: 2%;
+    margin-right: 10%;
+}
+
+.seção{
+    display: grid;
+    margin-right: 8%;
+    margin-bottom: 10%
+}
+
+.form-group #exampleInputTel1{
+    margin-bottom: 40%;
+}
+
+
+#dados-jornada #j-fileira-1 #imoveis{
+    margin-right: 9%;
+}
+
+#conteiner #dados-usuario{
+    margin-bottom: 3%;
+}
+
+#conteiner #jornada-titulo{
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+
+#conteiner #dados-jornada{
+    background-color: #FFF5FB;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    padding-left: 2%;
+    padding-right: 4%;
+    padding-top: 2%;
+    display: inline-block;
+}
+
+#conteiner #botao-lapis{
+    display: flex;
+}
+
+#conteiner #icone-lapis{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+#imagem{
+    position: relative;
+    width: 80%;
+    min-width: 700px;
+    margin-bottom: 5%;
+    margin-left: 1%;
+    margin-top: 3%;
+}
+
+#titulo-perfil #icone-seu-perfil{
+    margin-right: 1%;
+    margin-bottom: 2%;
+    font-size: 22px;
+}
+
+#jornada-titulo #icone-jornada{
+    margin-right: 1%;
+}
+
+#div-editar{
+    display: inline-block;
+    margin-left: 2%;
+    margin-bottom: 3%;
+    width: 25%;
+    min-width: 250px;
+}
+
+#div-editar #botao-salvar{
+    display: flex;
+}
+
+#div-editar #icone-salvar{
+    font-size: 18px;
+    margin-right: 5px;
+    margin-top: 3%;
+}
+
+#div-seta{
+    display: flex;
+    margin-top: 3%;
+    margin-left: 2%;
+}
+
+#div-seta #seta{
+    font-size: 34px;
+    margin-right: 15%;
+}
+
+#seu-perfil{
+    margin-top: 3%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+
+#seu-perfil #titulo-perfil{
+    display: flex;
+    margin-left: 1%;
+}
+
+#imagem img{
+    min-width: 120px;
+    width: 17%;
+    height: auto;
+    border-radius: 50%;
+}
+
+#imagem #botao{
+    background-color:#9D0058;
+    border-radius: 50%;
+    width: 3%;
+    height: 18%; 
+    min-height: 40px;
+    min-width: 40px;
+    border: none;
+    top: 80%;
+    right: 84%;
+    position: absolute;
+}
+
+#u-fileira-2 #telefone, #data{
+    margin-bottom: 2%;
+}

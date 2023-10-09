@@ -6,11 +6,11 @@ const connection = new Sequelize('OBJETO','root','cimatec',{
     host: dbHost
 }) //conectando a um banco de dados chamado Objeto, na máquina do CIMATEC
 
-const conexao = connection.authenticate().then(function(){
-    console.log("Conexão feita com sucesso!")
-}).catch(function(err){
-    console.log("Não foi possível conectar ao banco de dados")
-})
+// const conexao = connection.authenticate().then(function(){
+//     console.log("Conexão feita com sucesso!")
+// }).catch(function(err){
+//     console.log("Não foi possível conectar ao banco de dados")
+// })
 
 //criando tabelas no banco OBJETO
 //define = define uma entidade / create = insere dados / findAll = apresenta todos os atributos de uma tabela

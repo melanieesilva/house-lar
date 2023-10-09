@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container" >
     <div class="titulo-pagina">
       <h1> Calendário </h1>
     </div>
@@ -40,7 +40,7 @@
             </div>
             <div class="continuar">
               <iconify-icon id="icone" icon="uil:pen"></iconify-icon>
-              <button id="botao">Editar legenda </button>
+              <button id="botao" onclick="abrir()">Editar legenda </button>
             </div>
 
           </div>
@@ -72,7 +72,7 @@
 
             </section>
             <div id="div-button">
-              <button type="button"><iconify-icon icon="mdi:remove" id="icone-fechar"></iconify-icon></button>
+              <button type="button" onclick="voltar()"><iconify-icon icon="mdi:remove" id="icone-fechar"></iconify-icon></button>
             </div>
           </div>
 
@@ -166,7 +166,7 @@
 
           </div>
           <div id="botao-submit2">
-            <button type="submit" class="btn btn-primary"> <iconify-icon id="Salvar"
+            <button type="submit" class="btn btn-primary" onclick="abrir2()"> <iconify-icon id="Salvar"
                 icon="uil:save"></iconify-icon>Salvar </button>
           </div>
 
@@ -182,10 +182,12 @@
                     <h2>Visitas do Dia</h2>
                     <p>Aqui está o detalhamento das visitas do dia. Selecione um horário para ver as visitas marcadas. </p>
                 </section>
-                <div id="div-button">
-                    <button type="button"><iconify-icon icon="mdi:remove" id="icone-fechar"></iconify-icon></button>
-                </div>
+                  <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="voltar" onclick="voltar2()"></button>
+      </div>
+              
             </div>
+           
     
       
 

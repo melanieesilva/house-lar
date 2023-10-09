@@ -129,3 +129,27 @@ function hideTodayBtn() {
 
 // abrir editar agenda
 
+function abrir(){
+  var close=document.querySelector  (".containerEditar")
+  close.style.display="flex"
+}
+
+
+function voltar(){
+  var close=document.querySelector  (".containerEditar")
+  close.style.display="none"
+}
+
+function voltar2(){
+  var close=document.querySelector  (".containerVisitas");
+  close.style.display="none"
+}
+
+function abrir2(){
+  var open=document.querySelector  (".containerVisitas");
+  var close=document.querySelector  (".containerEditar");
+  open.style.display="flex"
+  close.style.display = 'none';
+}
+
+

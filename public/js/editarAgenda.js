@@ -1,4 +1,4 @@
-const daysTag = document.querySelector(".days"),
+const daysTag = document.querySelector(".days2"),
 currentDate = document.querySelector(".current-date"),
 prevNextIcon = document.querySelectorAll(".icons span");
 

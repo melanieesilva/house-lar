@@ -10,7 +10,7 @@ a{
     color: inherit;
 }
 
-a:hover{
+#esqueceu-senha a:hover{
     text-decoration: underline;
 }
 
@@ -91,7 +91,7 @@ input[type=email], input[type=password]{
     color: #9D0058; 
 }
 
-#metade1 button[type=submit]{
+#metade1 button[type=button]{
     background-color: #9D0058;
     text-align: center;
     display: grid;

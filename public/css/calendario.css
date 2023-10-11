@@ -373,36 +373,36 @@ background: #9D0058;
 .days2 li:not(.active):hover::before{
 background: #f2f2f2;
 }
-.testedia{
+.containerEditar .testedia{
 display: grid;
 margin: 2%;
 grid-gap: 15px;
 grid-template-columns: [left] 1fr [middle1] 1fr [middle2] 1fr [right]
 
 }
-#botao-submit button{
+ #botao-submit4 button{
 background-color: #faf6f8;
 color: #333;
 display: flex;
 cursor: pointer;
-width: 65%;
+width: 95%;
 padding: 1% 2%;
 justify-content: center;
 align-items: center;
 }
 
-#botao-submit button:hover
+.containerEditar #botao-submit4 button:hover
 {
 background-color: #9D0058;
 color: #f2f2f2;
 }
-#botao-submit button:focus{
+#botao-submit4 button:focus{
 background-color: #9D0058;
 color: #f2f2f2;
 }
 #botao-submit2 button{
 display: flex;
-width: 20%;
+width: 25%;
 padding: 1% 2%;
 justify-content: center;
 align-items: center;
@@ -568,7 +568,6 @@ color: black;
 .grid2{
 display: grid;
 margin-left: var(--margem-geral); 
-
 flex-shrink: 0;
 
 

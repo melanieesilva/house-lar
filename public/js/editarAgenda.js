@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 let daysTag = document.querySelector(".days2")
 currentdate = document.querySelector(".current-data")
+=======
+const daysTag = document.querySelector(".days2"),
+currentDate = document.querySelector(".current-date"),
+>>>>>>> 7e3a06f900ac2ebb86c890a4d316431d630334f8
 prevNextIcon = document.querySelectorAll(".icons span");
 
 // getting new data, current year and month

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 let daysTag = document.querySelector(".days2")
-currentdate = document.querySelector(".current-data")
-=======
-const daysTag = document.querySelector(".days2"),
-currentDate = document.querySelector(".current-date"),
->>>>>>> 7e3a06f900ac2ebb86c890a4d316431d630334f8
+currentdata = document.querySelector(".current-data")
 prevNextIcon = document.querySelectorAll(".icons span");
 
 // getting new data, current year and month
@@ -37,7 +32,7 @@ const carregarCalendario = () => {
     for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
         liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
     }
-    currentdate.innerText = `${mes2[currMonth]} ${currYear}`; // passing current mon and yr as currentdate text
+    currentdata.innerText = `${mes2[currMonth]} ${currYear}`; // passing current mon and yr as currentdata text
     daysTag.innerHTML = liTag;
 
     console.log("aaaaaa")

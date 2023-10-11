@@ -30,7 +30,7 @@ app.engine('handlebars',handlebars.engine({defaultLayout:'main'}))
 app.set('view engine', 'handlebars')
 
 // Layout painel de controle
-app.get('/painelControle', (req,res) => {
+app.post('/painelControle', (req,res) => {
     res.render('pages/imoveisPublicados', {
         layout: 'painelControle',
         pageTitle: 'Painel de Controle'

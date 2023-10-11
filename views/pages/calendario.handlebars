@@ -56,6 +56,8 @@
           </div>
           <hr>
           <div class="days">
+   
+       
 
           </div>
         </div>
@@ -65,25 +67,26 @@
 
     <div class="containerEditar">
       <div class="conteudoEditar">
-        <nav>
+        <nav id="testando">
+
           <div id="inicio-agendar">
             <section id="agendar-visita">
               <h2>Editar Agenda</h2>
 
             </section>
             <div id="div-button">
-              <button type="button" onclick="voltar()"><iconify-icon icon="mdi:remove" id="icone-fechar"></iconify-icon></button>
+              <button type="button"  onclick="voltar()"><iconify-icon icon="mdi:remove" id="icone-fechar"></iconify-icon></button>
             </div>
           </div>
 
           <section id="data">
             <h3>Defina os horários</h3>
             <p>Selecione um dia para personalizar os horários</p>
-            <div class="wrapper">
+            <div class="wrapper" >
               <header>
                 <div class="icons">
                   <span id="prev" class="material-symbols-rounded">chevron_left</span>
-                  <p class="current-date" id="calendario-mes"></p>
+                  <p class="current-data" id="calendario-mes"></p>
                   <span id="next" class="material-symbols-rounded">chevron_right</span>
                 </div>
               </header>
@@ -97,7 +100,10 @@
                   <li>SEX</li>
                   <li>SAB</li>
                 </ul>
-                <ul class="days"></ul>
+               
+                <ul class="days2">
+                  
+                </ul>
               </div>
             </div>
           </section>
@@ -210,7 +216,7 @@
             </section>
             <h2 id="lista">Lista de visitas</h2>
 
-            <div class="grid">
+            <div class="grid2">
                 <div class="item2">
                     <h1> Prévia</h1>
                     <hr>
@@ -242,7 +248,7 @@
                   </div>
       
              
-             <div class="item3">
+             <div id="item3">
                 <h4 class="TESTE2"> Dados dos visitantes</h4>
                 <hr>
                 <h3 class="TESTE2"> Nome </h3>
@@ -256,6 +262,8 @@
 
 
               </div>
+        
+
              
             </div>
         
@@ -266,7 +274,7 @@
 
     <script src="../../js/calendario.js"></script>
     <script src="../../js/editarAgenda.js"></script>
-    <script src="../../js/verVisitas.js"></script>
+
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 

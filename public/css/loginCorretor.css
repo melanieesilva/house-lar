@@ -73,6 +73,12 @@ input[type=email], input[type=password]{
     text-overflow: ellipsis;
 }
 
+
+#btnLogin{
+    border-radius: 8px;
+    color: white !important;
+}
+
 .form-table{
     font-size: 16;
 }

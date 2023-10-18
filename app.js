@@ -108,6 +108,9 @@ app.get('/publicarImovel9',(req,res) => res.render(
 app.get('/publicarImovel10',(req,res) => res.render(
     'pages/PublicarImovelCliente/publicarImovel10.handlebars'));
 
+app.get('/publicarImovel11',(req,res) => res.render(
+    'pages/PublicarImovelCliente/publicarImovel11.handlebars'));
+
 app.get('/loginCorretor',function(req,res){
     res.render('pages/loginCorretor.handlebars',{
         layout: '',

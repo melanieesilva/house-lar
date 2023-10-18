@@ -1,5 +1,5 @@
 /* Alterado */
-body {
+.main {
     display: flex;
     justify-content: space-around;
     height: 100vh;

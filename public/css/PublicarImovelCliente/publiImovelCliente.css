@@ -1,13 +1,12 @@
-/* style 1 */
-
+/* Alterado */
 .main{
     display: flex;
     justify-content: space-around;
     height: 100vh;
     align-items: start;
     padding-top: 90px;
-    
 }
+
 
 #publicacao {
     width: 50%;
@@ -94,9 +93,6 @@ h4 {
 }
 
 /* Alterado - removido espaçamento*/
-#legenda {
-    
-}
 
 .cinza {
     color: #5B5B5B;
@@ -232,7 +228,7 @@ main{
     align-items: center;
 }
 .icon > iconify-icon{
-    font-size: 12px;
+    font-size: 2px;
 }
 
 .barra-vertical{
@@ -240,3 +236,4 @@ main{
     width: 1px;
     height: 50%;
 }
+

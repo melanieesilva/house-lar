@@ -1,3 +1,12 @@
+/* Alterado */
+.main{
+    display: flex;
+    justify-content: space-around;
+    height: 100vh;
+    align-items: start;
+    padding-top: 90px;
+}
+
 svg {
     display: flex;
     justify-self: center;

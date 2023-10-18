@@ -236,7 +236,12 @@ app.get('/publiImovelCorretor10',(req,res)=>{
 })
 })
 
-
+app.get('/publiImovelCorretor11',(req,res)=>{
+    res.render('pages/PublicarImovelCorretor/publiImovelCorretor11.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Publicar Imóvel - Painel de Controle'
+})
+})
 
 
 // //google

@@ -1,22 +1,3 @@
-//Configurando Sequelize
-const Sequelize = require('sequelize')
-const dbHost = "localhost"
-const connection = new Sequelize('OBJETO','root','cimatec',{
-    dialect: "mysql",
-    host: dbHost
-}) //conectando a um banco de dados chamado Objeto, na máquina do CIMATEC
-
-// const conexao = connection.authenticate().then(function(){
-//     console.log("Conexão feita com sucesso!")
-// }).catch(function(err){
-//     console.log("Não foi possível conectar ao banco de dados")
-// })
-
-//criando tabelas no banco OBJETO
-//define = define uma entidade / create = insere dados / findAll = apresenta todos os atributos de uma tabela
-
-
-
 //Inicializando express
 const express = require('express')
 const app = express()
@@ -30,7 +11,7 @@ app.engine('handlebars',handlebars.engine({defaultLayout:'main'}))
 app.set('view engine', 'handlebars')
 
 // Layout painel de controle
-app.post('/painelControle', (req,res) => {
+app.get('/painelControle', (req,res) => {
     res.render('pages/imoveisPublicados', {
         layout: 'painelControle',
         pageTitle: 'Painel de Controle'
@@ -45,6 +26,10 @@ app.use(express.static('public'))
 //Configurando body parser
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+
+//Importando Model
+const Usuario = require('./Models/Usuario')
 
 
 // Rotas
@@ -112,6 +97,20 @@ app.get('/loginCorretor',function(req,res){
     res.render('pages/loginCorretor.handlebars',{
         layout: '',
         pageTitle: 'Login Imobiliária'
+    })
+})
+
+app.post('/autenticar',(req,res)=>{
+    Usuario.findOne({
+        where:{
+            Email: req.body.email,
+            Senha: req.body.senha
+        }
+    }).then((user)=>{
+       console.log(user instanceof Usuario)
+       console.log(user.Email)
+    }).catch((err)=>{
+        console.log("NÃO FOI POSSÍVEL FAZER A BUSCA: "+err)
     })
 })
 

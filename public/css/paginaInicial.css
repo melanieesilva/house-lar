@@ -177,6 +177,88 @@ form h4{
     color: white;
 }
 
+.title-section{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 32px 32px 32px;
+    margin-top: 60px;
+}
+.title-section > a{
+    background-color: #9D0058;
+    padding: 12px;
+}
+
+.cards-imoveis{
+    width: 100vw;
+    display: flex;
+    gap: 20px;
+    padding: 0 32px;
+}
+
+.cardImovel{
+    width: calc(100% / 4 - 10px);
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #E2E2E2;
+}
+
+.img-card{
+    height: 50%;
+}
+.img-card > img{
+    width: 100%;
+    height: 100%;
+}
+
+.conteudo-card *{
+    margin: 0;
+}
+.conteudo-card{
+    padding: 24px 18px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.header-card{
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-card{
+    display: flex;
+    justify-content: space-between;
+}
+
+.subtitle-card{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.dados-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-dado{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.icon-dado > :nth-child(2){
+    color: #515151;
+}
+.icon-dado > iconify-icon{
+    font-size: 20px;
+}
+
 .cards {
     display: flex;
     height: 100%;

@@ -110,5 +110,19 @@
 }
 
 #operacao{
+    /* display: none; */
+}
+
+#tipoImovel{
     display: none;
+}
+
+.label{
+    background-color: rebeccapurple;
+    width: 700px;
+}
+
+#labelVenda{
+    background-color: red;
+    width: 800px;
 }

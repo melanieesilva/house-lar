@@ -30,6 +30,13 @@ router.get('/solicitacoes', (req,res)=>{
     })
 })
 
+router.get('/publicarNoticia', (req,res)=>{
+    res.render('pages/Noticias/publicarNoticia.handlebars',{
+        layout: 'painelControle',
+        pageTitle: 'Publicar Noticias - Painel de Controle'
+    })
+})
+
 router.get('/mensagens', (req,res)=>{
     res.render('pages/Mensagens/mensagens.handlebars',{
         layout: 'painelControle',

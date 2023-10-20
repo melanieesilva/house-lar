@@ -109,6 +109,7 @@ main{
     height: 100vh;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     gap: 200px;
     padding: 0 80px;
     align-items: center;
@@ -237,3 +238,37 @@ main{
     height: 50%;
 }
 
+/* PUBLICAR IMÓVEL CLIENTE 2 */
+
+#infoPessoais{
+    display: none;
+}
+
+.escolha-operacao{
+    background-color: #FFFFFF;
+    border: 1px solid #DCDCDC;
+    display: flex;
+    align-items: center;
+    height: 6em;
+    border-radius: 8px;
+    padding-left: 5%;
+    outline: none;
+}
+
+.escolha-operacao:focus {
+    background-color: #FFE1F2;
+    box-shadow: none;
+    border-color: #9D0058;
+}
+
+
+
+
+/* PUBLICAR IMÓVEL CLIENTE 3 */
+/* PUBLICAR IMÓVEL CLIENTE 4 */
+/* PUBLICAR IMÓVEL CLIENTE 5 */
+/* PUBLICAR IMÓVEL CLIENTE 6 */
+/* PUBLICAR IMÓVEL CLIENTE 7 */
+/* PUBLICAR IMÓVEL CLIENTE 8 */
+/* PUBLICAR IMÓVEL CLIENTE 9 */
+/* PUBLICAR IMÓVEL CLIENTE 10 */

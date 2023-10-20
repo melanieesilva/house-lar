@@ -2,7 +2,7 @@
 
 <section class="main">
 
-        <section class="publicacao">
+        {{!-- <section class="publicacao" id="infoPessoais">
             <div class="legenda">
                 <p>Publique seu imóvel</p>
                 <div class="legenda-etapa">
@@ -35,11 +35,50 @@
             </div>
 
             <div class="botoes">
-                <button onclick="window.location.href='publicarimovel2.html';">
+                <button onclick="window.location.href='/publicarimovel2';">
                     Continuar
                 </button>
             </div>
         </section>
+
+            <section class="publicacao" id="operacao">
+        <div class="legenda">
+            <p>Publique seu imóvel</p>
+            <div class="legenda-etapa">
+                <iconify-icon icon="icon-park:setting-config"></iconify-icon>
+                Operação
+            </div>
+            <p>Que tipo de operação você tem interesse?
+            </p>
+        </div>
+        <div class="formulario">
+            <button class="escolha-operacao">
+                <i class="fa-solid fa-cart-shopping icones"></i>
+                <div class="opcao">Vender meu imóvel</div>
+            </button>
+
+            <button class="escolha-operacao">
+                <i class="fa-solid fa-key icones"></i>
+                <div class="opcao"> Alugar meu imóvel</div>
+            </button>
+
+        </div>
+        <div id="direcao">
+            <div id="voltar">
+                <button class="botoes" id="botaovoltar" onclick="window.location.href='/publicarimovel1';">
+                    <img src="../img/flecha-branca-esquerda.png" alt="" class="flechas" id="flechavoltar">Voltar
+                </button>
+            </div>
+            <div>
+                <button class="botoes" id="botaocontinuar" onclick="window.location.href='/publicarimovel3';">
+                    Continuar <img src="../img/flecha-banca.png" alt="" class="flechas" id="flechacontinuar">
+                </button>
+            </div>
+        </div>
+    </section> --}}
+
+    section.publicacao
+
         <section class="etapas">
             <div class="etapa" id="etapa1">
                 <div class="icon">
@@ -98,6 +137,7 @@
             </div>
            
         </section>
+
         <div class="bar-mobile">
             <div class="etapa-bar">
                 <div class="icon">
@@ -113,4 +153,7 @@
                 Operação
             </div>
         </div>
+
+
+
 </section>

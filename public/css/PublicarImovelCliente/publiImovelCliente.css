@@ -1,274 +1,115 @@
-/* Alterado */
 .main{
     display: flex;
-    justify-content: space-around;
-    height: 100vh;
-    align-items: start;
-    padding-top: 90px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 104px;
+    gap: 300px;
 }
 
-
-#publicacao {
-    width: 50%;
-    height: 100%;
+.etapas{
+    /* width: calc(100vw / 2); */
     display: flex;
     flex-direction: column;
+    gap: 16px;
 }
 
-form{
-    width: 100%;
-}
-
-#colunas{
+.etapa{
     display: flex;
-    /* padding-left: 5%; */
-    gap: 16%;
-}
-
-#continuar {
-    display: flex;
-    width: 86%;
-    height: 100%;
-    justify-content: flex-end;
-    align-items: end;
-    padding-left: 2%;
-}
-
-#botao {
-    display: flex;
-    height: 28%;
-    width: 18%;
-    border-radius: 8px;
-    background-color: #9D0058;
-    color: #FFFFFF;
-    border: none;
-    padding: 0% 2% 0% 2%;
     align-items: center;
-    justify-content: space-around;
+    gap: 12px;
+    color: #848484;
 }
 
-#flecha-continuar {
-    width: 20%;
+.etapas > :nth-child(1){
+    color: black;
 }
 
-.info {
-    height: 40%;
-    width: 140%;
-    border-radius: 7px;
-    padding: 0% 5%;
-    border-width: thin;
-    margin-top: 2%;
+.etapas > :nth-child(1) > .icon{
+    padding: 8px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    font-size: 20px;
+    border: 1px solid black;
+    color: black;
 }
 
-#etapas {
+.etapa > .icon{
+    padding: 8px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    font-size: 20px;
+    border: 1px solid #848484;;
+    color: #848484;;
+}
+
+.publicacao-form{
+    width: 584px;
+    height: 80vh;
+    padding: 150px 0;
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    padding: 11% 11% 0% 0%;
-
+    gap: 48px;
 }
 
-#titulo {
+.legenda > :nth-child(1){
+    color: #5B5B5B;
+}
+.legenda > :nth-child(2){
+    font-size: 32px;
+    font-weight: 600;
     display: flex;
     align-items: center;
+    gap: 12px;
 }
-
-#pessoa {
-    height: 5%;
-}
-
-h4 {
-    font-weight: 400;
-}
-
-.etapa {
-    display: flex;
-    align-items: center;
-    width: 110%;
-}
-
-.check {
-    width: 13%;
-    padding: 0% 5% 0% 0%;
-}
-
-/* Alterado - removido espaçamento*/
-
-.cinza {
+.legenda > :nth-child(3){
     color: #5B5B5B;
 }
 
-label {
-    font-size: small;
-}
-
-/* teste */
-
-main{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    gap: 200px;
-    padding: 0 80px;
-    align-items: center;
-    justify-content: center;
-}
-
-.publicacao{
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
-}
-
-.legenda{
+.form{
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
-.legenda > :last-child{
-    width: 600px;
-}
 
-.legenda > p{
-    margin: 0;
-}
-
-.legenda > .legenda-etapa{
-    font-size: 38px;
-    font-weight: 600;
+.inputs-row{
     display: flex;
-    align-items: center;
-    gap: 16px;
+    gap: 24px;
 }
 
-.formulario{
-    width: 600px;
-}
-
-.formulario > form{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.formulario > form > div{
+.inputs-row > .input{
     display: flex;
     flex-direction: column;
-    width: calc((100% / 2) - 10px);
+    gap: 4px;
 }
 
-.formulario > form > div > input{
-    padding: 14px;
-    border-radius: 6px;
+.input > input{
+    padding: 12px 8px;
+    width: 280px;
+    border-radius: 4px;
     border: 1px solid #B0B0B0;
 }
 
-
-.botoes > button{
+.button>button{
     float: right;
-    background-color: #9D0058;
-    color: WHITE;
-    border: none;
-    border-radius: 12px;
     padding: 12px 24px;
-    font-size: 14px;
-}
-
-
-.etapas{
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-.etapas > .etapa{
-    gap: 12px;
-    color: rgb(126, 126, 126);
-}
-.etapas > .etapa > .icon, .bar-mobile > .etapa-bar > .icon{
-    border-radius: 100%;
-    border: 1px solid rgb(126, 126, 126);
-    width: 28px;
-    height: 28px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Pegando a primeira etapa para preencher */
-.etapas > :first-child{
-    color: black;
-    font-weight: 500;
-}
-.etapas > :first-child > .icon, .bar-mobile > :first-child > .icon{
-    border: 1px solid rgb(0, 0, 0);
-}
-
-.etapa-bar{
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-/* Progress bar mobile */
-
-.bar-mobile{
-    display: none;
-    width: 100%;
-    height: 80px;
-    justify-content: space-around;
-    align-items: center;
-    border: 1px solid #B8B8B8;
     border-radius: 8px;
-}
-
-.icon{
+    border: none;
+    background-color: #9D0058;
+    color: white;
+    font-size: 16px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    gap: 8px;
 }
-.icon > iconify-icon{
-    font-size: 2px;
-}
-
-.barra-vertical{
-    background-color: #B8B8B8;
-    width: 1px;
-    height: 50%;
-}
-
-/* PUBLICAR IMÓVEL CLIENTE 2 */
 
 #infoPessoais{
     display: none;
 }
 
-.escolha-operacao{
-    background-color: #FFFFFF;
-    border: 1px solid #DCDCDC;
-    display: flex;
-    align-items: center;
-    height: 6em;
-    border-radius: 8px;
-    padding-left: 5%;
-    outline: none;
+#operacao{
+    display: none;
 }
-
-.escolha-operacao:focus {
-    background-color: #FFE1F2;
-    box-shadow: none;
-    border-color: #9D0058;
-}
-
-
-
-
-/* PUBLICAR IMÓVEL CLIENTE 3 */
-/* PUBLICAR IMÓVEL CLIENTE 4 */
-/* PUBLICAR IMÓVEL CLIENTE 5 */
-/* PUBLICAR IMÓVEL CLIENTE 6 */
-/* PUBLICAR IMÓVEL CLIENTE 7 */
-/* PUBLICAR IMÓVEL CLIENTE 8 */
-/* PUBLICAR IMÓVEL CLIENTE 9 */
-/* PUBLICAR IMÓVEL CLIENTE 10 */

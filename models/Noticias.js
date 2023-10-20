@@ -13,5 +13,5 @@ const Noticia = db.connect.define('noticias',{
 
 // Noticia.sync({force:true})
 
-module.exports = Noticia
+module.exports = Noticias
 

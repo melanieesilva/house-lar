@@ -1,6 +1,5 @@
 
-
-function modale() {
+document.addEventListener("DOMContentLoaded", () => {
     const openModalButton = document.querySelector("#open-modal");
     const closeModalButton = document.querySelector("#close-modal");
     const modal = document.querySelector("#modal");
@@ -14,7 +13,7 @@ function modale() {
     [openModalButton, closeModalButton, fade].forEach((el) => {
         el.addEventListener("click", () => toggleModal());
     });
-};
+});
 
 //file
 function mostrarNome(valor) {

@@ -27,7 +27,7 @@
     </header>
 
     {{!-- perdão, é corretor, não public, kkk, quem cadastra é só corretor --}}
-    <form action="/corretor/CadastrarNoticia" method="POST">
+    <form action="/corretor/CadastrarNoticia" method="POST" enctype="multipart/form-data">
         <div id="geral">
             <div class="titulo">
                 <label> Titulo Noticia</label>
@@ -72,7 +72,7 @@
                     <label for='input-file'>
                         Selecionar um arquivo
                     </label>
-                    <input id='input-file' type='file' onchange="mostrarNome(this.value)" />
+                    <input id='input-file' type='file' onchange="mostrarNome(this.value)" name="imagem_noticia" />
                 </div>
                 <span id='file-name'></span>
             </div>

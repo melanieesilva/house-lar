@@ -1,5 +1,8 @@
 const express = require('express')
 const router = express.Router()
+const multer = require('multer');
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 const Usuario = require('../models/Usuario')
 const Noticia = require('../models/Noticias')
 
@@ -26,17 +29,19 @@ router.get('/noticiasCorretor', (req,res) => {
     })
 })
 
-router.post('/corretor/CadastrarNoticia', async (req,res)=>{
+router.post('/corretor/CadastrarNoticia', upload.single('imagem_noticia'), async (req,res)=>{
     try {
         // Obtenha os dados do formulário a partir de req.body
         const { titulo_noticia, descricao_noticia, autor_noticia, artigo_noticia } = req.body;
+        const imagem_noticia = req.file.buffer;
 
         // Crie uma nova notícia usando o modelo
         await Noticia.create({
             titulo_noticia: titulo_noticia,
             descricao_noticia: descricao_noticia,
             autor_noticia: autor_noticia,
-            artigo_noticia: artigo_noticia
+            artigo_noticia: artigo_noticia,
+            imagem_noticia: imagem_noticia
         });
 
         res.redirect('/'); // Redirecione para a página inicial ou para onde desejar

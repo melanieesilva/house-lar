@@ -28,7 +28,7 @@ app.use('/',publicRouter)
 
 
 
-app.listen(process.env.PORT,function(){
+app.listen(8080,function(){
     
-    console.log(`Servidor iniciado na url http://localhost:${process.env.PORT}`)
+    console.log(`Servidor iniciado na url http://localhost:8080`)
 })

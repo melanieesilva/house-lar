@@ -29,11 +29,14 @@ router.get('/corretor/noticiasCorretor', (req,res) => {
 router.post('/corretor/CadastrarNoticia', async (req,res)=>{
     try {
         // Obtenha os dados do formulário a partir de req.body
-        const { titulo_noticia } = req.body;
+        const { titulo_noticia, descricao_noticia, autor_noticia, artigo_noticia } = req.body;
 
         // Crie uma nova notícia usando o modelo
         await Noticia.create({
-            titulo_noticia: titulo_noticia
+            titulo_noticia: titulo_noticia,
+            descricao_noticia: descricao_noticia,
+            autor_noticia: autor_noticia,
+            artigo_noticia: artigo_noticia
         });
 
         res.redirect('/'); // Redirecione para a página inicial ou para onde desejar

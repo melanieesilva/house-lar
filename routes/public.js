@@ -3,34 +3,31 @@ const router = express.Router()
 
 router.get('/', (req, res) => res.render('pages/paginaInicial.handlebars'));
 
-router.get('/perfilUsuario',function(req,res){
-    res.render('pages/perfilUsuario.handlebars')
-})
 
-router.get('/sobrenos',function(req,res){
+router.get('/public/sobrenos',function(req,res){
     res.render('pages/sobrenos.handlebars')
 })
 
-router.get('/noticias',function(req,res){
+router.get('/public/noticias',function(req,res){
     res.render('pages/Noticias/noticias.handlebars')
 })
 
-router.get('/artigoNoticia',function(req,res){
+router.get('/public/artigoNoticia',function(req,res){
     res.render('pages/Noticias/artigoNoticia.handlebars')
 })
 
-router.get('/faleConosco',function(req,res){
+router.get('/public/faleConosco',function(req,res){
     res.render('pages/faleConosco.handlebars')
 })
 
-router.get('/detalheImovel',function(req,res){
+router.get('/public/detalheImovel',function(req,res){
     res.render('pages/detalheImovel.handlebars')
 })
 
-router.get('/buscaAvancada',(req,res)=> res.render('pages/buscaAvancada.handlebars'));
+router.get('/public/buscaAvancada',(req,res)=> res.render('pages/buscaAvancada.handlebars'));
 
 // PUBLICAR IMÓVEL CLIENTE
-router.get('/publicarImovelCliente',(req,res) => res.render(
+router.get('/public/publicarImovelCliente',(req,res) => res.render(
 'pages/PublicarImovelCliente/publicarImovelCliente.handlebars'));
 
 // router.get('/publicarImovel2',(req,res) => res.render(
@@ -63,7 +60,7 @@ router.get('/publicarImovelCliente',(req,res) => res.render(
 // router.get('/publicarImovel11',(req,res) => res.render(
 //     'pages/PublicarImovelCliente/publicarImovel11.handlebars'));
 
-router.get('/loginCorretor',function(req,res){
+router.get('/public/loginCorretor',function(req,res){
     res.render('pages/loginCorretor.handlebars',{
         layout: '',
         pageTitle: 'Login Imobiliária'

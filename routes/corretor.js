@@ -5,21 +5,21 @@ const Noticia = require('../models/Noticias')
 
 
 
-router.get('/painelControle', (req,res) => {
+router.get('/corretor/painelControle', (req,res) => {
     res.render('pages/imoveisPublicados', {
         layout: 'painelControle',
         pageTitle: 'Painel de Controle'
     });
 });
 
-router.get('/calendario', (req,res) => {
+router.get('/corretor/calendario', (req,res) => {
     res.render('pages/calendario.handlebars',{
         layout: 'painelControle',
         pageTitle: 'Calendário - Painel De Controle'
     })
 })
 
-router.get('/noticiasCorretor', (req,res) => {
+router.get('/corretor/noticiasCorretor', (req,res) => {
     res.render('pages/noticiasCorretor.handlebars',{
         layout: 'painelControle',
         pageTitle: 'Notícias - Painel De Controle'
@@ -50,28 +50,28 @@ router.get('/solicitacoes', (req,res)=>{
     })
 })
 
-router.get('/publicarNoticia', (req,res)=>{
+router.get('/corretor/publicarNoticia', (req,res)=>{
     res.render('pages/Noticias/publicarNoticia.handlebars',{
         layout: 'painelControle',
         pageTitle: 'Publicar Noticias - Painel de Controle'
     })
 })
 
-router.get('/mensagens', (req,res)=>{
+router.get('/corretor/mensagens', (req,res)=>{
     res.render('pages/Mensagens/mensagens.handlebars',{
         layout: 'painelControle',
         pageTitle: 'Mensagens - Painel de Controle'
     })
 })
 
-router.get('/viewMensagem',(req,res)=>{
+router.get('/corretor/viewMensagem',(req,res)=>{
     res.render('pages/Mensagens/viewMensagem.handlebars',{
         layout: 'painelControle',
         pageTitle: 'Visualização Mensagem - Painel de Controle'
 })
 })
 
-router.get('/publicarImovelCorretor',(req,res)=>{
+router.get('/corretor/publicarImovelCorretor',(req,res)=>{
     res.render('pages/PublicarImovelCorretor/publicarImovelCorretor.handlebars',{
         layout: 'painelControle',
         pageTitle: 'Publicar Imóvel - Painel de Controle'

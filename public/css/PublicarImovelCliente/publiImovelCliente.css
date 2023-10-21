@@ -1,8 +1,9 @@
+/* CARACTERÍSTICAS GERAIS */
 .main{
     display: flex;
     align-items: start;
     justify-content: center;
-    padding: 200px 104px;
+    padding: 200px 34px;
     gap: 300px;
 }
 
@@ -74,25 +75,16 @@
     gap: 24px;
 }
 
-.inputs-row{
+.buttons{
     display: flex;
-    gap: 24px;
+    justify-content:right;
+    align-items: center;
 }
 
-.inputs-row > .input{
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+.container-btn{
+    width: calc(100% /2);
 }
-
-.input > input{
-    padding: 12px 8px;
-    width: 280px;
-    border-radius: 4px;
-    border: 1px solid #B0B0B0;
-}
-
-.button>button{
+.container-btn>.btnNext{
     float: right;
     padding: 12px 24px;
     border-radius: 8px;
@@ -104,25 +96,159 @@
     align-items: center;
     gap: 8px;
 }
+.container-btn>.btnBefore{
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    background-color: #989898;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ESTILIZAÇÃO INFO PESSOAIS */
+.inputs-row{
+    display: flex;
+    gap: 24px;
+}
+.inputs-row > .input{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.input > input{
+    padding: 12px 8px;
+    width: 280px;
+    border-radius: 4px;
+    border: 1px solid #B0B0B0;
+}
+
+/* ESTILIZAÇÃO OPERAÇÃO */
+.labelRadio.op{
+    display: inline-block;
+    width: 584px;
+    padding: 32px 24px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid #DCDCDC;
+}
+
+.labelRadio:hover{
+    background-color: #FFE1F2;
+    color: #9D0058;
+    border: 1px solid #9D0058;
+}
+
+input[type="radio"]:checked + .labelRadio.op {
+    background-color: #FFE1F2;
+    color: #9D0058;
+    border: 1px solid #9D0058;
+}
+
+/*ESTILIZAÇÃO TIPO IMÓVEL*/
+.options-form-tipo{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.labelRadio.tipo{
+    display: inline-block;
+    width: 150px;
+    height: 120px;
+    padding: 24px 40px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid #DCDCDC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 16px;
+    text-align: center;
+}
+.labelRadio.tipo>iconify-icon{
+    font-size: 30px;
+}
+.labelRadio.tipo:hover{
+    background-color: #FFE1F2;
+    color: #9D0058;
+    border: 1px solid #9D0058;
+}
+
+input[type="radio"]:checked + .labelRadio.tipo {
+    background-color: #FFE1F2;
+    color: #9D0058;
+    border: 1px solid #9D0058;
+}
+
+
+/* ESTILIZAÇÃO CARACTERÍSTICAS BÁSICAS */
+
+.container-inputs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.area-input{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.area-input > input{
+    background: none;
+    border: none;
+    font-size: 18px;
+    padding: 8px;
+}
+
+.header-input{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+}
+
+/* ESTILIZAÇÃO DETALHE IMÓVEL*/
 
 #infoPessoais{
     display: none;
 }
 
 #operacao{
-    /* display: none; */
+    display: none;
 }
 
 #tipoImovel{
     display: none;
 }
 
-.label{
-    background-color: rebeccapurple;
-    width: 700px;
+#caracBasic{
+    display: none;
 }
 
-#labelVenda{
-    background-color: red;
-    width: 800px;
+#detalheImovel{
+    /* display: none; */
 }
+
+#valores{
+    display: none;
+}
+
+#localizacao{
+    display: none;
+}
+
+#imagens{
+    display: none;
+}
+
+#preVisualizacao{
+    display: none;
+}
+

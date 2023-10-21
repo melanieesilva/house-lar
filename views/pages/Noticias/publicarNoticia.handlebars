@@ -26,16 +26,17 @@
         </div>
     </header>
 
-    <form action="">
+    {{!-- perdão, é corretor, não public, kkk, quem cadastra é só corretor --}}
+    <form action="/corretor/CadastrarNoticia" method="POST">
         <div id="geral">
             <div class="titulo">
                 <label> Titulo Noticia</label>
-                <input type="text" placeholder="digite um titulo" class="pre">
+                <input type="text" placeholder="digite um titulo" class="pre" name="titulo_noticia">
             </div>
 
             <div class="titulo">
                 <label> Autor</label>
-                <input type="text" placeholder="Insira um autor..." class="pre">
+                <input type="text" placeholder="Insira um autor..." class="pre" name="Autor">
             </div>
 
 
@@ -49,7 +50,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <div class="dropdown-item"> <a href="#" class="bord1">Oportunidade Tenda</a> </div>
                         <div class="dropdown-item"> <a href="#" class="bord2">Oportunidade Village</a> </div>
-                        <div class="dropdown-item"><button id="open-modal">Nova categoria</button></div>
+                        <div class="dropdown-item"> <button id="open-modal">Nova categoria</button> </div>
                     </div>
                 </div>
             </div>
@@ -137,17 +138,17 @@
 
 
         </div>
-    </div>
+        </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>

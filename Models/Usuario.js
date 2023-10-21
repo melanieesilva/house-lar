@@ -1,4 +1,4 @@
-const db = require('./db')
+const db = require('../Database/Connection')
 
 //Definindo modelo Usuário
 const Usuario = db.connect.define('usuarios',{

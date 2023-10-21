@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 
-
 router.get('/', (req, res) => res.render('pages/paginaInicial.handlebars'));
 
 router.get('/perfilUsuario',function(req,res){
@@ -84,6 +83,8 @@ router.post('/autenticar',(req,res)=>{
         console.log("NÃO FOI POSSÍVEL FAZER A BUSCA: "+err)
     })
 })
+
+router.post('/')
 
 // Login Corretor - Esqueceu a Senha
 

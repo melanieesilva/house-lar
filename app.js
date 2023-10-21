@@ -3,9 +3,9 @@ const express = require('express')
 const handlebars = require('express-handlebars')
 const corretorRoute = require('./routes/corretor')
 const publicRouter = require('./routes/public')
+const connect = require('./Database/Connection')
 
-//CONFIGURAÇÕES
-    //EXPRESS
+//CONFIGURAÇÕES    //EXPRESS
     const app = express()
     //HANDLEBARS
     app.engine('handlebars',handlebars.engine({defaultLayout:'main'}))

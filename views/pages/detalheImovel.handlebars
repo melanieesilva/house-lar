@@ -471,25 +471,25 @@
                             </h5>
                         </div>
                         <br>
-                        <form action="">
+                        <form action="/public/EnviarDuvida" method="POST">
                             <div class="input">
                                 <label for="nome-usuario">Nome e Sobrenome</label>
-                                <input type="text" placeholder="Digite aqui..." name="nome-usuario" id="nome-usuario"
-                                    class="info">
+                                <input type="text" placeholder="Digite aqui..." name="nome_cliente" id="nome-usuario" 
+                                class="info">
                             </div>
                             <div class="input">
                                 <label>E-mail</label>
-                                <input type="text" placeholder="O Endereço de e-mail..." class="info">
+                                <input type="text" placeholder="O Endereço de e-mail..." class="info" name="email_cliente">
                             </div>
 
                             <div class="input">
                                 <label for="telefone-usuario">Telefone</label>
-                                <input type="tel" name="telefone-usuario" id="telefone-usuario" autocomplete="tel"
-                                    pattern="^\(\d{2}\)\d{4,5}-\d{4}$" placeholder="(xx)xxxx-xxxx" class="info">
+                                <input type="tel" name="telefone_cliente" id="telefone-usuario" autocomplete="tel" pattern="^\(\d{2}\)\d{4,5}-\d{4}$" 
+                                placeholder="(xx)xxxx-xxxx" class="info">
                             </div>
                             <div class="input2">
                                 <label for="mensagem-usuario"> Sua Mensagem</label>
-                                <textarea name="mensagem-usuario" id="mensagem-usuario" cols="30" rows="10"
+                                <textarea name="mensagem_cliente" id="mensagem-usuario" cols="30" rows="10"
                                     placeholder="Digite aqui..." class="info2"></textarea>
                                 <div id="btn-form">
                                     <button id="botaoEnviarDuvida"> Enviar Mensagem </button>

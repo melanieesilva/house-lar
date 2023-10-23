@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +11,6 @@
 </head>
 
 <body>
-
 
     <header>
         <div id="hea">
@@ -26,8 +24,7 @@
         </div>
     </header>
 
-    {{!-- perdão, é corretor, não public, kkk, quem cadastra é só corretor --}}
-    <form action="/corretor/CadastrarNoticia" method="POST">
+    <form action="/corretor/CadastrarNoticia" method="POST" enctype="multipart/form-data">
         <div id="geral">
             <div class="titulo">
                 <label> Titulo Noticia</label>
@@ -72,7 +69,7 @@
                     <label for='input-file'>
                         Selecionar um arquivo
                     </label>
-                    <input id='input-file' type='file' onchange="mostrarNome(this.value)" />
+                    <input id='input-file' name="imagem" type='file' onchange="mostrarNome(this.value)" />
                 </div>
                 <span id='file-name'></span>
             </div>
@@ -130,7 +127,6 @@
                     </div>
                 </div>
     </form>
-
 
     </div>
     </div>

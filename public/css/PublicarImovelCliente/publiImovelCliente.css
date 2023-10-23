@@ -420,7 +420,6 @@ input[type="file"]{
 }
 
 .container-select-imgs{
-    background-color: rebeccapurple;
     width: 100%;
     height: 300px;
     display: flex;
@@ -433,18 +432,34 @@ input[type="file"]{
     width: 100%;
     height: 100%;
     display: flex;
-
+    gap: 8px;
 }
 
 .img-select{
-    background-color: red;
-    border: 1px solid black;
     width: calc(100% / 2);
+    height: 300px;
+    background-image: url("../../img/img-preview-solicitacao.jfif");
+    background-position: center;
+    background-size: cover;
+    border-radius: 4px;
+}
+.img-select > img{
+    width: 100%;
     height: 100%;
 }
 
 .container-select-imgs > button{
    position: absolute;
+   border-radius: 100px;
+   border: none;
+   background-color: rgba(0, 0, 0, 0.50);
+   padding: 12px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: white;
+   font-size: 20px;
+   cursor: pointer;
 }
 #after{
     right: 40px;

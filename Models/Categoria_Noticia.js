@@ -11,6 +11,6 @@ const Categoria_Noticia = db.connect.define('categoria_noticia',{
     timestamps: false
 });
 
-// Categoria_noticia.sync({force:true})
+// Categoria_Noticia.sync({force:true})
 
 module.exports = Categoria_Noticia

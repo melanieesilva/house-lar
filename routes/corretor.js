@@ -3,6 +3,21 @@ const router = express.Router()
 const Usuario = require('../models/Usuario')
 const Noticia = require('../models/Noticias')
 const Categoria_Noticia = require('../models/Categoria_Noticia')
+const multer = require('multer')
+
+
+var storage = multer.diskStorage({
+    destination: (req,file,cb) =>{
+        cb(null,"C:/Users/021.785638/Documents/GitHub/house-lar/public/uploads")
+    },
+    filename: (req,file,cb)=>{
+        cb(null,file.fieldname+"_"+Date.now()+"_"+file.originalname)
+    }
+})
+
+const upload = multer({
+    storage: storage
+}).single("imagem")
 
 router.get('/corretor/painelControle', (req, res) => {
     res.render('pages/imoveisPublicados', {
@@ -27,42 +42,42 @@ router.get('/corretor/noticiasCorretor', (req, res) => {
 
 
 
-router.post('/corretor/CadastrarNoticia', async (req, res) => {
+router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
     try {
         // Obtenha os dados do formulário a partir de req.body
         const {
+
             titulo_noticia,
             descricao_noticia,
             autor_noticia,
             artigo_noticia,
             nome_categoria,
-            cor_categoria
+            cor_categoria,
         } = req.body;
 
-        // Crie uma nova categoria usando o modelo
-        const Categoria = await Categoria_Noticia.create({
-            nome_categoria: nome_categoria,
-            cor_categoria: cor_categoria
-        });
-
-        // Crie uma nova notícia associada à categoria recém-criada
+        const imagem = req.file
+        
         await Noticia.create({
-            titulo_noticia: titulo_noticia,
-            descricao_noticia: descricao_noticia,
-            autor_noticia: autor_noticia,
-            artigo_noticia: artigo_noticia,
-            categoria_id: Categoria.id_categoria
-        });
-
-        res.redirect('/'); // Redirecione para a página inicial ou para onde desejar
+                titulo_noticia: titulo_noticia,
+                descricao_noticia: descricao_noticia,
+                autor_noticia: autor_noticia,
+                artigo_noticia: artigo_noticia,
+                categoria_id: 1,
+                nome_imagem: imagem.filename,
+                data_imagem: imagem.buffer
+            });
+            console.log(imagem.filename)
+        
+        console.log("FOI!")
+        res.redirect('/corretor/noticiasCorretor');
     } catch (error) {
         console.error(error);
-        res.status(500).send('Ocorreu um erro ao cadastrar a notícia e categoria.');
+        res.status(500).send('Ocorreu um erro ao cadastrar a notícia');
     }
 });
 
 
-router.get('/solicitacoes', (req, res) => {
+router.get('/corretor/solicitacoes', (req, res) => {
     res.render('pages/solicitacoes.handlebars', {
         layout: 'painelControle',
         pageTitle: 'Solicitações - Painel de Controle'

@@ -52,6 +52,10 @@ CREATE TABLE `categoria_noticia` (
 -- Despejando dados para a tabela `categoria_noticia`
 --
 
+INSERT INTO `categoria_noticia` (`nome_categoria`,`cor_categoria`) VALUES
+("Oportunidade Tenda","Vermelho"),
+("Oportunidade Village","Azul")
+
 INSERT INTO `categoria_noticia` (`id_categoria`, `nome_categoria`, `cor_categoria`) VALUES
 (1, 'ble', 'Verde'),
 (2, 'bicho', 'Laranja'),
@@ -139,13 +143,13 @@ CREATE TABLE `imoveis` (
 --
 
 CREATE TABLE `noticias` (
-  `id_noticia` int(11) NOT NULL,
   `titulo_noticia` varchar(200) NOT NULL,
   `descricao_noticia` varchar(200) NOT NULL,
   `artigo_noticia` text NOT NULL,
   `autor_noticia` varchar(200) NOT NULL,
   `publicado_por` varchar(200) NOT NULL DEFAULT 'Lar&House',
-  `imagem_noticia` blob NOT NULL,
+  `nome_imagem` varchar(200) NOT NULL DEFAULT,
+  `data_imagem` blob NOT NULL,
   `categoria_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

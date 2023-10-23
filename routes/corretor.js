@@ -1,9 +1,11 @@
+//CARREGANDO MÓDULOS
 const express = require('express')
 const router = express.Router()
-const Usuario = require('../models/Usuario')
-const Noticia = require('../models/Noticias')
-const Categoria_Noticia = require('../models/Categoria_Noticia')
 const multer = require('multer')
+    //MODELOS
+    const Usuario = require('../models/Usuario')
+    const Noticia = require('../models/Noticias')
+    const Categoria_Noticia = require('../models/Categoria_Noticia')
 
 
 var storage = multer.diskStorage({
@@ -44,9 +46,7 @@ router.get('/corretor/noticiasCorretor', (req, res) => {
 
 router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
     try {
-        // Obtenha os dados do formulário a partir de req.body
         const {
-
             titulo_noticia,
             descricao_noticia,
             autor_noticia,
@@ -54,9 +54,7 @@ router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
             nome_categoria,
             cor_categoria,
         } = req.body;
-
         const imagem = req.file
-        
         await Noticia.create({
                 titulo_noticia: titulo_noticia,
                 descricao_noticia: descricao_noticia,
@@ -66,12 +64,11 @@ router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
                 nome_imagem: imagem.filename,
                 data_imagem: imagem.buffer
             });
-            console.log(imagem.filename)
         
-        console.log("FOI!")
+        console.log("Notícia cadastrada com sucesso!")
         res.redirect('/corretor/noticiasCorretor');
     } catch (error) {
-        console.error(error);
+        console.log(error);
         res.status(500).send('Ocorreu um erro ao cadastrar a notícia');
     }
 });

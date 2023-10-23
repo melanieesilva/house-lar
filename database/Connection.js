@@ -1,8 +1,9 @@
 //Configurando Sequelize
 const Sequelize = require('sequelize')
 const dbHost = "localhost"
+require('dotenv').config()
 
-const connect = new Sequelize('larhouse','root','cimatec',{
+const connect = new Sequelize('larhouse','root',process.env.DBPWD,{
     dialect: "mysql",
     host: dbHost
 }) //conectando a um banco de dados chamado Objeto, na máquina do CIMATEC

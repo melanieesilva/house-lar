@@ -1,11 +1,12 @@
 //CARREGANDO MÓDULOS
 const express = require('express')
 const handlebars = require('express-handlebars')
-const corretorRoute = require('./routes/corretor')
+const corretorRouter = require('./routes/corretor')
 const publicRouter = require('./routes/public')
 const connect = require('./Database/Connection')
 
-//CONFIGURAÇÕES    //EXPRESS
+//CONFIGURAÇÕES    
+    //EXPRESS
     const app = express()
     //HANDLEBARS
     app.engine('handlebars',handlebars.engine({defaultLayout:'main'}))
@@ -19,10 +20,8 @@ const connect = require('./Database/Connection')
     //DOTENV - VARIÁVEIS DE AMBIENTE
     require('dotenv').config()
 
-
-
 //ROTAS
-app.use('/',corretorRoute)
+app.use('/',corretorRouter)
 app.use('/',publicRouter)
 
 

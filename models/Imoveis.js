@@ -4,7 +4,6 @@ const db = require('./db')
 //Definindo modelo Imoveis
 
 const Imoveis = db.connect.define('Imoveis',{
-    id_imovel: db.Sequilize.INTEGER,
     tipo_imovel: db.Sequilize.ENUM('Casa','Apartamento','Lote','Kitnet/Studio','Sala Comercial'),
     operacao: db.Sequilize.ENUM('Comprar','Alugar'),
     descricao: db.Sequilize.STRING,

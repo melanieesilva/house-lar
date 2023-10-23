@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const Usuario = require('../models/Usuario')
 const Noticia = require('../models/Noticias')
-const Categoria_Noticia = require('../models/Categoria_Noticia')
 
 
 router.get('/corretor/painelControle', (req, res) => {
@@ -77,8 +76,8 @@ router.get('/corretor/publicarNoticia', (req, res) => {
     })
 })
 
-router.get('/corretor/mensagens', (req, res) => {
-    res.render('pages/Mensagens/mensagens.handlebars', {
+router.get('/corretor/mensagens', (req,res)=>{
+    res.render('pages/Mensagens/mensagens.handlebars',{
         layout: 'painelControle',
         pageTitle: 'Mensagens - Painel de Controle'
     })

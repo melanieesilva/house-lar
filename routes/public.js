@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const Duvida = require('../Models/Duvidas')
 
 router.get('/', (req, res) => res.render('pages/paginaInicial.handlebars'));
 
@@ -22,6 +23,27 @@ router.get('/public/faleConosco',function(req,res){
 
 router.get('/public/detalheImovel',function(req,res){
     res.render('pages/detalheImovel.handlebars')
+})
+
+//Enviar dúvida
+router.post('/public/EnviarDuvida', async (req,res)=>{
+    try {
+        // Obtenha os dados do formulário a partir de req.body
+        const { nome_cliente, email_cliente, telefone_cliente, mensagem_cliente } = req.body;
+
+        // Enviar uma dúvida usando o modelo
+        await Duvida.create({
+            nome_cliente: nome_cliente,
+            email_cliente: email_cliente,
+            telefone_cliente: telefone_cliente,
+            mensagem_cliente: mensagem_cliente
+        });
+
+        res.redirect('/corretor/mensagens'); // Redirecione para a página inicial ou para onde desejar
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Ocorreu um erro ao enviar sua dúvida.');
+    }
 })
 
 router.get('/public/buscaAvancada',(req,res)=> res.render('pages/buscaAvancada.handlebars'));

@@ -2,11 +2,15 @@ const db = require('../Database/Connection')
 
 //Definindo modelo Categoria_noticia
 
-const categoria_noticia = db.connect.define('categoria_noticia',{
-    id_categoria: db.Sequilize.INTEGER,
-    nome_categoria: db.Sequilize.STRING
+const Categoria_Noticia = db.connect.define('categoria_noticia',{
+    id_categoria: { type: db.Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
+    nome_categoria: db.Sequelize.STRING,
+    cor_categoria: db.Sequelize.ENUM('Amarelo', 'Azul', 'Roxo', 'Verde', 'Laranja', 'Vermelho')
+}, {
+    // Adicione a opção autoIncrement: true para a coluna id
+    timestamps: false
 });
 
 // Categoria_noticia.sync({force:true})
 
-module.exports = categoria_noticia
+module.exports = Categoria_Noticia

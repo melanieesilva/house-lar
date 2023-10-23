@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Usuario = require('../models/Usuario')
 const Noticia = require('../models/Noticias')
-
+const Categoria_Noticia = require('../models/Categoria_Noticia')
 
 router.get('/corretor/painelControle', (req, res) => {
     res.render('pages/imoveisPublicados', {

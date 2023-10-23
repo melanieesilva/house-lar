@@ -10,7 +10,8 @@ const Noticia = db.connect.define('noticias', {
     artigo_noticia: db.Sequelize.TEXT,
     autor_noticia: db.Sequelize.STRING,
     publicado_por: { type: db.Sequelize.STRING, defaultValue: "House&Lar" },
-    imagem_noticia: db.Sequelize.BLOB
+    imagem_noticia: db.Sequelize.BLOB,
+    categoria_id: db.Sequelize.INTEGER
 }, {
     // Adicione a opção autoIncrement: true para a coluna id
     timestamps: false

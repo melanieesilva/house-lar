@@ -2,6 +2,7 @@
 
 <section class="main">
 
+
     <section class="publicacao-form" id="infoPessoais">
         <div class="legenda">
             <p>Publique seu imóvel</p>
@@ -196,44 +197,36 @@
             <p>Publique seu imóvel</p>
             <div class="title">
                 <iconify-icon icon="tabler:list-details"></iconify-icon>
-                Detalhe Imóvel
+                Detalhes Imóvel
             </div>
             <p>Forneça mais detalhes sobre o imóvel</p>
         </div>
         <div class="form">
-            <div class="container-inputs">
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="mdi:bed-outline"></iconify-icon>
-                        <label for="numQuartos">Quartos</label>
-                    </div>
-                    <input id="numQuartos" type="text" name="numQuartos" placeholder="Insira...">
+            <div class="container-selects">
+                <div class="select">
+                    <p>O imóvel está em construção?</p>
+                    <select name="construcaoImovel" id="construcaoImovel">
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
                 </div>
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="iconoir:bathroom"></iconify-icon>
-                        <label for="numBanheiros">Banheiros</label>
-                    </div>
-                    <input id="numBanheiros" type="text" name="numBanheiros" placeholder="Insira...">
+                <div class="select">
+                    <p>O imóvel faz parte de um condomínio?</p>
+                    <select name="condominioImovel" id="condominioImovel">
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
                 </div>
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="majesticons:car-line"></iconify-icon>
-                        <label for="numVagas">Vagas</label>
-                    </div>
-                    <input id="numVagas" type="text" name="numVagas" placeholder="Insira...">
+                <div class="select">
+                    <p>Quantos andares possui o imóvel/prédio?</p>
+                    <input type="text" name="andaresImovel" id="andaresImovel" placeholder="Insira aqui...">
                 </div>
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="iconoir:ruler"></iconify-icon>
-                        <label for="tamArea">Área</label>
-                    </div>
-                    <input id="tamArea" type="text" name="tamArea" placeholder="Insira...">
-                </div>
-                
-                
-            </div>
+                <div class="select">
+                    <p>Qual é/foi a data de entrega do imóvel?</p>
+                    <input type="date" name="dataEntrega">
 
+                </div>
+            </div>
         </div>
         <div class="buttons">
             <div class="container-btn">
@@ -254,43 +247,43 @@
         <div class="legenda">
             <p>Publique seu imóvel</p>
             <div class="title">
-                <iconify-icon icon="gg:details-more"></iconify-icon>
-                Características básicas
+                <iconify-icon icon="uil:dollar-sign"></iconify-icon>
+                Valores
             </div>
-            <p>Informe as características básicas do seu imóvel</p>
+            <p>Informe os valores que envolve seu imóvel</p>
         </div>
         <div class="form">
-            <div class="container-inputs">
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="mdi:bed-outline"></iconify-icon>
-                        <label for="numQuartos">Quartos</label>
-                    </div>
-                    <input id="numQuartos" type="text" name="numQuartos" placeholder="Insira...">
+            <div class="container-selects">
+                <div class="select">
+                    <p id="labelValorVenda">Valor de venda (R$)</p>
+                    <input type="text" name="valorVenda" placeholder="Insira aqui...">
                 </div>
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="iconoir:bathroom"></iconify-icon>
-                        <label for="numBanheiros">Banheiros</label>
-                    </div>
-                    <input id="numBanheiros" type="text" name="numBanheiros" placeholder="Insira...">
+                <div class="select">
+                    <p>Condomínio (R$)</p>
+                    <input type="text" name="valorCondominio" placeholder="Insira aqui...">
                 </div>
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="majesticons:car-line"></iconify-icon>
-                        <label for="numVagas">Vagas</label>
-                    </div>
-                    <input id="numVagas" type="text" name="numVagas" placeholder="Insira...">
+                <div class="select">
+                    <p>Valor do IPTU (R$)</p>
+                    <input type="text" name="valorIPTU" placeholder="Insira aqui...">
                 </div>
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="iconoir:ruler"></iconify-icon>
-                        <label for="tamArea">Área</label>
-                    </div>
-                    <input id="tamArea" type="text" name="tamArea" placeholder="Insira...">
+                <div class="select">
+                    <p>Parcela do IPTU</p>
+                    <select name="parcelaIPTU" id="parcelaIPTU">
+                        <option value="1">1X</option>
+                        <option value="2">2X</option>
+                        <option value="3">3X</option>
+                        <option value="4">4X</option>
+                        <option value="5">5X</option>
+                        <option value="6">6X</option>
+                        <option value="7">7X</option>
+                        <option value="8">8X</option>
+                        <option value="9">9X</option>
+                        <option value="10">10X</option>
+                        <option value="11">11X</option>
+                        <option value="12">12X</option>
+                    </select>
+
                 </div>
-                
-                
             </div>
 
         </div>
@@ -313,43 +306,33 @@
         <div class="legenda">
             <p>Publique seu imóvel</p>
             <div class="title">
-                <iconify-icon icon="gg:details-more"></iconify-icon>
-                Características básicas
+                <iconify-icon icon="icon-park-outline:local-two"></iconify-icon>
+                Localização
             </div>
-            <p>Informe as características básicas do seu imóvel</p>
+            <p>Informe a localização do seu imóvel</p>
         </div>
         <div class="form">
-            <div class="container-inputs">
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="mdi:bed-outline"></iconify-icon>
-                        <label for="numQuartos">Quartos</label>
+            <div class="container-inputs-form">
+                <div class="inputs-form">
+                    <div class="input-form">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" name="cidade" id="cidade" placeholder="Digite sua cidade...">
                     </div>
-                    <input id="numQuartos" type="text" name="numQuartos" placeholder="Insira...">
-                </div>
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="iconoir:bathroom"></iconify-icon>
-                        <label for="numBanheiros">Banheiros</label>
+                    <div class="input-form">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" name="bairro" id="bairro" placeholder="Digite seu bairro...">
                     </div>
-                    <input id="numBanheiros" type="text" name="numBanheiros" placeholder="Insira...">
                 </div>
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="majesticons:car-line"></iconify-icon>
-                        <label for="numVagas">Vagas</label>
+                <div class="inputs-form">
+                    <div class="input-form i3">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" name="endereco" id="endereco" placeholder="Digite seu endereço...">
                     </div>
-                    <input id="numVagas" type="text" name="numVagas" placeholder="Insira...">
-                </div>
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="iconoir:ruler"></iconify-icon>
-                        <label for="tamArea">Área</label>
+                    <div class="input-form i4">
+                        <label for="numero">Número</label>
+                        <input type="text" name="numero" id="numero" placeholder="Ex.: 30">
                     </div>
-                    <input id="tamArea" type="text" name="tamArea" placeholder="Insira...">
                 </div>
-                
-                
             </div>
 
         </div>
@@ -373,44 +356,24 @@
             <p>Publique seu imóvel</p>
             <div class="title">
                 <iconify-icon icon="gg:details-more"></iconify-icon>
-                Características básicas
+                Imagens
             </div>
-            <p>Informe as características básicas do seu imóvel</p>
+            <p>Faça upload das suas imagens aqui</p>
         </div>
         <div class="form">
-            <div class="container-inputs">
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="mdi:bed-outline"></iconify-icon>
-                        <label for="numQuartos">Quartos</label>
-                    </div>
-                    <input id="numQuartos" type="text" name="numQuartos" placeholder="Insira...">
+            <div class="btn-upload">
+                <p>Selecione um arquivo do seu computador...</p>
+                <div class="container-btn-file">
+                    <input type="file" id="inputFile" name="images" accept="image/*" multiple>
+                    <label for="inputFile" class="labelFile">
+                        <iconify-icon icon="material-symbols:upload"></iconify-icon>
+                        Escolher arquivo
+                    </label>
                 </div>
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="iconoir:bathroom"></iconify-icon>
-                        <label for="numBanheiros">Banheiros</label>
-                    </div>
-                    <input id="numBanheiros" type="text" name="numBanheiros" placeholder="Insira...">
-                </div>
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="majesticons:car-line"></iconify-icon>
-                        <label for="numVagas">Vagas</label>
-                    </div>
-                    <input id="numVagas" type="text" name="numVagas" placeholder="Insira...">
-                </div>
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="iconoir:ruler"></iconify-icon>
-                        <label for="tamArea">Área</label>
-                    </div>
-                    <input id="tamArea" type="text" name="tamArea" placeholder="Insira...">
-                </div>
-                
-                
             </div>
-
+            <div class="container-img" id="containerImg">
+                {{!-- <div class="imgpreview" id="imgPreview">aa</div> --}}
+            </div>
         </div>
         <div class="buttons">
             <div class="container-btn">
@@ -420,74 +383,146 @@
                 </button>
             </div>
             <div class="container-btn">
-                <button class="btnNext" id="btnNext" >
+                <button class="btnNext" id="btnNext" onclick="openPreView()">
                     Continuar
                     <iconify-icon icon="ep:arrow-right"></iconify-icon>
                 </button>
             </div>
         </div>
     </section>
-    <section class="publicacao-form" id="preVisualizacao">
-        <div class="legenda">
+
+
+
+
+    <section class="preVisualizacao" id="preVisualizacao">
+      <div class="contentView" id="contentView">
+        <div class="header-content">
             <p>Publique seu imóvel</p>
-            <div class="title">
-                <iconify-icon icon="gg:details-more"></iconify-icon>
-                Características básicas
+            <div class="btns-header">
+                <button id="btnCancelar">
+                Cancelar
+            </button>
+            <button id="btnPublicar">
+                Publicar
+            </button>
             </div>
-            <p>Informe as características básicas do seu imóvel</p>
+            
         </div>
-        <div class="form">
-            <div class="container-inputs">
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="mdi:bed-outline"></iconify-icon>
-                        <label for="numQuartos">Quartos</label>
-                    </div>
-                    <input id="numQuartos" type="text" name="numQuartos" placeholder="Insira...">
-                </div>
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="iconoir:bathroom"></iconify-icon>
-                        <label for="numBanheiros">Banheiros</label>
-                    </div>
-                    <input id="numBanheiros" type="text" name="numBanheiros" placeholder="Insira...">
-                </div>
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="majesticons:car-line"></iconify-icon>
-                        <label for="numVagas">Vagas</label>
-                    </div>
-                    <input id="numVagas" type="text" name="numVagas" placeholder="Insira...">
-                </div>
-                <div class="area-input">
-                    <div class="header-input">
-                        <iconify-icon icon="iconoir:ruler"></iconify-icon>
-                        <label for="tamArea">Área</label>
-                    </div>
-                    <input id="tamArea" type="text" name="tamArea" placeholder="Insira...">
-                </div>
-                
-                
+        <div class="container-select-imgs">
+            <div class="bloco-img">
+                <div class="img-select">a</div>
+                <div class="img-select">b</div>
             </div>
+            
+            <button id="before"> <= </button>
+            <button id="after"> => </button>
+            
 
         </div>
-        <div class="buttons">
-            <div class="container-btn">
-                <button class="btnBefore" id="btnBefore">
-                    <iconify-icon icon="ep:arrow-left"></iconify-icon>
-                    Voltar
-                </button>
+        <div class="content-preview">
+            <div class="description">
+                <div class="header-description">
+                    <div class="op" id="operacao">
+                        Venda
+                    </div>
+                    <div class="data-publi" id="dataPubli">
+                        <iconify-icon icon="lucide:calendar"></iconify-icon>
+                        23/08/2023
+                    </div>
+                </div>
+                <h1 id="tipoImovel">Apartamento</h1>
+                
+                <div class="describe-endereco">
+                    <div class="title-endereco">
+                        <iconify-icon icon="icon-park-outline:local-two"></iconify-icon>
+                        Localização
+                    </div>
+                    <p id="endereco">Rua dos Sargentos, 32, Vitória, Salvador</p>
+                </div>
+                <div class="descricao">
+                    <label for="descricao">Descrição</label>
+                    <textarea name="descricao" id="descricao" cols="30" rows="10" 
+                    placeholder="Insira a descrição do seu imóvel...">
+
+                    </textarea>
+                </div>    
+                <div class="carac-basic">
+                    <div class="group-carac">
+                        <div class="header-carac">
+                            <iconify-icon icon="mdi:bed-outline"></iconify-icon>
+                            Quartos
+                        </div>
+                        <p id="numQuartos">14</p>
+                    </div>
+                    <div class="group-carac">
+                        <div class="header-carac">
+                            <iconify-icon icon="iconoir:bathroom"></iconify-icon>
+                            Banheiros
+                        </div>
+                        <p id="numBan">8</p>
+                    </div>
+                    <div class="group-carac">
+                        <div class="header-carac">
+                            <iconify-icon icon="majesticons:car-line"></iconify-icon>
+                            Vagas
+                        </div>
+                        <p id="numVaga">4</p>
+                    </div>
+                    <div class="group-carac">
+                        <div class="header-carac">
+                            <iconify-icon icon="iconoir:ruler"></iconify-icon>
+                            Área do imóvel
+                        </div>
+                        <p id="valArea">108m²</p>
+                    </div>
+                </div>
+                
             </div>
-            <div class="container-btn">
-                <button class="btnNext" id="btnNext" >
-                    Continuar
-                    <iconify-icon icon="ep:arrow-right"></iconify-icon>
+            <div class="side-bar">
+                <div class="header-side">
+                    Valor do Imóvel
+                    <p id="valImovel">200.000</p>
+                </div>
+                <div class="grid-side">
+                    <div class="item-grid">
+                        Condomínio
+                        <p id="valCondo">R$600,00</p>
+                    </div>
+                    <div class="item-grid">
+                        IPTU
+                        <p id="valIPTU">R$1200<span id="numParcela">(12X)</span></p>
+                    </div>
+                    <div class="item-grid">
+                        Em construção
+                        <p id="emConstru">Não</p>
+                    </div>
+                    <div class="item-grid">
+                        Data de entrega
+                        <p id="dataEntrega">02/08/2019</p>
+                    </div>
+                    <div class="item-grid">
+                        Nº Andares
+                        <p id="numAndares">11</p>
+                    </div>
+                    <div class="item-grid">
+                        Condomínio
+                        <p id="emCondo">Sim</p>
+                    </div>
+                </div>
+                <button class="tira-duvida">
+                    <iconify-icon icon="majesticons:chat-line"></iconify-icon>
+                    Tirar uma dúvida
+                </button>
+                <button class="agendar-visita">
+                    <iconify-icon icon="lucide:calendar"></iconify-icon>
+                    Agendar visita
                 </button>
             </div>
         </div>
+      </div>
     </section>
- 
-    
+
+
 
 
 
@@ -553,3 +588,6 @@
 
 
 </section>
+
+
+<script src="../../../js/PublicarImovelCliente/publicarImovelCliente.js"></script>

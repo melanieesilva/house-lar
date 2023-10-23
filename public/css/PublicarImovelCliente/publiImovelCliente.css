@@ -43,8 +43,8 @@
     justify-content: center;
     border-radius: 100px;
     font-size: 20px;
-    border: 1px solid #848484;;
-    color: #848484;;
+    border: 1px solid #848484;
+    color: #848484;
 }
 
 .publicacao-form{
@@ -215,6 +215,244 @@ input[type="radio"]:checked + .labelRadio.tipo {
 }
 
 /* ESTILIZAÇÃO DETALHE IMÓVEL*/
+.container-selects{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 32px 16px;
+}
+
+.select{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+}
+.select > p{
+    width: 100%;
+    margin: 0;
+    font-size: 14px;
+}
+.select > select{
+    border-radius: 6px;
+    background: none;
+    border: 1px solid #848484;
+}
+.select > input{
+    background: none;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.select > input, .select > select{
+    width: 120px;
+    padding: 4px 8px;
+}
+.container-selects > :last-child > :first-child{
+    width: 280px;
+}
+.container-selects > :last-child > :last-child{
+    border: 1px solid #848484;
+    width: 140px;
+}
+
+/* ESTILIZAÇÃO VALORES */
+#valores > .form > .container-selects > .select > :first-child{
+    font-weight: 600;
+}
+
+/* ESTILIZAÇÃO LOCALIZAÇÃO */
+.container-inputs-form{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.inputs-form{
+    display: flex;
+    gap: 5%;
+}
+
+
+.input-form{
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 2);
+    gap: 4px;
+    font-size: 14px;
+}
+.input-form > input{
+    background: none;
+    border-radius: 6px;
+    border: 1px solid #848484;
+    padding: 12px;
+}
+
+.input-form.i3{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+}
+.input-form.i4{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+/* ESTILIZAÇÃO IMAGENS */
+.btn-upload{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFE5F4;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px dashed #9D0058;
+}
+.btn-upload > p{
+    color: #5B5B5B;
+    font-size: 14px;
+}
+.container-btn-file{
+    position: relative;
+}
+
+input[type="file"]{
+    display: none;
+}
+
+.labelFile{
+    padding: 8px 12px;
+    background-color:#9D0058;
+    color: white;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    gap: 16px;
+    cursor: pointer;
+}
+
+.container-img{
+    /* background-color: #9D0058; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 280px;
+    max-width: 584px;
+    gap: 8px;
+}
+
+.imgpreview{
+    width: calc(100% / 4 - 6px);
+    height: 120px;
+    background-color: #5B5B5B;
+    margin-block-end: 8px;
+    border-radius: 6px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 12px;
+}
+
+.imgpreview > img{
+    width: 100%;
+    height: 100%;
+}
+
+.btndelete{
+    padding: 12px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+/* ESTILIZAÇÃO PRÉ VISUALIZAÇÃO */
+.contentView{
+    width: 95%;
+    height: 95%;
+    background-color: white;
+    border-radius: 8px;
+    overflow: scroll;
+    overflow-x: hidden;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.contentView *{
+    margin: 0;
+}
+
+.header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btns-header{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.btns-header > button{
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+    background-color: #9D0058;
+    color: white;
+    cursor: pointer;
+}
+
+.btns-header > :first-child{
+    background-color: #8f8f8f;
+}
+
+.container-select-imgs{
+    background-color: rebeccapurple;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* justify-content: center; */
+}
+
+.bloco-img{
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+}
+
+.img-select{
+    background-color: red;
+    border: 1px solid black;
+    width: calc(100% / 2);
+    height: 100%;
+}
+
+.container-select-imgs > button{
+   position: absolute;
+}
+#after{
+    right: 40px;
+}
+#before{
+    left: 40px;
+}
+
 
 #infoPessoais{
     display: none;
@@ -233,7 +471,7 @@ input[type="radio"]:checked + .labelRadio.tipo {
 }
 
 #detalheImovel{
-    /* display: none; */
+    display: none;
 }
 
 #valores{
@@ -245,10 +483,24 @@ input[type="radio"]:checked + .labelRadio.tipo {
 }
 
 #imagens{
-    display: none;
+    /* display: none; */
 }
 
 #preVisualizacao{
-    display: none;
+    position: fixed;
+    background-color: red;
+    width: 100vw;
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
 }
 

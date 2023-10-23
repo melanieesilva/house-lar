@@ -5,7 +5,14 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 const Usuario = require('../models/Usuario')
 const Noticia = require('../models/Noticias')
+<<<<<<< Updated upstream
 
+=======
+const Categoria_Noticia = require('../models/Categoria_Noticia')
+const multer = require('multer');
+const storage = multer.memoryStorage(); // Armazena a imagem em memória
+const upload = multer({ storage: storage });
+>>>>>>> Stashed changes
 
 
 router.get('/painelControle', (req,res) => {
@@ -29,19 +36,42 @@ router.get('/noticiasCorretor', (req,res) => {
     })
 })
 
+<<<<<<< Updated upstream
 router.post('/corretor/CadastrarNoticia', upload.single('imagem_noticia'), async (req,res)=>{
+=======
+
+
+router.post('/corretor/CadastrarNoticia', upload.single('imagem_noticia'), async (req, res) => {
+>>>>>>> Stashed changes
     try {
         // Obtenha os dados do formulário a partir de req.body
         const { titulo_noticia, descricao_noticia, autor_noticia, artigo_noticia } = req.body;
         const imagem_noticia = req.file.buffer;
 
+<<<<<<< Updated upstream
         // Crie uma nova notícia usando o modelo
+=======
+        const imagem_noticia = req.file.filename; // A imagem é armazenada em req.file.buffer
+
+        // Crie uma nova categoria usando o modelo
+        const Categoria = await Categoria_Noticia.create({
+            nome_categoria: nome_categoria,
+            cor_categoria: cor_categoria
+        });
+
+        // Crie uma nova notícia associada à categoria recém-criada
+>>>>>>> Stashed changes
         await Noticia.create({
             titulo_noticia: titulo_noticia,
             descricao_noticia: descricao_noticia,
             autor_noticia: autor_noticia,
             artigo_noticia: artigo_noticia,
+<<<<<<< Updated upstream
             imagem_noticia: imagem_noticia
+=======
+            imagem_noticia: imagem_noticia, // Adicione a imagem à notícia
+            categoria_id: Categoria.id_categoria
+>>>>>>> Stashed changes
         });
 
         res.redirect('/'); // Redirecione para a página inicial ou para onde desejar

@@ -69,6 +69,25 @@ router.get('/corretor/noticiasCorretor', (req, res) => {
 })
 
 
+router.get('/sla',(req,res)=>{
+    
+    const data = {
+        title: 'My Title',
+        description: 'My Description',
+        items: [
+          { name: 'Item 1', price: 10 },
+          { name: 'Item 2', price: 20 },
+          { name: 'Item 3', price: 30 },
+            { sub:[
+                { nome:"subitem1" }
+            ] 
+            }
+        ]
+      };
+
+    res.render('pages/sla',{data})
+})
+
 
 router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
     try {
@@ -106,6 +125,51 @@ router.get('/corretor/solicitacoes', (req, res) => {
         layout: 'painelControle',
         pageTitle: 'Solicitações - Painel de Controle'
     })
+})
+
+router.get('/corretor/DesativarNoticia/:id',(req,res)=>{
+    //findOne where id:req.params.id
+    //then(noticia)
+        //update noticia mudar status noticia para desativada onde id for igual a req.params.id
+
+    // find all (where status = desativado) then(noticiasDesativadas)
+            //busque a lista atualizada de noticias onde status = desativado
+            //res render passa o objeto noticiasDesativadas para a rota noticiasCorretor
+            router.get('/corretor/DesativarNoticia/:id', (req, res) => {
+                const noticiaId = req.params.id;
+
+                Noticia.findOne({
+                    where: { id: noticiaId }
+                })
+                .then(noticia => {
+                    if (noticia) {
+      
+                        noticia.update({
+                            status: 'desativado'
+                        })
+                        .then(() => {
+   
+                            Noticia.findAll({
+                                where: { status: 'desativado' }
+                            })
+                            .then(noticiasDesativadas => {
+                          
+                                res.render('pages/noticiasCorretor', {
+                                    noticias: noticiasDesativadas,
+                                    layout: 'painelControle',
+                                    pageTitle: 'Notícias - Painel De Controle'
+                                });
+                            })
+                  
+                        })
+                        .catch(error => {
+                            console.log(error);
+                            res.status(500).send('Erro ao desativar a notícia.');
+                        });
+                    }
+                })
+           
+            })
 })
 
 router.get('/corretor/publicarNoticia', (req, res) => {

@@ -4,7 +4,8 @@ const db = require('../Database/Connection')
 
 const Categoria_Noticia = db.connect.define('categoria_noticia',{
     nome_categoria: db.Sequelize.STRING,
-    cor_categoria: db.Sequelize.ENUM('Amarelo', 'Azul', 'Roxo', 'Verde', 'Laranja', 'Vermelho')
+    cor_categoria: db.Sequelize.ENUM('Amarelo', 'Azul', 'Roxo', 'Verde', 'Laranja', 'Vermelho'),
+    status_categoria: db.Sequelize.ENUM('Publicada','Desativada')
 });
 
 // Categoria_Noticia.create({

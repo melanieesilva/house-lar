@@ -42,15 +42,49 @@
         </section>
         {{#each noticias}}
 
-        <section class="noticias" id="noticiasPublicadas">
-            <div class="card-noticia">
-                <div class="img-card" data-image="{parametro handlebars filename da img}">
-                    imagem aqui
-                </div>
-                <div class="conteudo-card">
-                    <div class="header-conteudo">
-                        <div class="detalhes-card">
-                            <div class="categoria">
+
+            <section class="noticias" id="noticiasPublicadas">
+                <div class="card-noticia">
+                    <div class="img-card" data-image="{parametro handlebars filename da img}">
+                        imagem aqui
+                    </div>
+                    <div class="conteudo-card">
+                        <div class="header-conteudo">
+                            <div class="detalhes-card">
+                                <div class="categoria">
+                                <p>"parametro handlebars</p>
+                            </div>
+                            <div class="link-noticia">
+                                <a href="/public/artigoNoticia/{parametro handlebars id noticia}">
+                                    Ler Notícia
+                                    <iconify-icon icon="ic:round-arrow-circle-right"></iconify-icon>
+                                </a>
+                            </div>
+                            </div>
+                            
+                            <div class="dropdown-more" id="moreDrop" onclick="openBodyDrop(this)">
+                                <div class="main-dropdown-more">
+                                    <iconify-icon icon="mingcute:more-2-fill" ></iconify-icon>
+                                </div>
+                                <div class="body-drop-more" id="bodyDrop">
+                                    <a href="/corretor/DesativarNoticia/{{dataValues.id}}"</a>
+                                        <div class="options-more" id="desativarNoticia">
+                                            <iconify-icon icon="tabler:news-off"></iconify-icon>
+                                            Desativar noticia
+                                        </div>
+                                    </a>
+                                    
+                                    <div class="options-more">
+                                        <iconify-icon icon="solar:pen-outline"></iconify-icon>
+                                        Editar imovel
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="conteudo">
+                            <p>"parametro handlebars"</p>
                             <p>"parametro handlebars</p>
                         </div>
                         <div class="link-noticia">
@@ -59,44 +93,17 @@
                                 <iconify-icon icon="ic:round-arrow-circle-right"></iconify-icon>
                             </a>
                         </div>
-                        </div>
-                        
-                        <div class="dropdown-more" id="moreDrop" onclick="openBodyDrop(this)">
-                            <div class="main-dropdown-more">
-                                <iconify-icon icon="mingcute:more-2-fill" ></iconify-icon>
-                            </div>
-                            <div class="body-drop-more" id="bodyDrop">
-                                <div class="options-more" id="desativarNoticia">
-                                    <iconify-icon icon="tabler:news-off"></iconify-icon>
-                                    Desativar noticia
-                                </div>
-                                <div class="options-more">
-                                    <iconify-icon icon="solar:pen-outline"></iconify-icon>
-                                    Editar imovel
-                                </div>
-                                
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class="conteudo">
-                        <p>"parametro handlebars"</p>
-                        <p>"parametro handlebars</p>
-                    </div>
-                    <div class="link-noticia">
-                        <a href="/public/artigoNoticia/{parametro handlebars id noticia}">
-                            Ler Notícia
-                            <iconify-icon icon="ic:round-arrow-circle-right"></iconify-icon>
-                        </a>
                     </div>
                 </div>
-            </div>
 
-        </section>
+            </section>
+        {{/each}}
+
+        {{#if desativadas}}
         <section class="noticias" id="noticiasDesativadas">
         </section>
-        
-        {{/each}}
+
+        {{/if}}
 
 
 <script src="../../js/noticiasCorretor.js"></script>

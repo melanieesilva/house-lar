@@ -38,7 +38,17 @@
 
 
             <div class="titulo">
-                <label> Categoria</label>
+                <select name="categoria" id="categoria">
+                    <optgroup label="Categoria">
+                        {{#each categorias}}
+                            <option value="{{nome_categoria}}">{{nome_categoria}}</option>
+                        {{/each}}
+                    </optgroup>
+                    <optgroup>
+                        <a href="/corretor/cadastrarCategoria"><button>Nova Categoria</button></a>
+                    </optgroup>
+                </select>
+                {{!-- <label> Categoria</label>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -49,7 +59,7 @@
                         <div class="dropdown-item"> <a href="#" class="bord2">Oportunidade Village</a> </div>
                         <div class="dropdown-item"> <button id="open-modal">Nova categoria</button> </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
 

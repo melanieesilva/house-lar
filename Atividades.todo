@@ -1,0 +1,7 @@
+Testar cadastro noticia - Melanie
+Adicionar mensagem flash após publicar notícia - Melanie
+Cadastrar categoria
+Apresentar categoria no select
+Apresentar nos cards - cada card tem um link com a id da noticia
+Apresentar noticia expandida - se chega na rota através do id passado na rota
+

@@ -2,6 +2,8 @@
 const express = require('express')
 const router = express.Router()
 const multer = require('multer')
+const session = require('express-session')
+require('dotenv').config()
     //MODELOS
     const Usuario = require('../models/Usuario')
     const Noticia = require('../models/Noticias')
@@ -10,7 +12,7 @@ const multer = require('multer')
 
 var storage = multer.diskStorage({
     destination: (req,file,cb) =>{
-        cb(null,"C:/Users/021.785638/Documents/GitHub/house-lar/public/uploads")
+        cb(null,"C:/Users/"+process.env.USER+"/Documents/GitHub/house-lar/public/uploads")
     },
     filename: (req,file,cb)=>{
         cb(null,file.fieldname+"_"+Date.now()+"_"+file.originalname)
@@ -20,6 +22,16 @@ var storage = multer.diskStorage({
 const upload = multer({
     storage: storage
 }).single("imagem")
+
+//SESSION
+router.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 30000
+    }
+}))
 
 router.get('/corretor/painelControle', (req, res) => {
     res.render('pages/imoveisPublicados', {
@@ -63,7 +75,9 @@ router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
                 categoria_id: 1,
                 nome_imagem: imagem.filename,
                 data_imagem: imagem.buffer
-            });
+        }).then(()=>{
+            
+        });
         
         console.log("Notícia cadastrada com sucesso!")
         res.redirect('/corretor/noticiasCorretor');

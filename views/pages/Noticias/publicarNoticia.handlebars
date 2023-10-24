@@ -38,16 +38,17 @@
 
 
             <div class="titulo">
-                <select name="categoria" id="categoria">
+                Selecione uma categoria
+                <select name="categoria" id="categoriaSelect">
                     <optgroup label="Categoria">
                         {{#each categorias}}
                             <option value="{{nome_categoria}}">{{nome_categoria}}</option>
                         {{/each}}
                     </optgroup>
-                    <optgroup>
-                        <a href="/corretor/cadastrarCategoria"><button>Nova Categoria</button></a>
-                    </optgroup>
                 </select>
+                
+                            <button id="open-modal">Nova Categoria</button>
+                    
                 {{!-- <label> Categoria</label>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"

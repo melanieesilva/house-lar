@@ -42,12 +42,7 @@
         </section>
         {{#each noticias}}
 
-<<<<<<< Updated upstream
-
-            <section class="noticias" id="noticiasPublicadas">
-=======
             <section class="noticias" id="noticiasPublicadasID">
->>>>>>> Stashed changes
                 <div class="card-noticia">
                     <div class="img-card" data-image="{parametro handlebars filename da img}">
                         imagem aqui
@@ -55,23 +50,11 @@
                     <div class="conteudo-card">
                         <div class="header-conteudo">
                             <div class="detalhes-card">
-<<<<<<< Updated upstream
-                                <div class="categoria">
-                                <p>"parametro handlebars</p>
-                            </div>
-                            <div class="link-noticia">
-                                <a href="/public/artigoNoticia/{parametro handlebars id noticia}">
-                                    Ler Notícia
-                                    <iconify-icon icon="ic:round-arrow-circle-right"></iconify-icon>
-                                </a>
-                            </div>
-                            </div>
-                            
-                            <div class="dropdown-more" id="moreDrop" onclick="openBodyDrop(this)">
-=======
+                                {{#each categorias}}
                                 <div class="categoria" data-cor={{dataValues.cor_categoria}}>
                                 <p>{{dataValues.nome_categoria}}</p>
                             </div>
+                            {{/each}}
                             <div class="data-noticia">
                                 <iconify-icon icon="lucide:calendar"></iconify-icon>
                                 <p>{{dataValues.createdAt}}</p>
@@ -79,48 +62,30 @@
                             </div>
                             
                             <div class="dropdown-more" id="moreDrop">
->>>>>>> Stashed changes
                                 <div class="main-dropdown-more">
                                     <iconify-icon icon="mingcute:more-2-fill" ></iconify-icon>
                                 </div>
                                 <div class="body-drop-more" id="bodyDrop">
-<<<<<<< Updated upstream
-                                    <a href="/corretor/DesativarNoticia/{{dataValues.id}}"</a>
-=======
                                     <a href="/corretor/DesativarNoticia/{{dataValues.id}}">
->>>>>>> Stashed changes
                                         <div class="options-more" id="desativarNoticia">
                                             <iconify-icon icon="tabler:news-off"></iconify-icon>
                                             Desativar noticia
                                         </div>
                                     </a>
-<<<<<<< Updated upstream
-                                    
-                                    <div class="options-more">
-                                        <iconify-icon icon="solar:pen-outline"></iconify-icon>
-                                        Editar imovel
-                                    </div>
-=======
                                     <a href="/corretor/EditarNoticia/{{dataValues.id}}">
                                         <div class="options-more">
                                             <iconify-icon icon="solar:pen-outline"></iconify-icon>
                                             Editar notícia
                                         </div>
                                     </a>
->>>>>>> Stashed changes
                                     
                                 </div>
                             </div>
                             
                         </div>
                         <div class="conteudo">
-<<<<<<< Updated upstream
-                            <p>"parametro handlebars"</p>
-                            <p>"parametro handlebars</p>
-=======
                             <p>{{dataValues.titulo_noticia}}</p>
                             <p>{{datValues.artigo_noticia}}</p>
->>>>>>> Stashed changes
                         </div>
                         <div class="link-noticia">
                             <a href="/public/artigoNoticia/{parametro handlebars id noticia}">
@@ -132,7 +97,6 @@
                 </div>
 
             </section>
-<<<<<<< Updated upstream
         {{/each}}
 
         {{#if desativadas}}
@@ -140,13 +104,6 @@
         </section>
 
         {{/if}}
-=======
-         {{/each}}
-        <section class="noticias" id="noticiasDesativadasID">
-        </section>
-        
-       
->>>>>>> Stashed changes
 
 
 <script src="../../js/noticiasCorretor.js"></script>

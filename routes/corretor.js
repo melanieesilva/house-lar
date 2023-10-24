@@ -70,24 +70,6 @@ router.get('/corretor/noticiasCorretor', (req, res) => {
 })
 
 
-router.get('/sla',(req,res)=>{
-    
-    const data = {
-        title: 'My Title',
-        description: 'My Description',
-        items: [
-          { name: 'Item 1', price: 10 },
-          { name: 'Item 2', price: 20 },
-          { name: 'Item 3', price: 30 },
-            { sub:[
-                { nome:"subitem1" }
-            ] 
-            }
-        ]
-      };
-
-    res.render('pages/sla',{data})
-})
 
 
 router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {

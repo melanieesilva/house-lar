@@ -40,15 +40,19 @@ router.get('/corretor/calendario', (req, res) => {
 
 router.post('/corretor/cadastrarCategoria',(req,res)=>{
     const {
-        nome_categoria,
-        cor_categoria
+        nomecategoria,
+        corcategoria
     } = req.body;
 
     Categoria_Noticia.create({
-        nome_categoria: nome_categoria,
-        cor_categoria: cor_categoria
+        nome_categoria: nomecategoria,
+        cor_categoria: corcategoria
     }).then(()=>{
         console.log("Categoria cadastrada com sucesso.")
+        res.render('pages/Noticias/publicarNoticia', {
+            layout: 'painelControle',
+            pageTitle: 'Publicar Noticias - Painel de Controle'
+        })
     }).catch((erro)=>{
         console.log("Não foi possível cadastrar categoria")
     })
@@ -68,8 +72,6 @@ router.get('/corretor/noticiasCorretor', (req, res) => {
         })
     })
 })
-
-
 
 
 router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
@@ -157,13 +159,16 @@ router.get('/corretor/DesativarNoticia/:id',(req,res)=>{
 
 router.get('/corretor/publicarNoticia', (req, res) => {
     Categoria_Noticia.findAll().then((categorias)=>{
-        
+        console.log(categorias)
+        res.render('pages/Noticias/publicarNoticia.handlebars', {
+            layout: 'painelControle',
+            pageTitle: 'Publicar Noticias - Painel de Controle',
+            categorias:categorias
+        })
+    }).catch((erro)=>{
+        console.log(erro)
     })
-
-    res.render('pages/Noticias/publicarNoticia.handlebars', {
-        layout: 'painelControle',
-        pageTitle: 'Publicar Noticias - Painel de Controle'
-    })
+    
 })
 
 router.get('/corretor/mensagens', (req,res)=>{

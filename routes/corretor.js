@@ -75,15 +75,13 @@ router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
                 categoria_id: 1,
                 nome_imagem: imagem.filename,
                 data_imagem: imagem.buffer
-        }).then(()=>{
-            
         });
         
-        console.log("Notícia cadastrada com sucesso!")
+        req.flash("success_msg","Notícia criada com sucesso!")
         res.redirect('/corretor/noticiasCorretor');
     } catch (error) {
         console.log(error);
-        res.status(500).send('Ocorreu um erro ao cadastrar a notícia');
+        req.flash("error_msg","Não foi possível cadastrar notícia.")
     }
 });
 

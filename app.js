@@ -10,7 +10,10 @@ const flash = require('connect-flash')
     //EXPRESS
     const app = express()
     //HANDLEBARS
-    app.engine('handlebars',handlebars.engine({defaultLayout:'main'}))
+    app.engine('handlebars',handlebars.engine({
+        defaultLayout:'main',
+        partialsDir: __dirname + '/views/partials'
+    }))
     app.set('view engine', 'handlebars')
     //BODY PARSER
     const bodyParser = require('body-parser');
@@ -21,9 +24,9 @@ const flash = require('connect-flash')
     //DOTENV - VARIÁVEIS DE AMBIENTE
     require('dotenv').config()
     //FLASH
-    router.use(flash())
+    app.use(flash())
     //Middleware para armazenar flash e outras configurações em todas as rotas
-    router.use((req,res,next)=>{
+    app.use((req,res,next)=>{
         res.locals.success_msg = req.flash("success_msg")
         res.locals.error_msg = req.flash("error_msg")
         next()

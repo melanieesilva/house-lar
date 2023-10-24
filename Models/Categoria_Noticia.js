@@ -7,6 +7,10 @@ const Categoria_Noticia = db.connect.define('categoria_noticia',{
     cor_categoria: db.Sequelize.ENUM('Amarelo', 'Azul', 'Roxo', 'Verde', 'Laranja', 'Vermelho')
 });
 
+// Categoria_Noticia.create({
+//     nome_categoria: "Oportunidade Tenda",
+//     cor_categoria: "Vermelho"
+// })
 
 // Categoria_Noticia.sync({force:true})
 

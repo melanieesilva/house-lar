@@ -57,17 +57,9 @@ INSERT INTO `categoria_noticia` (`nome_categoria`,`cor_categoria`) VALUES
 ("Oportunidade Tenda","Vermelho"),
 ("Oportunidade Village","Azul")
 
-INSERT INTO `categoria_noticia` (`id_categoria`, `nome_categoria`, `cor_categoria`) VALUES
-(1, 'ble', 'Verde'),
-(2, 'bicho', 'Laranja'),
-(3, 'bicho', 'Azul'),
-(4, 'bicho', 'Azul'),
-(5, 'bicho', 'Azul'),
-(6, 'bicho', 'Azul'),
-(7, '', 'Vermelho'),
-(8, '', 'Vermelho'),
-(9, '', 'Vermelho'),
-(10, 'bicho', 'Amarelo');
+INSERT INTO `categoria_noticia` (`nome_categoria`, `cor_categoria`) VALUES
+('Oportunidade Tenda', 'Vermelho'),
+('Oportunidade Village', 'Verde'),
 
 -- --------------------------------------------------------
 

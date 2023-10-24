@@ -9,7 +9,8 @@ const Noticia = db.connect.define('noticias', {
     publicado_por: { type: db.Sequelize.STRING, defaultValue: "House&Lar" },
     nome_imagem: db.Sequelize.STRING,
     data_imagem: db.Sequelize.BLOB,
-    categoria_id: db.Sequelize.INTEGER
+    categoria_id: db.Sequelize.INTEGER,
+    status: db.Sequelize.ENUM('Publicada','Desativada')
 });
 
 // Noticia.sync({ force: true });

@@ -717,38 +717,66 @@
 
 {{>_msg}}
 
-        <section class="header">
+        <section class="header-area">
             <div class="title-header">
                 <p>Notícias</p>
-                <a href="/corretor/publicarNoticia">Publicar Notícia</a>
+                <a href="/corretor/publicarNoticia">
+                    <iconify-icon icon="mingcute:add-line"></iconify-icon>
+                    Nova Notícia
+                </a>
             </div>
             <div class="navbar-header">
                 <div class="sessions">
-                    <div class="noticias-publicadas" onclick="openViewNoticia("Publicado")">
-                        Publicadas <span id="totalDesativadas">12</span>
+                    <div class="session publicadas" onclick="openViewNoticia("Publicado")">
+                        Publicadas <span id="totalPublicadas">12</span>
                     </div>
-                    <div class="noticias-desativadas" onclick="openViewNoticia("Publicado")">
+                    <div class="session desativadas" onclick="openViewNoticia("Publicado")">
                         Desativadas <span id="totalDesativadas">12</span>
                     </div>
                 </div>
                 <div class="search">
-                    <input type="text" name="busca" class="search-input" id="searchInput">
+                    <div class="input-search">
+                        <iconify-icon icon="tabler:search"></iconify-icon>
+                        <input type="text" name="busca" class="search-input" id="searchInput" placeholder="Pesquise por código...">
+                    </div>
+                    
                     <div class="dropdown-filter">
-                        <div class="main-dropdown"></div>
-                        <div class="body-dropdown"></div>
+                        <div class="main-dropdown">
+                            <iconify-icon icon="system-uicons:filter"></iconify-icon>
+                            Filtre por
+                        </div>
+                        <div class="body-dropdown">
+                            opção data
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         <section class="noticias" id="containerNoticias">
             <div class="card-noticia">
-                <div class="img-card" data-image="-- parametro handlebars aqui com filename da img--"></div>
+
+                {{!-- DATA-IMAGE SERÁ ACESSADO NO JS PARA COLOCAR A IMAGEM NO BACKGROUND DA DIV img-card --}}
+                <div class="img-card" data-image="{parametro handlebars filename da img}">
+                    imagem aqui
+                </div>
                 <div class="conteudo-card">
-                    <div class="header-conteudo"></div>
-                    <div class="conteudo"></div>
-                    <div class="btn">
-                        <a href="/public/artigoNoticia/{{parametro handlebars id noticia}}">
+                    <div class="header-conteudo">
+                        <div class="categoria">
+                            <p>"parametro handlebars</p>
+                        </div>
+                        <div class="data-noticia">
+                            <iconify-icon icon="lucide:calendar"></iconify-icon>
+                            <p>"parametro"</p>
+                        </div>
+                    </div>
+                    <div class="conteudo">
+                        <p>"parametro handlebars"</p>
+                        <p>"parametro handlebars</p>
+                    </div>
+                    <div class="link-noticia">
+                        <a href="/public/artigoNoticia/{parametro handlebars id noticia}">
                             Ler Notícia
+                            <iconify-icon icon="ic:round-arrow-circle-right"></iconify-icon>
                         </a>
                     </div>
                 </div>

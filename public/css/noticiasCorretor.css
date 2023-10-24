@@ -1,0 +1,105 @@
+.header-area{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px;
+}
+
+
+.title-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title-header > p{
+    font-size: 28px;
+    margin: 0 !important;
+    font-weight: 500;
+}
+.title-header > a {
+    padding: 12px;
+    border-radius: 12px;
+    color: white !important;
+    background: #9D0058;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.title-header > a > iconify-icon{
+    font-size: 20px;
+}
+
+
+.navbar-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-header > .sessions{
+    display: flex;
+    align-items: center;
+}
+.navbar-header > .sessions > .session{
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid #9D0058;
+    gap: 12px;
+    cursor: pointer;
+}
+.navbar-header > .sessions > .session > span{
+    padding: 4px 8px;
+    background: #FFE9F5;
+    color: #9D0058;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.search{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.input-search{
+    position: relative;
+}
+.input-search > iconify-icon{
+    color: rgba(128, 128, 128, 1);
+    font-size: 18px;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+.search > .input-search > input{
+    font-size: 14px;
+    padding: 8px 30px 8px 8px;
+    border-radius: 6px;
+    border: 1px solid #D1D1D1;
+}
+
+.dropdown-filter{
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.main-dropdown{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid black;
+    padding: 8px 18px;
+}
+.main-dropdown > iconify-icon{
+    font-size: 22px;
+}

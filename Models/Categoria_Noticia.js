@@ -4,12 +4,7 @@ const db = require('../Database/Connection')
 
 const Categoria_Noticia = db.connect.define('categoria_noticia',{
     nome_categoria: db.Sequelize.STRING,
-    cor_categoria: db.Sequelize.ENUM('Amarelo', 'Azul', 'Roxo', 'Verde', 'Laranja', 'Vermelho'),
-<<<<<<< Updated upstream
-    status_categoria: db.Sequelize.ENUM('Publicada','Desativada')
-=======
-    status_categoria: db.Sequelize.ENUM('Publicadas','Desativadas')
->>>>>>> Stashed changes
+    cor_categoria: db.Sequelize.ENUM('Amarelo', 'Azul', 'Roxo', 'Verde', 'Laranja', 'Vermelho')
 });
 
 // Categoria_Noticia.create({

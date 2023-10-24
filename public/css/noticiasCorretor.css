@@ -334,10 +334,10 @@ a:hover {
 
 /* Estilizando área de notícias */
 .noticias{
+    background-color: #212121;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin-top: 24px;
 }
 
 /* Estilizando card de uma notícia */

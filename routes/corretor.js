@@ -70,6 +70,7 @@ router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
         req.flash("success_msg","Notícia criada com sucesso!")
         res.redirect('/corretor/noticiasCorretor');
     } catch (error) {
+        res.redirect('/corretor/noticiasCorretor')
         console.log(error);
         req.flash("error_msg","Não foi possível cadastrar notícia.")
     }

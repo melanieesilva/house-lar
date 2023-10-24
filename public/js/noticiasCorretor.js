@@ -3,8 +3,8 @@
 openViewNoticia(0)
 
 function openViewNoticia(el){
-    const publicados = document.getElementById("publicados")
-    const desativados = document.getElementById("desativados")
+    const publicados = document.getElementById("sessionPublicados")
+    const desativados = document.getElementById("sessionDesativados")
     const spanPublicados = document.getElementById("totalPublicadas")
     const spanDesativados = document.getElementById("totalDesativadas")
     const sectionPublicados = document.getElementById("noticiasPublicadas")

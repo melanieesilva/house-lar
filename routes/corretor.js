@@ -2,7 +2,6 @@
 const express = require('express')
 const router = express.Router()
 const multer = require('multer')
-const session = require('express-session')
 require('dotenv').config()
     //MODELOS
     const Usuario = require('../models/Usuario')
@@ -23,15 +22,6 @@ const upload = multer({
     storage: storage
 }).single("imagem")
 
-//SESSION
-router.use(session({
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        maxAge: 30000
-    }
-}))
 
 router.get('/corretor/painelControle', (req, res) => {
     res.render('pages/imoveisPublicados', {

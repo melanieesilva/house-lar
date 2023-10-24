@@ -4,6 +4,7 @@ const handlebars = require('express-handlebars')
 const corretorRouter = require('./routes/corretor')
 const publicRouter = require('./routes/public')
 const connect = require('./Database/Connection')
+const session = require('express-session')
 const flash = require('connect-flash')
 
 //CONFIGURAÇÕES    
@@ -23,6 +24,15 @@ const flash = require('connect-flash')
     app.use(express.static('public'))
     //DOTENV - VARIÁVEIS DE AMBIENTE
     require('dotenv').config()
+    //SESSION
+    app.use(session({
+        secret: process.env.SECRET,
+        resave: false,
+        saveUninitialized: true,
+        cookie: {
+            maxAge: 30000
+        }
+    }))
     //FLASH
     app.use(flash())
     //Middleware para armazenar flash e outras configurações em todas as rotas

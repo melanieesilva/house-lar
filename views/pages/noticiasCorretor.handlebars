@@ -719,15 +719,40 @@
 
         <section class="header">
             <div class="title-header">
-                Notícias
+                <p>Notícias</p>
                 <a href="/corretor/publicarNoticia">Publicar Notícia</a>
             </div>
             <div class="navbar-header">
-
+                <div class="sessions">
+                    <div class="noticias-publicadas" onclick="openViewNoticia("Publicado")">
+                        Publicadas <span id="totalDesativadas">12</span>
+                    </div>
+                    <div class="noticias-desativadas" onclick="openViewNoticia("Publicado")">
+                        Desativadas <span id="totalDesativadas">12</span>
+                    </div>
+                </div>
+                <div class="search">
+                    <input type="text" name="busca" class="search-input" id="searchInput">
+                    <div class="dropdown-filter">
+                        <div class="main-dropdown"></div>
+                        <div class="body-dropdown"></div>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="noticias" id="containerNoticias">
-            campo noticias
+            <div class="card-noticia">
+                <div class="img-card" data-image="-- parametro handlebars aqui com filename da img--"></div>
+                <div class="conteudo-card">
+                    <div class="header-conteudo"></div>
+                    <div class="conteudo"></div>
+                    <div class="btn">
+                        <a href="/public/artigoNoticia/{{parametro handlebars id noticia}}">
+                            Ler Notícia
+                        </a>
+                    </div>
+                </div>
+            </div>
             {{!-- <div class="card-noticia">
                 <div class="img-noticia">
                     <img src="../../img/img-noticia.png" alt="">

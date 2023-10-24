@@ -11,7 +11,7 @@ require('dotenv').config()
 
 var storage = multer.diskStorage({
     destination: (req,file,cb) =>{
-        cb(null,"C:/Users/"+process.env.USER+"/Documents/GitHub/house-lar/public/uploads")
+        cb(null,"C:/Users/021.888494/Documents/GitHub/house-lar/public/uploads")
     },
     filename: (req,file,cb)=>{
         cb(null,file.fieldname+"_"+Date.now()+"_"+file.originalname)
@@ -37,10 +37,34 @@ router.get('/corretor/calendario', (req, res) => {
     })
 })
 
+router.post('/corretor/cadastrarCategoria',(req,res)=>{
+    const {
+        nome_categoria,
+        cor_categoria
+    } = req.body;
+
+    Categoria_Noticia.create({
+        nome_categoria: nome_categoria,
+        cor_categoria: cor_categoria
+    }).then(()=>{
+        console.log("Categoria cadastrada com sucesso.")
+    }).catch((erro)=>{
+        console.log("Não foi possível cadastrar categoria")
+    })
+})
+
+
 router.get('/corretor/noticiasCorretor', (req, res) => {
-    res.render('pages/noticiasCorretor.handlebars', {
-        layout: 'painelControle',
-        pageTitle: 'Notícias - Painel De Controle'
+    Noticia.findAll().then((noticias)=>{
+        console.log(noticias)
+        Noticia.findAll().then((categorias)=>{
+            res.render('pages/noticiasCorretor',{noticias:noticias, categorias:categorias,
+                layout: 'painelControle',
+                pageTitle: 'Notícias - Painel De Controle'
+            })
+        }).catch((error)=>{
+            console.log(error)
+        })
     })
 })
 

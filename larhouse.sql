@@ -44,9 +44,8 @@ CREATE TABLE `agenda` (
 --
 
 CREATE TABLE `categoria_noticia` (
-  `id_categoria` int(11) NOT NULL,
   `nome_categoria` varchar(200) NOT NULL,
-  `cor_categoria` enum('Vermelho','Amarelo','Roxo','Azul','Laranja','Verde') DEFAULT NULL
+  `cor_categoria` enum('Vermelho','Amarelo','Roxo','Azul','Laranja','Verde'),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

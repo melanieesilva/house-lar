@@ -12,7 +12,7 @@ require('dotenv').config()
 
 var storage = multer.diskStorage({
     destination: (req,file,cb) =>{
-        cb(null,"C:/Users/021.888494/Documents/GitHub/house-lar/public/uploads")
+        cb(null,"C:/Users/021.785638/Documents/GitHub/house-lar/public/uploads")
     },
     filename: (req,file,cb)=>{
         cb(null,file.fieldname+"_"+Date.now()+"_"+file.originalname)

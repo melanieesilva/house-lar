@@ -1,3 +1,5 @@
+/* MAIN */
+
 .header-area{
     display: flex;
     flex-direction: column;
@@ -45,14 +47,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 3px solid #9D0058;
+    /* border-bottom: 3px solid #9D0058; */
+    border-bottom: none;
     gap: 12px;
     cursor: pointer;
+    font-weight: 500;
+    color: #767676;
 }
 .navbar-header > .sessions > .session > span{
     padding: 4px 8px;
-    background: #FFE9F5;
-    color: #9D0058;
+    background: #F3F3F3;
+    color: #767676;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,7 +79,7 @@
     right: 8px;
     top: 50%;
     transform: translateY(-50%);
-
+    cursor: pointer;
 }
 .search > .input-search > input{
     font-size: 14px;
@@ -84,10 +89,10 @@
 }
 
 .dropdown-filter{
-    background-color: blue;
     display: flex;
     flex-direction: column;
     gap: 4px;
+    position: relative;
 }
 .main-dropdown{
     width: 100%;
@@ -102,4 +107,174 @@
 }
 .main-dropdown > iconify-icon{
     font-size: 22px;
+}
+
+.dropdown-filter:hover .body-dropdown{
+    display: flex;
+}
+
+
+.body-dropdown{
+    box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.06);
+    background-color: white;
+    width: 100%;
+    top: 46px;
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 0;
+    border-radius: 5px;
+}
+
+.body-dropdown > .option{
+    width: 100%;
+    padding: 12px;
+    cursor: pointer;
+}
+.body-dropdown > .option:hover{
+    background-color: #e4e4e4;
+}
+
+
+#noticiasPublicadas{
+    display: none;
+}
+#noticiasDesativadas{
+    display: none;
+}
+
+.noticias{
+    width: 100%;
+    height: 100%;
+    padding: 0 40px;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card-noticia{
+    border-radius: 16px;
+    border: 1px solid #E2E2E2;
+    background: #FFF;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    height: 24%;
+    display: flex;
+    align-items: center;
+}
+
+.img-card{
+    width: 30%;
+    height: 100%;
+}
+
+.conteudo-card{
+    height: 100%;
+    width: 100%;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.header-conteudo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.detalhes-card{
+    display: flex;
+    gap: 20px;
+}
+
+
+.dropdown-more{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+.dropdown-more:hover{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.main-dropdown-more{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 12px;
+}
+
+.body-drop-more{
+    width: calc(100% * 5);
+    background-color: white;
+    box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.06);
+    padding: 8px 0;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    right: 0px;
+    top: 42px;
+    border-radius: 5px;
+}
+
+.options-more{
+    width: 100%;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 8px;
+}
+.options-more:hover{
+    background-color: #e4e4e4;
+}
+
+
+.categoria{
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.data-noticia{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.data-noticia > p{
+    margin: 0;
+}
+
+.conteudo-card > .conteudo{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.conteudo-card > .conteudo > :nth-child(1){
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.conteudo-card > .link-noticia{
+    
+}
+
+.conteudo-card > .link-noticia > a{
+    float: right;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    color: #9D0058 !important;
+}
+.conteudo-card > .link-noticia > a > iconify-icon{
+    font-size: 20px;
 }

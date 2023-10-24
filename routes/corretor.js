@@ -7,6 +7,7 @@ require('dotenv').config()
     const Usuario = require('../models/Usuario')
     const Noticia = require('../models/Noticias')
     const Categoria_Noticia = require('../models/Categoria_Noticia')
+    const Duvidas = require('../Models/Duvidas')
 
 
 var storage = multer.diskStorage({
@@ -184,11 +185,19 @@ router.get('/corretor/publicarNoticia', (req, res) => {
 })
 
 router.get('/corretor/mensagens', (req,res)=>{
-    res.render('pages/Mensagens/mensagens.handlebars',{
-        layout: 'painelControle',
-        pageTitle: 'Mensagens - Painel de Controle'
+    Duvidas.findAll().then((duvidas)=>{
+        console.log(duvidas)
+        res.render('pages/Mensagens/mensagens',{
+            layout: 'painelControle',
+            pageTitle: 'Publicar Noticias - Painel de Controle',
+            duvidas:duvidas })
+    }).catch((error)=>{
+        console.log(error)
     })
+
 })
+
+
 
 router.get('/corretor/viewMensagem', (req, res) => {
     res.render('pages/Mensagens/viewMensagem.handlebars', {

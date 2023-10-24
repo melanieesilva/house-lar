@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const Duvida = require('../Models/Duvidas')
+const Duvidas = require('../Models/Duvidas')
+const Noticia = require('../models/Noticias')
 
 router.get('/', (req, res) => res.render('pages/paginaInicial.handlebars'));
 
@@ -32,7 +33,7 @@ router.post('/public/EnviarDuvida', async (req,res)=>{
         const { nome_cliente, email_cliente, telefone_cliente, mensagem_cliente } = req.body;
 
         // Enviar uma dúvida usando o modelo
-        await Duvida.create({
+        await Duvidas.create({
             nome_cliente: nome_cliente,
             email_cliente: email_cliente,
             telefone_cliente: telefone_cliente,

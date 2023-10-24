@@ -109,6 +109,10 @@ router.get('/corretor/solicitacoes', (req, res) => {
 })
 
 router.get('/corretor/publicarNoticia', (req, res) => {
+    Categoria_Noticia.findAll().then((categorias)=>{
+        
+    })
+
     res.render('pages/Noticias/publicarNoticia.handlebars', {
         layout: 'painelControle',
         pageTitle: 'Publicar Noticias - Painel de Controle'

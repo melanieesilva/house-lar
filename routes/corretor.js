@@ -7,7 +7,7 @@ require('dotenv').config()
 const Usuario = require('../models/Usuario')
 const Noticia = require('../models/Noticias')
 const Categoria_Noticia = require('../models/Categoria_Noticia')
-const Duvidas = require('../Models/Duvidas')
+const Duvidas = require('../models/Duvidas')
 
 
 var storage = multer.diskStorage({

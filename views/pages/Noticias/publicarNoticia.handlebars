@@ -40,9 +40,9 @@
             <div class="titulo">
                 Selecione uma categoria
                 <select name="nome_categoria" id="categoriaSelect">
-                        {{#each noticias}}
-                            <option value={{dataValues.nome_categoria}}>{{dataValues.nome_categoria}}</option>
-                        {{/each}}
+                        {{!-- {{#each noticias}} --}}
+                            <option value="Oportunidade Tenda">Oportunidade Tenda</option>
+                        {{!-- {{/each}} --}}
                 </select>
                 
                             <button id="open-modal">Nova Categoria</button>
@@ -94,14 +94,14 @@
             <button id="can">
                 cancelar
             </button>
-            <button id="bp">
+            <button id="bp" type="submit">
                 Publicar
             </button>
         </div>
-
+</form>
 
         <!-- MODAL -->
-        <div id="fade" class="hide"></div>
+        {{!-- <div id="fade" class="hide"></div>
         <d iv id="modal" class="hide">
             <div class="modal-header">
                 <h2>Nova categoria</h2>
@@ -111,11 +111,11 @@
                             d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z" />
                     </svg></button>
             </div>
-</form>
-            <div class="modal-body">
+
+            <div class="modal-body"> --}}
 
 
-                <form action="/corretor/cadastrarCategoria" method="post">
+                {{!-- <form action="/corretor/cadastrarCategoria" method="post">
                     <div id="alinhatudoc">
                     <button type="submit">Cadastrar</button>
                         <div class="categoriaalinha">
@@ -137,7 +137,7 @@
 
                         </div>
                     </div> 
-                </form>
+                </form> --}}
     
 
     </div>

@@ -27,8 +27,7 @@ const Noticia = db.connect.define('noticias', {
         allowNull: false,
     },
     data_imagem: {
-        type:db.Sequelize.BLOB,
-        allowNull: false,
+        type:db.Sequelize.BLOB
     },
     nome_categoria: {
         type:db.Sequelize.STRING

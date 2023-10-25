@@ -1,10 +1,9 @@
 const db = require('../Database/Connection.js');
 const Sequelize = require('sequelize');
-//Definindo modelo Cliente
 const Cliente = db.connect.define('cliente', {
     id_cliente: {
         type: db.Sequelize.INTEGER,
-        primaryKey: true, // Define id_cliente como chave primária
+        primaryKey: true,
         autoIncrement: true
     },
     nome_cliente: {

@@ -8,6 +8,7 @@ const Usuario = require('../models/Usuario')
 const Noticia = require('../models/Noticias')
 const Categoria_Noticia = require('../models/Categoria_Noticia')
 const Duvidas = require('../Models/Duvidas')
+const Cliente = require('../Models/cliente')
 
 
 var storage = multer.diskStorage({
@@ -292,6 +293,37 @@ router.get('/publiImovelCorretor11', (req, res) => {
         pageTitle: 'Publicar Imóvel - Painel de Controle'
     })
 })
+
+router.post('/autenticar', async (req, res) => {
+    const { email, senha } = req.body;
+
+    try {
+        // Busque o cliente pelo email no banco de dados
+        const cliente = await Cliente.findOne({
+            where: {
+                email_cliente: email
+            }
+        });
+
+        if (!cliente) {
+            return res.status(401).send('Credenciais inválidas E-mail');
+        }
+        const senhaCorreta = await Cliente.findOne({
+            where:{
+                senha_cliente: senha
+            }
+        })
+        if (!senhaCorreta) {
+            return res.status(401).send('Credenciais inválidas Senha');
+        }
+
+        res.redirect('/corretor/painelControle'); 
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Ocorreu um erro ao autenticar o cliente');
+    }
+});
+
 
 
 module.exports = router

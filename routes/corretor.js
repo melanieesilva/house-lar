@@ -37,7 +37,12 @@ router.get('/corretor/calendario', (req, res) => {
         pageTitle: 'Calendário - Painel De Controle'
     })
 })
-
+router.get('/corretor/editarnoticia',(req,res) => {
+    res.render('pages/Noticias/editarNoticia',{
+        layout:'painelControle',
+        pageTitle: 'Notícias - Painel De Controle'
+    })
+})
 // router.post('/corretor/cadastrarCategoria', (req, res) => {
 //     const {
 //         nome_categoria,
@@ -56,6 +61,7 @@ router.get('/corretor/calendario', (req, res) => {
 // })
 
 
+
 router.get('/corretor/noticiasCorretor', (req, res) => {
     Noticia.findAll().then((noticias) => {
         console.log(noticias)
@@ -72,7 +78,6 @@ router.get('/corretor/noticiasCorretor', (req, res) => {
 
 router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
     try {
-
         const {
             titulo_noticia,
             descricao_noticia,
@@ -85,11 +90,16 @@ router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
 
         const Noticia_Cor = Noticia.findOne({
             where: {
-                nome_categoria:nome_categoria
+                nome_categoria:req.body.nome_categoria
             }
+        }).then(()=>{
+            console.log("Encontrou notícia")
+        }).catch((erro)=>{
+            console.log("N ENCONTROU NOTICIA: "+erro)
         })
 
-        const cor_categoria = Noticia_Cor.cor_categoria
+
+        const cor_categoria2 = Noticia_Cor.cor_categoria
 
         await Noticia.create({
             titulo_noticia: titulo_noticia,
@@ -99,8 +109,8 @@ router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
             nome_imagem: imagem.filename,
             data_imagem: imagem.buffer,
             nome_categoria: nome_categoria,
-            cor_categoria: cor_categoria,
-            status: "Publicado"
+            cor_categoria: cor_categoria2,
+            status: "Publicada"
         });
 
         req.flash("success_msg", "Notícia criada com sucesso!")

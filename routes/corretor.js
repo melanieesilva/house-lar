@@ -3,19 +3,19 @@ const express = require('express')
 const router = express.Router()
 const multer = require('multer')
 require('dotenv').config()
-    //MODELOS
-    const Usuario = require('../models/Usuario')
-    const Noticia = require('../models/Noticias')
-    const Categoria_Noticia = require('../models/Categoria_Noticia')
-    const Duvidas = require('../Models/Duvidas')
+//MODELOS
+const Usuario = require('../models/Usuario')
+const Noticia = require('../models/Noticias')
+const Categoria_Noticia = require('../models/Categoria_Noticia')
+const Duvidas = require('../Models/Duvidas')
 
 
 var storage = multer.diskStorage({
-    destination: (req,file,cb) =>{
-        cb(null,process.env.PATHMULTER)
+    destination: (req, file, cb) => {
+        cb(null, "C:/Users/melan/Documents/GitHub/house-lar/public/uploads")
     },
-    filename: (req,file,cb)=>{
-        cb(null,file.fieldname+"_"+Date.now()+"_"+file.originalname)
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + "_" + Date.now() + "_" + file.originalname)
     }
 })
 
@@ -38,69 +38,77 @@ router.get('/corretor/calendario', (req, res) => {
     })
 })
 
-router.post('/corretor/cadastrarCategoria',(req,res)=>{
-    const {
-        nomecategoria,
-        corcategoria
-    } = req.body;
+// router.post('/corretor/cadastrarCategoria', (req, res) => {
+//     const {
+//         nome_categoria,
+//         cor_categoria
+//     } = req.body;
 
-    Categoria_Noticia.create({
-        nome_categoria: nomecategoria,
-        cor_categoria: corcategoria
-    }).then(()=>{
-        console.log("Categoria cadastrada com sucesso.")
-        res.render('pages/Noticias/publicarNoticia', {
-            layout: 'painelControle',
-            pageTitle: 'Publicar Noticias - Painel de Controle'
-        })
-    }).catch((erro)=>{
-        console.log("Não foi possível cadastrar categoria")
-    })
-})
+//     Categoria_Noticia.create({
+//         nome_categoria: nome_categoria,
+//         cor_categoria: cor_categoria
+//     }).then(() => {
+//         console.log("Categoria cadastrada com sucesso.")
+
+//     }).catch((erro) => {
+//         console.log("Não foi possível cadastrar categoria")
+//     })
+// })
 
 
 router.get('/corretor/noticiasCorretor', (req, res) => {
-    Noticia.findAll().then((noticias)=>{
+    Noticia.findAll().then((noticias) => {
         console.log(noticias)
-        Noticia.findAll().then((categorias)=>{
-            res.render('pages/noticiasCorretor',{noticias:noticias, categorias:categorias,
-                layout: 'painelControle',
-                pageTitle: 'Notícias - Painel De Controle'
-            })
-        }).catch((error)=>{
-            console.log(error)
+        res.render('pages/noticiasCorretor', {
+            noticias: noticias,
+            layout: 'painelControle',
+            pageTitle: 'Notícias - Painel De Controle'
         })
+    }).catch((error) => {
+            console.log(error)
     })
 })
 
 
 router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
     try {
+
         const {
             titulo_noticia,
             descricao_noticia,
             autor_noticia,
             artigo_noticia,
             nome_categoria,
-            cor_categoria,
         } = req.body;
+
         const imagem = req.file
+
+        const Noticia_Cor = Noticia.findOne({
+            where: {
+                nome_categoria:nome_categoria
+            }
+        })
+
+        const cor_categoria = Noticia_Cor.cor_categoria
+
         await Noticia.create({
-                titulo_noticia: titulo_noticia,
-                descricao_noticia: descricao_noticia,
-                autor_noticia: autor_noticia,
-                artigo_noticia: artigo_noticia,
-                categoria_id: 1,
-                nome_imagem: imagem.filename,
-                data_imagem: imagem.buffer
+            titulo_noticia: titulo_noticia,
+            descricao_noticia: descricao_noticia,
+            autor_noticia: autor_noticia,
+            artigo_noticia: artigo_noticia,
+            nome_imagem: imagem.filename,
+            data_imagem: imagem.buffer,
+            nome_categoria: nome_categoria,
+            cor_categoria: cor_categoria,
+            status: "Publicado"
         });
-        
-        req.flash("success_msg","Notícia criada com sucesso!")
+
+        req.flash("success_msg", "Notícia criada com sucesso!")
         res.redirect('/corretor/noticiasCorretor');
     } catch (error) {
         res.redirect('/corretor/noticiasCorretor')
         console.log(error);
-        req.flash("error_msg","Não foi possível cadastrar notícia.")
+        req.flash("error_msg", "Não foi possível cadastrar notícia.")
     }
 });
 
@@ -112,73 +120,78 @@ router.get('/corretor/solicitacoes', (req, res) => {
     })
 })
 
-router.get('/corretor/DesativarNoticia/:id',(req,res)=>{
+router.get('/corretor/DesativarNoticia/:id', (req, res) => {
     //findOne where id:req.params.id
     //then(noticia)
-        //update noticia mudar status noticia para desativada onde id for igual a req.params.id
+    //update noticia mudar status noticia para desativada onde id for igual a req.params.id
 
     // find all (where status = desativado) then(noticiasDesativadas)
-            //busque a lista atualizada de noticias onde status = desativado
-            //res render passa o objeto noticiasDesativadas para a rota noticiasCorretor
-            router.get('/corretor/DesativarNoticia/:id', (req, res) => {
-                const noticiaId = req.params.id;
+    //busque a lista atualizada de noticias onde status = desativado
+    //res render passa o objeto noticiasDesativadas para a rota noticiasCorretor
+    router.get('/corretor/DesativarNoticia/:id', (req, res) => {
+        const noticiaId = req.params.id;
 
-                Noticia.findOne({
-                    where: { id: noticiaId }
-                })
-                .then(noticia => {
-                    if (noticia) {
-      
-                        noticia.update({
-                            status: 'desativado'
-                        })
+        Noticia.findOne({
+            where: { id: noticiaId }
+        })
+            .then(noticia => {
+                if (noticia) {
+
+                    noticia.update({
+                        status: 'desativado'
+                    })
                         .then(() => {
-   
+
                             Noticia.findAll({
                                 where: { status: 'desativado' }
                             })
-                            .then(noticiasDesativadas => {
-                          
-                                res.render('pages/noticiasCorretor', {
-                                    noticias: noticiasDesativadas,
-                                    layout: 'painelControle',
-                                    pageTitle: 'Notícias - Painel De Controle'
-                                });
-                            })
-                  
+                                .then(noticiasDesativadas => {
+
+                                    res.render('pages/noticiasCorretor', {
+                                        noticias: noticiasDesativadas,
+                                        layout: 'painelControle',
+                                        pageTitle: 'Notícias - Painel De Controle'
+                                    });
+                                })
+
                         })
                         .catch(error => {
                             console.log(error);
                             res.status(500).send('Erro ao desativar a notícia.');
                         });
-                    }
-                })
-           
+                }
             })
+
+    })
 })
 
 router.get('/corretor/publicarNoticia', (req, res) => {
-    Categoria_Noticia.findAll().then((categorias)=>{
-        console.log(categorias)
-        res.render('pages/Noticias/publicarNoticia.handlebars', {
+    Noticia.findAll({
+        attributes: ['nome_categoria']
+    }).then((noticias)=>{
+        console.log("Todas os detalhes de categoria foram recuperados.")
+
+        res.render('pages/Noticias/publicarNoticia',{
             layout: 'painelControle',
-            pageTitle: 'Publicar Noticias - Painel de Controle',
-            categorias:categorias
+            pageTitle: 'Publicar Noticia - Painel de Controle',
+            noticias:noticias
         })
     }).catch((erro)=>{
-        console.log(erro)
+        console.log("Não foi possível fazer a busca: "+erro)
+        res.render('pages/noticiasCorretor')
     })
-    
+
 })
 
-router.get('/corretor/mensagens', (req,res)=>{
-    Duvidas.findAll().then((duvidas)=>{
+router.get('/corretor/mensagens', (req, res) => {
+    Duvidas.findAll().then((duvidas) => {
         console.log(duvidas)
-        res.render('pages/Mensagens/mensagens',{
+        res.render('pages/Mensagens/mensagens', {
             layout: 'painelControle',
             pageTitle: 'Publicar Noticias - Painel de Controle',
-            duvidas:duvidas })
-    }).catch((error)=>{
+            duvidas: duvidas
+        })
+    }).catch((error) => {
         console.log(error)
     })
 

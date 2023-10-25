@@ -1,24 +1,50 @@
 const db = require('../Database/Connection');
 
-// Definindo modelo Usuário
 const Noticia = db.connect.define('noticias', {
-    titulo_noticia: db.Sequelize.STRING,
-    descricao_noticia: db.Sequelize.STRING,
-    artigo_noticia: db.Sequelize.TEXT,
-    autor_noticia: db.Sequelize.STRING,
-    publicado_por: { type: db.Sequelize.STRING, defaultValue: "House&Lar" },
-    nome_imagem: db.Sequelize.STRING,
-    data_imagem: db.Sequelize.BLOB,
-    categoria_id: {
-        type: db.Sequelize.INTEGER,
-        references: {
-            model: 'categoria_noticia',
-            key: 'id'
-        }
+    titulo_noticia: {
+        type:db.Sequelize.STRING,
+        allowNull: false
     },
-    status: db.Sequelize.ENUM('Publicada','Desativada')
+    descricao_noticia: {
+        type:db.Sequelize.STRING,
+        allowNull: false
+    },
+    artigo_noticia: {
+        type:db.Sequelize.TEXT,
+        allowNull: false
+    },
+    autor_noticia: {
+        type:db.Sequelize.STRING,
+        allowNull: false
+    },
+    publicado_por: {
+        type:db.Sequelize.STRING,
+        allowNull: false,
+        defaultValue: "House&Lar"
+    },
+    nome_imagem: {
+        type:db.Sequelize.STRING,
+        allowNull: false,
+    },
+    data_imagem: {
+        type:db.Sequelize.BLOB,
+        allowNull: false,
+    },
+    nome_categoria: {
+        type:db.Sequelize.STRING
+    },
+    cor_categoria: {
+        type:db.Sequelize.ENUM('Amarelo', 'Azul', 'Roxo', 'Verde', 'Laranja', 'Vermelho')
+    },
+    status: {
+        type: db.Sequelize.ENUM('Publicada','Desativada'),
+        allowNull: false,
+    }
 });
 
+
+
 // Noticia.sync({ force: true });
+
 
 module.exports = Noticia;

@@ -7,8 +7,8 @@ function openViewNoticia(el){
     const desativados = document.getElementById("sessionDesativados")
     const spanPublicados = document.getElementById("totalPublicadas")
     const spanDesativados = document.getElementById("totalDesativadas")
-    const sectionPublicados = document.getElementById("noticiasPublicadasID")
-    const sectionDesativados = document.getElementById("noticiasDesativadasID")
+    const sectionPublicados = document.getElementById("noticiasPublicadas")
+    const sectionDesativados = document.getElementById("noticiasDesativadas")
 
     switch(el){
         case 0:

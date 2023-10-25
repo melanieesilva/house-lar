@@ -1,12 +1,51 @@
-const db = require('./db')
-
+const db = require('../Database/Connection.js');
+const Sequelize = require('sequelize');
 //Definindo modelo Cliente
-const Cliente = db.connect.define('clientes',{
-    nome_cliente: db.Sequelize.STRING,
-    email_cliente: db.Sequelize.STRING,
-    telefone_cliente: db.Sequelize.STRING
+const Cliente = db.connect.define('cliente', {
+    id_cliente: {
+        type: db.Sequelize.INTEGER,
+        primaryKey: true, // Define id_cliente como chave primária
+        autoIncrement: true
+    },
+    nome_cliente: {
+        type: db.Sequelize.STRING,
+        allowNull: false
+    },
+    email_cliente: {
+        type: db.Sequelize.STRING,
+        allowNull: false
+    },
+    telefone_cliente: {
+        type: db.Sequelize.STRING,
+        allowNull: false
+    },
+    senha_cliente: {
+        type: db.Sequelize.STRING,
+        allowNull: false
+    },
+    createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+    },
+    updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+    },
 });
 
-// Cliente.sync({force:true})
+db.connect.sync({ force: true }).then(() => {
+    console.log('Tabelas sincronizadas.');
+});
 
-module.exports = Cliente
+Cliente.validarCredenciais = async function(email, senha) {
+    const cliente = await Cliente.findOne({ where: { email_cliente: email } });
+    if (cliente && cliente.senha_cliente === senha) {
+        return cliente;
+    }
+    return null;
+};
+
+
+module.exports = Cliente;

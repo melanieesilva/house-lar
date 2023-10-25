@@ -66,12 +66,15 @@ INSERT INTO `categoria_noticia` (`nome_categoria`, `cor_categoria`) VALUES
 -- Estrutura para tabela `cliente`
 --
 
-CREATE TABLE `cliente` (
-  `id_cliente` int(11) NOT NULL,
+CREATE TABLE `clientes` (
+  `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
   `nome_cliente` varchar(100) NOT NULL,
   `email_cliente` varchar(100) NOT NULL,
-  `telefone_cliente` varchar(20) NOT NULL
+  `senha_cliente` varchar(100) NOT NULL,
+  `telefone_cliente` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_cliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 -- --------------------------------------------------------
 

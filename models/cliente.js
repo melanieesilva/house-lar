@@ -34,9 +34,9 @@ const Cliente = db.connect.define('cliente', {
     },
 });
 
-db.connect.sync({ force: true }).then(() => {
-    console.log('Tabelas sincronizadas.');
-});
+// db.connect.sync({ force: true }).then(() => {
+//     console.log('Tabelas sincronizadas.');
+// });
 
 Cliente.validarCredenciais = async function(email, senha) {
     const cliente = await Cliente.findOne({ where: { email_cliente: email } });

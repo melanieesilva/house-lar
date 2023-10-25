@@ -84,16 +84,20 @@ router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
         const {
             titulo_noticia,
             descricao_noticia,
-            autor_noticia,
             artigo_noticia,
+            autor_noticia,
+            publicado_por,
+            nome_imagem,
+            data_imagem,
             nome_categoria,
+            status
         } = req.body;
 
-        const imagem = req.file
+        // const imagem = req.file
 
         const Noticia_Cor = Noticia.findOne({
             where: {
-                nome_categoria:req.body.nome_categoria
+                nome_categoria:nome_categoria
             }
         }).then(()=>{
             console.log("Encontrou notícia")
@@ -103,23 +107,25 @@ router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
 
         const cor_categoria = Noticia_Cor.cor_categoria
 
-        const noticia = noticiasController.publicarNoticia(
+        const noticia = await noticiasController.publicarNoticia(
             titulo_noticia,
             descricao_noticia,
             autor_noticia,
+            publicado_por,
             artigo_noticia,
             nome_imagem,
             data_imagem,
             nome_categoria,
             cor_categoria,
+            status,
         )
         
-        res.status(200).json({message:"Notícia criada com sucesso"})
+        
         req.flash("success_msg", "Notícia criada com sucesso!")
-        res.redirect('/corretor/noticiasCorretor');
+        res.redirect(200,'/corretor/noticiasCorretor');
     } catch (error) {
-        res.status(500).json({message:"Não foi possível cadastrar notícia"})
-        res.redirect('/corretor/noticiasCorretor')
+        
+        res.redirect(500,'/corretor/noticiasCorretor')
         console.log(error);
         req.flash("error_msg", "Não foi possível cadastrar notícia.")
     }

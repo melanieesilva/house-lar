@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Duvidas = require('../Models/Duvidas')
+const Duvidas = require('../models/Duvidas')
 const Noticia = require('../models/Noticias')
 
 router.get('/', (req, res) => res.render('pages/paginaInicial.handlebars'));

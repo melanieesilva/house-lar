@@ -40,9 +40,9 @@
             <div class="titulo">
                 Selecione uma categoria
                 <select name="nome_categoria" id="categoriaSelect">
-                        {{!-- {{#each noticias}} --}}
-                            <option value="Oportunidade Tenda">Oportunidade Tenda</option>
-                        {{!-- {{/each}} --}}
+                        {{#each categorias}}
+                            <option value={{dataValues.nome_categoria}}>{{dataValues.nome_categoria}}</option>
+                        {{/each}}
                 </select>
                 
                             <button id="open-modal">Nova Categoria</button>

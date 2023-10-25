@@ -10,17 +10,21 @@
     "multer": "^1.4.5-lts.1"
   },
   "devDependencies": {
+    "jest": "^29.7.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.6.1",
     "nodemon": "^3.0.1",
     "sequelize": "^6.33.0",
-    "sqlite3": "^5.1.6"
+    "sqlite3": "^5.1.6",
+    "supertest": "^6.3.3"
   },
   "name": "house-lar",
   "version": "1.0.0",
   "main": "./app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "keywords": [],
   "author": "",

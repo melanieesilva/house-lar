@@ -8,6 +8,8 @@ const Usuario = require('../models/Usuario')
 const Noticia = require('../models/Noticias')
 const Categoria_Noticia = require('../models/Categoria_Noticia')
 const Duvidas = require('../models/Duvidas')
+//CONTROLLERS
+const noticiasController = require('../controllers/noticiasController')
 
 
 var storage = multer.diskStorage({
@@ -62,18 +64,18 @@ router.get('/corretor/editarnoticia',(req,res) => {
 
 
 
-router.get('/corretor/noticiasCorretor', (req, res) => {
-    Noticia.findAll().then((noticias) => {
-        console.log(noticias)
-        res.render('pages/noticiasCorretor', {
-            noticias: noticias,
-            layout: 'painelControle',
-            pageTitle: 'Notícias - Painel De Controle'
-        })
-    }).catch((error) => {
-            console.log(error)
-    })
-})
+router.get('/corretor/noticiasCorretor', noticiasController.getNoticias)
+    // Noticia.findAll().then((noticias) => {
+    //     console.log(noticias)
+    //     res.render('pages/noticiasCorretor', {
+    //         noticias: noticias,
+    //         layout: 'painelControle',
+    //         pageTitle: 'Notícias - Painel De Controle'
+    //     })
+    // }).catch((error) => {
+    //         console.log(error)
+    // })
+
 
 
 router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
@@ -98,24 +100,24 @@ router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
             console.log("N ENCONTROU NOTICIA: "+erro)
         })
 
+        const cor_categoria = Noticia_Cor.cor_categoria
 
-        const cor_categoria2 = Noticia_Cor.cor_categoria
-
-        await Noticia.create({
-            titulo_noticia: titulo_noticia,
-            descricao_noticia: descricao_noticia,
-            autor_noticia: autor_noticia,
-            artigo_noticia: artigo_noticia,
-            nome_imagem: imagem.filename,
-            data_imagem: imagem.buffer,
-            nome_categoria: nome_categoria,
-            cor_categoria: cor_categoria2,
-            status: "Publicada"
-        });
-
+        const noticia = noticiasController.publicarNoticia(
+            titulo_noticia,
+            descricao_noticia,
+            autor_noticia,
+            artigo_noticia,
+            nome_imagem,
+            data_imagem,
+            nome_categoria,
+            cor_categoria,
+        )
+        
+        res.status(200).json({message:"Notícia criada com sucesso"})
         req.flash("success_msg", "Notícia criada com sucesso!")
         res.redirect('/corretor/noticiasCorretor');
     } catch (error) {
+        res.status(500).json({message:"Não foi possível cadastrar notícia"})
         res.redirect('/corretor/noticiasCorretor')
         console.log(error);
         req.flash("error_msg", "Não foi possível cadastrar notícia.")
@@ -175,23 +177,23 @@ router.get('/corretor/DesativarNoticia/:id', (req, res) => {
     })
 })
 
-router.get('/corretor/publicarNoticia', (req, res) => {
-    Noticia.findAll({
-        attributes: ['nome_categoria']
-    }).then((noticias)=>{
-        console.log("Todas os detalhes de categoria foram recuperados.")
+router.get('/corretor/publicarNoticia', noticiasController.getCategorias)
+    // Noticia.findAll({
+    //     attributes: ['nome_categoria']
+    // }).then((noticias)=>{
+    //     console.log("Todas os detalhes de categoria foram recuperados.")
 
-        res.render('pages/Noticias/publicarNoticia',{
-            layout: 'painelControle',
-            pageTitle: 'Publicar Noticia - Painel de Controle',
-            noticias:noticias
-        })
-    }).catch((erro)=>{
-        console.log("Não foi possível fazer a busca: "+erro)
-        res.render('pages/noticiasCorretor')
-    })
+    //     res.render('pages/Noticias/publicarNoticia',{
+    //         layout: 'painelControle',
+    //         pageTitle: 'Publicar Noticia - Painel de Controle',
+    //         noticias:noticias
+    //     })
+    // }).catch((erro)=>{
+    //     console.log("Não foi possível fazer a busca: "+erro)
+    //     res.render('pages/noticiasCorretor')
+    // })
 
-})
+
 
 router.get('/corretor/mensagens', (req, res) => {
     Duvidas.findAll().then((duvidas) => {

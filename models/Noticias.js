@@ -19,7 +19,6 @@ const Noticia = db.connect.define('noticias', {
     },
     publicado_por: {
         type:db.Sequelize.STRING,
-        allowNull: false,
         defaultValue: "House&Lar"
     },
     nome_imagem: {

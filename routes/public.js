@@ -126,17 +126,17 @@ router.get('/esqueceuSenha3', function (req,res){
 
 
 
-const solicontrol = require('../controllers/solicitacoesController')
+// const solicontrol = require('../controllers/solicitacoesController')
 
-const pathImg = 'C:/Users/melan/Documents/GitHub/house-lar/public/img/img-card-imovel.jfif';
+// const pathImg = 'C:/Users/melan/Documents/GitHub/house-lar/public/img/img-card-imovel.jfif';
 
-solicontrol.cadastrarSolicitacao('Solicitado','Apartamento','Venda','Olá, sou describe',2,
-2,4,84,200.000,650,485.9,4,'Não',2,'2023-01-02','Não')
-.then((solicitacao)=>{
-    solicontrol.cadastrarImagens(solicitacao.id,'img-card-imovel.jfif',pathImg)
-}).catch((erro)=>{
-    console.log("Não foi possível criar imagem. O erro: "+erro)
-})
+// solicontrol.cadastrarSolicitacao('Solicitado','Apartamento','Venda','Olá, sou describe',2,
+// 2,4,84,200.000,650,485.9,4,'Não',2,'2023-01-02','Não')
+// .then((solicitacao)=>{
+//     solicontrol.cadastrarImagens(solicitacao.id,'img-card-imovel.jfif',pathImg)
+// }).catch((erro)=>{
+//     console.log("Não foi possível criar imagem. O erro: "+erro)
+// })
 
 
 

@@ -389,6 +389,7 @@ input[type="file"]{
     display: flex;
     flex-direction: column;
     gap: 24px;
+    padding-bottom: 40px;
 }
 .contentView *{
     margin: 0;
@@ -468,6 +469,125 @@ input[type="file"]{
     left: 40px;
 }
 
+.header-description{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.content-preview{
+    display: flex;
+    padding-top: 40px;
+    gap: 3%;
+}
+
+#tipoImovelPreview{
+    font-size: 24px;
+}
+
+#operacaoPreview{
+    padding: 8px 20px;
+    border: 1px solid black;
+    border-radius: 100px;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 72%;
+}
+
+.descricaoPreview{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.descricaoPreview > textarea {
+    width: 100%;
+    border: 1px solid #B0B0B0;
+    border-radius: 4px;
+}
+
+.describe-endereco{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.carac-basic{
+    display: flex;
+    gap: 20px;
+
+}
+
+.side-bar{
+    height: fit-content;
+    width: 31%;
+    border-radius: 12px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.12);
+    padding: 32px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    
+}
+
+.header-side{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.header-side > p{
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.btns-side{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btns-side > button{
+    border-radius: 5px;
+    padding: 8px 0;
+    background: #9D0058;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    cursor:default;
+}
+.btns-side > :nth-child(1){
+    border: 1px solid #9D0058;
+    background: white;
+    color: #9D0058;
+
+}
+
+#valImovel{
+    display: flex;
+    gap: 4px;
+}
+
+.grid-side{
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 32px;
+    row-gap: 16px;
+}
+
+.item-grid{
+    font-size: 16px;
+}
 
 #infoPessoais{
     display: none;
@@ -478,7 +598,7 @@ input[type="file"]{
 }
 
 #tipoImovel{
-    display: none;
+    /* display: none; */
 }
 
 #caracBasic{
@@ -498,7 +618,7 @@ input[type="file"]{
 }
 
 #imagens{
-    /* display: none; */
+    display: none;
 }
 
 #preVisualizacao{

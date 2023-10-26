@@ -56,11 +56,11 @@
         </div>
         <div class="form">
             <div class="inputs-op">
-                <input type="radio" id="Venda" name="operacao" value="Venda" hidden>
+                <input type="radio" id="operation" name="operacao" value="Venda" hidden>
                 <label for="Venda" class="labelRadio op" id="labelRadio">Vender meu imóvel</label>
             </div>
             <div class="inputs-op">
-                <input type="radio" id="Alugar" name="operacao" value="Alugar" hidden>
+                <input type="radio" id="operation" name="operacao" value="Alugar" hidden>
                 <label for="Alugar" class="labelRadio op" id="labelRadio">Alugar meu imóvel</label>
             </div>
 
@@ -91,27 +91,27 @@
         </div>
         <div class="form">
             <div class="options-form-tipo">
-                <input type="radio" name="tipoImovel" value="Casa" id="tipoCasa" hidden>
+                <input type="radio" name="tipoImovel" value="Casa" class="tipoImovelClass" id="tipoCasa" hidden>
                 <label for="tipoCasa" class="labelRadio tipo">
                     <iconify-icon icon="ph:house-light"></iconify-icon>
                     Casa
                 </label>
-                 <input type="radio" name="tipoImovel" value="Apartamento" id="tipoApartamento" hidden>
+                 <input type="radio" name="tipoImovel" value="Apartamento" class="tipoImovelClass" id="tipoApartamento" hidden>
                 <label for="tipoApartamento" class="labelRadio tipo">
                     <iconify-icon icon="heroicons:building-office"></iconify-icon>
                     Apartamento
                 </label>
-                 <input type="radio" name="tipoImovel" value="Lote" id="tipoLote" hidden>
+                 <input type="radio" name="tipoImovel" value="Lote" class="tipoImovelClass" id="tipoLote" hidden>
                 <label for="tipoLote" class="labelRadio tipo">
                     <iconify-icon icon="mingcute:background-line"></iconify-icon>
                     Lote
                 </label>
-                 <input type="radio" name="tipoImovel" value="Kitnet/Studio" id="tipoKitStudio" hidden>
+                 <input type="radio" name="tipoImovel" class="tipoImovelClass" value="Kitnet/Studio" id="tipoKitStudio" hidden>
                 <label for="tipoKitStudio" class="labelRadio tipo">
                     <iconify-icon icon="heroicons:building-office"></iconify-icon>
                     Kitinet/Studio
                 </label>
-                 <input type="radio" name="tipoImovel" value="Sala Comercial" id="tipoSalaComercial" hidden>
+                 <input type="radio" name="tipoImovel" class="tipoImovelClass" value="Sala Comercial" id="tipoSalaComercial" hidden>
                 <label for="tipoSalaComercial" class="labelRadio tipo">
                     <iconify-icon icon="heroicons:building-office"></iconify-icon>
                     Sala comercial
@@ -394,7 +394,7 @@
 
 
 
-    <section class="preVisualizacao" id="preVisualizacao">
+    {{!-- <section class="preVisualizacao" id="preVisualizacao">
       <div class="contentView" id="contentView">
         <div class="header-content">
             <p>Publique seu imóvel</p>
@@ -409,19 +409,17 @@
             
         </div>
         <div class="container-select-imgs">
-            <div class="bloco-img">
                 <div class="img-select">
-                    
+                    d
                 </div>
                 <div class="img-select">
-                    
+                    a
                 </div>
-            </div>
             
-            <button id="before"> 
+            <button id="before" onclick="addSlide(-1)"> 
                 <iconify-icon icon="ep:arrow-left"></iconify-icon>
             </button>
-            <button id="after"> 
+            <button id="after" onclick="addSlide(1)"> 
                 <iconify-icon icon="ep:arrow-right"></iconify-icon>
             </button>
             
@@ -430,7 +428,7 @@
         <div class="content-preview">
             <div class="description">
                 <div class="header-description">
-                    <div class="op" id="operacao">
+                    <div class="opPreview" id="operacaoPreview">
                         Venda
                     </div>
                     <div class="data-publi" id="dataPubli">
@@ -438,7 +436,7 @@
                         23/08/2023
                     </div>
                 </div>
-                <h1 id="tipoImovel">Apartamento</h1>
+                <h1 id="tipoImovelPreview">Apartamento</h1>
                 
                 <div class="describe-endereco">
                     <div class="title-endereco">
@@ -447,12 +445,10 @@
                     </div>
                     <p id="endereco">Rua dos Sargentos, 32, Vitória, Salvador</p>
                 </div>
-                <div class="descricao">
-                    <label for="descricao">Descrição</label>
-                    <textarea name="descricao" id="descricao" cols="30" rows="10" 
-                    placeholder="Insira a descrição do seu imóvel...">
-
-                    </textarea>
+                <div class="descricaoPreview">
+                    <label for="descricaoPreview">Descrição</label>
+                    <textarea name="descricao" id="descricaoPreview" cols="30" rows="10" 
+                    placeholder="Insira a descrição do seu imóvel..."></textarea>
                 </div>    
                 <div class="carac-basic">
                     <div class="group-carac">
@@ -489,7 +485,7 @@
             <div class="side-bar">
                 <div class="header-side">
                     Valor do Imóvel
-                    <p id="valImovel">200.000</p>
+                   <p id="valImovel">R$<span>200.000</span></p>
                 </div>
                 <div class="grid-side">
                     <div class="item-grid">
@@ -517,7 +513,8 @@
                         <p id="emCondo">Sim</p>
                     </div>
                 </div>
-                <button class="tira-duvida">
+                <div class="btns-side">
+                                    <button class="tira-duvida">
                     <iconify-icon icon="majesticons:chat-line"></iconify-icon>
                     Tirar uma dúvida
                 </button>
@@ -525,10 +522,12 @@
                     <iconify-icon icon="lucide:calendar"></iconify-icon>
                     Agendar visita
                 </button>
+                </div>
+
             </div>
         </div>
       </div>
-    </section>
+    </section> --}}
 
 
 

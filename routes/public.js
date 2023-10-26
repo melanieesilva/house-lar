@@ -2,6 +2,20 @@ const express = require('express')
 const router = express.Router()
 const Duvidas = require('../models/Duvidas')
 const Noticia = require('../models/Noticias')
+const multer = require('multer')
+
+var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "C:/Users/melan/Documents/GitHub/house-lar/public/uploads")
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + "_" + Date.now() + "_" + file.originalname)
+    }
+})
+
+const uploadMulter = multer({
+    storage: storage
+}).array("imagem")
 
 router.get('/', (req, res) => res.render('pages/paginaInicial.handlebars'));
 
@@ -53,32 +67,32 @@ router.get('/public/buscaAvancada',(req,res)=> res.render('pages/buscaAvancada.h
 router.get('/public/publicarImovelCliente',(req,res) => res.render(
 'pages/PublicarImovelCliente/publicarImovelCliente.handlebars'));
 
-// router.post('/public/CadastrarSolicitacao',(req,res)=>{
-//     try {
-//         const formData = {
-//             statusSoli:statusSoli,
-//             tipoImovel:tipoImovel,
-//             operacao:operacao,
-//             descricao:descricao,
-//             numQuartos:numQuartos,
-//             numBanheiros:numBanheiros,
-//             numVagas:numVagas,
-//             areaImovel:areaImovel,
-//             valorImovel:valorImovel,
-//             valorCondominio:valorCondominio,
-//             valorIPTU:valorIPTU,
-//             parcelasIPTU:parcelasIPTU,
-//             construcao:construcao,
-//             numAndares:numAndares,
-//             dataEntrega:dataEntrega,
-//             emCondominio:emCondominio
+router.post('/public/CadastrarSolicitacao',uploadMulter,(req,res)=>{
+    try {
+        const formData = {
+            statusSoli:statusSoli,
+            tipoImovel:tipoImovel,
+            operacao:operacao,
+            descricao:descricao,
+            numQuartos:numQuartos,
+            numBanheiros:numBanheiros,
+            numVagas:numVagas,
+            areaImovel:areaImovel,
+            valorImovel:valorImovel,
+            valorCondominio:valorCondominio,
+            valorIPTU:valorIPTU,
+            parcelasIPTU:parcelasIPTU,
+            construcao:construcao,
+            numAndares:numAndares,
+            dataEntrega:dataEntrega,
+            emCondominio:emCondominio
         
         
-//         }
-//     } catch (error) {
+        }
+    } catch (error) {
         
-//     }
-// })
+    }
+})
 
 
 router.get('/public/loginCorretor',function(req,res){

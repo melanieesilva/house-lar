@@ -53,35 +53,33 @@ router.get('/public/buscaAvancada',(req,res)=> res.render('pages/buscaAvancada.h
 router.get('/public/publicarImovelCliente',(req,res) => res.render(
 'pages/PublicarImovelCliente/publicarImovelCliente.handlebars'));
 
-// router.get('/publicarImovel2',(req,res) => res.render(
-//     'pages/PublicarImovelCliente/publicarImovel2.handlebars'));
+// router.post('/public/CadastrarSolicitacao',(req,res)=>{
+//     try {
+//         const formData = {
+//             statusSoli:statusSoli,
+//             tipoImovel:tipoImovel,
+//             operacao:operacao,
+//             descricao:descricao,
+//             numQuartos:numQuartos,
+//             numBanheiros:numBanheiros,
+//             numVagas:numVagas,
+//             areaImovel:areaImovel,
+//             valorImovel:valorImovel,
+//             valorCondominio:valorCondominio,
+//             valorIPTU:valorIPTU,
+//             parcelasIPTU:parcelasIPTU,
+//             construcao:construcao,
+//             numAndares:numAndares,
+//             dataEntrega:dataEntrega,
+//             emCondominio:emCondominio
+        
+        
+//         }
+//     } catch (error) {
+        
+//     }
+// })
 
-// router.get('/publicarImovel3',(req,res) => res.render(
-//     'pages/PublicarImovelCliente/publicarImovel3.handlebars'));
-
-// router.get('/publicarImovel4',(req,res) => res.render(
-//     'pages/PublicarImovelCliente/publicarImovel4.handlebars'));
-
-// router.get('/publicarImovel5',(req,res) => res.render(
-//     'pages/PublicarImovelCliente/publicarImovel5.handlebars'));
-
-// router.get('/publicarImovel6',(req,res) => res.render(
-//     'pages/PublicarImovelCliente/publicarImovel6.handlebars'));
-
-// router.get('/publicarImovel7',(req,res) => res.render(
-//     'pages/PublicarImovelCliente/publicarImovel7.handlebars'));
-
-// router.get('/publicarImovel8',(req,res) => res.render(
-//     'pages/PublicarImovelCliente/publicarImovel8.handlebars'));
-
-// router.get('/publicarImovel9',(req,res) => res.render(
-//     'pages/PublicarImovelCliente/publicarImovel9.handlebars'));
-
-// router.get('/publicarImovel10',(req,res) => res.render(
-//     'pages/PublicarImovelCliente/publicarImovel10.handlebars'));
-
-// router.get('/publicarImovel11',(req,res) => res.render(
-//     'pages/PublicarImovelCliente/publicarImovel11.handlebars'));
 
 router.get('/public/loginCorretor',function(req,res){
     res.render('pages/loginCorretor.handlebars',{
@@ -128,10 +126,17 @@ router.get('/esqueceuSenha3', function (req,res){
 
 
 
+const solicontrol = require('../controllers/solicitacoesController')
 
+const pathImg = 'C:/Users/melan/Documents/GitHub/house-lar/public/img/img-card-imovel.jfif';
 
-
-
+solicontrol.cadastrarSolicitacao('Solicitado','Apartamento','Venda','Olá, sou describe',2,
+2,4,84,200.000,650,485.9,4,'Não',2,'2023-01-02','Não')
+.then((solicitacao)=>{
+    solicontrol.cadastrarImagens(solicitacao.id,'img-card-imovel.jfif',pathImg)
+}).catch((erro)=>{
+    console.log("Não foi possível criar imagem. O erro: "+erro)
+})
 
 
 

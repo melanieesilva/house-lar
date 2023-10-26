@@ -1,8 +1,8 @@
 const db = require('../Database/Connection')
 
-// Definindo modelo solicitacoes
 
-const Solicitacao = db.connect.define('solicitacoes',{
+const viewSolicitacaoImagem = db.connect.define('viewSolicitacaoImagem',{
+    id_soli: db.Sequelize.INTEGER,
     statusSoli: db.Sequelize.ENUM('Solicitado','Aceito','Recusado'),
     tipoImovel: db.Sequelize.ENUM('Apartamento','Casa','Kitnet/Studio','Lote','Sala Comercial'),
     operacao: db.Sequelize.ENUM('Venda','Aluguel'),
@@ -19,11 +19,16 @@ const Solicitacao = db.connect.define('solicitacoes',{
     numAndares: db.Sequelize.INTEGER,
     dataEntrega: db.Sequelize.DATEONLY,
     emCondominio: db.Sequelize.ENUM('Sim','Não'),
-    dataPublicacao: db.Sequelize.DATEONLY
+    dataPublicacao: db.Sequelize.DATEONLY,
+    id_imagem: db.Sequelize.INTEGER,
+    nomeImagem: db.Sequelize.STRING,
+    pathImagem: db.Sequelize.STRING,
 },{
+    tableName: 'viewSolicitacaoImagem',
     timestamps: false,
 })
 
-// Solicitacao.sync({force:true})
 
-module.exports = Solicitacao
+
+
+module.exports = viewSolicitacaoImagem

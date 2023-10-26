@@ -8,9 +8,6 @@ jest.mock('../models/Noticias')
 
 
 describe("Notícias Controller", () => {
-    beforeAll(done => {
-        done()
-    })
     beforeEach(() => {
         jest.clearAllMocks();
     });
@@ -59,51 +56,39 @@ describe("Notícias Controller", () => {
     }),
     test("Deve lançar um erro ao tentar publicar uma notícia com paramêtros inválidos", async ()=>{
         try {
-            await noticiasController.publicarNoticia(null, null, null, null, null, null, null, null, null, 'Publicada');
+            await noticiasController.publicarNoticia(null, null, null, null, 
+            null, null, null, null, null, 'Publicada');
           } catch (error) {
             expect(error.message).toBe('Não foi possível criar a notícia.');
           }
     }),
-    // test("Deve publicar notícia com sucesso pela rota de Cadastrar Notícia", async ()=>{
-    //     const path = 'C:/Users/melan/Documents/GitHub/house-lar/public/img/img-card-imovel.jfif';
-    //     const imgBuffer = fs.readFileSync(path);
-
-    //     const res = await request(app).post('/corretor/CadastrarNoticia').send({
-    //         titulo_noticia: 'Novo condomínio Village Emperial na Pituba',
-    //         descricao_noticia: 'Empreendimento moderno, conta com portaria monitorada por robôs...',
-    //         artigo_noticia: 'Artigo da notícia...',
-    //         autor_noticia: 'Islania Silva',
-    //         publicado_por: "House&Lar",
-    //         nome_imagem: 'img-card-imovel.jfif',
-    //         data_imagem: imgBuffer,
-    //         nome_categoria: 'Nome da Categoria',
-    //         status: 'Publicada',
-    //     });
-
-    //     expect(res.status).toBe(200)
-    // }),
-    // test("Deve retornar um erro ao tentar publicar notícia com dados inválidos na rota", async()=>{
-    //     const res = await request(app).get('/corretor/publicarNoticias').send({
-    //         titulo_noticia: null,
-    //         descricao_noticia: null,
-    //         artigo_noticia: null,
-    //         autor_noticia: null,
-    //         publicado_por: "House&Lar",
-    //         nome_imagem: 'img-card-imovel.jfif',
-    //         data_imagem: null,
-    //         nome_categoria: 'Nome da Categoria',
-    //         cor_categoria: 'Cor da Categoria',
-    //         status: 'Publicada',
-    //     })
-    //     expect(res.status).toBe(404);
-    // })
     test("Deve retornar as notícias com sucesso em Notícias Corretor", async ()=>{
         const res = await request(app).get('/corretor/noticiasCorretor');
-        expect(res.status).toBe(200);
+        expect(res.statusCode).toBe(200);
     }),
     test("Deve retornar as categorias com sucesso em Publicar Notícias", async ()=>{
         const res = await request(app).get('/corretor/publicarNoticia');
-        expect(res.status).toBe(200);
+        expect(res.statusCode).toBe(200);
     })
 
 })
+
+
+// test("Deve cadastrar notícia com sucesso através da rota",async ()=>{
+//     const path = 'C:/Users/melan/Documents/GitHub/house-lar/public/img/img-card-imovel.jfif';
+//     const imgBuffer = fs.readFileSync(path);
+
+//     const res = await request(app).post('/corretor/CadastrarNoticia')
+//         .field('titulo_noticia','Novo condomínio Village Emperial na Pituba')
+//         .field('descricao_noticia','Empreendimento moderno, conta com portaria monitorada por robôs...')
+//         .field('artigo_noticia', 'Artigo da notícia...')
+//         .field('autor_noticia','Islania Silva')
+//         .field('publicado_por',"House&Lar")
+//         .field('nome_imagem', 'img-card-imovel.jfif')
+//         .field('data_imagem', imgBuffer)
+//         .field('nome_categoria', 'Nome da Categoria')
+//         .field('status', 'Publicada')
+//         .attach('imagem',path)
+
+//    expect(res.statusCode).toBe(200)
+// })

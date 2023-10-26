@@ -8,6 +8,7 @@ const Usuario = require('../models/Usuario')
 const Noticia = require('../models/Noticias')
 const Categoria_Noticia = require('../models/Categoria_Noticia')
 const Duvidas = require('../models/Duvidas')
+const viewSolicitacaoImagem = require('../models/viewsSolicitacoesImagens')
 const Cliente = require('../Models/cliente')
 //CONTROLLERS
 const noticiasController = require('../controllers/noticiasController')
@@ -66,16 +67,6 @@ router.get('/corretor/editarnoticia',(req,res) => {
 
 
 router.get('/corretor/noticiasCorretor', noticiasController.getNoticias)
-    // Noticia.findAll().then((noticias) => {
-    //     console.log(noticias)
-    //     res.render('pages/noticiasCorretor', {
-    //         noticias: noticias,
-    //         layout: 'painelControle',
-    //         pageTitle: 'Notícias - Painel De Controle'
-    //     })
-    // }).catch((error) => {
-    //         console.log(error)
-    // })
 
 
 
@@ -93,16 +84,12 @@ router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
             status
         } = req.body;
 
-        // const imagem = req.file
+        const imagem = req.file
 
         const Noticia_Cor = Noticia.findOne({
             where: {
                 nome_categoria:nome_categoria
             }
-        }).then(()=>{
-            console.log("Encontrou notícia")
-        }).catch((erro)=>{
-            console.log("N ENCONTROU NOTICIA: "+erro)
         })
 
         const cor_categoria = Noticia_Cor.cor_categoria
@@ -120,7 +107,6 @@ router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
             status,
         )
         
-        
         req.flash("success_msg", "Notícia criada com sucesso!")
         res.redirect(200,'/corretor/noticiasCorretor');
     } catch (error) {
@@ -133,9 +119,12 @@ router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
 
 
 router.get('/corretor/solicitacoes', (req, res) => {
-    res.render('pages/solicitacoes.handlebars', {
-        layout: 'painelControle',
-        pageTitle: 'Solicitações - Painel de Controle'
+    viewSolicitacaoImagem.findAll().then((views)=>{
+        res.render('pages/solicitacoes.handlebars', {
+            layout: 'painelControle',
+            pageTitle: 'Solicitações - Painel de Controle',
+            views:views
+        })
     })
 })
 
@@ -185,22 +174,6 @@ router.get('/corretor/DesativarNoticia/:id', (req, res) => {
 })
 
 router.get('/corretor/publicarNoticia', noticiasController.getCategorias)
-    // Noticia.findAll({
-    //     attributes: ['nome_categoria']
-    // }).then((noticias)=>{
-    //     console.log("Todas os detalhes de categoria foram recuperados.")
-
-    //     res.render('pages/Noticias/publicarNoticia',{
-    //         layout: 'painelControle',
-    //         pageTitle: 'Publicar Noticia - Painel de Controle',
-    //         noticias:noticias
-    //     })
-    // }).catch((erro)=>{
-    //     console.log("Não foi possível fazer a busca: "+erro)
-    //     res.render('pages/noticiasCorretor')
-    // })
-
-
 
 router.get('/corretor/mensagens', (req, res) => {
     Duvidas.findAll().then((duvidas) => {

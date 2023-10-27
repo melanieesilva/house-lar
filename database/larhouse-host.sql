@@ -1,53 +1,12 @@
 use larhouse;
 
-drop trigger PreencherViewSolicitacaoImagem;
+drop view viewsolicitacaoimagem;
+select * from viewsolicitacaoimagem;
 
-drop table solicitacoes;
-drop table imagensSolicitacoes;
-drop table ViewSolicitacaoImagem;
-
-create table solicitacoes(
-	id int primary key auto_increment,
-    statusSoli ENUM('Solicitado','Aceito','Recusado'),
-    tipoImovel ENUM('Apartamento','Casa','Kitnet/Studio','Lote','Sala Comercial'),
-    operacao ENUM('Venda','Aluguel'),
-    descricao longtext,
-    numQuartos int,
-    numBanheiros int,
-    numVagas int,
-    areaImovel float,
-	valorImovel decimal(10,2),
-    valorCondominio decimal(10,2),
-    valorIPTU decimal(10,2),
-    parcelasIPTU int,
-    construcao ENUM('Sim','Não'),
-    numAndares int,
-    dataEntrega date,
-    emCondominio ENUM('Sim','Não'),
-    dataPublicacao date,
-    nomeCliente varchar(80),
-    telefone varchar(14),
-    email varchar(100),
-    CPF varchar(14),
-    cidade varchar(80),
-    bairro varchar(80),
-    endereco varchar(100),
-    numero int
-);
-
-create table imagensSolicitacoes(
-	id int auto_increment primary key,
-    idSolicitacao_FK int,
-	nomeImagem varchar(100),
-    pathImagem varchar(200),
-    
-    foreign key (idSolicitacao_FK) references solicitacoes(id)
-);
-
-select * from ViewSolicitacaoImagem;
+update solicitacoes set dataPublicacao = curdate();
 
 CREATE VIEW ViewSolicitacaoImagem AS SELECT
-			sol.id,
+			sol.id as id_soli,
 			sol.statusSoli,
 			sol.tipoImovel,
 			sol.operacao,
@@ -79,3 +38,10 @@ CREATE VIEW ViewSolicitacaoImagem AS SELECT
 		FROM solicitacoes AS sol
         INNER JOIN imagensSolicitacoes AS img 
         WHERE sol.id = img.idSolicitacao_FK;
+
+INSERT INTO `larhouse`.`solicitacoes` (`statusSoli`, `tipoImovel`, `operacao`, `descricao`, `numQuartos`, `numBanheiros`, `numVagas`, `areaImovel`, `valorImovel`, `valorCondominio`, `valorIPTU`, `parcelasIPTU`, `construcao`, `numAndares`, `dataEntrega`, `emCondominio`, `nomeCliente`, `telefone`, `email`, `CPF`, `cidade`, `bairro`, `endereco`, `numero`) VALUES ('Solicitado', 'Apartamento', 'Venda', 'Imóvel aa', '2', '2', '2', '48', '480870.25', '1478', '245', '2', 'Sim', '3', '2020-08-09', 'Não', 'Josy Lima', '(71)98564-3211', 'josylima@gmail.com', '125.357.852-99', 'Feira de Santana', 'Conceição', 'Rua dos Vereadores Francisco Dantas', '99');
+INSERT INTO `larhouse`.`solicitacoes` (`statusSoli`, `tipoImovel`, `operacao`, `descricao`, `numQuartos`, `numBanheiros`, `numVagas`, `areaImovel`, `valorImovel`, `valorCondominio`, `valorIPTU`, `parcelasIPTU`, `construcao`, `numAndares`, `dataEntrega`, `emCondominio`, `nomeCliente`, `telefone`, `email`, `CPF`, `cidade`, `bairro`, `endereco`, `numero`) VALUES ('Solicitado', 'Casa', 'Venda', 'Imóvel aa', '2', '2', '2', '65', '840.00', '1256.00', '456.00', '2', 'Não', '3', '2008-07-06', 'Sim', 'Kelly Dores', '(71)98564-3200', 'kellydores@gmail.com', '495.654.123.22', 'Feira de Santana', 'Conceição', 'Rua dos Vereadores Francisco Dantas', '10');
+
+INSERT INTO `larhouse`.`imagenssolicitacoes` (`idSolicitacao_FK`, `nomeImagem`, `pathImagem`) VALUES ('18', 'yasin-aribuga-BCp_xuIrYGQ-unsplash.jpg', 'C:\\Users\\melan\\Documents\\GitHub\\house-lar\\public\\uploads\\images_1698407931247_yasin-aribuga-BCp_xuIrYGQ-unsplash.jpg');
+INSERT INTO `larhouse`.`imagenssolicitacoes` (`idSolicitacao_FK`, `nomeImagem`, `pathImagem`) VALUES ('19', 'Aula Invertida DS2 - Pesquisa e Roteiro (1).jpg', 'C:\\Users\\melan\\Documents\\GitHub\\house-lar\\public\\uploads\\images_1698407931802_Aula Invertida DS2 - Pesquisa e Roteiro (1).jpg');
+

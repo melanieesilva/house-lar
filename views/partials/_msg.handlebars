@@ -1,17 +1,20 @@
 {{#if success_msg}}
 
+<div class="position-fixed top-0 end-0 p-3">
 <div class="alert alert-success alert-dismissible fade show" role="alert">
   <strong>{{success_msg}}</strong>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 </div>
 
 {{/if}}
 
 {{#if error_msg}}
 
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
+<div class="alert alert-danger alert-dismissible fade show" role="alert" style="">
   <strong>{{error_msg}}</strong>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 
 {{/if}}
+

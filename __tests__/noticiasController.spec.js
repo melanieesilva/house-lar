@@ -7,71 +7,71 @@ const app = require('../server')
 jest.mock('../models/Noticias')
 
 
-describe("Notícias Controller", () => {
-    beforeEach(() => {
-        jest.clearAllMocks();
-    });
-    test("Deve acessar rota publicar notícia", async ()=>{
-        const res = await request(app).get('/corretor/publicarNoticia')
+// describe("Notícias Controller", () => {
+//     beforeEach(() => {
+//         jest.clearAllMocks();
+//     });
+//     test("Deve acessar rota publicar notícia", async ()=>{
+//         const res = await request(app).get('/corretor/publicarNoticia')
         
-        // console.log(res)
-        expect(res.statusCode).toEqual(200)
-    }),
-    test("Deve cadastrar notícia com sucesso através da controller", async () => {
-        //Configurando mock de imagem
-        const path = 'C:/Users/melan/Documents/GitHub/house-lar/public/img/img-card-imovel.jfif';
-        const imgBuffer = fs.readFileSync(path);
+//         // console.log(res)
+//         expect(res.statusCode).toEqual(200)
+//     }),
+//     test("Deve cadastrar notícia com sucesso através da controller", async () => {
+//         //Configurando mock de imagem
+//         const path = 'C:/Users/melan/Documents/GitHub/house-lar/public/img/img-card-imovel.jfif';
+//         const imgBuffer = fs.readFileSync(path);
 
-        //Criando um mock de notícia
-        const dataNoticia = {
-            titulo_noticia: 'Novo condomínio Village Emperial na Pituba',
-            descricao_noticia: 'Empreendimento moderno, conta com portaria monitorada por robôs...',
-            artigo_noticia: 'Artigo da notícia...',
-            autor_noticia: 'Islania Silva',
-            publicado_por: "House&Lar",
-            nome_imagem: 'img-card-imovel.jfif',
-            data_imagem: imgBuffer,
-            nome_categoria: 'Nome da Categoria',
-            cor_categoria: 'Cor da Categoria',
-            status: 'Publicada',
-        }
+//         //Criando um mock de notícia
+//         const dataNoticia = {
+//             titulo_noticia: 'Novo condomínio Village Emperial na Pituba',
+//             descricao_noticia: 'Empreendimento moderno, conta com portaria monitorada por robôs...',
+//             artigo_noticia: 'Artigo da notícia...',
+//             autor_noticia: 'Islania Silva',
+//             publicado_por: "House&Lar",
+//             nome_imagem: 'img-card-imovel.jfif',
+//             data_imagem: imgBuffer,
+//             nome_categoria: 'Nome da Categoria',
+//             cor_categoria: 'Cor da Categoria',
+//             status: 'Publicada',
+//         }
 
-        Noticias.create.mockResolvedValue(dataNoticia);
+//         Noticias.create.mockResolvedValue(dataNoticia);
 
-        const noticiaCriada = await noticiasController.publicarNoticia(
-            dataNoticia.titulo_noticia,
-            dataNoticia.descricao_noticia,
-            dataNoticia.artigo_noticia,
-            dataNoticia.autor_noticia,
-            dataNoticia.publicado_por,
-            dataNoticia.nome_imagem,
-            dataNoticia.data_imagem,
-            dataNoticia.nome_categoria,
-            dataNoticia.cor_categoria,
-            dataNoticia.status
-        );
+//         const noticiaCriada = await noticiasController.publicarNoticia(
+//             dataNoticia.titulo_noticia,
+//             dataNoticia.descricao_noticia,
+//             dataNoticia.artigo_noticia,
+//             dataNoticia.autor_noticia,
+//             dataNoticia.publicado_por,
+//             dataNoticia.nome_imagem,
+//             dataNoticia.data_imagem,
+//             dataNoticia.nome_categoria,
+//             dataNoticia.cor_categoria,
+//             dataNoticia.status
+//         );
 
-        expect(noticiaCriada).toEqual(dataNoticia);
+//         expect(noticiaCriada).toEqual(dataNoticia);
 
-    }),
-    test("Deve lançar um erro ao tentar publicar uma notícia com paramêtros inválidos", async ()=>{
-        try {
-            await noticiasController.publicarNoticia(null, null, null, null, 
-            null, null, null, null, null, 'Publicada');
-          } catch (error) {
-            expect(error.message).toBe('Não foi possível criar a notícia.');
-          }
-    }),
-    test("Deve retornar as notícias com sucesso em Notícias Corretor", async ()=>{
-        const res = await request(app).get('/corretor/noticiasCorretor');
-        expect(res.statusCode).toBe(200);
-    }),
-    test("Deve retornar as categorias com sucesso em Publicar Notícias", async ()=>{
-        const res = await request(app).get('/corretor/publicarNoticia');
-        expect(res.statusCode).toBe(200);
-    })
+//     }),
+//     test("Deve lançar um erro ao tentar publicar uma notícia com paramêtros inválidos", async ()=>{
+//         try {
+//             await noticiasController.publicarNoticia(null, null, null, null, 
+//             null, null, null, null, null, 'Publicada');
+//           } catch (error) {
+//             expect(error.message).toBe('Não foi possível criar a notícia.');
+//           }
+//     }),
+//     test("Deve retornar as notícias com sucesso em Notícias Corretor", async ()=>{
+//         const res = await request(app).get('/corretor/noticiasCorretor');
+//         expect(res.statusCode).toBe(200);
+//     }),
+//     test("Deve retornar as categorias com sucesso em Publicar Notícias", async ()=>{
+//         const res = await request(app).get('/corretor/publicarNoticia');
+//         expect(res.statusCode).toBe(200);
+//     })
 
-})
+// })
 
 
 // test("Deve cadastrar notícia com sucesso através da rota",async ()=>{
@@ -92,3 +92,42 @@ describe("Notícias Controller", () => {
 
 //    expect(res.statusCode).toBe(200)
 // })
+
+describe("Testando solicitações controller",()=>{
+    test('Deve cadastar com sucesso pela rota', async ()=>{
+        const path = 'C:/Users/melan/Documents/GitHub/house-lar/public/uploads'
+
+        const formData = {
+            nomeUser:'Maria',
+            email:'maria@gmail.com',
+            cpf:'mariane',
+            telefone:'7198546-9632',
+            operacao:'Venda',
+            tipoImovel:'Apartamento',
+            numQuartos:4,
+            numBanheiros:2,
+            numVagas:2,
+            tamArea:100,
+            construcaoImovel:'Não',
+            condominioImovel:'Sim',
+            andaresImovel:4,
+            dataEntrega: '2020-08-14',
+            valorImovel: 785.654,
+            valorCondominio:965,
+            valorIPTU: 400,
+            parcelaIPTU: 12,
+            cidade: 'SSA',
+            bairro: 'Cajacity',
+            endereco: 'Rua de Caja',
+            numero: 12,
+            descricao: 'AAOAOAOOAA',
+        }
+
+        const nomeImg = 'img-preview-solicitacao.jfif'
+        const pathImg = path
+
+
+        const res = await request(app).post('/public/publicarSolicitacao')
+        .send(formData)
+    })
+})

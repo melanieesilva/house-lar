@@ -119,7 +119,20 @@ router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
 
 
 router.get('/corretor/solicitacoes', (req, res) => {
-    viewSolicitacaoImagem.findAll().then((views)=>{
+    viewSolicitacaoImagem.findAll({
+        attributes: [
+            'id_soli',
+            'statusSoli',
+            'tipoImovel',
+            'nomeCliente',
+            'cidade',
+            'bairro',
+            'endereco',
+            'numero',
+            'dataPublicacao'
+        ],
+        group: ['id_soli']
+    }).then((views)=>{
         res.render('pages/solicitacoes.handlebars', {
             layout: 'painelControle',
             pageTitle: 'Solicitações - Painel de Controle',

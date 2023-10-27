@@ -107,9 +107,10 @@ router.post('/public/publicarSolicitacao', uploadMulter, (req, res) => {
             endereco,
             numero,
             descricao,
-            indexImagemRemovida
+            
         } = req.body
 
+        const indexImagemRemovida = req.body.indexImagemRemovida || []
         const imagensEnviadas = req.files;
         const indexesRemovidos = indexImagemRemovida.split(',').map(index => parseInt(index, 10));
 
@@ -119,6 +120,7 @@ router.post('/public/publicarSolicitacao', uploadMulter, (req, res) => {
 
 
         solicontrol.cadastrarSolicitacao(
+            "Solicitado",
             tipoImovel,
             operacao,
             descricao,
@@ -143,11 +145,17 @@ router.post('/public/publicarSolicitacao', uploadMulter, (req, res) => {
             endereco,
             numero,
         ).then((solicitacao)=>{
+            
             for (const img of imagensSelecionadas) {
-                cadastrarImagens(solicitacao.id,img.originalname,img.path)
+                solicontrol.cadastrarImagens(solicitacao.id,img.originalname,img.path).
+                then(()=>{
+                    req.flash("success_msg","Solicitação enviada com sucesso!")
+                    res.redirect('/')
+                }).catch((error)=>{
+                    req.flash("error_msg","Não foi possível enviar a solicitação")
+                })
                 
             }
-            res.json({ message: " solicitação criada e imagens enviadas" })
         }).catch((erro)=>{
             console.log("ERRO: "+erro)
         })

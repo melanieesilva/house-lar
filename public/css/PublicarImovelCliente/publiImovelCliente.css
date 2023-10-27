@@ -181,12 +181,12 @@ input[type="radio"]:checked + .labelRadioop {
     color: #9D0058;
     border: 1px solid #9D0058;
 }
-/* 
+
 input[type="radio"]:checked + .labelRadio.tipo {
     background-color: #FFE1F2;
     color: #9D0058;
     border: 1px solid #9D0058;
-} */
+}
 
 
 /* ESTILIZAÇÃO CARACTERÍSTICAS BÁSICAS */

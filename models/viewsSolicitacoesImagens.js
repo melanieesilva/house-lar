@@ -1,7 +1,7 @@
 const db = require('../Database/Connection')
 
 
-const viewSolicitacaoImagem = db.connect.define('viewSolicitacaoImagem',{
+const viewSolicitacaoImagem = db.connect.define('ViewSolicitacaoImagem',{
     id_soli: db.Sequelize.INTEGER,
     statusSoli: db.Sequelize.ENUM('Solicitado','Aceito','Recusado'),
     tipoImovel: db.Sequelize.ENUM('Apartamento','Casa','Kitnet/Studio','Lote','Sala Comercial'),
@@ -32,12 +32,11 @@ const viewSolicitacaoImagem = db.connect.define('viewSolicitacaoImagem',{
     nomeImagem: db.Sequelize.STRING,
     pathImagem: db.Sequelize.STRING,
 },{
-    tableName: 'viewSolicitacaoImagem',
+    tableName: 'ViewSolicitacaoImagem',
     timestamps: false,
-    id: false
 })
 
-
+viewSolicitacaoImagem.removeAttribute('id')
 
 
 module.exports = viewSolicitacaoImagem

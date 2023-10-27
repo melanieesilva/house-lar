@@ -6,25 +6,38 @@ const fs = require('fs')
 async function cadastrarImagens(idSoli,nomeImagem,pathImagem){
     // const imgBuffer = fs.readFileSync(path);
         try {
-            const imagem_solicitacao = await Imagem_Solicitacao.create({
-                idSolicitacao_FK:idSoli,
-                nomeImagem:nomeImagem,
-                pathImagem:pathImagem
-            }).then(()=>{console.log("Imagem criada com sucesso!")}).catch((erro)=>{
-                console.log("Não foi possível cadastrar a imagem, veja o erro: "+erro)
-            })
-            
+            const imagemCriada = await Imagem_Solicitacao.findOne({
+                where: {
+                    idSolicitacao_FK: idSoli,
+                    nomeImagem: nomeImagem,
+                    pathImagem: pathImagem
+                }
+            });
+
+            if(imagemCriada){
+                console.log("Registro já existe e não foi adicionado.")
+            }else{
+                const imagem_solicitacao = await Imagem_Solicitacao.create({
+                    idSolicitacao_FK:idSoli,
+                    nomeImagem:nomeImagem,
+                    pathImagem:pathImagem
+                }).then(()=>{console.log("Imagem criada com sucesso!")}).catch((erro)=>{
+                    console.log("Não foi possível cadastrar a imagem, veja o erro: "+erro)
+                })
+                return imagem_solicitacao;
+            }
+         
         } catch (error) {
             throw new Error('Não foi possível cadastrar imagem.')
         }
 }
 
-async function cadastrarSolicitacao(tipoImovel,operacao,descricao,numQuartos,numBanheiros,numVagas,areaImovel,valorImovel,
+async function cadastrarSolicitacao(statusSoli,tipoImovel,operacao,descricao,numQuartos,numBanheiros,numVagas,areaImovel,valorImovel,
 valorCondominio,valorIPTU,parcelasIPTU,construcao,numAndares,dataEntrega,emCondominio
 ,nomeCliente,telefone,email,CPF,cidade,bairro,endereco,numero){
     try {
         const solicitacao = await Solicitacao.create({
-            statusSoli:'Publicado',
+            statusSoli: statusSoli,
             tipoImovel:tipoImovel,
             operacao:operacao,
             descricao:descricao,
@@ -51,7 +64,7 @@ valorCondominio,valorIPTU,parcelasIPTU,construcao,numAndares,dataEntrega,emCondo
         })
         return solicitacao
     } catch (error) {
-        throw new Error('Não foi possível enviar solicitação.')
+        throw new Error('Não foi possível enviar solicitação:'+error)
     }
 
 }

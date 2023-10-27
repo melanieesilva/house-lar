@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="modal-background" id="modalBackground">
+    {{!-- <div class="modal-background" id="modalBackground">
         <div class="modal-content">
             <div class="all">
                 <p>Detalhes da solicitação</p>
@@ -161,9 +161,8 @@
                 <button id="fecharModal">Fechar</button>
             </div>
         </div>
-    </div>
+    </div> --}}
     <tr>
-
         <table>
             <thead>
                 <tr>
@@ -173,30 +172,37 @@
                     <th class="sap">Status</th>
                 </tr>
             </thead>
+            {{#each views}}
             <tbody class="omg">
-
+                
                 <td class="res">
-                    <a>
-                        <p id="imovel">Apartamento</p>
-                        <p id="discri">Rua Jucelina Alemao 480, Pituba, Salvador</p>
+                    <a href="/">
+                        <p id="imovel">{{dataValues.tipoImovel}}</p>
+                        <p id="discri">
+                            {{dataValues.endereco}}<span>  </span>{{dataValues.numero}},
+                            {{dataValues.bairro}},{{dataValues.cidade}}
+                        </p>
+                    </a>
+                    
                 </td>
 
                 <td>
-                    <p>20/12/2022</p>
+                    <p>{{dataValues.dataPublicacao}}</p>
                 </td>
 
                 <td>
-                    <p>Maria Conceição</p>
+                    <p>{{dataValues.nomeCliente}}</p>
                 </td>
 
                 <td>
-                    <div class="butsoli">Solicitado</div>
+                    <div class="butsoli">{{dataValues.statusSoli}}</div>
                     </a>
                 </td>
-
+              
     </tr>
-
-    <tr>
+            </tbody>
+            {{/each}}
+    {{!-- <tr>
         <td class="res">
             <a href="solicitacoes.html">
                 <p id="imovel">Apartamento</p>
@@ -311,17 +317,17 @@
         <td>
             <div class="but">Solicitado</div>
             </a>
-    </tr>
-    </tbody>
+    </tr> --}}
+    
     </table>
     <ul>
-        {{#each views}}
+        {{!-- {{#each views}}
         <li>Solicitação</li>
         <li>{{dataValues.id_soli}}</li>
         <li>{{dataValues.statusSoli}}</li>
         <li>{{dataValues.tipoImovel}}</li>
         <li>{{dataValues.nomeImagem}}</li>
-        {{/each}}
+        {{/each}} --}}
     </ul>
     <script src="../../js/solicitacoes.js"></script>
 </main>

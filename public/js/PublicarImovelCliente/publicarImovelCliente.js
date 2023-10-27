@@ -78,6 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
 
+    document.getElementById('sla').addEventListener('click',()=>{
+        console.log('oaaaa')
+    })
 
 
 

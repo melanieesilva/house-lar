@@ -3,74 +3,95 @@ console.log("conectado")
 const inputFile = document.getElementById("inputFile")
 const btnSub = document.getElementById("btnsub")
 
-document.addEventListener('DOMContentLoaded',()=>{
+
+let displayAtual = 1;
+
+function displayForm(display) {
+
+    document.getElementById(`etapa${displayAtual}`).style.color = 'green'
+    document.getElementById(`etapa${display}`).style.color = 'grey'
+    document.getElementById(`form${displayAtual}`).style.display = 'none';
+    document.getElementById(`form${display}`).style.display = 'flex';
+    displayAtual = display;
+}
 
 
-inputFile.addEventListener('change',(event)=>{
-    const imagesPreview = document.getElementById("containerImg")
-    const imagesUpload = [];
+document.addEventListener('DOMContentLoaded', () => {
 
-    console.log("ouviu")
+    document.getElementById('form1').style.display = 'flex'
+    document.getElementById('etapa1').style.color = 'green'
 
-    for(let i = 0;i < event.target.files.length;i++){
-        //obtenha cada file
-        const file = event.target.files[i]
+    inputFile.addEventListener('change', (event) => {
+        const imagesPreview = document.getElementById("containerImg")
+        const imagesUpload = [];
 
-        //inicie o reader
-        const reader = new FileReader()
+        console.log("ouviu")
 
-        reader.onload = (e) =>{
-            const img = new Image()
-            img.src = e.target.result
-            const src = img.src
+        for (let i = 0; i < event.target.files.length; i++) {
+            //obtenha cada file
+            const file = event.target.files[i]
 
-            const BtnDelete = document.createElement("button")
+            //inicie o reader
+            const reader = new FileReader()
 
-            const icon = document.createElement("iconify-icon")
-            icon.setAttribute('icon','mdi:remove')
-            BtnDelete.appendChild(icon)
-            BtnDelete.className = "btndelete"
+            reader.onload = (e) => {
+                const img = new Image()
+                img.src = e.target.result
+                const src = img.src
 
-            const imgPreview = document.createElement("div")
-            imgPreview.className = "imgpreview"
+                const BtnDelete = document.createElement("button")
 
-            imgPreview.appendChild(BtnDelete)
-            imgPreview.style.backgroundImage = `url(${src})`
-            imagesPreview.appendChild(imgPreview)
+                const icon = document.createElement("iconify-icon")
+                icon.setAttribute('icon', 'mdi:remove')
+                BtnDelete.appendChild(icon)
+                BtnDelete.className = "btndelete"
 
-            imagesUpload.push(file)
-            
-            BtnDelete.addEventListener('click',()=>{
-                imagesPreview.removeChild(imgPreview)
+                const imgPreview = document.createElement("div")
+                imgPreview.className = "imgpreview"
 
-                const index = imagesUpload.indexOf(file)
-                if(index !== -1){
-                    imagesUpload.splice(index,1)
-                    console.log(imagesUpload)
-                }
-            })
+                imgPreview.appendChild(BtnDelete)
+                imgPreview.style.backgroundImage = `url(${src})`
+                imagesPreview.appendChild(imgPreview)
+
+                imagesUpload.push(file)
+
+                BtnDelete.addEventListener('click', () => {
+                    imagesPreview.removeChild(imgPreview)
+
+                    let inputHidden = document.createElement("input")
+                    inputHidden.type = 'hidden'
+                    inputHidden.name = 'indexImagemRemovida'
+
+                    const index = imagesUpload.indexOf(file)
+                    inputHidden.value = i;
+
+                    if (index !== -1) {
+                        imagesUpload.splice(index, 1)
+                        imagesPreview.appendChild(inputHidden)
+                        console.log(imagesUpload)
+                    }
+                })
+            }
+            reader.readAsDataURL(file);
         }
-        reader.readAsDataURL(file);
-    }
 
-})
-
-console.log("DOMContentLoaded")
-
-function formLoad(arrayImg){
-    const formData = new FormData()
-    for(const file of arrayImg){
-        formData.append('imagem',file)
-    }
+    })
 
 
-  
-        const nomeUser = document.getElementById('nomeUser').value
-        const email = document.getElementById('email').value
-        const cpf = document.getElementById('cpf').value
-        const telefone = document.getElementById('telefone').value
-        const operacao = document.getElementById('operation').value
-        const tipoImovel = document.getElementById('tipoImovel').value
+
+
+
+    function formLoad(arrayImg) {
+        const formData = new FormData()
+        for (const file of arrayImg) {
+            formData.append('imagem', file)
+        }
+        nomeUser 
+        email
+        cpf 
+        telefone
+        operacao
+        tipoImovel
         numQuartos
         numBanheiros
         numVagas
@@ -92,40 +113,75 @@ function formLoad(arrayImg){
 
 
 
-    fetch('/corretor/cadastrarSolicitacao')
-}
+        fetch('/corretor/cadastrarSolicitacao')
+    }
 
 })
 
-function openPreView(){
+function openPreView() {
     const modal = document.getElementById("preVisualizacao")
     modal.style.display = "flex";
     document.body.style.overflow = "hidden"
+
+    window.addEventListener('click', (e) => {
+        if (e.target == modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "scroll"
+        }
+    })
+
+    document.getElementById('btnCancelar').addEventListener('click', () => {
+        modal.style.display = "none";
+        document.body.style.overflow = "scroll"
+    })
+}
+
+function confirmarEnvio() {
+    const modalDecisao = document.getElementById('modaldecisao')
+
+    modalDecisao.style.display = 'flex'
+    document.body.style.overflow = "hidden"
+
+    window.addEventListener('click', (e) => {
+        if (e.target == modalDecisao) {
+            modalDecisao.style.display = "none";
+            document.body.style.overflow = "scroll"
+        }
+    })
+
+    document.getElementById('btnCancelDecisao').addEventListener('click', () => {
+        modalDecisao.style.display = "none";
+        document.body.style.overflow = "scroll"
+    })
 }
 
 
-// var posicaoSlide = 1;
-// showSlide(posicaoSlide);
+var posicaoSlide = 1;
+showSlide(posicaoSlide);
 
-// function addSlide(n) {
-//   showSlide(posicaoSlide += n);
-// }
+function addSlide(n) {
+    showSlide(posicaoSlide += n);
+}
 
-// function showSlide(n) {
-//   var i;
-//   var slide = document.getElementsByClassName("img-select");
+function showSlide(n) {
+    var i;
+    var slide = document.getElementsByClassName("bloco");
 
-//   if (n > slide.length) {posicaoSlide = 1}
-//   if (n < 1) {posicaoSlide = slide.length}
-  
-//   for (i = 0; i < slide.length; i++) {
-//     slide[i].style.display = "none";
-//   }
-//   slide[posicaoSlide-1].style.display = "flex";
-// }
+    if (n > slide.length) { posicaoSlide = 1 }
+    if (n < 1) { posicaoSlide = slide.length }
+
+    for (i = 0; i < slide.length; i++) {
+        slide[i].style.display = "none";
+    }
+    slide[posicaoSlide - 1].style.display = "flex";
+}
 
 
 const test = document.getElementById('tipoImovel').value
 
 console.log(test)
 
+$(document).ready(function () {
+    const meuInputValor = $("#nomeUser").val();
+    console.log(meuInputValor);
+});

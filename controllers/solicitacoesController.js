@@ -19,12 +19,12 @@ async function cadastrarImagens(idSoli,nomeImagem,pathImagem){
         }
 }
 
-async function cadastrarSolicitacao(    
-statusSoli,tipoImovel,operacao,descricao,numQuartos,numBanheiros,numVagas,areaImovel,valorImovel,
-valorCondominio,valorIPTU,parcelasIPTU,construcao,numAndares,dataEntrega,emCondominio){
+async function cadastrarSolicitacao(tipoImovel,operacao,descricao,numQuartos,numBanheiros,numVagas,areaImovel,valorImovel,
+valorCondominio,valorIPTU,parcelasIPTU,construcao,numAndares,dataEntrega,emCondominio
+,nomeCliente,telefone,email,CPF,cidade,bairro,endereco,numero){
     try {
         const solicitacao = await Solicitacao.create({
-            statusSoli:statusSoli,
+            statusSoli:'Publicado',
             tipoImovel:tipoImovel,
             operacao:operacao,
             descricao:descricao,
@@ -39,7 +39,15 @@ valorCondominio,valorIPTU,parcelasIPTU,construcao,numAndares,dataEntrega,emCondo
             construcao:construcao,
             numAndares:numAndares,
             dataEntrega:dataEntrega,
-            emCondominio:emCondominio
+            emCondominio:emCondominio,
+            nomeCliente:nomeCliente,
+            telefone:telefone,
+            email:email,
+            CPF: CPF,
+            cidade: cidade,
+            bairro: bairro,
+            endereco: endereco,
+            numero: numero
         })
         return solicitacao
     } catch (error) {

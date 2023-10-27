@@ -3,7 +3,10 @@
 <section class="main">
 
 
-    <section class="publicacao-form" id="infoPessoais">
+
+<form action="/public/publicarSolicitacao" method="post" enctype="multipart/form-data">
+
+    <section class="publicacao-form" id="form1">
         <div class="legenda">
             <p>Publique seu imóvel</p>
             <div class="title">
@@ -38,14 +41,14 @@
         </div>
         <div class="buttons">
             <div class="container-btn">
-                <button class="btnNext" id="btnNext">
+                <a class="btnNext" id="btnNext" onclick="displayForm(2)">
                     Continuar
                     <iconify-icon icon="ep:arrow-right"></iconify-icon>
-                </button>
+                </a>
             </div>
         </div>
     </section>
-    <section class="publicacao-form" id="operacao">
+    <section class="publicacao-form" id="form2">
         <div class="legenda">
             <p>Publique seu imóvel</p>
             <div class="title">
@@ -57,30 +60,30 @@
         <div class="form">
             <div class="inputs-op">
                 <input type="radio" id="operation" name="operacao" value="Venda" hidden>
-                <label for="Venda" class="labelRadio op" id="labelRadio">Vender meu imóvel</label>
+                <label for="Venda" class="labelRadioop" id="labelRadio">Vender meu imóvel</label>
             </div>
             <div class="inputs-op">
                 <input type="radio" id="operation" name="operacao" value="Alugar" hidden>
-                <label for="Alugar" class="labelRadio op" id="labelRadio">Alugar meu imóvel</label>
+                <label for="Alugar" class="labelRadioop" id="labelRadio">Alugar meu imóvel</label>
             </div>
 
         </div>
         <div class="buttons">
             <div class="container-btn">
-                <button class="btnBefore" id="btnBefore">
+                <a class="btnBefore" id="btnBefore" onclick="displayForm(1)">
                     <iconify-icon icon="ep:arrow-left"></iconify-icon>
                     Voltar
-                </button>
+                </a>
             </div>
             <div class="container-btn">
-                <button class="btnNext" id="btnNext" >
+                <a class="btnNext" id="btnNext" onclick="displayForm(3)">
                     Continuar
                     <iconify-icon icon="ep:arrow-right"></iconify-icon>
-                </button>
+                </a>
             </div>
         </div>
     </section>
-    <section class="publicacao-form" id="tipoImovel">
+    <section class="publicacao-form" id="form3">
         <div class="legenda">
             <p>Publique seu imóvel</p>
             <div class="title">
@@ -120,20 +123,20 @@
         </div>
         <div class="buttons">
             <div class="container-btn">
-                <button class="btnBefore" id="btnBefore">
+                <a class="btnBefore" id="btnBefore" onclick="displayForm(2)">
                     <iconify-icon icon="ep:arrow-left"></iconify-icon>
                     Voltar
-                </button>
+                </a>
             </div>
             <div class="container-btn">
-                <button class="btnNext" id="btnNext" >
+                <a class="btnNext" id="btnNext" onclick="displayForm(4)">
                     Continuar
                     <iconify-icon icon="ep:arrow-right"></iconify-icon>
-                </button>
+                </a>
             </div>
         </div>
     </section>
-    <section class="publicacao-form" id="caracBasic">
+    <section class="publicacao-form" id="form4">
         <div class="legenda">
             <p>Publique seu imóvel</p>
             <div class="title">
@@ -179,20 +182,20 @@
         </div>
         <div class="buttons">
             <div class="container-btn">
-                <button class="btnBefore" id="btnBefore">
+                <a class="btnBefore" id="btnBefore" onclick="displayForm(3)">
                     <iconify-icon icon="ep:arrow-left"></iconify-icon>
                     Voltar
-                </button>
+                </a>
             </div>
             <div class="container-btn">
-                <button class="btnNext" id="btnNext" >
+                <a class="btnNext" id="btnNext" onclick="displayForm(5)">
                     Continuar
                     <iconify-icon icon="ep:arrow-right"></iconify-icon>
-                </button>
+                </a>
             </div>
         </div>
     </section>
-    <section class="publicacao-form" id="detalheImovel">
+    <section class="publicacao-form" id="form5">
         <div class="legenda">
             <p>Publique seu imóvel</p>
             <div class="title">
@@ -230,20 +233,20 @@
         </div>
         <div class="buttons">
             <div class="container-btn">
-                <button class="btnBefore" id="btnBefore">
+                <a class="btnBefore" id="btnBefore" onclick="displayForm(4)">
                     <iconify-icon icon="ep:arrow-left"></iconify-icon>
                     Voltar
-                </button>
+                </a>
             </div>
             <div class="container-btn">
-                <button class="btnNext" id="btnNext" >
+                <a class="btnNext" id="btnNext" onclick="displayForm(6)">
                     Continuar
                     <iconify-icon icon="ep:arrow-right"></iconify-icon>
-                </button>
+                </a>
             </div>
         </div>
     </section>
-    <section class="publicacao-form" id="valores">
+    <section class="publicacao-form" id="form6">
         <div class="legenda">
             <p>Publique seu imóvel</p>
             <div class="title">
@@ -255,8 +258,8 @@
         <div class="form">
             <div class="container-selects">
                 <div class="select">
-                    <p id="labelValorVenda">Valor de venda (R$)</p>
-                    <input type="text" name="valorVenda" placeholder="Insira aqui...">
+                    <p id="labelValorImovel">Valor de venda (R$)</p>
+                    <input type="text" name="valorImovel" placeholder="Insira aqui...">
                 </div>
                 <div class="select">
                     <p>Condomínio (R$)</p>
@@ -289,20 +292,20 @@
         </div>
         <div class="buttons">
             <div class="container-btn">
-                <button class="btnBefore" id="btnBefore">
+                <a class="btnBefore" id="btnBefore" onclick="displayForm(5)">
                     <iconify-icon icon="ep:arrow-left"></iconify-icon>
                     Voltar
-                </button>
+                </a>
             </div>
             <div class="container-btn">
-                <button class="btnNext" id="btnNext" >
+                <a class="btnNext" id="btnNext" onclick="displayForm(7)">
                     Continuar
                     <iconify-icon icon="ep:arrow-right"></iconify-icon>
-                </button>
+                </a>
             </div>
         </div>
     </section>
-    <section class="publicacao-form" id="localizacao">
+    <section class="publicacao-form" id="form7">
         <div class="legenda">
             <p>Publique seu imóvel</p>
             <div class="title">
@@ -338,20 +341,20 @@
         </div>
         <div class="buttons">
             <div class="container-btn">
-                <button class="btnBefore" id="btnBefore">
+                <a class="btnBefore" id="btnBefore" onclick="displayForm(6)">
                     <iconify-icon icon="ep:arrow-left"></iconify-icon>
                     Voltar
-                </button>
+                </a>
             </div>
             <div class="container-btn">
-                <button class="btnNext" id="btnNext" >
+                <a class="btnNext" id="btnNext" onclick="displayForm(8)">
                     Continuar
                     <iconify-icon icon="ep:arrow-right"></iconify-icon>
-                </button>
+                </a>
             </div>
         </div>
     </section>
-    <section class="publicacao-form" id="imagens">
+    <section class="publicacao-form" id="form8">
         <div class="legenda">
             <p>Publique seu imóvel</p>
             <div class="title">
@@ -377,51 +380,57 @@
         </div>
         <div class="buttons">
             <div class="container-btn">
-                <button class="btnBefore" id="btnBefore">
+                <a class="btnBefore" id="btnBefore" onclick="displayForm(7)">
                     <iconify-icon icon="ep:arrow-left"></iconify-icon>
                     Voltar
-                </button>
+                </a>
             </div>
             <div class="container-btn">
-                <button class="btnNext" id="btnNext" onclick="openPreView()">
+                <a class="btnNext" id="btnNext" onclick="openPreView()">
                     Continuar
                     <iconify-icon icon="ep:arrow-right"></iconify-icon>
-                </button>
+                </a>
             </div>
         </div>
     </section>
 
 
-
-
-    {{!-- <section class="preVisualizacao" id="preVisualizacao">
+    <section class="preVisualizacao" id="preVisualizacao">
       <div class="contentView" id="contentView">
         <div class="header-content">
             <p>Publique seu imóvel</p>
             <div class="btns-header">
-                <button id="btnCancelar">
-                Cancelar
-            </button>
-            <button id="btnPublicar">
-                Publicar
-            </button>
+                <a id="btnCancelar">
+                    Cancelar
+                </a>
+                <a id="btnPublicar" onclick="confirmarEnvio()">
+                    Publicar
+                </a>
             </div>
             
         </div>
         <div class="container-select-imgs">
+            {{!-- each --}}
+                {{!-- if e verifica par --}}
+            <div class="bloco">
+                {{!-- mostra uma img --}}
                 <div class="img-select">
-                    d
+                    1
                 </div>
-                <div class="img-select">
-                    a
-                </div>
+                {{!-- permite a segunda --}}
+                    <div class="img-select">
+                        2
+                    </div>
+                {{!-- fecha if --}}
+            </div>  
+                {{!-- fecha if bloco--}}
             
-            <button id="before" onclick="addSlide(-1)"> 
+            <a id="before" onclick="addSlide(-1)"> 
                 <iconify-icon icon="ep:arrow-left"></iconify-icon>
-            </button>
-            <button id="after" onclick="addSlide(1)"> 
+            </a>
+            <a id="after" onclick="addSlide(1)"> 
                 <iconify-icon icon="ep:arrow-right"></iconify-icon>
-            </button>
+            </a>
             
 
         </div>
@@ -514,79 +523,96 @@
                     </div>
                 </div>
                 <div class="btns-side">
-                                    <button class="tira-duvida">
+                                    <a class="tira-duvida">
                     <iconify-icon icon="majesticons:chat-line"></iconify-icon>
                     Tirar uma dúvida
-                </button>
-                <button class="agendar-visita">
+                </a>
+                <a class="agendar-visita">
                     <iconify-icon icon="lucide:calendar"></iconify-icon>
                     Agendar visita
-                </button>
+                </a>
                 </div>
 
             </div>
         </div>
       </div>
-    </section> --}}
+    </section>
 
+    <div class="modaldecisao" id="modaldecisao">
+        <div class="contentdecisao" id="contentdecisao">
+            <div class="contenttext">
+                <p>Tem certeza?</p>
+                <p>Confirme todas as informações do seu imóvel antes de solicitar
+                    a publicação. Você não poderá cancelar depois, ainda que
+                    possa ter seu pedido rejeitado.
+                </p>
+            </div>
+            <div class="decisoes">
+                <a id="btnCancelDecisao">Não, cancelar</a>
+                <button id="btnPublicar" type="submit">
+                    Sim, tenho certeza
+                </button>
+            </div>
+        </div>
+    </div>
 
-
+</form>
 
 
     <section class="etapas">
             <div class="etapa" id="etapa1">
-                <div class="icon">
+                
                     <iconify-icon icon="octicon:check-16"></iconify-icon>
-                </div>
+                
                 Informações pessoais
             </div>
-            <div class="etapa" id="etapa3">
-                <div class="icon">
+            <div class="etapa" id="etapa2">
+                
                     <iconify-icon icon="octicon:check-16"></iconify-icon>
-                </div>
+                
                 Operação
             </div>
-            <div class="etapa" id="etapa4">
-                <div class="icon">
+            <div class="etapa" id="etapa3">
+               
                     <iconify-icon icon="octicon:check-16"></iconify-icon>
-                </div>
+                
                 Tipo do imóvel
             </div>
-            <div class="etapa" id="etapa5">
-                <div class="icon">
+            <div class="etapa" id="etapa4">
+                
                     <iconify-icon icon="octicon:check-16"></iconify-icon>
-                </div>
+                
                 Características básicas
             </div>
-            <div class="etapa" id="etapa6">
-                <div class="icon">
+            <div class="etapa" id="etapa5">
+                
                     <iconify-icon icon="octicon:check-16"></iconify-icon>
-                </div>
+              
                 Detalhe imóvel
             </div>
-            <div class="etapa" id="etapa7">
-                <div class="icon">
+            <div class="etapa" id="etapa6">
+               
                     <iconify-icon icon="octicon:check-16"></iconify-icon>
-                </div>
+               
                 Valores
 
             </div>
-            <div class="etapa" id="etapa8">
-                <div class="icon">
+            <div class="etapa" id="etapa7">
+                
                     <iconify-icon icon="octicon:check-16"></iconify-icon>
-                </div>
+             
                 Localização
             </div>
-            <div class="etapa" id="etapa9">
-                <div class="icon">
+            <div class="etapa" id="etapa8">
+                
                     <iconify-icon icon="octicon:check-16"></iconify-icon>
-                </div>
+              
                 Imagens
             </div>
-            <div class="etapa" id="etapa10">
-                <div class="icon">
+            <div class="etapa" id="etapa9">
+               
                     <iconify-icon icon="carbon:view"></iconify-icon>
-                </div>
+          
                 Pré-visualização
             </div>
            

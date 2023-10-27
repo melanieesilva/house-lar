@@ -81,6 +81,7 @@
     align-items: center;
 }
 
+
 .container-btn{
     width: calc(100% /2);
 }
@@ -90,7 +91,8 @@
     border-radius: 8px;
     border: none;
     background-color: #9D0058;
-    color: white;
+    color: white !important;
+    cursor: pointer;
     font-size: 16px;
     display: flex;
     align-items: center;
@@ -101,11 +103,12 @@
     border-radius: 8px;
     border: none;
     background-color: #989898;
-    color: white;
+    color: white !important;
     font-size: 16px;
     display: flex;
     align-items: center;
     gap: 8px;
+    width: fit-content;
 }
 
 /* ESTILIZAÇÃO INFO PESSOAIS */
@@ -126,7 +129,7 @@
 }
 
 /* ESTILIZAÇÃO OPERAÇÃO */
-.labelRadio.op{
+.labelRadioop{
     display: inline-block;
     width: 584px;
     padding: 32px 24px;
@@ -135,13 +138,13 @@
     border: 1px solid #DCDCDC;
 }
 
-.labelRadio:hover{
+.labelRadioop:hover{
     background-color: #FFE1F2;
     color: #9D0058;
     border: 1px solid #9D0058;
 }
 
-input[type="radio"]:checked + .labelRadio.op {
+input[type="radio"]:checked + .labelRadioop {
     background-color: #FFE1F2;
     color: #9D0058;
     border: 1px solid #9D0058;
@@ -178,12 +181,12 @@ input[type="radio"]:checked + .labelRadio.op {
     color: #9D0058;
     border: 1px solid #9D0058;
 }
-
+/* 
 input[type="radio"]:checked + .labelRadio.tipo {
     background-color: #FFE1F2;
     color: #9D0058;
     border: 1px solid #9D0058;
-}
+} */
 
 
 /* ESTILIZAÇÃO CARACTERÍSTICAS BÁSICAS */
@@ -407,12 +410,12 @@ input[type="file"]{
     align-items: center;
 }
 
-.btns-header > button{
+.btns-header > *{
     padding: 6px 14px;
     border-radius: 6px;
     border: none;
     background-color: #9D0058;
-    color: white;
+    color: white !important;
     cursor: pointer;
 }
 
@@ -429,12 +432,18 @@ input[type="file"]{
     /* justify-content: center; */
 }
 
-.bloco-img{
+.bloco{
     width: 100%;
-    height: 100%;
     display: flex;
     gap: 8px;
 }
+
+/* .bloco-img{
+    width: 600px;
+    height: 100%;
+    display: flex;
+    gap: 8px;
+} */
 
 .img-select{
     width: calc(100% / 2);
@@ -449,7 +458,7 @@ input[type="file"]{
     height: 100%;
 }
 
-.container-select-imgs > button{
+.container-select-imgs > a{
    position: absolute;
    border-radius: 100px;
    border: none;
@@ -458,7 +467,7 @@ input[type="file"]{
    display: flex;
    justify-content: center;
    align-items: center;
-   color: white;
+   color: white !important;
    font-size: 20px;
    cursor: pointer;
 }
@@ -554,11 +563,11 @@ input[type="file"]{
     gap: 12px;
 }
 
-.btns-side > button{
+.btns-side > a{
     border-radius: 5px;
     padding: 8px 0;
     background: #9D0058;
-    color: white;
+    color: white !important;
     border: none;
     display: flex;
     justify-content: center;
@@ -569,7 +578,7 @@ input[type="file"]{
 .btns-side > :nth-child(1){
     border: 1px solid #9D0058;
     background: white;
-    color: #9D0058;
+    color: #9D0058 !important;
 
 }
 
@@ -589,6 +598,63 @@ input[type="file"]{
     font-size: 16px;
 }
 
+
+/* MODAL DECISÃO */
+.contentdecisao{
+    width: 40%;
+    height: fit-content;
+    background-color: white;
+    border-radius: 8px;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 40px;
+    border: 2px solid rgb(250, 204, 0)
+}
+.contenttext > :first-child{
+    font-size: 24px;
+    font-weight: 500;
+}
+.contenttext > :last-child{
+    color: #848484;
+    
+}
+
+.decisoes{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+}
+.decisoes > :first-child{
+    float: right;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    background-color: #ebac00;
+    color: rgb(0, 0, 0) !important;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.decisoes > :last-child{
+    
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    background-color: #989898;
+    color: rgb(0, 0, 0) !important;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+}
+
 #infoPessoais{
     display: none;
 }
@@ -598,7 +664,7 @@ input[type="file"]{
 }
 
 #tipoImovel{
-    /* display: none; */
+    display: none;
 }
 
 #caracBasic{
@@ -632,10 +698,52 @@ input[type="file"]{
     right: 0;
     bottom: 0;
     z-index: 1;
-    display: flex;
+    display: none;
     background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(8px);
     align-items: center;
     justify-content: center;
 }
 
+#modaldecisao{
+    position: fixed;
+    background-color: red;
+    width: 100vw;
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+}
+
+#form1{
+    display: none;
+}
+#form2{
+    display: none;
+}
+#form3{
+    display: none;
+}
+#form4{
+    display: none;
+}
+#form5{
+    display: none;
+}
+#form6{
+    display: none;
+}
+#form7{
+    display: none;
+}
+#form8{
+    display: none;
+}

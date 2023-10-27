@@ -1,8 +1,10 @@
-
-
--- *************************** SCRIPT DE RASCUNHO ***************************
-
 use larhouse;
+
+drop trigger PreencherViewSolicitacaoImagem;
+
+drop table solicitacoes;
+drop table imagensSolicitacoes;
+drop table ViewSolicitacaoImagem;
 
 create table solicitacoes(
 	id int primary key auto_increment,
@@ -22,9 +24,16 @@ create table solicitacoes(
     numAndares int,
     dataEntrega date,
     emCondominio ENUM('Sim','Não'),
-    dataPublicacao date
+    dataPublicacao date,
+    nomeCliente varchar(80),
+    telefone varchar(14),
+    email varchar(100),
+    CPF varchar(14),
+    cidade varchar(80),
+    bairro varchar(80),
+    endereco varchar(100),
+    numero int
 );
-update solicitacoes set dataPublicacao = curdate();
 
 create table imagensSolicitacoes(
 	id int auto_increment primary key,
@@ -35,64 +44,10 @@ create table imagensSolicitacoes(
     foreign key (idSolicitacao_FK) references solicitacoes(id)
 );
 
-drop table viewSolicitacaoImagem;
+select * from ViewSolicitacaoImagem;
 
-create table viewSolicitacaoImagem(
-	id int auto_increment primary key,
-	id_soli int,
-    statusSoli ENUM('Solicitado','Aceito','Recusado'),
-    tipoImovel ENUM('Apartamento','Casa','Kitnet/Studio','Lote','Sala Comercial'),
-    operacao ENUM('Venda','Aluguel'),
-    descricao longtext,
-    numQuartos int,
-    numBanheiros int,
-    numVagas int,
-    areaImovel float,
-	valorImovel decimal(10,2),
-    valorCondominio decimal(10,2),
-    valorIPTU decimal(10,2),
-    parcelasIPTU int,
-    construcao ENUM('Sim','Não'),
-    numAndares int,
-    dataEntrega date,
-    emCondominio ENUM('Sim','Não'),
-    dataPublicacao date,
-    id_imagem int,
-	nomeImagem varchar(100),
-    pathImagem varchar(200)
-);
-
-
-
-DELIMITER $
-CREATE TRIGGER PreencherViewSolicitacaoImagem
-AFTER INSERT ON imagensSolicitacoes
-FOR EACH ROW
-BEGIN
-	INSERT INTO viewSolicitacaoImagem (
-			id_soli,
-			statusSoli,
-			tipoImovel,
-			operacao,
-			descricao,
-			numQuartos,
-			numBanheiros,
-			numVagas,
-			areaImovel,
-			valorImovel,
-			valorCondominio,
-			valorIPTU,
-			parcelasIPTU,
-			construcao,
-			numAndares,
-			dataEntrega,
-			emCondominio,
-			dataPublicacao,
-			id_imagem,
-			nomeImagem,
-			pathImagem
-    )
-    SELECT 	sol.id,
+CREATE VIEW ViewSolicitacaoImagem AS SELECT
+			sol.id,
 			sol.statusSoli,
 			sol.tipoImovel,
 			sol.operacao,
@@ -110,13 +65,17 @@ BEGIN
 			sol.dataEntrega,
 			sol.emCondominio,
 			sol.dataPublicacao,
-            img.id,
+			sol.nomeCliente,
+			sol.telefone,
+			sol.email,
+			sol.CPF,
+			sol.cidade,
+			sol.bairro,
+			sol.endereco,
+			sol.numero,
+            img.id AS id_imagem,
 			img.nomeImagem,
 			img.pathImagem
 		FROM solicitacoes AS sol
         INNER JOIN imagensSolicitacoes AS img 
-        ON sol.id = img.idSolicitacao_FK
-        WHERE img.id = NEW.id;
-END$
-
-DELIMITER ;
+        WHERE sol.id = img.idSolicitacao_FK;

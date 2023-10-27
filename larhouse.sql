@@ -45,7 +45,7 @@ CREATE TABLE `agenda` (
 
 CREATE TABLE `categoria_noticia` (
   `nome_categoria` varchar(200) NOT NULL,
-  `cor_categoria` enum('Vermelho','Amarelo','Roxo','Azul','Laranja','Verde'),
+  `cor_categoria` enum('Vermelho','Amarelo','Roxo','Azul','Laranja','Verde')
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -54,11 +54,11 @@ CREATE TABLE `categoria_noticia` (
 
 INSERT INTO `categoria_noticia` (`nome_categoria`,`cor_categoria`) VALUES
 ("Oportunidade Tenda","Vermelho"),
-("Oportunidade Village","Azul")
+("Oportunidade Village","Azul");
 
 INSERT INTO `categoria_noticia` (`nome_categoria`, `cor_categoria`) VALUES
 ('Oportunidade Tenda', 'Vermelho'),
-('Oportunidade Village', 'Verde'),
+('Oportunidade Village', 'Verde');
 
 -- --------------------------------------------------------
 
@@ -143,7 +143,7 @@ CREATE TABLE `noticias` (
   `artigo_noticia` text NOT NULL,
   `autor_noticia` varchar(200) NOT NULL,
   `publicado_por` varchar(200) NOT NULL DEFAULT 'Lar&House',
-  `nome_imagem` varchar(200) NOT NULL DEFAULT,
+  `nome_imagem` varchar(200) NOT NULL,
   `data_imagem` blob NOT NULL,
   `categoria_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

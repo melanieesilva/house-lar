@@ -72,6 +72,8 @@ CREATE TABLE `clientes` (
   `email_cliente` varchar(100) NOT NULL,
   `senha_cliente` varchar(100) NOT NULL,
   `telefone_cliente` varchar(20) NOT NULL,
+  `createdAt`  TIMESTAMP NOT NULL,
+  `updatedAt` TIMESTAMP NOT NULL, 
   PRIMARY KEY (`id_cliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

@@ -1,9 +1,5 @@
-console.log("conectado")
-
 const inputFile = document.getElementById("inputFile")
 const btnSub = document.getElementById("btnsub")
-
-
 let displayAtual = 1;
 
 function displayForm(display) {
@@ -14,7 +10,6 @@ function displayForm(display) {
     document.getElementById(`form${display}`).style.display = 'flex';
     displayAtual = display;
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -77,48 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     })
 
-
-    document.getElementById('sla').addEventListener('click',()=>{
-        console.log('oaaaa')
-    })
-
-
-
-    function formLoad(arrayImg) {
-        const formData = new FormData()
-        for (const file of arrayImg) {
-            formData.append('imagem', file)
-        }
-        nomeUser 
-        email
-        cpf 
-        telefone
-        operacao
-        tipoImovel
-        numQuartos
-        numBanheiros
-        numVagas
-        tamArea
-        construcaoImovel
-        condominioImovel
-        andaresImovel
-        dataEntrega
-        valorVenda
-        valorCondominio
-        valorIPTU
-        parcelaIPTU
-        cidade
-        bairro
-        endereco
-        numero
-        descricao
-
-
-
-
-        fetch('/corretor/cadastrarSolicitacao')
-    }
-
 })
 
 function openPreView() {
@@ -158,7 +111,6 @@ function confirmarEnvio() {
     })
 }
 
-
 var posicaoSlide = 1;
 showSlide(posicaoSlide);
 
@@ -180,11 +132,3 @@ function showSlide(n) {
 }
 
 
-const test = document.getElementById('tipoImovel').value
-
-console.log(test)
-
-$(document).ready(function () {
-    const meuInputValor = $("#nomeUser").val();
-    console.log(meuInputValor);
-});

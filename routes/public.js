@@ -3,6 +3,7 @@ const router = express.Router()
 const Duvidas = require('../models/Duvidas')
 const Noticia = require('../models/Noticias')
 const multer = require('multer')
+const Cliente = require('../Models/cliente')
 
 //MODELOS
 const Solicitacao = require('../models/Solicitacoes');
@@ -165,20 +166,37 @@ router.get('/public/loginCorretor', function (req, res) {
     })
 })
 
-router.post('/autenticar', (req, res) => {
-    Usuario.findOne({
-        where: {
-            Email: req.body.email,
-            Senha: req.body.senha
-        }
-    }).then((user) => {
-        console.log(user instanceof Usuario)
-        console.log(user.Email)
-    }).catch((err) => {
-        console.log("NÃO FOI POSSÍVEL FAZER A BUSCA: " + err)
-    })
-})
 
+router.post('/public/autenticar', async (req, res) => {
+    const { email, senha } = req.body;
+
+    try {
+        const cliente = await Cliente.findOne({
+            where: {
+                email_cliente: email
+            }
+        });
+
+        if (!cliente) {
+            return res.status(401).send('Credenciais inválidas E-mail');
+        }
+        const senhaCorreta = await Cliente.findOne({
+            where:{
+                senha_cliente: senha
+            }
+        })
+        if (!senhaCorreta) {
+            return res.status(401).send('Credenciais inválidas Senha');
+        }
+
+        res.redirect('/corretor/painelControle'); 
+    } catch (error) {
+        console.error(error); // Adicione esta linha para ver o erro no console
+        console.log(email, senha);
+        res.status(500).send('Ocorreu um erro ao autenticar o cliente: ' + error.message); // Envie a mensagem de erro real para o cliente
+    }
+    
+});
 router.post('/')
 
 // Login Corretor - Esqueceu a Senha

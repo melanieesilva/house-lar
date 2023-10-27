@@ -1,6 +1,7 @@
 const db = require('../Database/Connection.js');
 const Sequelize = require('sequelize');
 const Cliente = db.connect.define('cliente', {
+    
     id_cliente: {
         type: db.Sequelize.INTEGER,
         primaryKey: true,
@@ -22,17 +23,8 @@ const Cliente = db.connect.define('cliente', {
         type: db.Sequelize.STRING,
         allowNull: false
     },
-    createdAt: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-    },
-    updatedAt: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-    },
 });
+
 
 // db.connect.sync({ force: true }).then(() => {
 //     console.log('Tabelas sincronizadas.');

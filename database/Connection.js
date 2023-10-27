@@ -1,4 +1,5 @@
 //Configurando Sequelize
+const db = require('../Database/Connection.js');
 const Sequelize = require('sequelize')
 const dbHost = "localhost"
 require('dotenv').config()

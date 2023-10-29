@@ -19,6 +19,7 @@
     align-items: center;
     text-align: center;
     margin-top: 24px;
+    gap: 24px;
 }
 .info-artigo > .titulo-noticia{
     width: 600px;
@@ -90,7 +91,7 @@
 .titulo-secao-noticias > a{
     border-radius: 8px;
     background: #B00063;
-    color: white;
+    color: white !important;
     padding: 8px 16px;
     display: flex;
     justify-content: center;
@@ -151,6 +152,9 @@
     gap: 8px;
     color: #828282;
 }
+.data-publicacao > p{
+    margin: 0;
+}
 
 .info-noticia{
     display: flex;
@@ -179,7 +183,7 @@
     gap: 8px;
     font-size: 16px;
     font-weight: 600;
-    color: #9D0058;
+    color: #9D0058 !important;
 }
 .btn-ler-noticia > iconify-icon{
     font-size: 20px;

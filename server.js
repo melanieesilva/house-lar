@@ -1,26 +1,31 @@
 //CARREGANDO MÓDULOS
 const express = require('express')
 const handlebars = require('express-handlebars')
+const moment = require('moment')
 const corretorRouter = require('./routes/corretor')
 const publicRouter = require('./routes/public')
 const connect = require('./Database/Connection')
 const session = require('express-session')
 const flash = require('connect-flash')
+const bodyParser = require('body-parser');
 
 //CONFIGURAÇÕES    
     //EXPRESS
     const app = express()
     //HANDLEBARS
     app.engine('handlebars',handlebars.engine({
-        defaultLayout:'main',
-        partialsDir: __dirname + '/views/partials'
+        partialsDir: __dirname + '/views/partials',
+        helpers: {
+            formatDate: (date) => {
+                return moment(date).format('DD/MM/YYYY')
+            }
+        }
     }))
     app.set('view engine', 'handlebars')
     //BODY PARSER
-    const bodyParser = require('body-parser');
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended:true}));
-    //ARQUIVO ESTÁTICO
+    //ARQUIVOS ESTÁTICOS
     app.use(express.static('public'))
     //DOTENV - VARIÁVEIS DE AMBIENTE
     require('dotenv').config()
@@ -46,9 +51,6 @@ const flash = require('connect-flash')
 app.use('/',corretorRouter)
 app.use('/',publicRouter)
 
-app.get('/rota',(req,res)=>{
-    res.status(200).json({mensagem: "Olá"})
-})
 
 
 module.exports = app

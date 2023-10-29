@@ -18,6 +18,11 @@ th{
     
 }
 
+.container{
+    width: fit-content;
+    margin: 0 !important;
+}
+
 .omg :hover{
     background-color: #F3F3F3; 
     cursor: pointer;
@@ -70,8 +75,11 @@ th{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-right: 5%;
-    margin-left: 3%;
+    padding: 40px;
+}
+
+.separa > h1{
+    font-size: 32px;
 }
 
 .btn{
@@ -82,12 +90,13 @@ th{
     padding: 10%;
     font-weight: 600;
     font-size: medium;
+    color: black;
 }
 
 
 a{
     text-decoration: none;
-    color: inherit;
+    color: black;
 }
 
 .btn:hover{
@@ -283,4 +292,249 @@ img {
 
 .dedois{
     margin-right: 70px;
+}
+
+#modalDetalhesSolicitacao{
+    position: fixed;
+    background-color: red;
+    width: 100vw;
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+}
+
+.contentDetalhes{
+    width: 95%;
+    height: 95%;
+    background-color: white;
+    border-radius: 8px;
+    overflow: scroll;
+    overflow-x: hidden;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 40px;
+}
+.contentDetalhes *{
+    margin: 0;
+}
+
+.headercontentDetalhes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnCloseSolicitacao{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+    background-color: #9D0058;
+    color: white !important;
+    cursor: pointer;
+}
+
+
+.contentDetalhesImg{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* justify-content: center; */
+}
+
+.blocoImgs{
+    width: 100%;
+    display: flex;
+    gap: 8px;
+}
+
+/* .bloco-img{
+    width: 600px;
+    height: 100%;
+    display: flex;
+    gap: 8px;
+} */
+
+.imgBloco{
+    width: calc(100% / 2);
+    height: 300px;
+    background-image: url("../../img/img-preview-solicitacao.jfif");
+    background-position: center;
+    background-size: cover;
+    border-radius: 4px;
+}
+.imgBloco > img{
+    width: 100%;
+    height: 100%;
+}
+
+.contentDetalhesImg > a{
+   position: absolute;
+   border-radius: 100px;
+   border: none;
+   background-color: rgba(0, 0, 0, 0.50);
+   padding: 12px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: white !important;
+   font-size: 20px;
+   cursor: pointer;
+}
+#buttonAfter{
+    right: 40px;
+}
+#buttonBefore{
+    left: 40px;
+}
+
+.descriptionDetalhesHeader{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.contentDetalhesInfo{
+    display: flex;
+    padding-top: 40px;
+    gap: 3%;
+}
+
+#tipoImovelDetalhe{
+    font-size: 24px;
+}
+
+#operacaoDetalhe{
+    padding: 8px 20px;
+    border: 1px solid black;
+    border-radius: 100px;
+}
+
+.descriptionDetalhes{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 72%;
+}
+
+
+.describeEnderecoDetalhe{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.caracBasicDetalhe{
+    display: flex;
+    gap: 20px;
+
+}
+
+.sideBarDetalhe{
+    height: fit-content;
+    width: 31%;
+    border-radius: 12px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.12);
+    padding: 32px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    
+}
+
+.headerSideDetalhe{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.headerSideDetalhe > p{
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.buttonsSideDetalhe{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.buttonsSideDetalhe> a{
+    border-radius: 5px;
+    padding: 8px 0;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+.buttonsSideDetalhe > :nth-child(1){
+    border: none;
+    background: rgb(215, 255, 215);
+    color: rgb(2, 80, 21) !important;
+}
+.buttonsSideDetalhe > :nth-child(1):hover{
+    background-color: rgb(190, 253, 190);
+}
+
+.buttonsSideDetalhe > :nth-child(2){
+    border: 1px solid rgb(172, 0, 0);
+    color: rgb(172, 0, 0) !important;
+    background: none;
+}
+.buttonsSideDetalhe > :nth-child(2):hover{
+    background-color: #ffcccc;
+}
+
+#valImovelDetalhe{
+    display: flex;
+    gap: 4px;
+}
+
+.gridSideDetalhe{
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 32px;
+    row-gap: 16px;
+}
+
+.itemGridSide{
+    font-size: 16px;
+}
+
+.infoPessoaisDetalhe{
+    width: 100%;
+    border-top: 1px solid rgb(165, 165, 165);
+}
+
+.gridInfoPessoais{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.divezin{
+    background-color: red;
+    width: 300px;
+    height: 300px;
+}
+.divezin > img{
+    width: 100%;
+    height: 100%;
 }

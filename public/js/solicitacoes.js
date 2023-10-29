@@ -1,44 +1,73 @@
-var modal = document.getElementById("modalBackground");
-var fecharBotao = document.getElementById("fecharModal");
+var posicaoSlide = 1;
+showSlide(posicaoSlide);
 
-// Quando o usuário clicar em .res, mostra o modal
-document.querySelectorAll(".res").forEach(function(elemento) {
-    elemento.addEventListener("click", function() {
-        modal.style.display = "flex"; // Exibe o modal
-        document.body.style.overflow = "hidden"
-    });
-});
-
-// Quando o usuário clicar no botão de fechar, fecha o modal
-fecharBotao.addEventListener("click", function() {
-    modal.style.display = "none"; // Esconde o modal
-    document.body.style.overflow = "visible";
-});
-
-// Fecha o modal se o usuário clicar fora do modal
-window.addEventListener("click", function(event) {
-    if (event.target === modal) {
-        modal.style.display = "none"; // Esconde o modal
-        document.body.style.overflow = "visible";
-    }
-});
-
-const carrossel = document.querySelector(".carrossel");
-const anteriorBtn = document.querySelector("#anterior");
-const proximoBtn = document.querySelector("#proximo");
-
-let slideIndex = 0;
-
-function mostrarSlide(index) {
-    carrossel.style.transform = `translateX(-${index * 100}%)`;
+function addSlide(n) {
+    showSlide(posicaoSlide += n);
 }
 
-anteriorBtn.addEventListener("click", () => {
-    slideIndex = (slideIndex - 1 + 3) % 3;
-    mostrarSlide(slideIndex);
-});
+function showSlide(n) {
+    var i;
+    var slide = document.getElementsByClassName("blocoImgs");
 
-proximoBtn.addEventListener("click", () => {
-    slideIndex = (slideIndex + 1) % 3;
-    mostrarSlide(slideIndex);
-});
+    if (n > slide.length) { posicaoSlide = 1 }
+    if (n < 1) { posicaoSlide = slide.length }
+
+    for (i = 0; i < slide.length; i++) {
+        slide[i].style.display = "none";
+    }
+    slide[posicaoSlide - 1].style.display = "flex";
+}
+
+
+function openModal(arrays){
+    //display flex no modal
+    //operacao = arrays[0].data
+    const modalSolicitacao = document.getElementById('modalDetalhesSolicitacao')
+    modalSolicitacao.style.display = 'flex'
+
+    console.log(arrays[0].email)
+    let dividido = arrays.slice(0,2)
+
+    dividido.forEach(element => {
+        const dive = document.createElement('div')
+        dive.className = 'divezin'
+        const img = document.createElement('img')
+        let path = `../../uploads/${element.nomeImagem}`
+        img.src = path
+        
+        
+    });
+    
+
+    // arrays.forEach(element => {
+    //     console.log(element.pathImagem)
+
+    // });
+
+
+}
+
+function detalharSolicitacao(el){
+    const idSoli = el.getAttribute('data-soliID')
+
+    console.log("Enviado")
+    fetch(`/corretor/detalheSolicitacao/${idSoli}`)
+    .then(response => {
+        if(!response.ok){
+            console.log("Não foi possível buscar os detalhes da solicitação.")
+        }
+        return response.json()
+    }).then(data =>{
+        // console.log(data)
+        const solicitacaoRecebida = data.viewSolicitacao
+        console.log(solicitacaoRecebida[0])
+        openModal(solicitacaoRecebida)
+
+        //Percorrendo os arrays
+        // solicitacaoRecebida.forEach(element => {
+        //     console.log(element.pathImagem)
+        // });
+    }).catch(error =>{
+        console.error('Erro na requisição:',error)
+    })
+}

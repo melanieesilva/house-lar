@@ -1,76 +1,41 @@
 //CARREGANDO MÓDULOS
 const express = require('express')
 const router = express.Router()
-const multer = require('multer')
+const multer = require('../config/multerConfig')
 require('dotenv').config()
 //MODELOS
 const Usuario = require('../models/Usuario')
 const Noticia = require('../models/Noticias')
 const Categoria_Noticia = require('../models/Categoria_Noticia')
 const Duvidas = require('../models/Duvidas')
-const viewSolicitacaoImagem = require('../models/viewsSolicitacoesImagens')
-const Cliente = require('../Models/cliente')
+const viewSolicitacaoImagem = require('../models/ViewsSolicitacoesImagens')
+const Cliente = require('../models/Clientes')
 //CONTROLLERS
 const noticiasController = require('../controllers/noticiasController')
+const soliController = require('../controllers/solicitacoesController')
 
-
-var storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, "C:/Users/melan/Documents/GitHub/house-lar/public/uploads")
-    },
-    filename: (req, file, cb) => {
-        cb(null, file.fieldname + "_" + Date.now() + "_" + file.originalname)
-    }
+//MIDDLEWARE
+router.use((req,res,next)=>{
+    res.locals.layout = 'painelControle'
+    res.locals.pageTitle = 'Painel de Controle'
+    next()
 })
 
-const upload = multer({
-    storage: storage
-}).single("imagem")
-
-
 router.get('/corretor/painelControle', (req, res) => {
-    res.render('pages/imoveisPublicados', {
-        layout: 'painelControle',
-        pageTitle: 'Painel de Controle'
-    });
+    res.render('pages/imoveisPublicados');
 });
 
 router.get('/corretor/calendario', (req, res) => {
-    res.render('pages/calendario.handlebars', {
-        layout: 'painelControle',
-        pageTitle: 'Calendário - Painel De Controle'
-    })
+    res.render('pages/calendario')
 })
+
 router.get('/corretor/editarnoticia',(req,res) => {
-    res.render('pages/Noticias/editarNoticia',{
-        layout:'painelControle',
-        pageTitle: 'Notícias - Painel De Controle'
-    })
+    res.render('pages/Noticias/editarNoticia')
 })
-// router.post('/corretor/cadastrarCategoria', (req, res) => {
-//     const {
-//         nome_categoria,
-//         cor_categoria
-//     } = req.body;
-
-//     Categoria_Noticia.create({
-//         nome_categoria: nome_categoria,
-//         cor_categoria: cor_categoria
-//     }).then(() => {
-//         console.log("Categoria cadastrada com sucesso.")
-
-//     }).catch((erro) => {
-//         console.log("Não foi possível cadastrar categoria")
-//     })
-// })
-
-
 
 router.get('/corretor/noticiasCorretor', noticiasController.getNoticias)
 
-
-
-router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
+router.post('/corretor/CadastrarNoticia', multer.uploadSingle, async (req, res) => {
     try {
         const {
             titulo_noticia,
@@ -117,7 +82,6 @@ router.post('/corretor/CadastrarNoticia', upload, async (req, res) => {
     }
 });
 
-
 router.get('/corretor/solicitacoes', (req, res) => {
     viewSolicitacaoImagem.findAll({
         attributes: [
@@ -140,6 +104,8 @@ router.get('/corretor/solicitacoes', (req, res) => {
         })
     })
 })
+
+router.get('/corretor/detalheSolicitacao/:id', soliController.getSolicitacao)
 
 router.get('/corretor/DesativarNoticia/:id', (req, res) => {
     //findOne where id:req.params.id
@@ -192,8 +158,6 @@ router.get('/corretor/mensagens', (req, res) => {
     Duvidas.findAll().then((duvidas) => {
         console.log(duvidas)
         res.render('pages/Mensagens/mensagens', {
-            layout: 'painelControle',
-            pageTitle: 'Publicar Noticias - Painel de Controle',
             duvidas: duvidas
         })
     }).catch((error) => {
@@ -202,93 +166,13 @@ router.get('/corretor/mensagens', (req, res) => {
 
 })
 
-
-
 router.get('/corretor/viewMensagem', (req, res) => {
-    res.render('pages/Mensagens/viewMensagem.handlebars', {
-        layout: 'painelControle',
-        pageTitle: 'Visualização Mensagem - Painel de Controle'
-    })
+    res.render('pages/Mensagens/viewMensagem.handlebars')
 })
 
 router.get('/corretor/publicarImovelCorretor', (req, res) => {
-    res.render('pages/PublicarImovelCorretor/publicarImovelCorretor.handlebars', {
-        layout: 'painelControle',
-        pageTitle: 'Publicar Imóvel - Painel de Controle'
-    })
+    res.render('pages/publicarImovelCorretor.handlebars')
 })
-
-router.get('/publiImovelCorretor2', (req, res) => {
-    res.render('pages/PublicarImovelCorretor/publiImovelCorretor2.handlebars', {
-        layout: 'painelControle',
-        pageTitle: 'Publicar Imóvel - Painel de Controle'
-    })
-})
-
-router.get('/publiImovelCorretor3', (req, res) => {
-    res.render('pages/PublicarImovelCorretor/publiImovelCorretor3.handlebars', {
-        layout: 'painelControle',
-        pageTitle: 'Publicar Imóvel - Painel de Controle'
-    })
-})
-
-router.get('/publiImovelCorretor4', (req, res) => {
-    res.render('pages/PublicarImovelCorretor/publiImovelCorretor4.handlebars', {
-        layout: 'painelControle',
-        pageTitle: 'Publicar Imóvel - Painel de Controle'
-    })
-})
-
-router.get('/publiImovelCorretor5', (req, res) => {
-    res.render('pages/PublicarImovelCorretor/publiImovelCorretor5.handlebars', {
-        layout: 'painelControle',
-        pageTitle: 'Publicar Imóvel - Painel de Controle'
-    })
-})
-
-router.get('/publiImovelCorretor6', (req, res) => {
-    res.render('pages/PublicarImovelCorretor/publiImovelCorretor6.handlebars', {
-        layout: 'painelControle',
-        pageTitle: 'Publicar Imóvel - Painel de Controle'
-    })
-})
-
-router.get('/publiImovelCorretor7', (req, res) => {
-    res.render('pages/PublicarImovelCorretor/publiImovelCorretor7.handlebars', {
-        layout: 'painelControle',
-        pageTitle: 'Publicar Imóvel - Painel de Controle'
-    })
-})
-
-router.get('/publiImovelCorretor8', (req, res) => {
-    res.render('pages/PublicarImovelCorretor/publiImovelCorretor8.handlebars', {
-        layout: 'painelControle',
-        pageTitle: 'Publicar Imóvel - Painel de Controle'
-    })
-})
-
-router.get('/publiImovelCorretor9', (req, res) => {
-    res.render('pages/PublicarImovelCorretor/publiImovelCorretor9.handlebars', {
-        layout: 'painelControle',
-        pageTitle: 'Publicar Imóvel - Painel de Controle'
-    })
-})
-
-router.get('/publiImovelCorretor10', (req, res) => {
-    res.render('pages/PublicarImovelCorretor/publiImovelCorretor10.handlebars', {
-        layout: 'painelControle',
-        pageTitle: 'Publicar Imóvel - Painel de Controle'
-    })
-})
-
-router.get('/publiImovelCorretor11', (req, res) => {
-    res.render('pages/PublicarImovelCorretor/publiImovelCorretor11.handlebars', {
-        layout: 'painelControle',
-        pageTitle: 'Publicar Imóvel - Painel de Controle'
-    })
-})
-
-
 
 
 

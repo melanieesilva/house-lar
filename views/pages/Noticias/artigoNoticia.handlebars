@@ -23,14 +23,13 @@
     <section class="info-artigo">
         <div class="data-publicacao">
             <iconify-icon icon="lucide:calendar"></iconify-icon>
-            <p class="data">14/08/2023</p>
+            <p class="data">{{formatDate noticia.dataValues.createdAt}}</p>
         </div>
         <h2 class="titulo-noticia">
-            Lorem ipsum dolor sit amet consectetur. Eget curabitur nec sit et euismod diam commodo sed nullam.
+            {{noticia.dataValues.titulo_noticia}}
         </h2>
         <p class="descricao-artigo">
-            Lorem ipsum dolor sit amet consectetur. 
-            Eget curabitur nec sit et euismod diam commodo sed nullam. Lorem ipsum dolor sit amet consectetur. 
+            {{noticia.dataValues.descricao_artigo}}    
         </p>
         <hr class="linha-conteudo">
         
@@ -38,28 +37,11 @@
 
     <section class="area-artigo">
     <article class="conteudo-artigo">
-                Lorem ipsum dolor sit amet consectetur. Rutrum nam vel fames massa rutrum pharetra tellus tellus. 
-                Tincidunt metus quisque nulla sem eu iaculis. Neque sagittis leo laoreet id nam duis morbi morbi.<br>
-                Ut diam pellentesque tempor eget mauris etiam quisque sed lorem.
-                Proin diam sem dui sit egestas amet pulvinar sed laoreet. Et fermentum tristique sed neque diam risus platea.
-                Euismod est faucibus scelerisque nulla. Nunc accumsan tortor tempor pulvinar enim enim sed vitae.<br>
-                Volutpat mauris sed netus dui aenean imperdiet.
-                Magna proin placerat ullamcorper cras facilisis et amet leo dictumst. 
-                Nibh ornare congue iaculis vitae amet aenean convallis mauris. 
-                Posuere feugiat pellentesque nullam in sit pellentesque diam ipsum quam.<br>
-                Habitasse scelerisque sit amet tristique cras nunc. Vitae orci sit auctor orci magna faucibus elit augue aliquam. 
-                Purus facilisi velit et sit tellus. Viverra platea et vulputate egestas tortor volutpat auctor.
-                Egestas lobortis in dictum pulvinar ut pharetra aliquam blandit nec.<br>
-                Sagittis tincidunt proin feugiat viverra vitae cursus. Aliquam egestas integer et scelerisque. 
-                Curabitur cursus vivamus faucibus consequat. Non proin mauris id euismod arcu euismod facilisis est. 
-                Et eget facilisis adipiscing neque cursus phasellus lacus maecenas pellentesque. 
-                Vulputate consectetur rhoncus ipsum fames. Iaculis eget ac morbi viverra et.<br>
-                Lacus imperdiet non habitant egestas in facilisis aenean. Amet felis viverra pharetra arcu enim feugiat nunc. 
-                Nisl ut eget et eget..
+                {{noticia.dataValues.artigo_noticia}}
     </article>
     <div class="infos-noticia">
             <h4 class="origem-noticia">Publicado por: House&Lar</h4>
-            <p class="autor-noticia">Escrito por: <span class="autor">Islania Silva</span></p>
+            <p class="autor-noticia">Escrito por: <span class="autor">{{noticia.dataValues.autor_noticia}}</span></p>
     </div>
     </section>
 
@@ -67,6 +49,7 @@
             <p>Outras notícias</p>
             <a href="/noticias">Ver tudo</a>
     </div>
+
     <section class="secao-noticias">
 
             <div class="card-noticia">

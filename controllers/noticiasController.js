@@ -38,6 +38,21 @@ const getNoticias = async (req, res) => {
     }
 };
 
+const getNoticia = async (req,res)=>{
+  try {
+    const Noticia = await Noticias.findOne({
+      where:{
+        id:req.params.id
+      }
+    })
+    console.log(Noticia)
+    res.status(200).render('pages/Noticias/artigoNoticia',{noticia:Noticia})
+  } catch (error) {
+    console.log("Não foi encontrar a notícia, erro: "+error)
+  }
+
+}
+
 const getCategorias = async (req,res) =>{
     try {
         const categorias = await Noticias.findAll({
@@ -50,7 +65,7 @@ const getCategorias = async (req,res) =>{
           categorias: categorias
         });
       } catch (erro) {
-        throw new Error('Não foi possível lfazer a busca.');
+        throw new Error('Não foi possível fazer a busca.');
         // res.render('pages/noticiasCorretor');
       }
 }
@@ -58,5 +73,6 @@ const getCategorias = async (req,res) =>{
 module.exports = {
     publicarNoticia,
     getNoticias,
-    getCategorias
+    getCategorias,
+    getNoticia
 };

@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitações</title>
-    <link rel="stylesheet" href="../../css/solicitacoes.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-</head>
-<body>
-    <main>
+<link rel="stylesheet" href="../../css/solicitacoes.css">
+
+<main>
     <div class="separa">
         <h1>Solicitações</h1>
 
@@ -134,56 +125,54 @@
                 <hr class="deu">
                 <p>Dados do propietario</p>
                 <div class="parte3">
-                <div class="dedois">
-                    <div class="nome_detalhe">
-                        <p>Nome</p>
-                        <p>Maria Conceição de Lurdes</p>
-                    </div>
+                    <div class="dedois">
+                        <div class="nome_detalhe">
+                            <p>Nome</p>
+                            <p>Maria Conceição de Lurdes</p>
+                        </div>
 
-                    <div class="email_detalhe">
-                        <p>E-mail</p>
-                        <p>mariaconceicaolurdes@gmail.com</p>
+                        <div class="email_detalhe">
+                            <p>E-mail</p>
+                            <p>mariaconceicaolurdes@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="dedois">
+                        <div class="telefone_detalhe">
+                            <p>Telefone</p>
+                            <p>(71)9-9999 9999</p>
+                        </div>
+
+                        <div class="cpf_detalhe">
+                            <p>CPF</p>
+                            <p>094.231.154-23</p>
+                        </div>
                     </div>
                 </div>
-                <div class="dedois">
-                    <div class="telefone_detalhe">
-                        <p>Telefone</p>
-                        <p>(71)9-9999 9999</p>
-                    </div>
-
-                    <div class="cpf_detalhe">
-                        <p>CPF</p>
-                        <p>094.231.154-23</p>
-                    </div>
-                </div>
-            </div>
                 <!-- Botão para fechar o modal -->
                 <button id="fecharModal">Fechar</button>
             </div>
         </div>
     </div> --}}
-    <tr>
-        <table>
-            <thead>
-                <tr>
-                    <th class="res">Resumo</th>
-                    <th class="sap">Data da Solicitação</th>
-                    <th class="sap">Nome Solicitante</th>
-                    <th class="sap">Status</th>
-                </tr>
-            </thead>
-            {{#each views}}
-            <tbody class="omg">
-                
+
+    <table>
+        <thead>
+            <tr>
+                <th class="res">Resumo</th>
+                <th class="sap">Data da Solicitação</th>
+                <th class="sap">Nome Solicitante</th>
+                <th class="sap">Status</th>
+            </tr>
+        </thead>
+        {{#each views}}
+        <tbody class="omg">
+            <tr>
                 <td class="res">
-                    <a href="/">
-                        <p id="imovel">{{dataValues.tipoImovel}}</p>
-                        <p id="discri">
-                            {{dataValues.endereco}}<span>  </span>{{dataValues.numero}},
-                            {{dataValues.bairro}},{{dataValues.cidade}}
-                        </p>
-                    </a>
-                    
+
+                    <p id="imovel">{{dataValues.tipoImovel}}</p>
+                    <p id="discri">
+                        {{dataValues.endereco}}<span> </span>{{dataValues.numero}},
+                        {{dataValues.bairro}},<span> </span>{{dataValues.cidade}}
+                    </p>
                 </td>
 
                 <td>
@@ -198,139 +187,200 @@
                     <div class="butsoli">{{dataValues.statusSoli}}</div>
                     </a>
                 </td>
-              
-    </tr>
-            </tbody>
-            {{/each}}
-    {{!-- <tr>
-        <td class="res">
-            <a href="solicitacoes.html">
-                <p id="imovel">Apartamento</p>
-                <p id="discri">Rua Jucelina Alemao 480, Pituba, Salvador</p>
-        </td>
-        <td>
-            <p>20/12/2022</p>
-        </td>
-        <td>
-            <p>Maria Conceição</p>
-        </td>
 
-        <td>
-            <div class="butrej">Rejeitado</div>
-            </a>
-        </td>
+                <td>
 
-    </tr>
-    <tr>
-        <td class="res">
-            <a href="solicitacoes.html">
-                <p id="imovel">Apartamento</p>
-                <p id="discri">Rua Jucelina Alemao 480, Pituba, Salvador</p>
-        </td>
-        <td>
-            <p>20/12/2022</p>
-        </td>
-        <td>
-            <p>Maria Conceição</p>
-        <td>
-            <div class="butaprov">Publicado</div>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td class="res">
-            <a href="solicitacoes.html">
-                <p id="imovel">Apartamento</p>
-                <p id="discri">Rua Jucelina Alemao 480, Pituba, Salvador</p>
-        </td>
-        <td>
-            <p>20/12/2022</p>
-        </td>
-        <td>
-            <p>Maria Conceição</p>
-        </td>
-        <td>
-            <div class="but">Solicitado</div>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td class="res">
-            <a href="solicitacoes.html">
-                <p id="imovel">Apartamento</p>
-                <p id="discri">Rua Jucelina Alemao 480, Pituba, Salvador</p>
-        </td>
-        <td>
-            <p>20/12/2022</p>
-        </td>
-        <td>
-            <p>Maria Conceição</p>
-        </td>
-        <td>
-            <div class="but">Solicitado</div>
-            </a>
-    </tr>
-    <tr>
-        <td class="res">
-            <a href="solicitacoes.html">
-                <p id="imovel">Apartamento</p>
-                <p id="discri">Rua Jucelina Alemao 480, Pituba, Salvador</p>
-        </td>
-        <td>
-            <p>20/12/2022</p>
-        </td>
-        <td>
-            <p>Maria Conceição</p>
-        </td>
-        <td>
-            <div class="but">Solicitado</div>
-            </a>
-    </tr>
-    <tr>
-        <td class="res">
-            <a href="solicitacoes.html">
-                <p id="imovel">Apartamento</p>
-                <p id="discri">Rua Jucelina Alemao 480, Pituba, Salvador</p>
-        </td>
-        <td>
-            <p>20/12/2022</p>
-        </td>
-        <td>
-            <p>Maria Conceição</p>
-        </td>
-        <td>
-            <div class="but">Solicitado</div>
-            </a>
-    </tr>
-    <tr>
-        <td class="res">
-            <a href="solicitacoes.html">
-                <p id="imovel">Apartamento</p>
-                <p id="discri">Rua Jucelina Alemao 480, Pituba, Salvador</p>
-        </td>
-        <td>
-            <p>20/12/2022</p>
-        </td>
-        <td>
-            <p>Maria Conceição</p>
-        </td>
-        <td>
-            <div class="but">Solicitado</div>
-            </a>
-    </tr> --}}
-    
+                </td>
+            </tr>
+
+        </tbody>
+        <button id="detalhesSolicitacao" onclick="detalharSolicitacao(this)"
+            data-soliID={{dataValues.id_soli}}>Ver
+        </button>
+
+        {{/each}}
     </table>
-    <ul>
-        {{!-- {{#each views}}
-        <li>Solicitação</li>
-        <li>{{dataValues.id_soli}}</li>
-        <li>{{dataValues.statusSoli}}</li>
-        <li>{{dataValues.tipoImovel}}</li>
-        <li>{{dataValues.nomeImagem}}</li>
-        {{/each}} --}}
-    </ul>
-    <script src="../../js/solicitacoes.js"></script>
-</main>
-</body>
 
-</html>
+{{!-- <img src="../../uploads/" alt="" srcset=""> --}}
+
+</main>
+    <section class="modalDetalhesSolicitacao" id="modalDetalhesSolicitacao">
+        <div class="contentDetalhes" id="contentDetalhes">
+            <div class="headercontentDetalhes">
+                <p>Publique seu imóvel</p>
+                <button class="btnCloseSolicitacao" id="btnCloseSolicitacao">Fechar</button>
+            </div>
+            <div class="contentDetalhesImg">
+
+                <div class="blocoImgs">
+                    <div class="imgBloco">
+                        1
+                    </div>
+                    <div class="imgBloco">
+                        2
+                    </div>
+                </div>
+                <div class="blocoImgs">
+                    <div class="imgBloco">
+                        3
+                    </div>
+                    <div class="imgBloco">
+                        4
+                    </div>
+                </div>
+
+
+                <a id="buttonBefore" onclick="addSlide(-1)">
+                    <iconify-icon icon="ep:arrow-left"></iconify-icon>
+                </a>
+                <a id="buttonAfter" onclick="addSlide(1)">
+                    <iconify-icon icon="ep:arrow-right"></iconify-icon>
+                </a>
+
+
+            </div>
+            <div class="contentDetalhesInfo">
+                <div class="descriptionDetalhes">
+                    <div class="descriptionDetalhesHeader">
+                        <div class="opDetalhe" id="operacaoDetalhe">
+                            Venda
+                        </div>
+                        <div class="dataPubliDetalhe" id="dataPubliDetalhe">
+                            <iconify-icon icon="lucide:calendar"></iconify-icon>
+                            23/08/2023
+                        </div>
+                    </div>
+                    <h1 id="tipoImovelDetalhe">Apartamento</h1>
+
+                    <div class="describeEnderecoDetalhe">
+                        <div class="titleEnderecoDetalhe">
+                            <iconify-icon icon="icon-park-outline:local-two"></iconify-icon>
+                            Localização
+                        </div>
+                        <p id="enderecoDetalhe">Rua dos Sargentos, 32, Vitória, Salvador</p>
+                    </div>
+                    <div class="descricaoDetalhe">
+                        <p>Descrição</p>
+                        <p id="descricaoDetalheTxt">
+                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                        </p>
+                    </div>
+                    <div class="caracBasicDetalhe">
+                        <div class="group-carac">
+                            <div class="header-carac">
+                                <iconify-icon icon="mdi:bed-outline"></iconify-icon>
+                                Quartos
+                            </div>
+                            <p id="numQuartos">14</p>
+                        </div>
+                        <div class="group-carac">
+                            <div class="header-carac">
+                                <iconify-icon icon="iconoir:bathroom"></iconify-icon>
+                                Banheiros
+                            </div>
+                            <p id="numBan">8</p>
+                        </div>
+                        <div class="group-carac">
+                            <div class="header-carac">
+                                <iconify-icon icon="majesticons:car-line"></iconify-icon>
+                                Vagas
+                            </div>
+                            <p id="numVaga">4</p>
+                        </div>
+                        <div class="group-carac">
+                            <div class="header-carac">
+                                <iconify-icon icon="iconoir:ruler"></iconify-icon>
+                                Área do imóvel
+                            </div>
+                            <p id="valArea">108m²</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="sideBarDetalhe">
+                    <div class="headerSideDetalhe">
+                        Valor do Imóvel
+                        <p id="valImovelDetalhe">R$<span>200.000</span></p>
+                    </div>
+                    <div class="gridSideDetalhe">
+                        <div class="itemGridSide">
+                            Condomínio
+                            <p id="valCondo">R$600,00</p>
+                        </div>
+                        <div class="itemGridSide">
+                            IPTU
+                            <p id="valIPTU">R$1200<span id="numParcela">(12X)</span></p>
+                        </div>
+                        <div class="itemGridSide">
+                            Em construção
+                            <p id="emConstru">Não</p>
+                        </div>
+                        <div class="itemGridSide">
+                            Data de entrega
+                            <p id="dataEntrega">02/08/2019</p>
+                        </div>
+                        <div class="itemGridSide">
+                            Nº Andares
+                            <p id="numAndares">11</p>
+                        </div>
+                        <div class="itemGridSide">
+                            Condomínio
+                            <p id="emCondo">Sim</p>
+                        </div>
+                    </div>
+                    <div class="buttonsSideDetalhe">
+                        <a class="aceitarSolicitacao" id="aceitarSolicitacao">
+                            Publicar Imóvel
+                        </a>
+                        <a class="rejeitarSolicitacao" id="rejeitarSolicitacao">
+                            Rejeitar Solicitação
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="infoPessoaisDetalhe">
+                <h5>Dados do proprietário</h5>
+                <div class="gridInfoPessoais">
+                    <div class="dadosItem">
+                        <p>Nome</p>
+                        <p id="nomePessoaDetalhe">
+                            Maria Conceição
+                        </p>
+                    </div>
+                    <div class="dadosItem">
+                        <p>E-mail</p>
+                        <p id="emailPessoaDetalhe">
+                            mariaconceicaolurdes@gmail.com
+                        </p>
+                    </div>
+                    <div class="dadosItem">
+                        <p>Telefone</p>
+                        <p id="telefonePessoaDetalhe">
+                            (71) 9-9988-5485
+                        </p>
+                    </div>
+                    <div class="dadosItem">
+                        <p>CPF</p>
+                        <p id="CPFPessoaDetalhe">
+                            789.654.123-98
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="divezin">
+            
+        </div>
+    </section>
+
+<script src="../../js/solicitacoes.js"></script>

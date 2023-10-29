@@ -1,101 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../../css/main.css" />
     <link rel="icon" type="image/x-icon" href="../../img/logo_icon.ico">
     <script src="https://kit.fontawesome.com/5181988b4b.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    
+
     <title>House&Lar</title>
 </head>
+
 <body>
     {{!-- Header --}}
-    <header>
-        <nav class="navegacao">
-            <a href="/"><img src="../../img/logo_icon.png" width="60%" height="50%"></a>
-            <ul class="nav-lista">
-                <li class="pagina-inicial nav-item"><a href="/">Página Inicial</a></li>
-                <li class="nav-item">
-                    <div class="dropdown">
-                        Buscar imóveis <i class="fa-solid fa-chevron-down"></i>
-                            <div class="dropdown-content">
-                                <div class="elemento-drop"> <a href="/public/buscaAvancada"> Comprar </a> </div>
-                                <div class="elemento-drop"> <a href="/public/buscaAvancada"> Alugar </a>  </div>
-                            </div>
-                    </div>
-                </li>
-
-                <li class="publicar nav-item">
-                    <a href="/public/publicarImovelCliente">Publicar</a>
-                </li>
-                
-                <li class="nav-item">
-                    <div class="dropdown">
-                        A imobiliária <i class="fa-solid fa-chevron-down"></i>
-                            <div class="dropdown-content">
-                                <div class="elemento-drop"> <a href="/public/sobrenos"> Sobre nós </a> </div>
-                                <div class="elemento-drop"> <a href="/public/faleconosco"> Fale Conosco </a>  </div>
-                            </div>
-                    </div>
-                </li>
-
-                <li style="font-weight: 600;" class="log-in nav-item">
-                    <a href="/public/loginCorretor"> <i class="fa-solid fa-arrow-right-to-bracket"></i> Log in  </a>
-                </li>
-            </ul>
-            <div class="hamburguer">
-                <div class="barra"></div>
-                <div class="barra"></div>
-                <div class="barra"></div>
-            </div>
-        </nav>
-    </header>
+    {{>_headerMain}}
 
     {{{body}}}
 
-    <footer>
-        <nav class="nav-footer">
-            <a href="/"><img src="../../img/logo-text.png" width="120px" height="120px"></a>
-            <p class="texto-footer">Lorem ipsum dolor sit amet consectetur. Et sed neque sed ut enim. Ullamcorper massa ut cursus.</p>
-            <ul class="nav-lista-footer">
-
-                <li class="nav-item-footer"><a class="nav-link-footer" href="">Siga-nos</a></li>
-
-                <li class="nav-item-footer">
-
-                    <div class="dropdown-footer">
-
-                        <div class="item-drop-main">
-                            <i class="fa-solid fa-globe"></i>
-                                Português 
-                                    <i class="fa-solid fa-chevron-down"></i>
-                        </div>
-                        
-                        <div class="drop-content-footer">
-                            <div class="elemento-drop-footer">
-                                <p>Inglês</p>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </li>
-                <li class="nav-item-footer">CRECI 2583</li>
-            </ul>
-        </nav>
-        <hr class="linha">
-        <p class="texto-footer end">© 2023 House&Lar. Todos Os Direitos Reservados.</p>
-    </footer>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<script src="../../js/main.js"></script>
+    {{> _footerMain}}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
+
 </html>

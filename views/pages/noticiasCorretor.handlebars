@@ -41,8 +41,7 @@
             </div>
         </section>
         
-
-            <section class="noticias" id="noticiasPublicadas">
+        <section class="noticias" id="noticiasPublicadas">
                 {{#each noticias}}
                     <div class="card-noticia">
                         <div class="img-card" data-image="{parametro handlebars filename da img}">
@@ -59,7 +58,7 @@
                                     
                                 <div class="data-noticia">
                                     <iconify-icon icon="lucide:calendar"></iconify-icon>
-                                    <p>{{dataValues.createdAt}}</p>
+                                    <p>{{formatDate dataValues.createdAt}}</p>
                                 </div>
                                 </div>
                                 
@@ -90,7 +89,7 @@
                                 <p>{{dataValues.artigo_noticia}}</p>
                             </div>
                             <div class="link-noticia">
-                                <a href="/public/artigoNoticia/{parametro handlebars id noticia}">
+                                <a href="/public/exibirArtigo/{{dataValues.id}}">
                                     Ler Notícia
                                     <iconify-icon icon="ic:round-arrow-circle-right"></iconify-icon>
                                 </a>
@@ -98,14 +97,9 @@
                         </div>
                     </div>
                 {{/each}}
-            </section>
-       
-
-        {{!-- {{#if desativadas}}
+        </section>
+        
         <section class="noticias" id="noticiasDesativadas">
         </section>
-
-        {{/if}} --}}
-
 
 <script src="../../js/noticiasCorretor.js"></script>

@@ -6,13 +6,16 @@ require('dotenv').config()
 //MODELOS
 const Usuario = require('../models/Usuario')
 const Noticia = require('../models/Noticias')
+const Imovel = require('../models/Imoveis')
 const Categoria_Noticia = require('../models/Categoria_Noticia')
 const Duvidas = require('../models/Duvidas')
 const viewSolicitacaoImagem = require('../models/ViewsSolicitacoesImagens')
+const viewImovelImagem = require('../models/ViewImovelImagem')
 const Cliente = require('../models/Clientes')
 //CONTROLLERS
 const noticiasController = require('../controllers/noticiasController')
 const soliController = require('../controllers/solicitacoesController')
+const imoveisController = require('../controllers/imoveisController')
 
 //MIDDLEWARE
 router.use((req,res,next)=>{
@@ -33,7 +36,9 @@ router.get('/corretor/calendario', (req, res) => {
 //     res.render('pages/Noticias/editarNoticia')
 // })
 
-router.get('/corretor/noticiasCorretor', noticiasController.getNoticias)
+router.get('/corretor/noticiasCorretor', noticiasController.getNoticia)
+
+
 
 router.post('/corretor/CadastrarNoticia', multer.uploadSingle, async (req, res) => {
     try {
@@ -101,6 +106,29 @@ router.get('/corretor/solicitacoes', (req, res) => {
             layout: 'painelControle',
             pageTitle: 'Solicitações - Painel de Controle',
             views:views
+        })
+    })
+})
+
+router.get('/corretor/imoveisPublicados', (req, res) => {
+    viewImovelImagem.findAll({
+        attributes: [
+            'id_imovel',
+            'tipoImovel',
+            'bairro',
+            'cidade',
+            'valorImovel',
+            'numQuartos',
+            'numBanheiros',
+            'numVagas',
+            'areaImovel'
+        ],
+        group: ['id_imovel']
+    }).then((publicados) => {
+        res.render('pages/imoveisPublicados.handlebars', {
+            layout: 'painelControle',
+            pageTitle: 'Imóveis Publicados - Painel de Controle',
+            publicados:publicados
         })
     })
 })

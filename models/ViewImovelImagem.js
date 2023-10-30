@@ -1,6 +1,6 @@
-const db = require('../Database/Connection')
+const db = require('../database/Connection')
 
-const ViewImovelImagem = db.connect.define('ViewImovelImagem',{
+const viewImovelImagem = db.connect.define('ViewImovelImagem',{
     id_imovel: {
         type: db.Sequelize.INTEGER,
         primaryKey: true
@@ -37,4 +37,9 @@ const ViewImovelImagem = db.connect.define('ViewImovelImagem',{
     freezeTableName: true,
     timestamps: false
 })
-ViewImovelImagem.removeAttribute('id')
+
+viewImovelImagem.removeAttribute('id')
+
+// viewImovelImagem.sync({force:true})
+
+module.exports = viewImovelImagem

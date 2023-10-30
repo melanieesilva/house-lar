@@ -38,5 +38,6 @@ const viewSolicitacaoImagem = db.connect.define('ViewSolicitacaoImagem',{
 
 viewSolicitacaoImagem.removeAttribute('id')
 
+// viewSolicitacaoImagem.sync({force:true})
 
 module.exports = viewSolicitacaoImagem

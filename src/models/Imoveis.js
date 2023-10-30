@@ -20,7 +20,11 @@ const Imoveis = db.connect.define('Imoveis',{
     data_entrega: db.Sequilize.DATE,
     em_condominio: db.Sequilize.TINYINT,
     data_publicacao: db.Sequilize.DATE
+},{
+    timestamps: false,
+    freezeTableName: true
 });
+
 // Imoveis.sync({force:true})
 
 module.exports = Imoveis

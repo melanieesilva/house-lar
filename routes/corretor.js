@@ -4,7 +4,7 @@ const router = express.Router()
 const multer = require('../config/multerConfig')
 require('dotenv').config()
 //MODELOS
-const Usuario = require('../models/Usuario')
+// const Usuario = require('../models/Usuario')
 const Noticia = require('../models/Noticias')
 const Categoria_Noticia = require('../models/Categoria_Noticia')
 const Duvidas = require('../models/Duvidas')

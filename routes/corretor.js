@@ -12,6 +12,7 @@ const viewSolicitacaoImagem = require('../models/ViewsSolicitacoesImagens')
 const Cliente = require('../models/Clientes')
 //CONTROLLERS
 const noticiasController = require('../controllers/noticiasController')
+const msgController = require('../controllers/mensagensController')
 const soliController = require('../controllers/solicitacoesController')
 
 //MIDDLEWARE
@@ -157,7 +158,7 @@ router.get('/corretor/publicarNoticia', noticiasController.getCategorias)
 router.get('/corretor/mensagens', (req, res) => {
     Duvidas.findAll().then((duvidas) => {
         console.log(duvidas)
-        res.render('pages/Mensagens/mensagens', {
+        res.render('pages/mensagens', {
             duvidas: duvidas
         })
     }).catch((error) => {
@@ -166,7 +167,9 @@ router.get('/corretor/mensagens', (req, res) => {
 
 })
 
-router.get('/corretor/viewMensagem', (req, res) => {
+router.get('/corretor/buscaMensagem/:id',msgController.getMensagem)
+
+/*(router.get('/corretor/viewMensagem', (req, res) => {
     Duvidas.findAll().then((duvidas) => {
         console.log(duvidas)
         res.render('pages/Mensagens/viewmensagem', {
@@ -175,7 +178,7 @@ router.get('/corretor/viewMensagem', (req, res) => {
     }).catch((error) => {
         console.log(error)
     })
-})
+})*/
 
 router.get('/corretor/publicarImovelCorretor', (req, res) => {
     res.render('pages/publicarImovelCorretor.handlebars')

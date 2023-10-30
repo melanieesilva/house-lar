@@ -47,19 +47,43 @@
             
                 <div class="Caixa_de_Mensagem">
                     {{#each duvidas}}
-                    <div class="Caixa">
-                        <a href="/corretor/viewMensagem">
+                    <div class="Caixa" data-mensagemId={{dataValues.id_msg}} onclick="verMensagem(this)">
                             <div class="Caixa1">
                                 <p id="Nome_Indi">Duvida de <b>{{dataValues.nome_cliente}}</b></p>
                                 <p>{{dataValues.mensagem_cliente}}</p>
                                 <p class="envia">Enviada: 10:45 | 15/08/2023</p>
                             </div>
-                        </a>
                     </div>
                     <hr>
                     {{/each}}
                 </div>
         </div>
+
+        {{!-- <div class="Geral2">
+
+                    <div class="conversa">
+                        <p>Nome do Remetente</p>
+                        <p class="bold">Marcos José</p>
+                        <div class="linha-horizontal"></div>
+
+                        <p>E-mail</p>
+                        <p class="bold">marcosjose21@gmail.com</p>
+                        <div class="linha-horizontal"></div>
+
+                        <p>Telefone</p>
+                        <p class="bold">(71) 9-9856-0512</p>
+                        <div class="linha-horizontal"></div>
+
+                        <p>Mensagem</p>
+                        <p class="bold">Lorem ipsum dolor sit amet consectetur. At pellentesque diam nec maecenas nunc. Ac arcu eu ultricies venenatis placerat vestibulum vitae diam. Ipsum morbi a penatibus arcu tincidunt velit. Risus tincidunt arcu euismod mauris lectus in dolor ipsum. Etiam pellentesque enim nullam ultricies scelerisque dolor. Amet mi semper adipiscing lorem amet in habitasse. Aliquet est.</p>
+                        
+                        
+                        <p class="envio">Enviada: 10:45 | 15/08/2023</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
 
         <div class="column">
 
@@ -80,5 +104,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     
 </body>
-
+    <script src="../../js/mensagens.js"></script>
 </html>

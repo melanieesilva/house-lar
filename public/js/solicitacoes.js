@@ -47,6 +47,8 @@ function detalharSolicitacao(el){
         console.log(solicitacaoRecebida[0])
         openModal(solicitacaoRecebida)
 
+        
+
         //Percorrendo os arrays
         // solicitacaoRecebida.forEach(element => {
         //     console.log(element.pathImagem)

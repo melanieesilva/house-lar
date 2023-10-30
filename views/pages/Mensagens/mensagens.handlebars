@@ -44,21 +44,21 @@
                 </ul>
             </div>
             <hr class="unico">
-            {{#each duvidas}}
+            
                 <div class="Caixa_de_Mensagem">
-                    <a href="/corretor/viewMensagem">
-                        <div class="Caixa1">
-                            <p id="Nome_Indi">Duvida de <b>{{dataValues.nome_cliente}}</b></p>
-                            <p>{{dataValues.mensagem_cliente}}</p>
-                            <p class="envia">Enviada: 10:45 | 15/08/2023</p>
-                        </div>
-                    </a>
-                <hr>
+                    {{#each duvidas}}
+                    <div class="Caixa">
+                        <a href="/corretor/viewMensagem">
+                            <div class="Caixa1">
+                                <p id="Nome_Indi">Duvida de <b>{{dataValues.nome_cliente}}</b></p>
+                                <p>{{dataValues.mensagem_cliente}}</p>
+                                <p class="envia">Enviada: 10:45 | 15/08/2023</p>
+                            </div>
+                        </a>
+                    </div>
+                    <hr>
+                    {{/each}}
                 </div>
-            {{else}}
-                <p>Nenhuma mensagem ainda...</p>
-            {{/each}}
-
         </div>
 
         <div class="column">

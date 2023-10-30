@@ -167,7 +167,14 @@ router.get('/corretor/mensagens', (req, res) => {
 })
 
 router.get('/corretor/viewMensagem', (req, res) => {
-    res.render('pages/Mensagens/viewMensagem.handlebars')
+    Duvidas.findAll().then((duvidas) => {
+        console.log(duvidas)
+        res.render('pages/Mensagens/viewmensagem', {
+            duvidas: duvidas
+        })
+    }).catch((error) => {
+        console.log(error)
+    })
 })
 
 router.get('/corretor/publicarImovelCorretor', (req, res) => {

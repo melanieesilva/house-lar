@@ -2,12 +2,13 @@
 const express = require('express')
 const handlebars = require('express-handlebars')
 const moment = require('moment')
-const corretorRouter = require('../routes/corretor')
-const publicRouter = require('../routes/public')
-const connect = require('../Database/Connection')
+const corretorRouter = require('./src/routes/corretor')
+const publicRouter = require('./src/routes/public')
+const connect = require('./src/Database/Connection')
 const session = require('express-session')
 const flash = require('connect-flash')
 const bodyParser = require('body-parser');
+
 
 //CONFIGURAÇÕES    
     //EXPRESS

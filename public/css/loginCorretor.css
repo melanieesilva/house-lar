@@ -92,7 +92,7 @@ input[type=email], input[type=password]{
     color: #9D0058; 
 }
 
-#metade1 button[type=button]{
+#metade1 button[type=submit]{
     background-color: #9D0058;
     text-align: center;
     display: grid;

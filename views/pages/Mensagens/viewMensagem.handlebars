@@ -46,48 +46,17 @@
             </div>
             <hr class="unico">
             <div class="Caixa_de_Mensagem">
-                <a href="/viewMensagem">
-                    <div class="Caixa1">
-                        <p id="Nome_Indi">Duvida de <b>Angela Maria</b></p>
-                        <p>Olá, preciso de ajuda. Vi um imóvel que gostei muito e tenho interesse em comprar, mas não tem o número do proprietário. Como eu faço?</p>
-                        <p class="envia">Enviada: 10:45 | 15/08/2023</p>
-                    </div>
-                </a>
-                <hr>
-                <a href="#">
-                    <div class="Caixa2">
-                        <p id="Nome_Indi">Duvida de <b>Angela Maria</b></p>
-                        <p>Olá, preciso de ajuda. Vi um imóvel que gostei muito e tenho interesse em comprar, mas não tem o número do proprietário. Como eu faço?</p>
-                        <p class="envia">Enviada: 10:45 | 15/08/2023</p>
-                    </div>
-                </a>
-                <hr>
-                <a href="#">
-                    <div class="Caixa3">
-                        <p id="Nome_Indi">Duvida de <b>Angela Maria</b></p>
-                        <p>Olá, preciso de ajuda. Vi um imóvel que gostei muito e tenho interesse em comprar, mas não tem o número do proprietário. Como eu faço?</p>
-                        <p class="envia">Enviada: 10:45 | 15/08/2023</p>
-                    </div>
-                </a>
-                <hr>
-                <a href="#">
-                    <div class="Caixa4">
-                        <p id="Nome_Indi">Duvida de <b>Angela Maria</b></p>
-                        <p>Olá, preciso de ajuda. Vi um imóvel que gostei muito e tenho interesse em comprar, mas não tem o número do proprietário. Como eu faço?</p>
-                        <p class="envia">Enviada: 10:45 | 15/08/2023</p>
-                    </div>
-                </a>
-                <hr>
-                <a href="#">
-                    <div class="Caixa5">
-                        <p id="Nome_Indi">Duvida de <b>Angela Maria</b></p>
-                        <p>Olá, preciso de ajuda. Vi um imóvel que gostei muito e tenho interesse em comprar, mas não tem o número do proprietário. Como eu faço?</p>
-                        <p class="envia">Enviada: 10:45 | 15/08/2023</p>
-                    </div>
-                </a>
-
+             {{#each duvidas}}
+                    <a href="/corretor/viewMensagem">
+                        <div class="Caixa1">
+                            <p id="Nome_Indi">Duvida de <b>{{dataValues.nome_cliente}}</b></p>
+                            <p>{{dataValues.mensagem_cliente}}</p>
+                            <p class="envia">Enviada: 10:45 | 15/08/2023</p>
+                        </div>
+                    </a>
+                    <hr>
+            {{/each}}
             </div>
-
         </div>
 
         <div class="column">

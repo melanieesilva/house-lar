@@ -27,6 +27,9 @@
     "test": "jest",
     "test:watch": "jest --watchAll"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

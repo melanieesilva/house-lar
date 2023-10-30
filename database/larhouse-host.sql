@@ -1,7 +1,21 @@
 use larhouse;
 
-drop view viewsolicitacaoimagem;
+-- DROPS
+-- drop view viewsolicitacaoimagem;
+
+-- DELETES
+-- delete from solicitacoes;
+-- delete from imagensSolicitacoes;
+
+-- SELECTS
+select * from solicitacoes;
+select * from imagensSolicitacoes;
 select * from viewsolicitacaoimagem;
+
+-- CREATES
+
+
+-- UPDATES
 
 update solicitacoes set dataPublicacao = curdate();
 

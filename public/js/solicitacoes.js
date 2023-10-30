@@ -26,23 +26,7 @@ function openModal(arrays){
     modalSolicitacao.style.display = 'flex'
 
     console.log(arrays[0].email)
-    let dividido = arrays.slice(0,2)
 
-    dividido.forEach(element => {
-        const dive = document.createElement('div')
-        dive.className = 'divezin'
-        const img = document.createElement('img')
-        let path = `../../uploads/${element.nomeImagem}`
-        img.src = path
-        
-        
-    });
-    
-
-    // arrays.forEach(element => {
-    //     console.log(element.pathImagem)
-
-    // });
 
 
 }

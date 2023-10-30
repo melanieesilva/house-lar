@@ -29,9 +29,9 @@ router.get('/corretor/calendario', (req, res) => {
     res.render('pages/calendario')
 })
 
-router.get('/corretor/editarnoticia',(req,res) => {
-    res.render('pages/Noticias/editarNoticia')
-})
+// router.get('/corretor/editarnoticia',(req,res) => {
+//     res.render('pages/Noticias/editarNoticia')
+// })
 
 router.get('/corretor/noticiasCorretor', noticiasController.getNoticias)
 

@@ -2,7 +2,7 @@ const multer = require('multer')
 
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "C:/Users/melan/Documents/GitHub/house-lar/public/uploads")
+        cb(null, process.env.PATHMULTER)
     },
     filename: (req, file, cb) => {
         cb(null, file.fieldname + "_" + Date.now() + "_" + file.originalname)

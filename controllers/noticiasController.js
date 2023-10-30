@@ -34,7 +34,7 @@ const getNoticias = async (req, res) => {
       });
     } catch (error) {
 
-      throw new Error('Não foi possível listar as notícias.');
+      throw new Error(error);
     }
 };
 

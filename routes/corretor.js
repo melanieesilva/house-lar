@@ -37,7 +37,7 @@ router.get('/corretor/calendario', (req, res) => {
 //     res.render('pages/Noticias/editarNoticia')
 // })
 
-router.get('/corretor/noticiasCorretor', noticiasController.getNoticia)
+router.get('/corretor/noticiasCorretor', noticiasController.getNoticias)
 
 
 
@@ -85,6 +85,7 @@ router.post('/corretor/CadastrarNoticia', multer.uploadSingle, async (req, res) 
         res.redirect(500,'/corretor/noticiasCorretor')
         console.log(error);
         req.flash("error_msg", "Não foi possível cadastrar notícia.")
+        console.log("O ERRO: "+error)
     }
 });
 
@@ -111,7 +112,9 @@ router.get('/corretor/solicitacoes', (req, res) => {
     })
 })
 
-router.get('/corretor/imoveisPublicados', imoveisController.getImoveis)
+
+
+router.get('/corretor/painelControle', imoveisController.getImoveis)
 
 router.get('/corretor/detalheSolicitacao/:id', soliController.getSolicitacao)
 

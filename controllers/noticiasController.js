@@ -13,12 +13,12 @@ async function publicarNoticia(titulo, descricao, artigo, autor,publicadoPor,
             data_imagem: dataImagem,
             nome_categoria: nomeCategoria,
             cor_categoria: corCategoria,
-            status: status,
+            status: 'Publicada',
         });
         
         return noticia;
     } catch (error) {
-      
+        console.log("erro: "+error)
         throw new Error('Não foi possível criar a notícia.');
     }
 }

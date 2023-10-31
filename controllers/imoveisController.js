@@ -12,8 +12,9 @@ const getImoveis = async (req, res) => {
       layout: 'painelControle',
       pageTitle: 'Imoveis - Painel De Controle'
     });
+    console.log("IMOVEIS ENCONTRADOS")
   } catch (error) {
-
+    console.log("nao encontProu: "+error)
     throw new Error(error);
   }
 };

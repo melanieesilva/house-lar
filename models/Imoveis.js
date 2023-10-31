@@ -24,7 +24,7 @@ const Imovel = db.connect.define('Imoveis',{
     em_condominio: db.Sequelize.TINYINT,
     data_publicacao: {
         type: db.Sequelize.DATEONLY,
-        defaultValue: db.Sequelize.literal('CURRENT_DATE')
+        // defaultValue: db.Sequelize.literal('CURRENT_DATE')
     }
 },{
     timestamps: false,

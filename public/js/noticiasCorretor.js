@@ -66,3 +66,11 @@ function openBodyDrop(event){
       }
     
 }
+
+
+    const img1 = document.getElementById('img_1')
+
+    const dataIMG = img1.getAttribute('data-image')
+    
+    img1.style.backgroundImage = `url(../../uploads/${dataIMG})`
+

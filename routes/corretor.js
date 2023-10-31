@@ -142,6 +142,8 @@ router.get('/corretor/imoveisPublicados', (req, res) => {
 
 router.get('/corretor/detalheSolicitacao/:id', soliController.getSolicitacao)
 
+router.get('/corretor/excluirImovel/:id', imoveisController.excluirImovel)
+
 router.get('/corretor/DesativarNoticia/:id', (req, res) => {
     //findOne where id:req.params.id
     //then(noticia)

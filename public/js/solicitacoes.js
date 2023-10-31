@@ -27,7 +27,7 @@ function openModal(arrays){
 
     console.log(arrays[0].email)
 
-
+    
 
 }
 
@@ -49,10 +49,6 @@ function detalharSolicitacao(el){
 
         
 
-        //Percorrendo os arrays
-        // solicitacaoRecebida.forEach(element => {
-        //     console.log(element.pathImagem)
-        // });
     }).catch(error =>{
         console.error('Erro na requisição:',error)
     })

@@ -426,16 +426,32 @@ input[type="file"]{
 .container-select-imgs{
     width: 100%;
     height: 300px;
-    display: flex;
-    align-items: center;
+    /* display: flex; */
+    /* align-items: center; */
     position: relative;
     /* justify-content: center; */
+}
+
+.containerImgs{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.btnsSlideImgs{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    padding: 0 40px;
 }
 
 .bloco{
     width: 100%;
     display: flex;
     gap: 8px;
+    border-radius: 14px
 }
 
 /* .bloco-img{
@@ -448,7 +464,7 @@ input[type="file"]{
 .img-select{
     width: calc(100% / 2);
     height: 300px;
-    background-image: url("../../img/img-preview-solicitacao.jfif");
+    /* background-image: url("../../img/img-preview-solicitacao.jfif"); */
     background-position: center;
     background-size: cover;
     border-radius: 4px;
@@ -458,7 +474,7 @@ input[type="file"]{
     height: 100%;
 }
 
-.container-select-imgs > a{
+.btnsSlideImgs > a{
    position: absolute;
    border-radius: 100px;
    border: none;
@@ -518,6 +534,7 @@ input[type="file"]{
     width: 100%;
     border: 1px solid #B0B0B0;
     border-radius: 4px;
+    padding: 16px;
 }
 
 .describe-endereco{
@@ -551,9 +568,10 @@ input[type="file"]{
     flex-direction: column;
     gap: 8px;
 }
-.header-side > p{
+.header-side > :last-child{
     font-size: 32px;
     font-weight: 500;
+    display: flex;
 }
 
 .btns-side{
@@ -596,6 +614,10 @@ input[type="file"]{
 
 .item-grid{
     font-size: 16px;
+}
+
+.valoriptucampo{
+    display: flex;
 }
 
 

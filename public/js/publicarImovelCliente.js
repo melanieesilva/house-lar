@@ -205,20 +205,20 @@ function confirmarEnvio() {
 const inputFilesS = document.getElementById('inputFile')
 const containerImgs = document.getElementById('containerImgs')
 
-function flashConfirmar(){
-    const modalEnviada = document.getElementById('modalenviada');
-    const botaoConfirmar = document.getElementById('btnVoltarInicio');
+// function flashConfirmar(){
+//     const modalEnviada = document.getElementById('modalenviada');
+//     const botaoConfirmar = document.getElementById('btnVoltarInicio');
 
-    modalEnviada.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+//     modalEnviada.style.display = 'flex';
+//     document.body.style.overflow = 'hidden';
 
-    window.addEventListener('click', (f) => {
-        if (f.target == botaoConfirmar){
-            modalEnviada.style.display = 'none';
-            document.body.style.overflow = 'scroll';
-        }
-    })
-}
+//     window.addEventListener('click', (f) => {
+//         if (f.target == botaoConfirmar){
+//             modalEnviada.style.display = 'none';
+//             document.body.style.overflow = 'scroll';
+//         }
+//     })
+// }
 
 var posicaoSlide = 1;
 showSlide(posicaoSlide);

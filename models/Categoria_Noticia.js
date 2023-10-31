@@ -1,4 +1,4 @@
-const db = require('../Database/Connection')
+// const db = require('../Database/Connection')
 
 //Definindo modelo Categoria_noticia
 

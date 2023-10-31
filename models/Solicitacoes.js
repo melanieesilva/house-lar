@@ -33,6 +33,7 @@ const Solicitacao = db.connect.define('solicitacoes',{
 	numero: db.Sequelize.INTEGER
 },{
     timestamps: false,
+    freezeTableName: true
 })
 
 // Solicitacao.sync({force:true})

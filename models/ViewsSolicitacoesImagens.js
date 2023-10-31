@@ -34,6 +34,7 @@ const viewSolicitacaoImagem = db.connect.define('ViewSolicitacaoImagem',{
 },{
     tableName: 'ViewSolicitacaoImagem',
     timestamps: false,
+    freezeTableName: true
 })
 
 viewSolicitacaoImagem.removeAttribute('id')

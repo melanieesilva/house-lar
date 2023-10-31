@@ -13,6 +13,7 @@ const Imagem_Solicitacao = db.connect.define('imagensSolicitacoes',{
     }
 },{
     timestamps: false,
+    freezeTableName: true
 })
 
 // Imagem_Solicitacao.belongsTo(Solicitacoes, { foreignKey: 'idSolicitacao_FK' });

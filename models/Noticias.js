@@ -38,6 +38,9 @@ const Noticia = db.connect.define('noticias', {
         type: db.Sequelize.ENUM('Publicada','Desativada'),
         allowNull: false,
     }
+},{
+    timestamps: false,
+    freezeTableName: true
 });
 
 

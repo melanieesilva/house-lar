@@ -1,4 +1,4 @@
-const db = require('../database/Connection')
+const db = require('../Database/Connection')
 
 const viewImovelImagem = db.connect.define('ViewImovelImagem',{
     id_imovel: {

@@ -7,8 +7,9 @@ const Duvidas = db.connect.define('duvidas',{
     telefone_cliente: db.Sequelize.STRING,
     mensagem_cliente: db.Sequelize.TEXT
 }, {
-    // Adicione a opção autoIncrement: true para a coluna id
-    timestamps: false
+
+    timestamps: false,
+    freezeTableName: true
 });
 
 // Duvidas.sync({force:true})

@@ -13,7 +13,93 @@ select * from imagensSolicitacoes;
 select * from viewsolicitacaoimagem;
 
 -- CREATES
+CREATE TABLE `solicitacoes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `statusSoli` enum('Solicitado','Aceito','Recusado') DEFAULT NULL,
+  `tipoImovel` enum('Apartamento','Casa','Kitnet/Studio','Lote','Sala Comercial') DEFAULT NULL,
+  `operacao` enum('Venda','Aluguel') DEFAULT NULL,
+  `descricao` longtext,
+  `numQuartos` int DEFAULT NULL,
+  `numBanheiros` int DEFAULT NULL,
+  `numVagas` int DEFAULT NULL,
+  `areaImovel` float DEFAULT NULL,
+  `valorImovel` decimal(10,2) DEFAULT NULL,
+  `valorCondominio` decimal(10,2) DEFAULT NULL,
+  `valorIPTU` decimal(10,2) DEFAULT NULL,
+  `parcelasIPTU` int DEFAULT NULL,
+  `construcao` enum('Sim','Não') DEFAULT NULL,
+  `numAndares` int DEFAULT NULL,
+  `dataEntrega` date DEFAULT NULL,
+  `emCondominio` enum('Sim','Não') DEFAULT NULL,
+  `dataPublicacao` date DEFAULT NULL,
+  `nomeCliente` varchar(80) DEFAULT NULL,
+  `telefone` varchar(14) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `CPF` varchar(14) DEFAULT NULL,
+  `cidade` varchar(80) DEFAULT NULL,
+  `bairro` varchar(80) DEFAULT NULL,
+  `endereco` varchar(100) DEFAULT NULL,
+  `numero` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+CREATE TABLE `imagenssolicitacoes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `idSolicitacao_FK` int DEFAULT NULL,
+  `nomeImagem` varchar(100) DEFAULT NULL,
+  `pathImagem` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idSolicitacao_FK` (`idSolicitacao_FK`),
+  CONSTRAINT `imagenssolicitacoes_ibfk_1` FOREIGN KEY (`idSolicitacao_FK`) REFERENCES `solicitacoes` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `noticias` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `titulo_noticia` varchar(255) NOT NULL,
+  `descricao_noticia` varchar(255) NOT NULL,
+  `artigo_noticia` text NOT NULL,
+  `autor_noticia` varchar(255) NOT NULL,
+  `publicado_por` varchar(255) DEFAULT 'House&Lar',
+  `nome_imagem` varchar(255) NOT NULL,
+  `data_imagem` blob,
+  `nome_categoria` varchar(255) DEFAULT NULL,
+  `cor_categoria` enum('Amarelo','Azul','Roxo','Verde','Laranja','Vermelho') DEFAULT NULL,
+  `status` enum('Publicada','Desativada') NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `usuarios` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `Nome` varchar(255) DEFAULT NULL,
+  `Email` varchar(255) DEFAULT NULL,
+  `Telefone` varchar(255) DEFAULT NULL,
+  `Senha` varchar(255) DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `duvidas` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome_cliente` varchar(255) DEFAULT NULL,
+  `email_cliente` varchar(255) DEFAULT NULL,
+  `telefone_cliente` varchar(255) DEFAULT NULL,
+  `mensagem_cliente` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `clientes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome_cliente` varchar(255) NOT NULL,
+  `email_cliente` varchar(255) NOT NULL,
+  `telefone_cliente` varchar(255) NOT NULL,
+  `senha_cliente` varchar(255) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_cliente`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- UPDATES
 

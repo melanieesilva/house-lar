@@ -22,7 +22,10 @@ const Imovel = db.connect.define('Imoveis',{
     num_andares: db.Sequelize.INTEGER,
     data_entrega: db.Sequelize.DATE,
     em_condominio: db.Sequelize.TINYINT,
-    data_publicacao: db.Sequelize.DATE
+    data_publicacao: {
+        type: db.Sequelize.DATEONLY,
+        defaultValue: db.Sequelize.literal('CURRENT_DATE')
+    }
 },{
     timestamps: false,
     freezeTableName: true

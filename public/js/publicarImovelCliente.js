@@ -168,11 +168,6 @@ function openPreView() {
     document.getElementById('numeroParcela').textContent = `(${selectparcela}X)`
     document.getElementById('valIPTU').textContent = `R$ ${valorIPTU}`
 
-    
-
-    
-
-
     window.addEventListener('click', (e) => {
         if (e.target == modal) {
             modal.style.display = "none";
@@ -240,7 +235,7 @@ inputFilesS.addEventListener('change',()=>{
         for (let j = i; j < Math.min(i + 2, imgs.length); j++) {
             const divImagem = document.createElement("div");
             divImagem.classList.add("img-select");
-            divImagem.style.backgroundImage = `url(${URL.createObjectURL(imgs[j])}`;
+            divImagem.style.backgroundImage = `url(${URL.createObjectURL(imgs[j])})`;
             bloco.appendChild(divImagem);
           }
 

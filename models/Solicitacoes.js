@@ -19,7 +19,10 @@ const Solicitacao = db.connect.define('solicitacoes',{
     numAndares: db.Sequelize.INTEGER,
     dataEntrega: db.Sequelize.DATEONLY,
     emCondominio: db.Sequelize.ENUM('Sim','Não'),
-    dataPublicacao: db.Sequelize.DATEONLY,
+    dataPublicacao: {
+        type: db.Sequelize.DATEONLY,
+        defaultValue: db.Sequelize.literal('CURRENT_DATE')
+    },
     nomeCliente: db.Sequelize.STRING,
 	telefone: db.Sequelize.STRING,
 	email: db.Sequelize.STRING,

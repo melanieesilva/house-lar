@@ -1,5 +1,50 @@
+const containerIMGS = document.getElementById('containerImgDetalhes')
+
 var posicaoSlide = 1;
 showSlide(posicaoSlide);
+
+function openModal(arrays){
+    //display flex no modal
+    //operacao = arrays[0].data
+    const modalSolicitacao = document.getElementById('modalDetalhesSolicitacao')
+    modalSolicitacao.style.display = 'flex'
+    document.body.style.overflow = "hidden"
+
+    let imgsName = []
+    arrays.forEach(element => {
+        imgsName.push(element.nomeImagem)
+    });
+    console.log(imgsName)
+
+    containerIMGS.innerHTML = ''
+
+    for(let i = 0; i < imgsName.length;i+=2){
+        const bloco = document.createElement("div")
+        bloco.classList.add("blocoImgs")
+
+        for (let j = i; j < Math.min(i + 2, imgsName.length); j++) {
+            const divImagem = document.createElement("div");
+            divImagem.classList.add("imgBloco");
+            divImagem.style.backgroundImage = `url(../../uploads/${imgsName[j]})`;
+            bloco.appendChild(divImagem);
+          }
+
+          containerIMGS.appendChild(bloco)
+        posicaoSlide = 1;
+        showSlide(posicaoSlide);
+    }
+
+    window.addEventListener('click', (e) => {
+        if (e.target == modalSolicitacao) {
+            modalSolicitacao.style.display = "none";
+            document.body.style.overflow = "scroll"
+        }
+    })
+    document.getElementById('btnCloseSolicitacao').addEventListener('click', () => {
+        modalSolicitacao.style.display = "none";
+        document.body.style.overflow = "scroll"
+    })
+}
 
 function addSlide(n) {
     showSlide(posicaoSlide += n);
@@ -8,27 +53,21 @@ function addSlide(n) {
 function showSlide(n) {
     var i;
     var slide = document.getElementsByClassName("blocoImgs");
-
-    if (n > slide.length) { posicaoSlide = 1 }
-    if (n < 1) { posicaoSlide = slide.length }
-
-    for (i = 0; i < slide.length; i++) {
-        slide[i].style.display = "none";
+  
+    if (n > slide.length) {
+      posicaoSlide = 1;
     }
-    slide[posicaoSlide - 1].style.display = "flex";
-}
+    if (n < 1) {
+      posicaoSlide = slide.length;
+    }
+  
+    for (i = 0; i < slide.length; i++) {
+      slide[i].style.display = "none";
+    }
 
-
-function openModal(arrays){
-    //display flex no modal
-    //operacao = arrays[0].data
-    const modalSolicitacao = document.getElementById('modalDetalhesSolicitacao')
-    modalSolicitacao.style.display = 'flex'
-
-    console.log(arrays[0].email)
-
-    
-
+    if (slide[posicaoSlide - 1]) {
+      slide[posicaoSlide - 1].style.display = "flex";
+    }
 }
 
 function detalharSolicitacao(el){
@@ -42,9 +81,9 @@ function detalharSolicitacao(el){
         }
         return response.json()
     }).then(data =>{
-        // console.log(data)
+        console.log(data.viewSolicitacao) 
         const solicitacaoRecebida = data.viewSolicitacao
-        console.log(solicitacaoRecebida[0])
+        // console.log(solicitacaoRecebida[0])
         openModal(solicitacaoRecebida)
 
         

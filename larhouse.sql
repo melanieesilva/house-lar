@@ -29,12 +29,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `agenda` (
-  `id_agenda` int(11) NOT NULL,
-  `mes` varchar(50) NOT NULL,
-  `dia` varchar(50) NOT NULL,
-  `horario` varchar(50) NOT NULL,
-  `cliente_id` int(11) DEFAULT NULL,
-  `FK_imovel_id` int(11) DEFAULT NULL
+  `id_agenda` INT(11) NOT NULL,
+  `mes` VARCHAR(50) NOT NULL,
+  `dia` VARCHAR(50) NOT NULL,
+  `horario` VARCHAR(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -43,22 +41,22 @@ CREATE TABLE `agenda` (
 -- Estrutura para tabela `categoria_noticia`
 --
 
-CREATE TABLE `categoria_noticia` (
-  `nome_categoria` varchar(200) NOT NULL,
-  `cor_categoria` enum('Vermelho','Amarelo','Roxo','Azul','Laranja','Verde')
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- CREATE TABLE `categoria_noticia` (
+--  `nome_categoria` varchar(200) NOT NULL,
+--  `cor_categoria` enum('Vermelho','Amarelo','Roxo','Azul','Laranja','Verde')
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `categoria_noticia`
 --
 
-INSERT INTO `categoria_noticia` (`nome_categoria`,`cor_categoria`) VALUES
-("Oportunidade Tenda","Vermelho"),
-("Oportunidade Village","Azul");
+-- INSERT INTO `categoria_noticia` (`nome_categoria`,`cor_categoria`) VALUES
+-- ("Oportunidade Tenda","Vermelho"),
+-- ("Oportunidade Village","Azul");
 
-INSERT INTO `categoria_noticia` (`nome_categoria`, `cor_categoria`) VALUES
-('Oportunidade Tenda', 'Vermelho'),
-('Oportunidade Village', 'Verde');
+-- INSERT INTO `categoria_noticia` (`nome_categoria`, `cor_categoria`) VALUES
+-- ('Oportunidade Tenda', 'Vermelho'),
+-- ('Oportunidade Village', 'Verde');
 
 -- --------------------------------------------------------
 
@@ -67,13 +65,11 @@ INSERT INTO `categoria_noticia` (`nome_categoria`, `cor_categoria`) VALUES
 --
 
 CREATE TABLE `clientes` (
-  `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
-  `nome_cliente` varchar(100) NOT NULL,
-  `email_cliente` varchar(100) NOT NULL,
-  `senha_cliente` varchar(100) NOT NULL,
-  `telefone_cliente` varchar(20) NOT NULL,
-  `createdAt`  TIMESTAMP NOT NULL,
-  `updatedAt` TIMESTAMP NOT NULL, 
+  `id_cliente` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome_cliente` VARCHAR(100) NOT NULL,
+  `email_cliente` VARCHAR(100) NOT NULL,
+  `senha_cliente` VARCHAR(100) NOT NULL,
+  `telefone_cliente` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id_cliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -85,11 +81,10 @@ CREATE TABLE `clientes` (
 --
 
 CREATE TABLE `duvidas` (
-  `id_duvida` int(11) NOT NULL,
-  `nome_cliente` varchar(200) NOT NULL,
-  `email_cliente` varchar(200) NOT NULL,
-  `telefone_cliente` varchar(20) NOT NULL,
-  `mensagem_cliente` text NOT NULL
+  `nome_cliente` VARCHAR(200) NOT NULL,
+  `email_cliente` VARCHAR(200) NOT NULL,
+  `telefone_cliente` VARCHAR(20) NOT NULL,
+  `mensagem_cliente` TEXT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -99,11 +94,9 @@ CREATE TABLE `duvidas` (
 --
 
 CREATE TABLE `imagens_imovel` (
-  `id_imagem` int(11) NOT NULL,
-  `dados_imagem` blob NOT NULL,
-  `data_upload` date NOT NULL,
-  `imovel_id` int(11) DEFAULT NULL,
-  `origem` enum('Item 1',' Item 2','Item 3') DEFAULT NULL
+  `nome_imagem` VARCHAR(100) NOT NULL,
+  `path_imagem` VARCHAR(100)  NOT NULL,
+  `id_imovel_FK` INT(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -113,24 +106,23 @@ CREATE TABLE `imagens_imovel` (
 --
 
 CREATE TABLE `imoveis` (
-  `id_imovel` int(11) NOT NULL,
-  `tipo_imovel` enum('Casa','Apartamento','Lote','Kitnet/Studio','Sala Comercial') NOT NULL,
-  `operacao` enum('Comprar','Alugar','Item 3','Item 4') NOT NULL,
-  `descricao` varchar(200) NOT NULL,
-  `num_quartos` int(11) NOT NULL,
-  `num_banheiros` int(11) NOT NULL,
-  `num_vagas` int(11) NOT NULL,
-  `area` float NOT NULL,
-  `valor` decimal(10,0) NOT NULL,
-  `valor_condominio` decimal(10,0) DEFAULT NULL,
-  `iptu` decimal(10,0) NOT NULL,
-  `parcelas_iptu` int(11) NOT NULL,
-  `construcao` tinyint(1) NOT NULL,
-  `num_andares` int(11) NOT NULL,
-  `data_entrega` date NOT NULL,
-  `em_condominio` tinyint(1) NOT NULL,
-  `data_publicacao` date NOT NULL,
-  `proprietario_id` int(11) DEFAULT NULL
+  `id_imovel` INT(11) NOT NULL,
+  `tipo_imovel` ENUM('Casa','Apartamento','Lote','Kitnet/Studio','Sala Comercial') NOT NULL,
+  `operacao` ENUM('Comprar','Alugar') NOT NULL,
+  `descricao` VARCHAR(200) NOT NULL,
+  `num_quartos` INT(11) NOT NULL,
+  `num_banheiros` INT(11) NOT NULL,
+  `num_vagas` INT(11) NOT NULL,
+  `area` FLOAT NOT NULL,
+  `valor` DECIMAL(10,0) NOT NULL,
+  `valor_condominio` DECIMAL(10,0) DEFAULT NULL,
+  `iptu` DECIMAL(10,0) NOT NULL,
+  `parcelas_iptu` INT(11) NOT NULL,
+  `construcao` TINYINT(1) NOT NULL,
+  `num_andares` INT(11) NOT NULL,
+  `data_entrega` DATE NOT NULL,
+  `em_condominio` TINYINT(1) NOT NULL,
+  `data_publicacao` DATE NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -140,14 +132,15 @@ CREATE TABLE `imoveis` (
 --
 
 CREATE TABLE `noticias` (
-  `titulo_noticia` varchar(200) NOT NULL,
-  `descricao_noticia` varchar(200) NOT NULL,
-  `artigo_noticia` text NOT NULL,
-  `autor_noticia` varchar(200) NOT NULL,
-  `publicado_por` varchar(200) NOT NULL DEFAULT 'Lar&House',
-  `nome_imagem` varchar(200) NOT NULL,
-  `data_imagem` blob NOT NULL,
-  `categoria_id` int(11) DEFAULT NULL
+  `titulo_noticia` VARCHAR(200) NOT NULL,
+  `descricao_noticia` VARCHAR(200) NOT NULL,
+  `artigo_noticia` TEXT NOT NULL,
+  `autor_noticia` VARCHAR(200) NOT NULL,
+  `publicado_por` VARCHAR(200) NOT NULL DEFAULT 'Lar&House',
+  `nome_imagem` VARCHAR(200) NOT NULL,
+  `nome_categoria` VARCHAR(200) NOT NULL,
+  `cor_categoria` ENUM('Amarelo', 'Azul', 'Roxo', 'Verde', 'Laranja', 'Vermelho') NOT NULL,
+  `status` ENUM('Publicada','Desativada') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -172,11 +165,31 @@ INSERT INTO `noticias` (`id_noticia`, `titulo_noticia`, `descricao_noticia`, `ar
 --
 
 CREATE TABLE `solicitacoes` (
-  `id_solicitacao` int(11) NOT NULL,
-  `status` enum('Item 1','Item 2','Item 3') DEFAULT NULL,
-  `usuario_id` int(11) DEFAULT NULL,
-  `imovel_id_FK` int(11) DEFAULT NULL,
-  `FK_id_imagem` int(11) DEFAULT NULL
+  `status_soli` ENUM('Solicitado','Aceito','Recusado') DEFAULT NULL,
+  `tipoImovel` ENUM('Apartamento','Casa','Kitnet/Studio','Lote','Sala Comercial') DEFAULT NULL,
+  `operacao` ENUM('Venda','Aluguel'),
+  `descricao` TEXT NOT NULL,
+  `num_quartos` INT(11) NOT NULL,
+  `num_banheiros` INT(11) NOT NULL,
+  `num_vagas` INT(11) NOT NULL,
+  `area_imovel` FLOAT NOT NULL,
+  `valor_imovel` DECIMAL(10,0) NOT NULL,
+  `valor_condominio` DECIMAL(10,0) DEFAULT NULL,
+  `valor_iptu` DECIMAL(10,0) NOT NULL,
+  `parcelas_iptu` INT(11) NOT NULL,
+  `construcao` TINYINT(1) NOT NULL,
+  `num_andares` INT(11) NOT NULL,
+  `data_entrega` DATE NOT NULL,
+  `em_condominio` TINYINT(1) NOT NULL,
+  `data_publicacao` DATE NOT NULL,
+  `nome_cliente` VARCHAR(100) NOT NULL,
+  `telefone` VARCHAR(20) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `CPF` VARCHAR(25) NOT NULL,
+  `cidade` VARCHAR(25) NOT NULL,
+  `bairro` VARCHAR(100) NOT NULL,
+  `endereco` VARCHAR(200) NOT NULL,
+  `numero` INT(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

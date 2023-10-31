@@ -112,24 +112,30 @@ router.get('/corretor/solicitacoes', (req, res) => {
 })
 
 router.get('/corretor/imoveisPublicados', (req, res) => {
-    viewImovelImagem.findAll({
+    Imovel.findAll({
         attributes: [
-            'id_imovel',
-            'tipoImovel',
+            'id',
+            'tipo_imovel',
             'bairro',
             'cidade',
-            'valorImovel',
-            'numQuartos',
-            'numBanheiros',
-            'numVagas',
-            'areaImovel'
+            'valor',
+            'num_quartos',
+            'num_banheiros',
+            'num_vagas',
+            'area',
+            'statusImovel',
+            'operacao'
         ],
-        group: ['id_imovel']
-    }).then((publicados) => {
+        group: ['id']
+    }).then((imoveis) => {
+        const publicados = imoveis.filter(imovel => imovel.statusImovel === 'Publicado');
+        const desativados = imoveis.filter(imovel => imovel.statusImovel === 'Desativado');
+
         res.render('pages/imoveisPublicados.handlebars', {
             layout: 'painelControle',
             pageTitle: 'Imóveis Publicados - Painel de Controle',
-            publicados:publicados
+            publicados:publicados,
+            desativados:desativados
         })
     })
 })

@@ -3,9 +3,12 @@ const Imoveis = require('../models/Imoveis')
 const getImoveis = async (req, res) => {
   try {
     const imoveis = await Imoveis.findAll();
-    console.log(imoveis);
+    const publicados = imoveis.filter(imovel => imovel.statusImovel === 'Publicado');
+    const desativados = imoveis.filter(imovel => imovel.statusImovel === 'Desativado');
+
     res.status(200).render('pages/imoveisPublicados', {
-      imoveis: imoveis,
+      publicados: publicados,
+      desativados: desativados,
       layout: 'painelControle',
       pageTitle: 'Imoveis - Painel De Controle'
     });

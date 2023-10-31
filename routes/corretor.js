@@ -111,30 +111,11 @@ router.get('/corretor/solicitacoes', (req, res) => {
     })
 })
 
-router.get('/corretor/imoveisPublicados', (req, res) => {
-    viewImovelImagem.findAll({
-        attributes: [
-            'id_imovel',
-            'tipoImovel',
-            'bairro',
-            'cidade',
-            'valorImovel',
-            'numQuartos',
-            'numBanheiros',
-            'numVagas',
-            'areaImovel'
-        ],
-        group: ['id_imovel']
-    }).then((publicados) => {
-        res.render('pages/imoveisPublicados.handlebars', {
-            layout: 'painelControle',
-            pageTitle: 'Imóveis Publicados - Painel de Controle',
-            publicados:publicados
-        })
-    })
-})
+router.get('/corretor/imoveisPublicados', imoveisController.getImoveis)
 
 router.get('/corretor/detalheSolicitacao/:id', soliController.getSolicitacao)
+
+router.get('/corretor/excluirImovel/:id', imoveisController.excluirImovel)
 
 router.get('/corretor/DesativarNoticia/:id', (req, res) => {
     //findOne where id:req.params.id

@@ -4,7 +4,7 @@
 </button> --}}
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" href="../../css/painelControle.css">
 
 <div id="head">
@@ -23,6 +23,19 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
         </a>
     </div>
 </div>
+
+{{#if success_msg}}
+<div class="alert alert-success">
+    {{success_msg}}
+</div>
+{{/if}}
+
+{{#if error_msg}}
+<div class="alert alert-danger">
+    {{error_msg}}
+</div>
+{{/if}}
+
 
 <div id="car">
     <div id="af">
@@ -118,21 +131,21 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
 </div>
 
 <div id="publicados">
-     {{#each publicados}}
+    {{#each publicados}}
     <div class="cardv" id="cardv">
-      
+
         <div class="imga">
             <img src="../../img/img-imovel-busca-avanc.jpeg" alt="" id="cara">
         </div>
 
         <div class="txt">
             <div class="titulo-operacao">
-                <h5>Apartamento </h5>
+                <h5>{{dataValues.tipo_imovel}} </h5>
 
                 <div class="operacao-icone">
                     <!-- Botão operação e ícone mais para dropdown -->
 
-                    <button id="btnv"> Venda </button>
+                    <button id="btnv"> {{dataValues.operacao}} </button>
 
                     <div class="dropdown">
                         <button class="dropbtn">
@@ -142,17 +155,6 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
                             </svg>
                         </button>
                         <div class="dropdown-content">
-                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                    viewBox="0 0 512 512">
-                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
-                                        stroke-linejoin="round" stroke-width="32"
-                                        d="m112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320" />
-                                    <path fill="currentColor" stroke="currentColor" stroke-linecap="round"
-                                        stroke-miterlimit="10" stroke-width="32" d="M80 112h352" />
-                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
-                                        stroke-linejoin="round" stroke-width="32"
-                                        d="M192 112V72h0a23.93 23.93 0 0 1 24-24h80a23.93 23.93 0 0 1 24 24h0v40m-64 64v224m-72-224l8 224m136-224l-8 224" />
-                                </svg> Excluir imóvel</a>
                             <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                     viewBox="0 0 32 32">
                                     <path fill="currentColor"
@@ -177,8 +179,8 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
             </div>
 
             <div class="localizacao">
-                <h6>{{dataValues.bairro}} - {{data.Values.cidade}}</h6>
-                <p><small class="text-muted">COD: {{dataValues.id_imovel}}</small></p>
+                <h6>{{dataValues.bairro}} - {{dataValues.cidade}}</h6>
+                <p><small class="text-muted">COD: {{dataValues.id}}</small></p>
             </div>
 
             <div class="footer-card">
@@ -191,7 +193,7 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
                                 <path fill="currentColor"
                                     d="M17 3a2 2 0 0 1 2 2v14h1a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2h1V5a2 2 0 0 1 2-2h10Zm0 2H7v14h10V5Zm-2.5 6a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3Z" />
                             </g>
-                        </svg> {{dataValues.numQuartos}} salas
+                        </svg> {{dataValues.num_quartos}} salas
                     </div>
                     <div class="icone">
 
@@ -199,7 +201,7 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
                             <path fill="currentColor"
                                 d="m5 11l1.5-4.5h11L19 11m-1.5 5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m-11 0A1.5 1.5 0 0 1 5 14.5A1.5 1.5 0 0 1 6.5 13A1.5 1.5 0 0 1 8 14.5A1.5 1.5 0 0 1 6.5 16M18.92 6c-.2-.58-.76-1-1.42-1h-11c-.66 0-1.22.42-1.42 1L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8l-2.08-6Z" />
                         </svg>
-                        {{dataValues.numVagas}} Vagas
+                        {{dataValues.num_vagas}} Vagas
 
                     </div>
                     <div class="icone">
@@ -209,11 +211,11 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
                                     d="M10.75 2A2.75 2.75 0 0 0 8 4.75v18.5A2.75 2.75 0 0 0 10.75 26h6.5A2.75 2.75 0 0 0 20 23.25V4.75A2.75 2.75 0 0 0 17.25 2h-6.5ZM9.5 14.75h2.75a.75.75 0 0 0 0-1.5H9.5V11h4.75a.75.75 0 0 0 0-1.5H9.5V7.25h2.75a.75.75 0 0 0 0-1.5H9.5v-1c0-.69.56-1.25 1.25-1.25h6.5c.69 0 1.25.56 1.25 1.25v18.5c0 .69-.56 1.25-1.25 1.25h-6.5c-.69 0-1.25-.56-1.25-1.25v-1h2.75a.75.75 0 0 0 0-1.5H9.5V18.5h4.75a.75.75 0 0 0 0-1.5H9.5v-2.25Z" />
                             </g>
                         </svg>
-                        {{dataValues.areaImovel}}m²
+                        {{dataValues.area}}m²
 
                     </div>
                 </div>
-                <p id="valor-imovel"> <strong>R$ 2.000.000</strong> </p>
+                <p id="valor-imovel"> <strong>R$ {{dataValues.valor}}</strong> </p>
             </div>
 
         </div>
@@ -222,6 +224,7 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
 
 </div>
 <div id="desativados">
+    {{#each desativados}}
     <div class="cardv" id="cardv">
         <div class="imga">
             <img src="../../img/img-imovel-busca-avanc.jpeg" alt="" id="cara">
@@ -229,12 +232,12 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
 
         <div class="txt">
             <div class="titulo-operacao">
-                <h5>não é um Apartamento </h5>
+                <h5>{{dataValues.tipo_imovel}} </h5>
 
                 <div class="operacao-icone">
                     <!-- Botão operação e ícone mais para dropdown -->
 
-                    <button id="btnv"> Venda </button>
+                    <button id="btnv"> {{dataValues.operacao}} </button>
 
                     <div class="dropdown">
                         <button class="dropbtn">
@@ -244,7 +247,7 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
                             </svg>
                         </button>
                         <div class="dropdown-content">
-                            <a href="#" class="ajuda"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            <a href="#" class="ajuda excluir-imovel-button" data-id="{{dataValues.id}}"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     viewBox="0 0 512 512">
                                     <path fill="none" stroke="currentColor" stroke-linecap="round"
                                         stroke-linejoin="round" stroke-width="32"
@@ -279,8 +282,8 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
             </div>
 
             <div class="localizacao">
-                <h6>Pituba - Salvador</h6>
-                <p><small class="text-muted">COD: {{ imovel }}</small></p>
+                <h6>{{dataValues.bairro}} - {{dataValues.cidade}}</h6>
+                <p><small class="text-muted">COD: {{ dataValues.id }}</small></p>
             </div>
 
             <div class="footer-card">
@@ -293,7 +296,7 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
                                 <path fill="currentColor"
                                     d="M17 3a2 2 0 0 1 2 2v14h1a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2h1V5a2 2 0 0 1 2-2h10Zm0 2H7v14h10V5Zm-2.5 6a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3Z" />
                             </g>
-                        </svg> 14 salas
+                        </svg> {{dataValues.num_quartos }} salas
                     </div>
                     <div class="icone">
 
@@ -301,7 +304,7 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
                             <path fill="currentColor"
                                 d="m5 11l1.5-4.5h11L19 11m-1.5 5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m-11 0A1.5 1.5 0 0 1 5 14.5A1.5 1.5 0 0 1 6.5 13A1.5 1.5 0 0 1 8 14.5A1.5 1.5 0 0 1 6.5 16M18.92 6c-.2-.58-.76-1-1.42-1h-11c-.66 0-1.22.42-1.42 1L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8l-2.08-6Z" />
                         </svg>
-                        2 Vagas
+                        {{ dataValues.num_vagas }} Vagas
 
                     </div>
                     <div class="icone">
@@ -311,19 +314,16 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
                                     d="M10.75 2A2.75 2.75 0 0 0 8 4.75v18.5A2.75 2.75 0 0 0 10.75 26h6.5A2.75 2.75 0 0 0 20 23.25V4.75A2.75 2.75 0 0 0 17.25 2h-6.5ZM9.5 14.75h2.75a.75.75 0 0 0 0-1.5H9.5V11h4.75a.75.75 0 0 0 0-1.5H9.5V7.25h2.75a.75.75 0 0 0 0-1.5H9.5v-1c0-.69.56-1.25 1.25-1.25h6.5c.69 0 1.25.56 1.25 1.25v18.5c0 .69-.56 1.25-1.25 1.25h-6.5c-.69 0-1.25-.56-1.25-1.25v-1h2.75a.75.75 0 0 0 0-1.5H9.5V18.5h4.75a.75.75 0 0 0 0-1.5H9.5v-2.25Z" />
                             </g>
                         </svg>
-                        108m²
+                        {{dataValues.area}}m²
 
                     </div>
                 </div>
-                <p id="valor-imovel"> <strong>R$ 2.000.000</strong> </p>
+                <p id="valor-imovel"> <strong>R$ {{dataValues.valor}}</strong> </p>
             </div>
 
         </div>
     </div>
-
-
-
-
+    {{/each}}
 </div>
 
 <script src="../../js/imoveisPublicados.js"></script>

@@ -111,34 +111,7 @@ router.get('/corretor/solicitacoes', (req, res) => {
     })
 })
 
-router.get('/corretor/imoveisPublicados', (req, res) => {
-    Imovel.findAll({
-        attributes: [
-            'id',
-            'tipo_imovel',
-            'bairro',
-            'cidade',
-            'valor',
-            'num_quartos',
-            'num_banheiros',
-            'num_vagas',
-            'area',
-            'statusImovel',
-            'operacao'
-        ],
-        group: ['id']
-    }).then((imoveis) => {
-        const publicados = imoveis.filter(imovel => imovel.statusImovel === 'Publicado');
-        const desativados = imoveis.filter(imovel => imovel.statusImovel === 'Desativado');
-
-        res.render('pages/imoveisPublicados.handlebars', {
-            layout: 'painelControle',
-            pageTitle: 'Imóveis Publicados - Painel de Controle',
-            publicados:publicados,
-            desativados:desativados
-        })
-    })
-})
+router.get('/corretor/imoveisPublicados', imoveisController.getImoveis)
 
 router.get('/corretor/detalheSolicitacao/:id', soliController.getSolicitacao)
 

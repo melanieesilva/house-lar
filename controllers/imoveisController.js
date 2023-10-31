@@ -27,15 +27,15 @@ const excluirImovel = async (req, res) => {
     if (Imovel) {
       // Excluir o imóvel do banco de dados
       await Imovel.destroy();
-
+      req.flash('success_msg', 'Imóvel excluído com sucesso');
       // Redirecionar de volta para a página de lista de imóveis ou uma rota apropriada
       res.redirect('/corretor/imoveisPublicados');
     } else {
-      console.error(`Imóvel com ID ${id} não encontrado.`);
+      req.flash('error_msg', `Imóvel com ID ${id} não encontrado.`);
       res.status(404).send("Imóvel não encontrado");
     }
   } catch (error) {
-    console.error("Erro ao excluir imóvel:", error);
+    req.flash('error_msg', 'Erro ao excluir imóvel');
     res.status(500).send("Erro ao excluir imóvel");
   }
 }

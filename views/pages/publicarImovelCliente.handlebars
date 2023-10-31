@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="../../../css/publiImovelCliente.css">
-
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <section class="main">
 
 
@@ -549,9 +549,26 @@
             </div>
             <div class="decisoes">
                 <a id="btnCancelDecisao">Não, cancelar</a>
-                <button id="btnPublicar" type="submit">
+                <button id="btnPublicar" type="submit" onclick="flashConfirmar()">
                     Sim, tenho certeza
                 </button>
+            </div>
+        </div>
+    </div>
+
+   <div class="modalenviada" id="modalenviada">
+        <div class="contentenviada" id="contentenviada">
+            <div id="icone">
+                <iconify-icon id="iconeconfirm" icon="line-md:circle-to-confirm-circle-transition"></iconify-icon>
+            </div>
+            <div class="envtext">
+                <h4>Sua solicitação foi enviada!</h4>
+                <p>Enviamos o seu pedido de publicação ao corretor responsável. Em breve você receberá um retorno sobre a 
+                    solicitação. Agradecemos a preferência!
+                </p>
+            </div>
+            <div class="botaoinicio">
+                <a id="btnVoltarInicio" href="/">Voltar à Página Inicial</a>
             </div>
         </div>
     </div>

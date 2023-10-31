@@ -747,3 +747,67 @@ input[type="file"]{
 #form8{
     display: none;
 }
+
+/* MODAL SOLICITAÇÃO ENVIADA */
+
+#modalenviada{
+    position: fixed;
+    background-color: red;
+    width: 100vw;
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#modalenviada .contentenviada{
+    width: 40%;
+    height: fit-content;
+    background-color: white;
+    border-radius: 8px;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+}
+
+#modalenviada .envtext{
+    width: 80%;
+    min-width: 300px;
+    margin: auto;
+    margin-bottom: 7%;
+}
+
+#btnVoltarInicio{
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    background-color: #9D0058;
+    color: white !important;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 8px;
+    margin: auto;
+}
+
+#icone{
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+#icone #iconeconfirm{
+    font-size: 100px;
+    color: #00833C;
+}

@@ -514,7 +514,33 @@ img {
     background-color: #ffcccc;
 }
 
-#valImovelDetalhe{
+#detalheValImovel{
+    display: flex;
+    gap: 4px;
+}
+
+
+.dataPubliDetalhe{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.descricaoDetalhe{
+    height: 100%;
+}
+
+#descricaoDetalheTxt{
+    height: 100%;
+    padding: 12px 0;
+}
+
+.valoresIPTU{
+    display: flex;
+    gap: 4px;
+}
+
+#valCondo{
     display: flex;
     gap: 4px;
 }
@@ -532,13 +558,31 @@ img {
 
 .infoPessoaisDetalhe{
     width: 100%;
-    border-top: 1px solid rgb(165, 165, 165);
+    border-top: 1px solid rgb(212, 212, 212);
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.infoPessoaisDetalhe > :first-child{
+    color: #646464;
 }
 
 .gridInfoPessoais{
     display: grid;
     grid-template-columns: auto auto;
+    grid-row-gap: 24px;
 }
+
+.dadosItem > :first-child{
+    color: #646464;
+    font-weight: 500;
+}
+.dadosItem{
+    font-weight: 500;
+    color: black;
+}
+
 .divezin{
     background-color: red;
     width: 300px;

@@ -304,7 +304,10 @@ form h4{
 }
 
 .rosio > :nth-child(1){
-    padding: 24px;
+    padding: 34px 56px;
+    border-radius: 100px;
+    font-size: 40px;
+    color: #B00063;
 }
 
 .noticia {
@@ -404,7 +407,7 @@ banner final
     margin-left: 0;
     align-items: center;
     justify-content: center;
-    margin-top: 2%;
+    margin-top: 8%;
 }
 
 #botetit {
@@ -412,13 +415,14 @@ banner final
     background-color: #FFE9F5;
     width: 90%;
     height: 100%;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-evenly;
     border-radius: 16px;
+    padding: 64px 0;
 }
 
 #espa {
-    width: 30%;
+    width: 40%;
     display: flex;
     flex-direction: column;
 }
@@ -455,7 +459,7 @@ gap: 20px;
 }
 
 .cardNoticia{
-    width: calc(100% / 4 - 10px);
+    width: calc(100% / 3 - 10px);
     background-color: #ffffff;
     border-radius: 8px;
     overflow: hidden;
@@ -494,7 +498,8 @@ gap: 20px;
     background-color: #FFE1E1;
     color: #C80000;
     font-weight: 500;
-    border-radius: 6px
+    border-radius: 6px;
+    font-size: 14px;
 }
 
 .dataPubliNoticia{
@@ -512,10 +517,15 @@ gap: 20px;
     gap: 8px;
 }
 
-.titleNoticia{
-font-size: 22px;
-}
+.titleNoticia{font-size: 18px;}
+
+.descricaoNoticia{font-size: 14px;}
 
 .spanTxtCentral{
     color: #9D0058 !important;
+}
+
+
+.iconRosio{
+    padding: 24px;
 }

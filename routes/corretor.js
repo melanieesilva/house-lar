@@ -25,9 +25,9 @@ router.use((req,res,next)=>{
     next()
 })
 
-router.get('/corretor/painelControle', (req, res) => {
-    res.render('pages/imoveisPublicados');
-});
+// router.get('/corretor/painelControle', (req, res) => {
+//     res.render('pages/imoveisPublicados');
+// });
 
 router.get('/corretor/calendario', (req, res) => {
     res.render('pages/calendario')
@@ -38,8 +38,6 @@ router.get('/corretor/calendario', (req, res) => {
 // })
 
 router.get('/corretor/noticiasCorretor', noticiasController.getNoticias)
-
-
 
 router.post('/corretor/CadastrarNoticia', multer.uploadSingle, async (req, res) => {
     try {
@@ -105,7 +103,6 @@ router.get('/corretor/solicitacoes', (req, res) => {
         group: ['id_soli']
     }).then((views)=>{
         res.render('pages/solicitacoes.handlebars', {
-            layout: 'painelControle',
             pageTitle: 'Solicitações - Painel de Controle',
             views:views
         })
@@ -113,8 +110,7 @@ router.get('/corretor/solicitacoes', (req, res) => {
 })
 
 
-
-router.get('/corretor/painelControle', imoveisController.getImoveis)
+router.get('/corretor/imoveisPublicados', imoveisController.getImoveis)
 
 router.get('/corretor/detalheSolicitacao/:id', soliController.getSolicitacao)
 
@@ -149,7 +145,6 @@ router.get('/corretor/DesativarNoticia/:id', (req, res) => {
 
                                     res.render('pages/noticiasCorretor', {
                                         noticias: noticiasDesativadas,
-                                        layout: 'painelControle',
                                         pageTitle: 'Notícias - Painel De Controle'
                                     });
                                 })

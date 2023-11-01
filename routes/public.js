@@ -94,7 +94,7 @@ router.post('/public/autenticar', async (req, res) => {
         } else if (!senhaCorreta) {
             return res.status(401).send('Credenciais inválidas: Senha');
         }
-        res.redirect('/corretor/painelControle');
+        res.redirect('/corretor/imoveisPublicados');
     } catch (error) {
         console.error(error); // Adicione esta linha para ver o erro no console
         console.log(email, senha);

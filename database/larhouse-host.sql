@@ -8,9 +8,9 @@ use larhouse;
 -- delete from solicitacoes;
 -- delete from imagensSolicitacoes;
 
-delete from duvidas;
+-- delete from duvidas;
 -- drop table imoveis;
-drop table noticias;
+-- drop table noticias;
 
 -- SELECTS
 select * from solicitacoes;
@@ -148,5 +148,6 @@ CREATE VIEW ViewSolicitacaoImagem AS SELECT
 -- INSERT INTO `larhouse`.`imagenssolicitacoes` (`idSolicitacao_FK`, `nomeImagem`, `pathImagem`) VALUES ('18', 'yasin-aribuga-BCp_xuIrYGQ-unsplash.jpg', 'C:\\Users\\melan\\Documents\\GitHub\\house-lar\\public\\uploads\\images_1698407931247_yasin-aribuga-BCp_xuIrYGQ-unsplash.jpg');
 -- INSERT INTO `larhouse`.`imagenssolicitacoes` (`idSolicitacao_FK`, `nomeImagem`, `pathImagem`) VALUES ('19', 'Aula Invertida DS2 - Pesquisa e Roteiro (1).jpg', 'C:\\Users\\melan\\Documents\\GitHub\\house-lar\\public\\uploads\\images_1698407931802_Aula Invertida DS2 - Pesquisa e Roteiro (1).jpg');
 
--- INSERT INTO `larhouse`.`imoveis` (`statusImovel`, `tipo_imovel`, `operacao`, `descricao`, `num_quartos`, `num_banheiros`, `num_vagas`, `area`, `valor`, `cidade`, `bairro`) VALUES ('Desativado', 'Apartamento', 'Venda', 'Imovel lindo', '4', '4', '5', '80', '450540', 'Salvador', 'Cajazeiras');
+-- INSERT INTO `larhouse`.`imoveis` (`statusImovel`, `tipo_imovel`, `operacao`, `descricao`, `num_quartos`, `num_banheiros`, `num_vagas`, `area`, `valor`, `valor_condominio`, `iptu`, `parcelas_iptu`, `construcao`, `cidade`, `bairro`, `num_andares`, `data_entrega`, `em_condominio`) VALUES ('Publicado', 'Casa', 'Venda', 'Describe 1', '4', '4', '4', '120', '780000', '890', '560', '4', 'Não', 'Salvador', 'Cajazeiras', '4', '2020-08-12', 'Sim');
+-- INSERT INTO `larhouse`.`imoveis` (`statusImovel`, `tipo_imovel`, `operacao`, `descricao`, `num_quartos`, `num_banheiros`, `num_vagas`, `area`, `valor`, `valor_condominio`, `iptu`, `parcelas_iptu`, `construcao`, `cidade`, `bairro`, `num_andares`, `data_entrega`, `em_condominio`) VALUES ('Desativado', 'Apartamento', 'Aluguel', 'Describe 2', '5', '5', '6', '180', '900000', '560', '580', '8', 'Sim', 'Salvador', 'Pituba', '10', '2023-12-01', 'Sim');
 

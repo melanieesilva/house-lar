@@ -16,15 +16,15 @@ const Imovel = db.connect.define('Imoveis',{
     valor_condominio: db.Sequelize.DECIMAL,
     iptu: db.Sequelize.DECIMAL,
     parcelas_iptu: db.Sequelize.INTEGER,
-    construcao: db.Sequelize.TINYINT,
+    construcao: db.Sequelize.ENUM('Sim','Não'),
     cidade: db.Sequelize.STRING,
 	bairro: db.Sequelize.STRING,
     num_andares: db.Sequelize.INTEGER,
-    data_entrega: db.Sequelize.DATE,
-    em_condominio: db.Sequelize.TINYINT,
+    data_entrega: db.Sequelize.DATEONLY,
+    em_condominio: db.Sequelize.ENUM('Sim','Não'),
     data_publicacao: {
         type: db.Sequelize.DATEONLY,
-        // defaultValue: db.Sequelize.literal('CURRENT_DATE')
+        defaultValue: db.Sequelize.NOW
     }
 },{
     timestamps: false,

@@ -9,7 +9,6 @@ const getImoveis = async (req, res) => {
     res.status(200).render('pages/imoveisPublicados', {
       publicados: publicados,
       desativados: desativados,
-      layout: 'painelControle',
       pageTitle: 'Imoveis - Painel De Controle'
     });
     console.log("IMOVEIS ENCONTRADOS")

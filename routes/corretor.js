@@ -25,9 +25,7 @@ router.use((req,res,next)=>{
     next()
 })
 
-router.get('/corretor/painelControle', (req, res) => {
-    res.render('pages/imoveisPublicados');
-});
+
 
 router.get('/corretor/calendario', (req, res) => {
     res.render('pages/calendario')
@@ -114,11 +112,15 @@ router.get('/corretor/solicitacoes', (req, res) => {
 
 
 
-router.get('/corretor/painelControle', imoveisController.getImoveis)
+router.get('/corretor/painelControle',imoveisController.getImoveis)
 
 router.get('/corretor/detalheSolicitacao/:id', soliController.getSolicitacao)
 
-router.get('/corretor/excluirImovel/:id', imoveisController.excluirImovel)
+router.get('/corretor/excluirImovel/:id',imoveisController.excluirImovel)
+
+router.get('/corretor/desativarImovel/:id',imoveisController.desativarImovel)
+
+router.get('/corretor/ativarImovel/:id',imoveisController.ativarImovel)
 
 router.get('/corretor/DesativarNoticia/:id', (req, res) => {
     //findOne where id:req.params.id

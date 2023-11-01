@@ -14,33 +14,31 @@ const getImoveis = async (req, res) => {
     });
     console.log("IMOVEIS ENCONTRADOS")
   } catch (error) {
-    console.log("nao encontProu: "+error)
+    console.log("nao encontProu: " + error)
     throw new Error(error);
   }
 };
 
 const getImoveisSelecionados = async (req, res) => {
   try {
-    
-    const filtroTipo = req.query.tipo;
-    const filtroQuartos = req.query.quartos;
-    const filtroValor = req.query.preco;
-    const filtroArea = req.query.area;
-    const imoveis = await Imoveis.findAll({
-      where: {
-        tipo_imovel: filtroTipo,
-        num_quartos: filtroQuartos,
-        valor: filtroValor,
-        area: filtroArea
-      }
+
+    const imoveis = await Imoveis.findAll();
+
+    const imoveisFiltrados = imoveis.filter(imovel => {
+      return (
+        imovel.tipo_imovel === req.query.tipo &&
+        imovel.num_quartos == req.query.quartos &&
+        imovel.valor <= req.query.preco &&
+        imovel.area <= req.query.area
+      );
     });
 
     res.status(200).render('pages/buscaAvancada', {
-      imoveis: imoveis
+      imoveis: imoveisFiltrados
     });
 
   } catch (error) {
-    console.log("Complicado!: "+error)
+    console.log("Complicado!: " + error);
     throw new Error(error);
   }
 };
@@ -70,16 +68,16 @@ const excluirImovel = async (req, res) => {
   }
 };
 
-const desativarImovel = async (req,res) => {
-  try{
+const desativarImovel = async (req, res) => {
+  try {
     const id = req.params.id;
     const Imovel = await Imoveis.findOne({
-      where:{
-        id:id
+      where: {
+        id: id
       }
     });
 
-    if(Imovel){
+    if (Imovel) {
       await Imovel.update({
         statusImovel: 'Desativado'
       })
@@ -90,22 +88,22 @@ const desativarImovel = async (req,res) => {
       res.status(404).send("Imóvel não encontrado");
     }
 
-  }  catch (error) {
-  req.flash('error_msg', 'Erro ao atualizar o status');
-  res.status(500).send("Erro ao atualizar o status");
-}
+  } catch (error) {
+    req.flash('error_msg', 'Erro ao atualizar o status');
+    res.status(500).send("Erro ao atualizar o status");
+  }
 }
 
-const ativarImovel = async (req,res) => {
-  try{
+const ativarImovel = async (req, res) => {
+  try {
     const id = req.params.id;
     const Imovel = await Imoveis.findOne({
-      where:{
-        id:id
+      where: {
+        id: id
       }
     });
 
-    if(Imovel){
+    if (Imovel) {
       await Imovel.update({
         statusImovel: 'Publicado'
       })
@@ -115,10 +113,10 @@ const ativarImovel = async (req,res) => {
       res.status(404).send("Imóvel não encontrado");
     }
 
-  }  catch (error) {
-  req.flash('error_msg', 'Erro ao atualizar o status');
-  res.status(500).send("Erro ao atualizar o status");
-}
+  } catch (error) {
+    req.flash('error_msg', 'Erro ao atualizar o status');
+    res.status(500).send("Erro ao atualizar o status");
+  }
 }
 
 

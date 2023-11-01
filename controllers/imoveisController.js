@@ -19,6 +19,32 @@ const getImoveis = async (req, res) => {
   }
 };
 
+const getImoveisSelecionados = async (req, res) => {
+  try {
+    
+    const filtroTipo = req.query.tipo;
+    const filtroQuartos = req.query.quartos;
+    const filtroValor = req.query.preco;
+    const filtroArea = req.query.area;
+    const imoveis = await Imoveis.findAll({
+      where: {
+        tipo_imovel: filtroTipo,
+        num_quartos: filtroQuartos,
+        valor: filtroValor,
+        area: filtroArea
+      }
+    });
+
+    res.status(200).render('pages/buscaAvancada', {
+      imoveis: imoveis
+    });
+
+  } catch (error) {
+    console.log("Complicado!: "+error)
+    throw new Error(error);
+  }
+};
+
 const excluirImovel = async (req, res) => {
   try {
     const id = req.params.id;
@@ -100,5 +126,6 @@ module.exports = {
   getImoveis,
   excluirImovel,
   desativarImovel,
-  ativarImovel
+  ativarImovel,
+  getImoveisSelecionados
 }

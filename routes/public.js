@@ -12,6 +12,7 @@ const Cliente = require('../models/Clientes')
 //CONTROLLERS
 const solicontrol = require('../controllers/solicitacoesController')
 const noticiasControl = require('../controllers/noticiasController')
+const imoveisController = require('../controllers/imoveisController')
 
 //MIDDLEWARE
 router.use((req, res, next) => {
@@ -61,7 +62,7 @@ router.post('/public/EnviarDuvida', async (req, res) => {
     }
 })
 
-router.get('/public/buscaAvancada', (req, res) => res.render('pages/buscaAvancada'));
+router.get('/public/buscaAvancada', imoveisController.getImoveisSelecionados);
 
 router.get('/public/publicarImovelCliente', (req, res) => res.render('pages/publicarImovelCliente'));
 

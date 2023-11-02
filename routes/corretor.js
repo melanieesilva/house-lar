@@ -25,9 +25,6 @@ router.use((req,res,next)=>{
     next()
 })
 
-// router.get('/corretor/painelControle', (req, res) => {
-//     res.render('pages/imoveisPublicados');
-// });
 
 router.get('/corretor/calendario', (req, res) => {
     res.render('pages/calendario')
@@ -109,12 +106,17 @@ router.get('/corretor/solicitacoes', (req, res) => {
     })
 })
 
+router.get('/corretor/publicarSolicitacao/:id',soliController.publicarSoli)
 
-router.get('/corretor/imoveisPublicados', imoveisController.getImoveis)
+router.get('/corretor/painelControle',imoveisController.getImoveis)
 
 router.get('/corretor/detalheSolicitacao/:id', soliController.getSolicitacao)
 
-router.get('/corretor/excluirImovel/:id', imoveisController.excluirImovel)
+router.get('/corretor/excluirImovel/:id',imoveisController.excluirImovel)
+
+router.get('/corretor/desativarImovel/:id',imoveisController.desativarImovel)
+
+router.get('/corretor/ativarImovel/:id',imoveisController.ativarImovel)
 
 router.get('/corretor/DesativarNoticia/:id', (req, res) => {
     //findOne where id:req.params.id
@@ -176,21 +178,10 @@ router.get('/corretor/mensagens', (req, res) => {
 
 router.get('/corretor/buscaMensagem/:id',msgController.getMensagem)
 
-/*(router.get('/corretor/viewMensagem', (req, res) => {
-    Duvidas.findAll().then((duvidas) => {
-        console.log(duvidas)
-        res.render('pages/Mensagens/viewmensagem', {
-            duvidas: duvidas
-        })
-    }).catch((error) => {
-        console.log(error)
-    })
-})*/
-
-router.get('/corretor/publicarImovelCorretor', (req, res) => {
-    res.render('pages/publicarImovelCorretor.handlebars')
+router.get('/corretor/publicarImovelCorretor', (req,res)=>{
+    res.render('pages/publicarImovelCorretor')
 })
 
-
+router.post('/corretor/cadastrarImovelCorretor',multer.uploadArray,imoveisController.cadastrarImovel)
 
 module.exports = router

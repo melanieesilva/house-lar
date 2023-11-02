@@ -44,6 +44,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
   });
+
+  const desativarBotoes = document.querySelectorAll('.desativar-imovel-button');
+
+  desativarBotoes.forEach(function (botao) {
+    botao.addEventListener('click', function (event) {
+      event.preventDefault();
+      const id = event.currentTarget.dataset.id;
+      // Redirecione para a rota de exclusão na controller
+      window.location.href = `/corretor/desativarImovel/${ id }`;
+
+    });
+  });
+
+  const ativarBotoes = document.querySelectorAll('.ativar-imovel-button');
+
+  ativarBotoes.forEach(function (botao) {
+    botao.addEventListener('click', function (event) {
+      event.preventDefault();
+      const id = event.currentTarget.dataset.id;
+      // Redirecione para a rota de exclusão na controller
+      window.location.href = `/corretor/ativarImovel/${id}`;
+
+    });
+  });
 });
 //     botaorosio.addEventListener("click", function () {
 //       botaoCinza.classList.remove("ativo");

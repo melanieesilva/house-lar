@@ -2,7 +2,7 @@
 
 <main>
 
-<section id="topo">
+    <section id="topo">
         <div class="botoes-topo">
             <button class="botao-estilo botao-esquerdo grupo1" onclick="ler('botao-esquerdo')">
                 Filtre por data
@@ -75,120 +75,45 @@
             </div>
         </section>
 
-        <section id="imoveis">
-            <div class="info-movel">
-                <img src="../../img/img-imovel-busca-avanc.jpeg" alt="" id="imagem-venda">
-                <div class="teto" id="info-direita">
-                    <div id="imovel-meio">
-                        <h3>Apartamento</h3>
-                        <h4 class="escrita-imovel">Vitória - Salvador</h4>
-                        <h5 class="escrita-imovel escrita-cinza">COD: 789654</h5>
-                        <div id="detalhe-imovel" class="escrita-imovel">
-                            <div class="mini-info">
-                                <iconify-icon icon="cil:room" class="icone"></iconify-icon>
-                                <h6 class="escrita-cinza">14 salas</h6>
-                            </div>
-                            <div class="mini-info">
-                                <iconify-icon icon="iconoir:bathroom" class="icone"></iconify-icon>
-                                <h6 class="escrita-cinza">8 ban.</h6>
-                            </div>
-                            <div class="mini-info">
-                                <iconify-icon icon="majesticons:car-line" class="icone"></iconify-icon>
-                                <h6 class="escrita-cinza">12 vagas</h6>
-                            </div>
-                            <div class="mini-info">
-                                <iconify-icon icon="iconoir:ruler" class="icone"></iconify-icon>
-                                <h6 class="escrita-cinza">108m²</h6>
-                            </div>
+
+        <div class="info-movel">
+            {{#each imoveis}}
+            <img src="../../img/img-imovel-busca-avanc.jpeg" alt="" id="imagem-venda">
+            <div class="teto" id="info-direita">
+                <div id="imovel-meio">
+                    <h3>{{dataValues.tipo_imovel}}</h3>
+                    <h4 class="escrita-imovel">{{dataValues.bairro}} - {{dataValues.cidade}}</h4>
+                    <h5 class="escrita-imovel escrita-cinza">COD: 789654</h5>
+                    <div id="detalhe-imovel" class="escrita-imovel">
+                        <div class="mini-info">
+                            <iconify-icon icon="cil:room" class="icone"></iconify-icon>
+                            <h6 class="escrita-cinza">{{dataValues.num_quartos}} salas</h6>
+                        </div>
+                        <div class="mini-info">
+                            <iconify-icon icon="iconoir:bathroom" class="icone"></iconify-icon>
+                            <h6 class="escrita-cinza">{{dataValues.num_banheiros}} ban.</h6>
+                        </div>
+                        <div class="mini-info">
+                            <iconify-icon icon="majesticons:car-line" class="icone"></iconify-icon>
+                            <h6 class="escrita-cinza">{{dataValues.num_vagas}} vagas</h6>
+                        </div>
+                        <div class="mini-info">
+                            <iconify-icon icon="iconoir:ruler" class="icone"></iconify-icon>
+                            <h6 class="escrita-cinza">{{dataValues.area}}m²</h6>
                         </div>
                     </div>
-                    <div class="teto" id="venda-imovel">
-                        <button id="botao-venda">
-                            Venda
-                        </button>
-                        <h3 id="valor">
-                            R$200.000
-                        </h3>
-                    </div>
+                </div>
+                <div class="teto" id="venda-imovel">
+                    <button id="botao-venda">
+                        {{dataValues.operacao}}
+                    </button>
+                    <h3 id="valor">
+                        R${{dataValues.valor}}
+                    </h3>
                 </div>
             </div>
-
-            <div class="info-movel">
-                <img src="./../img/img-imovel-busca-avanc.jpeg" alt="" id="imagem-venda">
-                <div class="teto" id="info-direita">
-                    <div id="imovel-meio">
-                        <h3>Apartamento</h3>
-                        <h4 class="escrita-imovel">Vitória - Salvador</h4>
-                        <h5 class="escrita-imovel escrita-cinza">COD: 789654</h5>
-                        <div id="detalhe-imovel" class="escrita-imovel">
-                            <div class="mini-info">
-                                <iconify-icon icon="cil:room" class="icone"></iconify-icon>
-                                <h6 class="escrita-cinza">14 salas</h6>
-                            </div>
-                            <div class="mini-info">
-                                <iconify-icon icon="iconoir:bathroom" class="icone"></iconify-icon>
-                                <h6 class="escrita-cinza">8 ban.</h6>
-                            </div>
-                            <div class="mini-info">
-                                <iconify-icon icon="majesticons:car-line" class="icone"></iconify-icon>
-                                <h6 class="escrita-cinza">12 vagas</h6>
-                            </div>
-                            <div class="mini-info">
-                                <iconify-icon icon="iconoir:ruler" class="icone"></iconify-icon>
-                                <h6 class="escrita-cinza">108m²</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="teto" id="venda-imovel">
-                        <button id="botao-venda">
-                            Venda
-                        </button>
-                        <h3 id="valor">
-                            R$200.000
-                        </h3>
-                    </div>
-                </div>
-            </div>
-
-            <div class="info-movel">
-                <img src="./../img/img-imovel-busca-avanc.jpeg" alt="" id="imagem-venda">
-                <div class="teto" id="info-direita">
-                    <div id="imovel-meio">
-                        <h3>Apartamento</h3>
-                        <h4 class="escrita-imovel">Vitória - Salvador</h4>
-                        <h5 class="escrita-imovel escrita-cinza">COD: 789654</h5>
-                        <div id="detalhe-imovel" class="escrita-imovel">
-                            <div class="mini-info">
-                                <iconify-icon icon="cil:room" class="icone"></iconify-icon>
-                                <h6 class="escrita-cinza">14 salas</h6>
-                            </div>
-                            <div class="mini-info">
-                                <iconify-icon icon="iconoir:bathroom" class="icone"></iconify-icon>
-                                <h6 class="escrita-cinza">8 ban.</h6>
-                            </div>
-                            <div class="mini-info">
-                                <iconify-icon icon="majesticons:car-line" class="icone"></iconify-icon>
-                                <h6 class="escrita-cinza">12 vagas</h6>
-                            </div>
-                            <div class="mini-info">
-                                <iconify-icon icon="iconoir:ruler" class="icone"></iconify-icon>
-                                <h6 class="escrita-cinza">108m²</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="teto" id="venda-imovel">
-                        <button id="botao-venda">
-                            Venda
-                        </button>
-                        <h3 id="valor">
-                            R$200.000
-                        </h3>
-                    </div>
-                </div>
-            </div>
-
-            
-        </section>
+            {{/each}}
+        </div>
     </section>
 </main>
 <script src="../../js/buscaAvancada.js"></script>

@@ -156,6 +156,30 @@ const getImoveis = async (req, res) => {
   }
 };
 
+const getImoveisSelecionados = async (req, res) => {
+  try {
+
+    const imoveis = await Imoveis.findAll();
+
+    const imoveisFiltrados = imoveis.filter(imovel => {
+      return (
+        imovel.tipo_imovel === req.query.tipo &&
+        imovel.num_quartos == req.query.quartos &&
+        imovel.valor <= req.query.preco &&
+        imovel.area <= req.query.area
+      );
+    });
+
+    res.status(200).render('pages/buscaAvancada', {
+      imoveis: imoveisFiltrados
+    });
+
+  } catch (error) {
+    console.log("Complicado!: " + error);
+    throw new Error(error);
+  }
+};
+
 const excluirImovel = async (req, res) => {
   try {
     const id = req.params.id;
@@ -245,5 +269,6 @@ module.exports = {
   excluirImovel,
   desativarImovel,
   ativarImovel,
-  cadastrarImovel
+  cadastrarImovel,
+  getImoveisSelecionados
 }

@@ -1,19 +1,157 @@
 const Imoveis = require('../models/Imoveis')
+const Imagem_Imovel = require('../models/Imagens_Imovel');
+const db = require('../Database/Connection')
+
+
+async function cadImagensImovel(idImovel, nomeImagem, pathImagem) {
+
+  try {
+    const imagemCriada = await Imagem_Imovel.findOne({
+      where: {
+        idImovel_FK: idImovel,
+        nome_imagem: nomeImagem,
+        path_imagem: pathImagem
+      }
+    });
+
+    if (imagemCriada) {
+      console.log("Registro já existe e não foi adicionado.")
+    } else {
+      const imagem_imovel = await Imagem_Imovel.create({
+        idImovel_FK: idImovel,
+        nome_imagem: nomeImagem,
+        path_imagem: pathImagem
+      }).then(() => { console.log("Imagem criada com sucesso!") }).catch((erro) => {
+        console.log("Não foi possível cadastrar a imagem, veja o erro: " + erro)
+      })
+      return imagem_imovel;
+    }
+
+  } catch (error) {
+    throw new Error('Não foi possível cadastrar imagem.')
+  }
+}
+
+const cadastrarImovel = async (req, res) => {
+  try {
+    const {
+      nomeProp,
+      email,
+      cpf,
+      telefone,
+      operacao,
+      tipoImovel,
+      numQuartos,
+      numBanheiros,
+      numVagas,
+      tamArea,
+      construcaoImovel,
+      condominioImovel,
+      andaresImovel,
+      dataEntrega,
+      valorImovel,
+      valorCondominio,
+      valorIPTU,
+      parcelaIPTU,
+      cidade,
+      bairro,
+      endereco,
+      numero,
+      descricao,
+    } = req.body
+    const indexImagemRemovida = req.body.indexImagemRemovida
+    const imagensEnviadas = req.files;
+    let imagensSelecionadas;
+    var imagensFinais;
+
+    console.log(indexImagemRemovida)
+    if (indexImagemRemovida === undefined) {
+      console.log("index undefined")
+      imagensFinais = imagensEnviadas
+    } else {
+      let indexesRemovidos = indexImagemRemovida.split(',').map(index => parseInt(index, 10));
+      imagensSelecionadas = imagensEnviadas.filter((file, index) => {
+        return !indexesRemovidos.includes(index);
+      });
+      imagensFinais = imagensSelecionadas
+    }
+    const imoveis = await Imoveis.create({
+      statusImovel: "Publicado",
+      tipo_imovel: tipoImovel,
+      operacao: operacao,
+      descricao: descricao,
+      num_quartos: numQuartos,
+      num_banheiros: numBanheiros,
+      num_vagas: numVagas,
+      area: tamArea,
+      valor_imovel: valorImovel,
+      valor_condominio: valorCondominio,
+      valor_iptu: valorIPTU,
+      parcelas_iptu: parcelaIPTU,
+      construcao: construcaoImovel,
+      num_andares: andaresImovel,
+      data_entrega: dataEntrega,
+      em_condominio: condominioImovel,
+      cidade: cidade,
+      bairro: bairro,
+      endereco: endereco,
+      numero: numero,
+      nome_prop: nomeProp,
+      email_prop: email,
+      telefone_prop: telefone,
+      cpf_prop: cpf
+    }).then((imovel) => {
+
+      for (const img of imagensFinais) {
+        cadImagensImovel(imovel.id, img.filename, img.path).then(()=>{
+          req.flash("success_msg","Imóvel publicado com sucesso!")
+          res.redirect('/corretor/painelControle')
+        }).catch((error)=>{
+          console.log("Não foi possível cadastrar as imagens: "+error)
+        })
+      }
+
+      console.log("Imóvel publicado!")
+    }).catch((erro) => {
+      console.log("ERRO: " + erro)
+      req.flash("error_msg","Não foi possível cadastrar a solicitação!")
+      res.redirect('/corretor/painelControle')
+    })
+
+  } catch (error) {
+    console.log("Não foi possível efetuar o comando", error)
+  }
+}
 
 const getImoveis = async (req, res) => {
   try {
     const imoveis = await Imoveis.findAll();
+    const totalPublicados = await Imoveis.count({
+      where: {
+        statusImovel: "Publicado"
+      }
+    })
+    const totalDesativados = await Imoveis.count({
+      where:{
+        statusImovel:"Desativado"
+      }
+    })
+
     const publicados = imoveis.filter(imovel => imovel.statusImovel === 'Publicado');
     const desativados = imoveis.filter(imovel => imovel.statusImovel === 'Desativado');
 
+    // console.log(imoveis)
+
     res.status(200).render('pages/imoveisPublicados', {
       publicados: publicados,
+      totalPublicados: totalPublicados,
       desativados: desativados,
+      totalDesativados: totalDesativados,
       pageTitle: 'Imoveis - Painel De Controle'
     });
     console.log("IMOVEIS ENCONTRADOS")
   } catch (error) {
-    console.log("nao encontProu: "+error)
+    console.log("nao encontProu: " + error)
     throw new Error(error);
   }
 };
@@ -26,33 +164,40 @@ const excluirImovel = async (req, res) => {
         id: id
       }
     });
+    
 
     if (Imovel) {
-      // Excluir o imóvel do banco de dados
-      await Imovel.destroy();
-      req.flash('success_msg', 'Imóvel excluído com sucesso');
-      // Redirecionar de volta para a página de lista de imóveis ou uma rota apropriada
-      res.redirect('/corretor/painelControle');
+      await Imagem_Imovel.destroy({
+        where:{
+          idImovel_FK:Imovel.id
+        }
+      }).then(()=>{
+        console.log("As imagens foram excluídas.")
+          Imovel.destroy().then(()=>{
+            req.flash('success_msg', 'Imóvel excluído com sucesso');
+            res.redirect('/corretor/painelControle');
+          });
+      })
     } else {
       req.flash('error_msg', `Imóvel com ID ${id} não encontrado.`);
       res.status(404).send("Imóvel não encontrado");
     }
   } catch (error) {
     req.flash('error_msg', 'Erro ao excluir imóvel');
-    res.status(500).send("Erro ao excluir imóvel");
+    res.status(500).send("Erro ao excluir imóvel: "+error);
   }
 };
 
-const desativarImovel = async (req,res) => {
-  try{
+const desativarImovel = async (req, res) => {
+  try {
     const id = req.params.id;
     const Imovel = await Imoveis.findOne({
-      where:{
-        id:id
+      where: {
+        id: id
       }
     });
 
-    if(Imovel){
+    if (Imovel) {
       await Imovel.update({
         statusImovel: 'Desativado'
       })
@@ -63,22 +208,22 @@ const desativarImovel = async (req,res) => {
       res.status(404).send("Imóvel não encontrado");
     }
 
-  }  catch (error) {
-  req.flash('error_msg', 'Erro ao atualizar o status');
-  res.status(500).send("Erro ao atualizar o status");
-}
+  } catch (error) {
+    req.flash('error_msg', 'Erro ao atualizar o status');
+    res.status(500).send("Erro ao atualizar o status");
+  }
 }
 
-const ativarImovel = async (req,res) => {
-  try{
+const ativarImovel = async (req, res) => {
+  try {
     const id = req.params.id;
     const Imovel = await Imoveis.findOne({
-      where:{
-        id:id
+      where: {
+        id: id
       }
     });
 
-    if(Imovel){
+    if (Imovel) {
       await Imovel.update({
         statusImovel: 'Publicado'
       })
@@ -88,10 +233,10 @@ const ativarImovel = async (req,res) => {
       res.status(404).send("Imóvel não encontrado");
     }
 
-  }  catch (error) {
-  req.flash('error_msg', 'Erro ao atualizar o status');
-  res.status(500).send("Erro ao atualizar o status");
-}
+  } catch (error) {
+    req.flash('error_msg', 'Erro ao atualizar o status');
+    res.status(500).send("Erro ao atualizar o status");
+  }
 }
 
 
@@ -99,5 +244,6 @@ module.exports = {
   getImoveis,
   excluirImovel,
   desativarImovel,
-  ativarImovel
+  ativarImovel,
+  cadastrarImovel
 }

@@ -2,116 +2,649 @@
 
 <section class="main">
 
-    <section class="publicacao">
-        <div class="legenda">
-            <p>Publique seu imóvel</p>
-            <div class="legenda-etapa">
-                <iconify-icon icon="carbon:person"></iconify-icon>
-                Informações pessoais
-            </div>
-            <p>Preencha seus dados pessoais para publicar um imóvel conosco. Essas informações serão utilizadas para
-                identificar você, proprietário,
-                e garantir a segurança de nossos clientes.
-            </p>
-        </div>
-        <div class="formulario">
-            <form action="">
-                <div class="nome">
-                    <label for="nome-usuario">Nome Completo</label>
-                    <input type="text" placeholder="Digite seu nome...">
-                </div>
-                <div class="email">
-                    <label for="email-usuario">E-mail</label>
-                    <input type="email" placeholder="Digite seu e-mail...">
-                </div>
-                <div class="cpf">
-                    <label for="cpf-usuario">CPF</label>
-                    <input type="text" placeholder="Digite seu CPF...">
-                </div>
-                <div class="telefone">
-                    <label for="telefone-usuario">Telefone</label>
-                    <input type="text" placeholder="Digite seu telefone...">
-                </div>
-            </form>
-        </div>
+    <form action="/corretor/cadastrarImovelCorretor" method="post" enctype="multipart/form-data">
 
-        <div class="botoes">
-            <button onclick="window.location.href='/publiImovelCorretor2';">
-                Continuar
-            </button>
+        <section class="publicacao-form" id="form1">
+            <div class="legenda">
+                <p>Publique seu imóvel</p>
+                <div class="title">
+                    <iconify-icon icon="carbon:person"></iconify-icon>
+                    Informações Pessoais
+                </div>
+                <p>Preencha seus dados pessoais para publicar um imóvel conosco.
+                    Essas informações serão utilizadas para identificar você, proprietário, e garantir a segurança de
+                    nossos clientes.</p>
+            </div>
+            <div class="form">
+                <div class="inputs-row">
+                    <div class="input">
+                        <label for="nomeUser">Nome Completo</label>
+                        <input type="text" name="nomeProp" id="nomeUser" placeholder="Digite seu nome...">
+                    </div>
+                    <div class="input">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" id="email" placeholder="Digite seu e-mail...">
+                    </div>
+                </div>
+                <div class="inputs-row">
+                    <div class="input">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF...">
+                    </div>
+                    <div class="input">
+                        <label for="telefone">Telefone</label>
+                        <input type="text" id="telefone" name="telefone" maxlength="15"
+                            placeholder="Digite seu telefone...">
+                    </div>
+                </div>
+
+            </div>
+            <div class="buttons">
+                <div class="container-btn">
+                    <a class="btnNext" id="btnNext" onclick="displayForm(2)">
+                        Continuar
+                        <iconify-icon icon="ep:arrow-right"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="publicacao-form" id="form2">
+            <div class="legenda">
+                <p>Publique seu imóvel</p>
+                <div class="title">
+                    <iconify-icon icon="icon-park:setting-config"></iconify-icon>
+                    Operação
+                </div>
+                <p>Qual tipo de operação você tem interesse?</p>
+            </div>
+            <div class="form">
+                <div class="inputs-op">
+                    <input type="radio" id="operation" name="operacao" value="Venda" hidden>
+                    <label for="operation" class="labelRadioop" id="labelRadio">Vender meu imóvel</label>
+                </div>
+                <div class="inputs-op">
+                    <input type="radio" id="operation2" name="operacao" value="Aluguel" hidden>
+                    <label for="operation2" class="labelRadioop" id="labelRadio">Alugar meu imóvel</label>
+                </div>
+
+            </div>
+            <div class="buttons">
+                <div class="container-btn">
+                    <a class="btnBefore" id="btnBefore" onclick="displayForm(1)">
+                        <iconify-icon icon="ep:arrow-left"></iconify-icon>
+                        Voltar
+                    </a>
+                </div>
+                <div class="container-btn">
+                    <a class="btnNext" id="btnNext" onclick="displayForm(3)">
+                        Continuar
+                        <iconify-icon icon="ep:arrow-right"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="publicacao-form" id="form3">
+            <div class="legenda">
+                <p>Publique seu imóvel</p>
+                <div class="title">
+                    <iconify-icon icon="ph:house-light"></iconify-icon>
+                    Tipo do imóvel
+                </div>
+                <p>Qual o tipo do imóvel que será publicado?</p>
+            </div>
+            <div class="form">
+                <div class="options-form-tipo">
+                    <input type="radio" name="tipoImovel" value="Casa" class="tipoImovelClass" id="tipoCasa" hidden>
+                    <label for="tipoCasa" class="labelRadio tipo">
+                        <iconify-icon icon="ph:house-light"></iconify-icon>
+                        Casa
+                    </label>
+                    <input type="radio" name="tipoImovel" value="Apartamento" class="tipoImovelClass"
+                        id="tipoApartamento" hidden>
+                    <label for="tipoApartamento" class="labelRadio tipo">
+                        <iconify-icon icon="heroicons:building-office"></iconify-icon>
+                        Apartamento
+                    </label>
+                    <input type="radio" name="tipoImovel" value="Lote" class="tipoImovelClass" id="tipoLote" hidden>
+                    <label for="tipoLote" class="labelRadio tipo">
+                        <iconify-icon icon="mingcute:background-line"></iconify-icon>
+                        Lote
+                    </label>
+                    <input type="radio" name="tipoImovel" class="tipoImovelClass" value="Kitnet/Studio"
+                        id="tipoKitStudio" hidden>
+                    <label for="tipoKitStudio" class="labelRadio tipo">
+                        <iconify-icon icon="heroicons:building-office"></iconify-icon>
+                        Kitinet/Studio
+                    </label>
+                    <input type="radio" name="tipoImovel" class="tipoImovelClass" value="Sala Comercial"
+                        id="tipoSalaComercial" hidden>
+                    <label for="tipoSalaComercial" class="labelRadio tipo">
+                        <iconify-icon icon="heroicons:building-office"></iconify-icon>
+                        Sala comercial
+                    </label>
+                </div>
+            </div>
+            <div class="buttons">
+                <div class="container-btn">
+                    <a class="btnBefore" id="btnBefore" onclick="displayForm(2)">
+                        <iconify-icon icon="ep:arrow-left"></iconify-icon>
+                        Voltar
+                    </a>
+                </div>
+                <div class="container-btn">
+                    <a class="btnNext" id="btnNext" onclick="displayForm(4)">
+                        Continuar
+                        <iconify-icon icon="ep:arrow-right"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="publicacao-form" id="form4">
+            <div class="legenda">
+                <p>Publique seu imóvel</p>
+                <div class="title">
+                    <iconify-icon icon="gg:details-more"></iconify-icon>
+                    Características básicas
+                </div>
+                <p>Informe as características básicas do seu imóvel</p>
+            </div>
+            <div class="form">
+                <div class="container-inputs">
+                    <div class="area-input">
+                        <div class="header-input">
+                            <iconify-icon icon="mdi:bed-outline"></iconify-icon>
+                            <label for="numQuartos">Quartos</label>
+                        </div>
+                        <input id="numQuartos" type="text" name="numQuartos" placeholder="Insira...">
+                    </div>
+                    <div class="area-input">
+                        <div class="header-input">
+                            <iconify-icon icon="iconoir:bathroom"></iconify-icon>
+                            <label for="numBanheiros">Banheiros</label>
+                        </div>
+                        <input id="numBanheiros" type="text" name="numBanheiros" placeholder="Insira...">
+                    </div>
+                    <div class="area-input">
+                        <div class="header-input">
+                            <iconify-icon icon="majesticons:car-line"></iconify-icon>
+                            <label for="numVagas">Vagas</label>
+                        </div>
+                        <input id="numVagas" type="text" name="numVagas" placeholder="Insira...">
+                    </div>
+                    <div class="area-input">
+                        <div class="header-input">
+                            <iconify-icon icon="iconoir:ruler"></iconify-icon>
+                            <label for="tamArea">Área</label>
+                        </div>
+                        <input id="tamArea" type="text" name="tamArea" placeholder="Insira...">
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div class="buttons">
+                <div class="container-btn">
+                    <a class="btnBefore" id="btnBefore" onclick="displayForm(3)">
+                        <iconify-icon icon="ep:arrow-left"></iconify-icon>
+                        Voltar
+                    </a>
+                </div>
+                <div class="container-btn">
+                    <a class="btnNext" id="btnNext" onclick="displayForm(5)">
+                        Continuar
+                        <iconify-icon icon="ep:arrow-right"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="publicacao-form" id="form5">
+            <div class="legenda">
+                <p>Publique seu imóvel</p>
+                <div class="title">
+                    <iconify-icon icon="tabler:list-details"></iconify-icon>
+                    Detalhes Imóvel
+                </div>
+                <p>Forneça mais detalhes sobre o imóvel</p>
+            </div>
+            <div class="form">
+                <div class="container-selects">
+                    <div class="select">
+                        <p>O imóvel está em construção?</p>
+                        <select name="construcaoImovel" id="construcaoImovel">
+                            <option value="Sim">Sim</option>
+                            <option value="Não">Não</option>
+                        </select>
+                    </div>
+                    <div class="select">
+                        <p>O imóvel faz parte de um condomínio?</p>
+                        <select name="condominioImovel" id="condominioImovel">
+                            <option value="Sim">Sim</option>
+                            <option value="Não">Não</option>
+                        </select>
+                    </div>
+                    <div class="select">
+                        <p>Quantos andares possui o imóvel/prédio?</p>
+                        <input type="text" name="andaresImovel" id="andaresImovel" placeholder="Insira aqui...">
+                    </div>
+                    <div class="select">
+                        <p>Qual é/foi a data de entrega do imóvel?</p>
+                        <input type="date" name="dataEntrega" id="dataEntrega">
+
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <div class="container-btn">
+                    <a class="btnBefore" id="btnBefore" onclick="displayForm(4)">
+                        <iconify-icon icon="ep:arrow-left"></iconify-icon>
+                        Voltar
+                    </a>
+                </div>
+                <div class="container-btn">
+                    <a class="btnNext" id="btnNext" onclick="displayForm(6)">
+                        Continuar
+                        <iconify-icon icon="ep:arrow-right"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="publicacao-form" id="form6">
+            <div class="legenda">
+                <p>Publique seu imóvel</p>
+                <div class="title">
+                    <iconify-icon icon="uil:dollar-sign"></iconify-icon>
+                    Valores
+                </div>
+                <p>Informe os valores que envolve seu imóvel</p>
+            </div>
+            <div class="form">
+                <div class="container-selects">
+                    <div class="select">
+                        <p id="labelValorImovel">Valor de venda (R$)</p>
+                        <input type="text" name="valorImovel" id="valorImovel" placeholder="Insira aqui...">
+                    </div>
+                    <div class="select">
+                        <p>Condomínio (R$)</p>
+                        <input type="text" name="valorCondominio" id="valorCondominio" placeholder="Insira aqui...">
+                    </div>
+                    <div class="select">
+                        <p>Valor do IPTU (R$)</p>
+                        <input type="text" name="valorIPTU" id="valorIPTU" placeholder="Insira aqui...">
+                    </div>
+                    <div class="select">
+                        <p>Parcela do IPTU</p>
+                        <select name="parcelaIPTU" id="selectParcelasIPTU">
+                            <option value="1">1X</option>
+                            <option value="2">2X</option>
+                            <option value="3">3X</option>
+                            <option value="4">4X</option>
+                            <option value="5">5X</option>
+                            <option value="6">6X</option>
+                            <option value="7">7X</option>
+                            <option value="8">8X</option>
+                            <option value="9">9X</option>
+                            <option value="10">10X</option>
+                            <option value="11">11X</option>
+                            <option value="12">12X</option>
+                        </select>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="buttons">
+                <div class="container-btn">
+                    <a class="btnBefore" id="btnBefore" onclick="displayForm(5)">
+                        <iconify-icon icon="ep:arrow-left"></iconify-icon>
+                        Voltar
+                    </a>
+                </div>
+                <div class="container-btn">
+                    <a class="btnNext" id="btnNext" onclick="displayForm(7)">
+                        Continuar
+                        <iconify-icon icon="ep:arrow-right"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="publicacao-form" id="form7">
+            <div class="legenda">
+                <p>Publique seu imóvel</p>
+                <div class="title">
+                    <iconify-icon icon="icon-park-outline:local-two"></iconify-icon>
+                    Localização
+                </div>
+                <p>Informe a localização do seu imóvel</p>
+            </div>
+            <div class="form">
+                <div class="container-inputs-form">
+                    <div class="inputs-form">
+                        <div class="input-form">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" name="cidade" id="cidade" placeholder="Digite sua cidade...">
+                        </div>
+                        <div class="input-form">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" name="bairro" id="bairro" placeholder="Digite seu bairro...">
+                        </div>
+                    </div>
+                    <div class="inputs-form">
+                        <div class="input-form i3">
+                            <label for="endereco">Endereço</label>
+                            <input type="text" name="endereco" id="endereco" placeholder="Digite seu endereço...">
+                        </div>
+                        <div class="input-form i4">
+                            <label for="numero">Número</label>
+                            <input type="text" name="numero" id="numero" placeholder="Ex.: 30">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="buttons">
+                <div class="container-btn">
+                    <a class="btnBefore" id="btnBefore" onclick="displayForm(6)">
+                        <iconify-icon icon="ep:arrow-left"></iconify-icon>
+                        Voltar
+                    </a>
+                </div>
+                <div class="container-btn">
+                    <a class="btnNext" id="btnNext" onclick="displayForm(8)">
+                        Continuar
+                        <iconify-icon icon="ep:arrow-right"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="publicacao-form" id="form8">
+            <div class="legenda">
+                <p>Publique seu imóvel</p>
+                <div class="title">
+                    <iconify-icon icon="gg:details-more"></iconify-icon>
+                    Imagens
+                </div>
+                <p>Faça upload das suas imagens aqui</p>
+            </div>
+            <div class="form">
+                <div class="btn-upload">
+                    <p>Selecione um arquivo do seu computador...</p>
+                    <div class="container-btn-file">
+                        <input type="file" id="inputFile" name="images" accept="image/*" multiple>
+                        <label for="inputFile" class="labelFile" id="labelInput">
+                            <iconify-icon icon="material-symbols:upload"></iconify-icon>
+                            Escolher arquivo
+                        </label>
+                    </div>
+                </div>
+                <div class="container-img" id="containerImg">
+                    {{!-- <div class="imgpreview" id="imgPreview">aa</div> --}}
+                </div>
+            </div>
+            <div class="buttons">
+                <div class="container-btn">
+                    <a class="btnBefore" id="btnBefore" onclick="displayForm(7)">
+                        <iconify-icon icon="ep:arrow-left"></iconify-icon>
+                        Voltar
+                    </a>
+                </div>
+                <div class="container-btn">
+                    <a class="btnNext" id="btnNext" onclick="openPreView()">
+                        Continuar
+                        <iconify-icon icon="ep:arrow-right"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="preVisualizacao" id="preVisualizacao">
+            <div class="contentView" id="contentView">
+                <div class="header-content">
+                    <p>Publique seu imóvel</p>
+                    <div class="btns-header">
+                        <a id="btnCancelar">
+                            Cancelar
+                        </a>
+                        <button type="submit"  id="btnPublicar">
+                            Publicar
+                        </button>
+                    </div>
+
+                </div>
+                <div class="container-select-imgs" id="containerSelectImgs">
+                    <div class="containerImgs" id="containerImgs">
+
+                    </div>
+
+                    <div class="btnsSlideImgs">
+                        <a id="before" onclick="addSlide(-1)">
+                            <iconify-icon icon="ep:arrow-left"></iconify-icon>
+                        </a>
+                        <a id="after" onclick="addSlide(1)">
+                            <iconify-icon icon="ep:arrow-right"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+                <div class="content-preview">
+                    <div class="description">
+                        <div class="header-description">
+                            <div class="opPreview" id="operacaoPreview">
+                                Venda
+                            </div>
+                        </div>
+                        <h1 id="tipoImovelPreview">Apartamento</h1>
+
+                        <div class="describe-endereco">
+                            <div class="title-endereco">
+                                <iconify-icon icon="icon-park-outline:local-two"></iconify-icon>
+                                Localização
+                            </div>
+                            <p id="enderecoPreview">Rua dos Sargentos, 32, Vitória, Salvador</p>
+                        </div>
+                        <div class="descricaoPreview">
+                            <label for="descricaoPreview">Descrição</label>
+                            <textarea name="descricao" id="descricaoPreview" cols="30" rows="10"
+                                placeholder="Insira a descrição do seu imóvel..." required></textarea>
+                        </div>
+                        <div class="carac-basic">
+                            <div class="group-carac">
+                                <div class="header-carac">
+                                    <iconify-icon icon="mdi:bed-outline"></iconify-icon>
+                                    Quartos
+                                </div>
+                                <p id="numQuartosPreview">14</p>
+                            </div>
+                            <div class="group-carac">
+                                <div class="header-carac">
+                                    <iconify-icon icon="iconoir:bathroom"></iconify-icon>
+                                    Banheiros
+                                </div>
+                                <p id="numBanheirosPreview">8</p>
+                            </div>
+                            <div class="group-carac">
+                                <div class="header-carac">
+                                    <iconify-icon icon="majesticons:car-line"></iconify-icon>
+                                    Vagas
+                                </div>
+                                <p id="numVagasPreview">4</p>
+                            </div>
+                            <div class="group-carac">
+                                <div class="header-carac">
+                                    <iconify-icon icon="iconoir:ruler"></iconify-icon>
+                                    Área do imóvel
+                                </div>
+                                <p id="tamAreaPreview">108m²</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="side-bar">
+                        <div class="header-side">
+                            <p id="titleValImovel">Valor do Imóvel</p>
+                            <p>R$<span id="valImovel">200.000</span></p>
+                        </div>
+                        <div class="grid-side">
+                            <div class="item-grid">
+                                Condomínio
+                                <p id="valCondo">R$600,00</p>
+                            </div>
+                            <div class="item-grid">
+                                IPTU
+                                <div class="valoriptucampo">
+                                    <p id="valIPTU"></p>
+                                    <span id="numeroParcela">(12X)</span>
+                                </div>
+                            </div>
+                            <div class="item-grid">
+                                Em construção
+                                <p id="emConstru">Não</p>
+                            </div>
+                            <div class="item-grid">
+                                Data de entrega
+                                <p id="dataEntregaPreview">02/08/2019</p>
+                            </div>
+                            <div class="item-grid">
+                                Nº Andares
+                                <p id="numAndares">11</p>
+                            </div>
+                            <div class="item-grid">
+                                Condomínio
+                                <p id="emCondo">Sim</p>
+                            </div>
+                        </div>
+                        <div class="btns-side">
+                            <a class="tira-duvida">
+                                <iconify-icon icon="majesticons:chat-line"></iconify-icon>
+                                Tirar uma dúvida
+                            </a>
+                            <a class="agendar-visita">
+                                <iconify-icon icon="lucide:calendar"></iconify-icon>
+                                Agendar visita
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{!-- <div class="modaldecisao" id="modaldecisao">
+            <div class="contentdecisao" id="contentdecisao">
+                <div class="contenttext">
+                    <p>Tem certeza?</p>
+                    <p>Confirme todas as informações do seu imóvel antes de solicitar
+                        a publicação. Você não poderá cancelar depois, ainda que
+                        possa ter seu pedido rejeitado.
+                    </p>
+                </div>
+                <div class="decisoes">
+                    <a id="btnCancelDecisao">Não, cancelar</a>
+                    <button id="btnPublicar" type="submit">
+                        Sim, tenho certeza
+                    </button>
+                </div>
+            </div>
+        </div> --}}
+
+    </form>
+    {{!-- <div class="modaldecisao" id="modaldecisao">
+        <div class="contentdecisao" id="contentdecisao">
+            <div class="contenttext">
+                <p>Tem certeza?</p>
+                <p>Confirme todas as informações do seu imóvel antes de solicitar
+                    a publicação. Você não poderá cancelar depois, ainda que
+                    possa ter seu pedido rejeitado.
+                </p>
+            </div>
+            <div class="decisoes">
+                <a id="btnCancelDecisao">Não, cancelar</a>
+                <button id="btnPublicar" type="submit" onclick="flashConfirmar()">
+                    Sim, tenho certeza
+                </button>
+            </div>
         </div>
-    </section>
+    </div> --}}
+
+    <div class="modalenviada" id="modalenviada">
+        <div class="contentenviada" id="contentenviada">
+            <div id="icone">
+                <iconify-icon id="iconeconfirm" icon="line-md:circle-to-confirm-circle-transition"></iconify-icon>
+            </div>
+            <div class="envtext">
+                <h4>Sua solicitação foi enviada!</h4>
+                <p>Enviamos o seu pedido de publicação ao corretor responsável. Em breve você receberá um retorno sobre
+                    a
+                    solicitação. Agradecemos a preferência!
+                </p>
+            </div>
+            <div class="botaoinicio">
+                <a id="btnVoltarInicio" href="/">Voltar à Página Inicial</a>
+            </div>
+        </div>
+    </div>
+
+    </form>
+
     <section class="etapas">
         <div class="etapa" id="etapa1">
-            <div class="icon">
-                <iconify-icon icon="octicon:check-16"></iconify-icon>
-            </div>
+
+            <iconify-icon icon="octicon:check-16"></iconify-icon>
+
             Informações pessoais
         </div>
-        <div class="etapa" id="etapa3">
-            <div class="icon">
-                <iconify-icon icon="octicon:check-16"></iconify-icon>
-            </div>
+        <div class="etapa" id="etapa2">
+
+            <iconify-icon icon="octicon:check-16"></iconify-icon>
+
             Operação
         </div>
-        <div class="etapa" id="etapa4">
-            <div class="icon">
-                <iconify-icon icon="octicon:check-16"></iconify-icon>
-            </div>
+        <div class="etapa" id="etapa3">
+
+            <iconify-icon icon="octicon:check-16"></iconify-icon>
+
             Tipo do imóvel
         </div>
-        <div class="etapa" id="etapa5">
-            <div class="icon">
-                <iconify-icon icon="octicon:check-16"></iconify-icon>
-            </div>
+        <div class="etapa" id="etapa4">
+
+            <iconify-icon icon="octicon:check-16"></iconify-icon>
+
             Características básicas
         </div>
-        <div class="etapa" id="etapa6">
-            <div class="icon">
-                <iconify-icon icon="octicon:check-16"></iconify-icon>
-            </div>
+        <div class="etapa" id="etapa5">
+
+            <iconify-icon icon="octicon:check-16"></iconify-icon>
+
             Detalhe imóvel
         </div>
-        <div class="etapa" id="etapa7">
-            <div class="icon">
-                <iconify-icon icon="octicon:check-16"></iconify-icon>
-            </div>
+        <div class="etapa" id="etapa6">
+
+            <iconify-icon icon="octicon:check-16"></iconify-icon>
+
             Valores
 
         </div>
-        <div class="etapa" id="etapa8">
-            <div class="icon">
-                <iconify-icon icon="octicon:check-16"></iconify-icon>
-            </div>
+        <div class="etapa" id="etapa7">
+
+            <iconify-icon icon="octicon:check-16"></iconify-icon>
+
             Localização
         </div>
-        <div class="etapa" id="etapa9">
-            <div class="icon">
-                <iconify-icon icon="octicon:check-16"></iconify-icon>
-            </div>
+        <div class="etapa" id="etapa8">
+
+            <iconify-icon icon="octicon:check-16"></iconify-icon>
+
             Imagens
         </div>
-        <div class="etapa" id="etapa10">
-            <div class="icon">
-                <iconify-icon icon="carbon:view"></iconify-icon>
-            </div>
+        <div class="etapa" id="etapa9">
+
+            <iconify-icon icon="carbon:view"></iconify-icon>
+
             Pré-visualização
         </div>
 
     </section>
-    <div class="bar-mobile">
-        <div class="etapa-bar">
-            <div class="icon">
-                <iconify-icon icon="octicon:check-16"></iconify-icon>
-            </div>
-            Informações pessoais
-        </div>
-        <div class="barra-vertical"></div>
-        <div class="etapa-bar">
-            <div class="icon">
-                <iconify-icon icon="octicon:check-16"></iconify-icon>
-            </div>
-            Operação
-        </div>
-    </div>
+
 </section>
+
+<script src="../../js/publicarImovelCorretor.js"></script>

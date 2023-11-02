@@ -1,7 +1,9 @@
 const Solicitacao = require('../models/Solicitacoes')
 const Imagem_Solicitacao = require('../models/Imagens_Solicitacoes')
 const ViewSoliImagem = require('../models/ViewsSolicitacoesImagens')
-const fs = require('fs');
+// const fs = require('fs');
+
+const imovelController = require('../controllers/imoveisController')
 
 
 async function cadastrarImagens(idSoli,nomeImagem,pathImagem){
@@ -32,43 +34,6 @@ async function cadastrarImagens(idSoli,nomeImagem,pathImagem){
             throw new Error('Não foi possível cadastrar imagem.')
         }
 }
-
-// async function cadastrarSolicitacao(statusSoli,tipoImovel,operacao,descricao,numQuartos,numBanheiros,numVagas,areaImovel,valorImovel,
-// valorCondominio,valorIPTU,parcelasIPTU,construcao,numAndares,dataEntrega,emCondominio
-// ,nomeCliente,telefone,email,CPF,cidade,bairro,endereco,numero){
-//     try {
-//         const solicitacao = await Solicitacao.create({
-//             statusSoli: statusSoli,
-//             tipoImovel:tipoImovel,
-//             operacao:operacao,
-//             descricao:descricao,
-//             numQuartos:numQuartos,
-//             numBanheiros:numBanheiros,
-//             numVagas:numVagas,
-//             areaImovel:areaImovel,
-//             valorImovel:valorImovel,
-//             valorCondominio:valorCondominio,
-//             valorIPTU:valorIPTU,
-//             parcelasIPTU:parcelasIPTU,
-//             construcao:construcao,
-//             numAndares:numAndares,
-//             dataEntrega:dataEntrega,
-//             emCondominio:emCondominio,
-//             nomeCliente:nomeCliente,
-//             telefone:telefone,
-//             email:email,
-//             CPF: CPF,
-//             cidade: cidade,
-//             bairro: bairro,
-//             endereco: endereco,
-//             numero: numero
-//         })
-//         return solicitacao
-//     } catch (error) {
-//         throw new Error('Não foi possível enviar solicitação:'+error)
-//     }
-
-// }
 
 const cadastrarSoli = async (req,res) => {
     try {
@@ -173,10 +138,25 @@ const getSolicitacao = async (req,res) =>{
     }
 }
 
+const publicarSoli = async (req,res) =>{
+    try {
+        ViewSoliImagem.findOne({
+            where: {
+                id_soli:req.params.id
+            }
+        }).then((solicitacao)=>{
+            console.log("Solicitação encontrada no banco.")
+            //Chamar função de cadastrar imóvel
+        })
+    } catch (error) {
+        console.log("A tentativa de publicar solicitação não foi bem sucedida: "+error)
+    }
+}
 
 
 module.exports = {
     cadastrarSoli,
     cadastrarImagens,
-    getSolicitacao
+    getSolicitacao,
+    publicarSoli
 }

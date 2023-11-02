@@ -12,9 +12,9 @@ const Imovel = db.connect.define('Imoveis',{
     num_banheiros: db.Sequelize.INTEGER,
     num_vagas: db.Sequelize.INTEGER,
     area: db.Sequelize.FLOAT,
-    valor: db.Sequelize.DECIMAL,
+    valor_imovel: db.Sequelize.DECIMAL,
     valor_condominio: db.Sequelize.DECIMAL,
-    iptu: db.Sequelize.DECIMAL,
+    valor_iptu: db.Sequelize.DECIMAL,
     parcelas_iptu: db.Sequelize.INTEGER,
     construcao: db.Sequelize.ENUM('Sim','Não'),
     cidade: db.Sequelize.STRING,
@@ -25,12 +25,29 @@ const Imovel = db.connect.define('Imoveis',{
     data_publicacao: {
         type: db.Sequelize.DATEONLY,
         defaultValue: db.Sequelize.NOW
-    }
+    },
+    nome_prop: db.Sequelize.STRING,
+    email_prop: db.Sequelize.STRING,
+    telefone_prop: db.Sequelize.STRING,
+    cpf_prop: db.Sequelize.STRING
 },{
     timestamps: false,
     freezeTableName: true
 });
 
 // Imovel.sync({force:true})
+
+// Imovel.drop()
+// async function getTotal(){
+//     const totalPublicado = await Imovel.count({
+//         where: {
+//             statusImovel: "Publicado"
+//         }
+//     })
+//     console.log(totalPublicado)
+// }
+
+// getTotal()
+
 
 module.exports = Imovel

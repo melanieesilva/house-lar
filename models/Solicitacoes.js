@@ -21,7 +21,7 @@ const Solicitacao = db.connect.define('solicitacoes',{
     emCondominio: db.Sequelize.ENUM('Sim','Não'),
     dataPublicacao: {
         type: db.Sequelize.DATEONLY,
-        defaultValue: db.Sequelize.literal('CURRENT_DATE')
+        defaultValue: db.Sequelize.NOW
     },
     nomeCliente: db.Sequelize.STRING,
 	telefone: db.Sequelize.STRING,

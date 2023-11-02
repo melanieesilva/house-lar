@@ -1,4 +1,3 @@
-
 const inputFile = document.getElementById("inputFile")
 const btnSub = document.getElementById("btnsub")
 let displayAtual = 1;

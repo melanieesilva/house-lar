@@ -82,6 +82,9 @@ function openModal(arrays){
     document.getElementById('telefonePessoaDetalhe').textContent = arrays[0].telefone;
     document.getElementById('CPFPessoaDetalhe').textContent = arrays[0].CPF;
 
+    //PUBLICAR SOLICITAÇÃO
+    const linkPublicarSoli = document.getElementById('aceitarSolicitacao')
+    linkPublicarSoli.setAttribute("href",`/corretor/publicarSolicitacao/${arrays[0].id_soli}`)
 
     window.addEventListener('click', (e) => {
         if (e.target == modalSolicitacao) {
@@ -135,7 +138,6 @@ function detalharSolicitacao(el){
         // console.log(solicitacaoRecebida[0])
         openModal(solicitacaoRecebida)
 
-        
 
     }).catch(error =>{
         console.error('Erro na requisição:',error)

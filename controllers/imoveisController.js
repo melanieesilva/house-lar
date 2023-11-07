@@ -28,7 +28,8 @@ async function cadImagensImovel(idImovel, nomeImagem, pathImagem) {
     }
 
   } catch (error) {
-    throw new Error('Não foi possível cadastrar imagem.')
+    console.log("Não foi possível cadastrar a imagem: "+error)
+    // throw new Error('Não foi possível cadastrar imagem.')
   }
 }
 
@@ -122,6 +123,7 @@ const cadastrarImovel = async (req, res) => {
     console.log("Não foi possível efetuar o comando", error)
   }
 }
+
 
 const getImoveis = async (req, res) => {
   try {
@@ -270,5 +272,6 @@ module.exports = {
   desativarImovel,
   ativarImovel,
   cadastrarImovel,
-  getImoveisSelecionados
+  getImoveisSelecionados,
+  cadImagensImovel
 }

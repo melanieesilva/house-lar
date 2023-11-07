@@ -86,6 +86,17 @@ function openModal(arrays){
     const linkPublicarSoli = document.getElementById('aceitarSolicitacao')
     linkPublicarSoli.setAttribute("href",`/corretor/publicarSolicitacao/${arrays[0].id_soli}`)
 
+    //REJEITAR
+    const linkRejeitar = document.getElementById('rejeitarSolicitacao')
+
+    // const status_imovel = document.getElementById('statusSoli').textContent
+    if(arrays[0].statusSoli === "Aceito"){
+        document.getElementById('buttonsSideDetalhe').removeChild(linkRejeitar)
+        linkPublicarSoli.textContent = "Solicitação Publicada"
+        linkPublicarSoli.removeAttribute("href")
+        linkPublicarSoli.style.cursor = "default"
+    }
+
     window.addEventListener('click', (e) => {
         if (e.target == modalSolicitacao) {
             modalSolicitacao.style.display = "none";
@@ -138,8 +149,9 @@ function detalharSolicitacao(el){
         // console.log(solicitacaoRecebida[0])
         openModal(solicitacaoRecebida)
 
-
     }).catch(error =>{
         console.error('Erro na requisição:',error)
     })
 }
+
+

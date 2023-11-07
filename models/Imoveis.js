@@ -50,4 +50,6 @@ const Imovel = db.connect.define('Imoveis',{
 // getTotal()
 
 
+
+
 module.exports = Imovel

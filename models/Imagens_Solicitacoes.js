@@ -20,4 +20,6 @@ const Imagem_Solicitacao = db.connect.define('imagensSolicitacoes',{
 
 //Imagem_Solicitacao.sync({force:true})
 
+
+
 module.exports = Imagem_Solicitacao

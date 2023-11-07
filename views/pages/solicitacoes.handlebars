@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="../../css/solicitacoes.css">
 
+{{>_msg}}
+
 <main>
     <div class="separa">
         <h1>Solicitações</h1>
@@ -51,7 +53,7 @@
                 </td>
 
                 <td>
-                    <div class="butsoli">{{dataValues.statusSoli}}</div>
+                    <div id="statusSoli" class="butsoli">{{dataValues.statusSoli}}</div>
                     </a>
                 </td>
 
@@ -180,7 +182,7 @@
                         <p id="emCondo"></p>
                     </div>
                 </div>
-                <div class="buttonsSideDetalhe">
+                <div class="buttonsSideDetalhe" id="buttonsSideDetalhe">
                     <a class="aceitarSolicitacao" id="aceitarSolicitacao">
                         Publicar Imóvel
                     </a>

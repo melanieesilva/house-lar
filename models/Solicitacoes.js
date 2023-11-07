@@ -38,4 +38,6 @@ const Solicitacao = db.connect.define('solicitacoes',{
 
 // Solicitacao.sync({force:true})
 
+
+
 module.exports = Solicitacao

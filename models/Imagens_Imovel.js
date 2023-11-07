@@ -20,4 +20,6 @@ const imagens_imovel = db.connect.define('imagens_imovel',{
 
 // imagens_imovel.sync({force:true})
 
+
+
 module.exports = imagens_imovel

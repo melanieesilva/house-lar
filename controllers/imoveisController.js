@@ -167,7 +167,7 @@ const getImoveisSelecionados = async (req, res) => {
       return (
         imovel.tipo_imovel === req.query.tipo &&
         imovel.num_quartos == req.query.quartos &&
-        imovel.valor <= req.query.preco &&
+        imovel.valor_imovel <= req.query.preco &&
         imovel.area <= req.query.area
       );
     });

@@ -20,21 +20,58 @@
             </div>
             <div class="labelForm">
                 <label for="autor">Autor</label>
-                <input type="text" placeholder="Digite um título..." id="autor" name="autor">
+                <input type="text" placeholder="Insira um autor..." id="autor" name="autor">
             </div>
             <div class="labelForm">
-                <label for="cateogira">Categoria</label>
-                <select name="categoria" id="categoria"></select>
+                <div class="dropdown">
+                    <div class="mainDrop">
+                    <div class="optionMain">
+                        Oportunidade Tenda
+                    </div>
+                </div>
+                <div class="bodyDrop">
+                    <div class="optionDrop">
+                        Oportunidade Tenda
+                    </div>
+                    <div class="optionDrop">
+                        Oportunidade Tenda
+                    </div>
+                </div>
+                </div>
+                
+
+                <button type="button" class="addCategoria">
+                    <iconify-icon icon="mingcute:add-line"></iconify-icon>
+                </button>
+                <input type="text" id="valueSelect" hidden>
             </div>
         </div>
         <div class="rowForm">
-
+            <div class="labelForm">
+                <label for="descricao">Descrição</label>
+                <textarea placeholder="Escreva uma breve descrição..." id="titulo" name="titulo"></textarea>
+            </div>
+            <div class="labelForm">
+                <p>Imagem</p>
+                <div class="inputArea">
+                    <label for="inputImg" class="labelInput">
+                        <iconify-icon icon="material-symbols:upload"></iconify-icon>
+                        Escolher Imagem
+                    </label>
+                    <input type="file" id="inputImg" name="imagem" accept="image/*">
+                </div>
+            </div>
         </div>
     </div>
     <div class="bodyForm">
-
+        <textarea name="artigo" id="artigo" cols="30" rows="10" placeholder="Escreva seu artigo aqui..."></textarea>
     </div>
-
+    <div class="footer">
+        <div class="btnsFooter">
+            <button class="btnCancelar" type="button">Cancelar</button>
+            <button class="btnPublicar" type="submit">Publicar</button>
+        </div>
+    </div>
 </form>
 
 

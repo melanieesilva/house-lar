@@ -1,5 +1,5 @@
 const db = require('../Database/Connection')
-const Solicitacoes = require('../Database/Connection')
+const Solicitacoes = require('../models/Solicitacoes')
 
 const Imagem_Solicitacao = db.connect.define('imagensSolicitacoes',{
 	nomeImagem: db.Sequelize.STRING,
@@ -18,7 +18,7 @@ const Imagem_Solicitacao = db.connect.define('imagensSolicitacoes',{
 
 // Imagem_Solicitacao.belongsTo(Solicitacoes, { foreignKey: 'idSolicitacao_FK' });
 
-//Imagem_Solicitacao.sync({force:true})
+// Imagem_Solicitacao.sync({force:true})
 
 
 

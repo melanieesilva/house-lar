@@ -41,12 +41,13 @@ const createTransporter = async () => {
         }
     });
 
-    transporter.use('compile',nodemailerHbs({
-        viewEngine: {
-            extname: '.handlebars',
-            layoutsDir: path.join(process.cwd(),'views','layouts'),
-        }
-    }))
+    // transporter.use('compile',nodemailerHbs({
+    //     viewEngine: {
+    //         extname: '.handlebars',
+    //         layoutsDir: path.join(__dirname,'../views/layouts'),
+    //     },
+    //     viewPath: path.join(__dirname,'../views/layouts')
+    // }))
 
     return transporter;
 };

@@ -3,7 +3,7 @@ const containerIMGS = document.getElementById('containerImgDetalhes')
 var posicaoSlide = 1;
 showSlide(posicaoSlide);
 
-function openModal(arrays){
+function openModal(arrays) {
     //display flex no modal
     //operacao = arrays[0].data
     const modalSolicitacao = document.getElementById('modalDetalhesSolicitacao')
@@ -18,7 +18,7 @@ function openModal(arrays){
 
     containerIMGS.innerHTML = ''
 
-    for(let i = 0; i < imgsName.length;i+=2){
+    for (let i = 0; i < imgsName.length; i += 2) {
         const bloco = document.createElement("div")
         bloco.classList.add("blocoImgs")
 
@@ -27,9 +27,9 @@ function openModal(arrays){
             divImagem.classList.add("imgBloco");
             divImagem.style.backgroundImage = `url(../../uploads/${imgsName[j]})`;
             bloco.appendChild(divImagem);
-          }
+        }
 
-          containerIMGS.appendChild(bloco)
+        containerIMGS.appendChild(bloco)
         posicaoSlide = 1;
         showSlide(posicaoSlide);
     }
@@ -52,7 +52,7 @@ function openModal(arrays){
     const bairro = arrays[0].bairro
     const numero = arrays[0].numero
 
-    const enderecoCompleto = String(endereco+' '+numero+', '+bairro+', '+cidade)
+    const enderecoCompleto = String(endereco + ' ' + numero + ', ' + bairro + ', ' + cidade)
 
     document.getElementById('enderecoDetalhe').textContent = enderecoCompleto
 
@@ -64,13 +64,13 @@ function openModal(arrays){
     document.getElementById('numBan').textContent = arrays[0].numBanheiros
     document.getElementById('numVaga').textContent = arrays[0].numVagas
     const vagas = arrays[0].areaImovel
-    document.getElementById('valArea').textContent = String(vagas+' m²')
+    document.getElementById('valArea').textContent = String(vagas + ' m²')
 
     //SIDE
-    document.getElementById('valImovelDetalhe').textContent = String('R$ '+arrays[0].valorImovel);
-    document.getElementById('valCondo').textContent = String('R$ '+arrays[0].valorCondominio);
-    document.getElementById('valIPTU').textContent = String('R$ '+arrays[0].valorIPTU);
-    document.getElementById('numParcela').textContent = String('('+arrays[0].parcelasIPTU+'X)');
+    document.getElementById('valImovelDetalhe').textContent = String('R$ ' + arrays[0].valorImovel);
+    document.getElementById('valCondo').textContent = String('R$ ' + arrays[0].valorCondominio);
+    document.getElementById('valIPTU').textContent = String('R$ ' + arrays[0].valorIPTU);
+    document.getElementById('numParcela').textContent = String('(' + arrays[0].parcelasIPTU + 'X)');
 
     document.getElementById('emConstru').textContent = arrays[0].construcao;
     document.getElementById('dataEntrega').textContent = arrays[0].dataEntrega;
@@ -78,24 +78,18 @@ function openModal(arrays){
     document.getElementById('emCondo').textContent = arrays[0].emCondominio;
 
     document.getElementById('nomePessoaDetalhe').textContent = arrays[0].nomeCliente;
-    document.getElementById('emailPessoaDetalhe').textContent = arrays[0].email;
-    document.getElementById('telefonePessoaDetalhe').textContent = arrays[0].telefone;
-    document.getElementById('CPFPessoaDetalhe').textContent = arrays[0].CPF;
+    document.getElementById('emailPessoaDetalhe').textContent = arrays[0].emailCliente;
+    document.getElementById('telefonePessoaDetalhe').textContent = arrays[0].telefoneCliente;
+    document.getElementById('CPFPessoaDetalhe').textContent = arrays[0].CPFCliente;
 
     //PUBLICAR SOLICITAÇÃO
     const linkPublicarSoli = document.getElementById('aceitarSolicitacao')
-    linkPublicarSoli.setAttribute("href",`/corretor/publicarSolicitacao/${arrays[0].id_soli}`)
+   
 
     //REJEITAR
     const linkRejeitar = document.getElementById('rejeitarSolicitacao')
 
-    // const status_imovel = document.getElementById('statusSoli').textContent
-    if(arrays[0].statusSoli === "Aceito"){
-        document.getElementById('buttonsSideDetalhe').removeChild(linkRejeitar)
-        linkPublicarSoli.textContent = "Solicitação Publicada"
-        linkPublicarSoli.removeAttribute("href")
-        linkPublicarSoli.style.cursor = "default"
-    }
+    
 
     window.addEventListener('click', (e) => {
         if (e.target == modalSolicitacao) {
@@ -116,42 +110,102 @@ function addSlide(n) {
 function showSlide(n) {
     var i;
     var slide = document.getElementsByClassName("blocoImgs");
-  
+
     if (n > slide.length) {
-      posicaoSlide = 1;
+        posicaoSlide = 1;
     }
     if (n < 1) {
-      posicaoSlide = slide.length;
+        posicaoSlide = slide.length;
     }
-  
+
     for (i = 0; i < slide.length; i++) {
-      slide[i].style.display = "none";
+        slide[i].style.display = "none";
     }
 
     if (slide[posicaoSlide - 1]) {
-      slide[posicaoSlide - 1].style.display = "flex";
+        slide[posicaoSlide - 1].style.display = "flex";
     }
 }
 
-function detalharSolicitacao(el){
+function detalharSolicitacao(el) {
     const idSoli = el.getAttribute('data-soliID')
 
     console.log("Enviado")
     fetch(`/corretor/detalheSolicitacao/${idSoli}`)
+        .then(response => {
+            if (!response.ok) {
+                console.log("Não foi possível buscar os detalhes da solicitação.")
+            }
+            return response.json()
+        }).then(data => {
+            console.log(data)
+            console.log(data.viewSolicitacao)
+            const solicitacaoRecebida = data.viewSolicitacao
+            // console.log(solicitacaoRecebida[0])
+            openModal(solicitacaoRecebida)
+
+
+            const linkPublicarSoli = document.createElement("a")
+            linkPublicarSoli.classList.add("aceitarSolicitacao")
+            linkPublicarSoli.id = "aceitarSolicitacao"
+
+            const linkRejeitar = document.createElement("a")
+            linkRejeitar.classList.add("rejeitarSolicitacao")
+            linkRejeitar.id = "rejeitarSolicitacao"
+
+            document.getElementById('buttonsSideDetalhe').innerHTML = ""
+
+            if (solicitacaoRecebida[0].statusSoli === "Aceito") {
+                linkPublicarSoli.textContent = "Solicitação Publicada"
+                linkPublicarSoli.removeAttribute("href")
+                linkPublicarSoli.style.cursor = "default"
+                document.getElementById('buttonsSideDetalhe').appendChild(linkPublicarSoli)
+                document.getElementById('buttonsSideDetalhe').removeChild(linkRejeitar)
+            }else if(solicitacaoRecebida[0].statusSoli = "Solicitado"){
+
+                linkPublicarSoli.textContent = "Publicar Imóvel"
+                linkPublicarSoli.setAttribute("href", `/corretor/publicarSolicitacao/${solicitacaoRecebida[0].id_soli}`)
+                linkRejeitar.textContent = "Rejeitar Solicitação"
+
+
+                document.getElementById('buttonsSideDetalhe').appendChild(linkPublicarSoli)
+                document.getElementById('buttonsSideDetalhe').appendChild(linkRejeitar)
+            }
+
+        }).catch(error => {
+            console.error('Erro na requisição:', error)
+        })
+}
+
+const filtroRecente = document.getElementById('filtroRecente')
+const filtroAntigo = document.getElementById('filtroAntigo')
+const filtroAluguel = document.getElementById('filtroAluguel')
+const filtroVenda = document.getElementById('filtroVenda')
+
+filtroRecente.addEventListener('click',()=>{
+    console.log("Filtro recente")
+
+    fetch('/corretor/filtroSolicitacao/recente')
     .then(response => {
-        if(!response.ok){
-            console.log("Não foi possível buscar os detalhes da solicitação.")
+        if (!response.ok) {
+            console.log("Não foi possível filtrar solicitações mais recentes")
         }
         return response.json()
     }).then(data =>{
-        console.log(data.viewSolicitacao) 
-        const solicitacaoRecebida = data.viewSolicitacao
-        // console.log(solicitacaoRecebida[0])
-        openModal(solicitacaoRecebida)
+        // console.log(data)
+        console.log(data.solicitacoesRecentes)
+        const arraySolicitacoes = data.solicitacoesRecentes
 
-    }).catch(error =>{
-        console.error('Erro na requisição:',error)
+        for (let i = 0; i < arraySolicitacoes.length; i++) {
+            const element = arraySolicitacoes[i];
+            // console.log(element)
+            console.log(element.id_soli)
+            document.getElementById('imovel').textContent = el.tipoImovel
+            document.getElementById('discri').textContent = el.descricao
+        }
+
+    }).catch(error => {
+        console.error('Erro na requisição:', error)
     })
-}
-
-
+ 
+})

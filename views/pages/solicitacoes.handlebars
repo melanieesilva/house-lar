@@ -8,15 +8,29 @@
 
         <div class="container mt-4">
             <div class="dropdown" id="filtroDropdown">
-                <div class="btn btn-secondary">Filtre por</div>
-                <div class="dropdown-content">
-                    <p class="Ode">Ordenação</p>
-                    <a id="az" href="#">Mais recente</a>
-                    <a id="az" href="#">Mais antigo</a>
-                    <div class="dropdown-divider"></div>
-                    <p class="Ode">Operação</p>
-                    <a href="#">Aluguel</a>
-                    <a href="#">Venda</a>
+                <div class="mainDropdown">
+                    <iconify-icon icon="system-uicons:filter"></iconify-icon>
+                    Filtre por
+                </div>
+                <div class="bodyDropdown">
+                    <div class="groupOption">
+                        Ordenação
+                    </div>
+                    <a class="optionDrop" id="filtroRecente">
+                        Mais Recente
+                    </a>
+                    <a class="optionDrop" id="filtroAntigo">
+                        Mais Antigo
+                    </a>
+                    <div class="groupOption">
+                        Operação
+                    </div>
+                    <a class="optionDrop" id="filtroAluguel">
+                        Aluguel
+                    </a>
+                    <a class="optionDrop" id="filtroVenda">
+                       Venda
+                    </a>
                 </div>
             </div>
         </div>
@@ -183,12 +197,12 @@
                     </div>
                 </div>
                 <div class="buttonsSideDetalhe" id="buttonsSideDetalhe">
-                    <a class="aceitarSolicitacao" id="aceitarSolicitacao">
+                    {{!-- <a class="aceitarSolicitacao" id="aceitarSolicitacao">
                         Publicar Imóvel
                     </a>
                     <a class="rejeitarSolicitacao" id="rejeitarSolicitacao">
                         Rejeitar Solicitação
-                    </a>
+                    </a> --}}
                 </div>
 
             </div>

@@ -24,9 +24,9 @@ const Solicitacao = db.connect.define('solicitacoes',{
         defaultValue: db.Sequelize.NOW
     },
     nomeCliente: db.Sequelize.STRING,
-	telefone: db.Sequelize.STRING,
-	email: db.Sequelize.STRING,
-	CPF: db.Sequelize.STRING,
+	telefoneCliente: db.Sequelize.STRING,
+	emailCliente: db.Sequelize.STRING,
+	CPFCliente: db.Sequelize.STRING,
 	cidade: db.Sequelize.STRING,
 	bairro: db.Sequelize.STRING,
 	endereco: db.Sequelize.STRING,

@@ -19,6 +19,8 @@ const Imovel = db.connect.define('Imoveis',{
     construcao: db.Sequelize.ENUM('Sim','Não'),
     cidade: db.Sequelize.STRING,
 	bairro: db.Sequelize.STRING,
+    endereco: db.Sequelize.STRING,
+    numero: db.Sequelize.INTEGER,
     num_andares: db.Sequelize.INTEGER,
     data_entrega: db.Sequelize.DATEONLY,
     em_condominio: db.Sequelize.ENUM('Sim','Não'),

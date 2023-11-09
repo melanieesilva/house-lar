@@ -100,9 +100,9 @@ const cadastrarSoli = async (req, res) => {
             dataEntrega: dataEntrega,
             emCondominio: condominioImovel,
             nomeCliente: nomeUser,
-            telefone: telefone,
-            email: email,
-            CPF: cpf,
+            telefoneCliente: telefone,
+            emailCliente: email,
+            CPFCliente: cpf,
             cidade: cidade,
             bairro: bairro,
             endereco: endereco,
@@ -157,10 +157,10 @@ const publicarSoli = async (req, res) => {
 
             const imovel = await Imovel.create({
                 statusImovel: "Publicado",
-                nome_prop: solicitacao.nomeUser,
-                email_prop: solicitacao.email,
-                cpf_prop: solicitacao.cpf,
-                telefone_prop: solicitacao.telefone,
+                nome_prop: solicitacao.nomeCliente,
+                email_prop: solicitacao.emailCliente,
+                cpf_prop: solicitacao.CPFCliente,
+                telefone_prop: solicitacao.telefoneCliente,
                 operacao: solicitacao.operacao,
                 tipo_imovel: solicitacao.tipoImovel,
                 num_quartos: solicitacao.numQuartos,
@@ -204,10 +204,10 @@ const publicarSoli = async (req, res) => {
                             console.log("Não foi possível cadastrar as imagens.")
                         }
                     }
-                    if(aux === true){
+                    if (aux === true) {
                         console.log("E-mail será enviado para: ")
                         console.log(imovel.email_prop)
-                        try{
+                        try {
                             nodemailer.sendEmail({
                                 subject: "Sua solicitação foi aceita",
                                 text: "Olá, esse é um e-mail de confirmação. A sua solicitação foi aceita e publicada pelo corretor",
@@ -215,14 +215,14 @@ const publicarSoli = async (req, res) => {
                                 from: process.env.EMAIL
                             })
                             console.log("O e-mail foi enviado ao proprietário")
-                            req.flash("success_msg","Solicitação publicada com sucesso!")
+                            req.flash("success_msg", "Solicitação publicada com sucesso!")
                             res.redirect("/corretor/solicitacoes")
-                        }catch (error){
-                            console.log("NÃO FOI POSSÍVEL ENVIAR O E-MAIL: "+error)
-                            req.flash("error_msg","Não foi possível publicar a solicitação.")
+                        } catch (error) {
+                            console.log("NÃO FOI POSSÍVEL ENVIAR O E-MAIL: " + error)
+                            req.flash("error_msg", "Não foi possível publicar a solicitação.")
                             res.redirect("/corretor/solicitacoes")
                         }
-                        
+
                     }
 
                 }
@@ -233,10 +233,40 @@ const publicarSoli = async (req, res) => {
     }
 }
 
+const filtrarSolicitacoes = async (req, res) => {
+    const optionReq = req.params.option
+
+    switch (optionReq) {
+        case "recente":
+            try {
+                const solicitacoesRecentes = await ViewSoliImagem.findAll({
+                    group: ['id_soli'],
+                    order: [
+                        ['id_soli','DESC']
+                    ]
+                })
+                if(solicitacoesRecentes){
+                    console.log("Solicitações recentes enviadas.")
+                    res.json({solicitacoesRecentes})
+                }
+                
+            } catch (error) {
+                console.log("Não foi possível filtrar as solicitações recentes.")
+            }
+
+            break;
+
+        default:
+            console.log("Opção incorreta do switch.")
+            break;
+    }
+}
+
 
 module.exports = {
     cadastrarSoli,
     cadastrarImagens,
     getSolicitacao,
-    publicarSoli
+    publicarSoli,
+    filtrarSolicitacoes
 }

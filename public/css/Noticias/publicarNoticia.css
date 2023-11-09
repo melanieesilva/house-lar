@@ -4,6 +4,11 @@ body {
     overflow-x: hidden;
 }
 
+.retorno.painel{
+    padding-left: 40px;
+    padding-top: 40px;
+}
+
 #hea {
     display: flex;
     align-items: baseline;

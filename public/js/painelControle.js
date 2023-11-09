@@ -38,6 +38,9 @@ switch (nomePagina) {
     case 'publicarImovelCorretor':
             setCorMenu(0)
         break;
+    case 'publicarNoticia':
+            setCorMenu(4)
+    break;
     default:
         console.log("Página não encontrada")
         break;

@@ -41,18 +41,19 @@ const createTransporter = async () => {
         }
     });
 
-    // transporter.use('compile',nodemailerHbs({
-    //     viewEngine: {
-    //         extname: '.handlebars',
-    //         layoutsDir: path.join(__dirname,'../views/layouts'),
-    //     },
-    //     viewPath: path.join(__dirname,'../views/layouts')
-    // }))
+
+    transporter.use('compile',nodemailerHbs({
+        viewEngine: {
+            extname: '.handlebars',
+            layoutsDir: path.join(__dirname, '../views/layouts'),
+            defaultLayout: 'email',
+        },
+        viewPath: path.join(__dirname,'../views/layouts')
+    }))
+
 
     return transporter;
 };
-
-const templatePubliSoli = fs.readFileSync(path.join(process.cwd(),'views','templates','publiSoli.handlebars'),'utf8')
 
 const sendEmail = async (emailOptions) => {
     let emailTransporter = await createTransporter();

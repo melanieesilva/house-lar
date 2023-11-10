@@ -210,9 +210,13 @@ const publicarSoli = async (req, res) => {
                         try {
                             nodemailer.sendEmail({
                                 subject: "Sua solicitação foi aceita",
-                                text: "Olá, esse é um e-mail de confirmação. A sua solicitação foi aceita e publicada pelo corretor",
                                 to: `${imovel.email_prop}`,
-                                from: process.env.EMAIL
+                                from: process.env.EMAIL,
+                                template: 'email',
+                                context: {
+                                    nome_completo: `${imovel.nome_prop}`,
+                                    solicitacaoPublicada: true
+                                }
                             })
                             console.log("O e-mail foi enviado ao proprietário")
                             req.flash("success_msg", "Solicitação publicada com sucesso!")

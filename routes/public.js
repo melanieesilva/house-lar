@@ -38,9 +38,7 @@ router.get('/public/faleConosco', function (req, res) {
     res.render('pages/faleConosco.handlebars')
 })
 
-router.get('/public/detalheImovel', function (req, res) {
-    res.render('pages/detalheImovel.handlebars')
-})
+router.get('/public/detalheImovel/:id', imoveisController.getDetalheImovel)
 
 router.post('/public/EnviarDuvida', async (req, res) => {
     try {

@@ -1,5 +1,6 @@
 const Imoveis = require('../models/Imoveis')
 const Imagem_Imovel = require('../models/Imagens_Imovel');
+const viewImovel = require('../models/ViewImovelImagem')
 const db = require('../Database/Connection')
 
 
@@ -124,7 +125,6 @@ const cadastrarImovel = async (req, res) => {
   }
 }
 
-
 const getImoveis = async (req, res) => {
   try {
     const imoveis = await Imoveis.findAll();
@@ -181,6 +181,24 @@ const getImoveisSelecionados = async (req, res) => {
     throw new Error(error);
   }
 };
+
+const getDetalheImovel = async (req,res) => {
+  const view_imovel = await viewImovel.findAll({
+    where: {
+      id: req.params.id
+    },
+    limit: 4
+  })
+
+  if(imovel){
+    res.status(200).render('pages/detalheImovel',{imovel})
+    console.log("Detalhes do imóvel encontrados.")
+  }else{
+    res.status(404).json({Erro: "Erro 404: Não foi possível encontrar o imóvel."})
+    console.log("Detalhes do imóvel não foram encontrados.")
+  }
+
+}
 
 const excluirImovel = async (req, res) => {
   try {
@@ -273,5 +291,5 @@ module.exports = {
   ativarImovel,
   cadastrarImovel,
   getImoveisSelecionados,
-  cadImagensImovel
+  getDetalheImovel
 }

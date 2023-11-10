@@ -23,26 +23,50 @@
                 <input type="text" placeholder="Insira um autor..." id="autor" name="autor">
             </div>
             <div class="labelForm">
-                <div class="dropdown">
-                    <div class="mainDrop">
-                    <div class="optionMain">
-                        Oportunidade Tenda
-                    </div>
-                </div>
-                <div class="bodyDrop">
-                    <div class="optionDrop">
-                        Oportunidade Tenda
-                    </div>
-                    <div class="optionDrop">
-                        Oportunidade Tenda
-                    </div>
-                </div>
-                </div>
-                
+                <p>Categoria</p>
+                <div class="areaDrop">
+                    <div class="dropdown">
+                        <div class="mainDrop">
+                            <div class="optionMain">
+                                Oportunidade Tenda
+                            </div>
+                            <iconify-icon icon="ep:arrow-down"></iconify-icon>
+                        </div>
+                        <div class="bodyDrop">
+                            <div class="optionDrop">
+                                Oportunidade Tenda
+                            </div>
+                            <div class="optionDrop">
+                                Oportunidade Tenda
+                            </div>
+                            <div class="optionDrop">
+                                Oportunidade Tenda
+                            </div>
+                            <div class="optionDrop">
+                                Oportunidade Tenda
+                            </div>
+                            <div class="optionDrop">
+                                Oportunidade Tenda
+                            </div>
+                            <div class="optionDrop">
+                                Oportunidade Tenda
+                            </div>
+                            <div class="optionDrop">
+                                Oportunidade Tenda
+                            </div>
+                            <div class="optionDrop">
+                                Oportunidade Tenda
+                            </div>
 
-                <button type="button" class="addCategoria">
-                    <iconify-icon icon="mingcute:add-line"></iconify-icon>
-                </button>
+                        </div>
+
+                    </div>
+
+
+                    <button type="button" class="addCategoria">
+                        <iconify-icon icon="mingcute:add-line"></iconify-icon>
+                    </button>
+                </div>
                 <input type="text" id="valueSelect" hidden>
             </div>
         </div>
@@ -68,49 +92,67 @@
     </div>
     <div class="footer">
         <div class="btnsFooter">
-            <button class="btnCancelar" type="button">Cancelar</button>
+            <button class="btnCancelar" type="reset">Cancelar</button>
             <button class="btnPublicar" type="submit">Publicar</button>
         </div>
     </div>
 </form>
 
 
-
-
-
-
-
-{{!-- <div id="fade" class="hide"></div>
-<d iv id="modal" class="hide">
-    <div class="modal-header">
-        <h2>Nova categoria</h2>
-        <button id="close-modal"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 256 256">
-                <path fill="currentColor"
-                    d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z" />
-            </svg></button>
-    </div>
-
-    <div class="modal-body">
-        <form action="/corretor/cadastrarCategoria" method="post">
-            <div id="alinhatudoc">
-                <button type="submit">Cadastrar</button>
-                <div class="categoriaalinha">
-                    <label>Nome Categoria</label>
-                    <input type="text" placeholder="Nome da categoria" name="nome_categoria">
+<div class="containerModal">
+    <div class="conteudoModal">
+        <div class="headerModal">
+            <div class="text">
+                <h2>Nova Categoria</h2>
+                <p>Adicione uma nova categoria de notícias. Priorize nomes mais curtos.</p>
+            </div>
+            <button type="button">
+                <iconify-icon icon="mdi:remove"></iconify-icon>
+            </button>
+        </div>
+        <div class="bodyModal">
+            <div class="inputModal">
+                <label for="nomeCategoria">Nome categoria</label>
+                <input type="text" name="nomeCategoria" id="nomeCategoria" placeholder="Digite o nome da categoria...">
+            </div>
+            <div class="inputModal">
+                <p>Cor da categoria</p>
+            
+            <div class="dropdownModal">
+                <div class="mainDropModal">
+                    <div class="optionMainModal">
+                        Oportunidade Tenda
+                    </div>
+                    <iconify-icon icon="ep:arrow-down"></iconify-icon>
                 </div>
-
-                <div class="categoriaalinha">
-                    <label>Cor da categoria</label>
-
-                    <select name="cor_categoria">
-                        <option class="bord1" value="Vermelho">Vermelho</option>
-                        <option class="bord2" value="Verde">Verde</option>
-                        <option class="bord3" value="Azul">Azul</option>
-                        <option class="bord4" value="Amarelo">Amarelo</option>
-                        <option class="bord5" value="Roxo">Roxo</option>
-                        <option class="bord6" value="Laranja">Laranja</option>
-                    </select>
-
+                <div class="bodyDropModal">
+                    <div class="optionDropModal" data-cor="Red">
+                        Vermelho
+                    </div>
+                    <div class="optionDropModal" data-cor="Azul">
+                        Azul
+                    </div>
+                    <div class="optionDropModal" data-cor="Verde">
+                        Verde
+                    </div>
+                    <div class="optionDropModal" data-cor="Amarelo">
+                        Amarelo
+                    </div>
+                    <div class="optionDropModal" data-cor="Roxo">
+                        Roxo
+                    </div>
+                    <div class="optionDropModal" data-cor="Laranja">
+                        Laranja
+                    </div>
                 </div>
             </div>
-        </form> --}}
+            </div>
+        </div>
+        <div class="btnModal">
+            <button type="button">
+                <iconify-icon icon="uil:save"></iconify-icon>
+                Salvar
+            </button>
+        </div>
+    </div>
+</div>

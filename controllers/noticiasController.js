@@ -53,26 +53,25 @@ const getNoticia = async (req,res)=>{
 
 }
 
-const getCategorias = async (req,res) =>{
-    try {
-        const categorias = await Noticias.findAll({
-          attributes: ['nome_categoria']
-        });
-        console.log("Todas os detalhes de categoria foram recuperados.");
-        res.status(200).render('pages/Noticias/publicarNoticia', {
-          layout: 'painelControle',
-          pageTitle: 'Publicar Noticia - Painel de Controle',
-          categorias: categorias
-        });
-      } catch (erro) {
-        throw new Error('Não foi possível fazer a busca.');
-        // res.render('pages/noticiasCorretor');
-      }
-}
+// const getCategorias = async (req,res) =>{
+//     try {
+//         const categorias = await Noticias.findAll({
+//           attributes: ['nome_categoria']
+//         });
+//         console.log("Todas os detalhes de categoria foram recuperados.");
+//         res.status(200).render('pages/Noticias/publicarNoticia', {
+//           layout: 'painelControle',
+//           pageTitle: 'Publicar Noticia - Painel de Controle',
+//           categorias: categorias
+//         });
+//       } catch (erro) {
+//         throw new Error('Não foi possível fazer a busca.');
+//         // res.render('pages/noticiasCorretor');
+//       }
+// }
 
 module.exports = {
     publicarNoticia,
     getNoticias,
-    getCategorias,
     getNoticia
 };

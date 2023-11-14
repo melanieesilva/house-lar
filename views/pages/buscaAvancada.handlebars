@@ -4,18 +4,18 @@
 
     <section id="topo">
         <div class="botoes-topo">
-            <button class="botao-estilo botao-esquerdo grupo1" onclick="ler('botao-esquerdo')">
+            <button class="botao-estilo botao-esquerdo grupo1" onclick="ler('botao-esquerdo', 'grupo1')">
                 Filtre por data
             </button>
-            <button class="botao-estilo botao-direito grupo1" onclick="ler('botao-direito')">
+            <button class="botao-estilo botao-direito grupo1" onclick="ler('botao-direito', 'grupo1')">
                 Filtre por preço
             </button>
         </div>
         <div class="botoes-topo">
-            <button class="botao-estilo botao-esquerdo grupo2" onclick="ler('botao-esquerdo')">
+            <button class="botao-estilo botao-esquerdo grupo2" onclick="ler('botao-esquerdo', 'grupo2')">
                 <iconify-icon icon="ion:list"></iconify-icon>
             </button>
-            <button class="botao-estilo botao-direito grupo2" onclick="ler('botao-direito')">
+            <button class="botao-estilo botao-direito grupo2" onclick="ler('botao-direito', 'grupo2')">
                 <iconify-icon icon="basil:layout-outline"></iconify-icon>
             </button>
         </div>
@@ -28,11 +28,11 @@
                 <label for="">Filtre por</label>
             </div>
             <div id="tipo-botoes">
-                <button class="tipo-botao">
+                <button class="tipo-botao grupo3 botao-esquerdo" onclick="ler('botao-esquerdo', 'grupo3')">
                     <iconify-icon icon="icons8:buy"></iconify-icon>
                     Comprar
                 </button>
-                <button class="tipo-botao">
+                <button class="tipo-botao grupo3 botao-direito" onclick="ler('botao-esquerdo', 'grupo3')">
                     <iconify-icon icon="heroicons:key"></iconify-icon>
                     Alugar
                 </button>

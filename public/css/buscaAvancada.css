@@ -162,7 +162,7 @@ h3, h4, h5, h6 {
     margin-bottom: 5%;
 }
 
-.tipo-botao:focus {
+.seleciona {
     border-color: #9D0058;
     color: #9D0058;
     background-color: #FFE3F3;

@@ -12,10 +12,11 @@
             </button>
         </div>
         <div class="botoes-topo">
-            <button class="selecionad botao-esquerdo grupo2" onclick="ler('botao-esquerdo', 'grupo2')">
+            <button class="selecionad botao-esquerdo grupo2" id="displayLista" onclick="ler('botao-esquerdo', 'grupo2')">
                 <iconify-icon icon="ion:list"></iconify-icon>
             </button>
-            <button class="botao-estilo botao-direito grupo2" onclick="ler('botao-direito', 'grupo2')">
+            <button class="botao-estilo botao-direito grupo2" id="displayBloco"
+                onclick="ler('botao-direito', 'grupo2')">
                 <iconify-icon icon="basil:layout-outline"></iconify-icon>
             </button>
         </div>
@@ -74,47 +75,131 @@
                 </div>
             </div>
         </section>
-<section id="imoveis">
-{{#each imoveis}}
-        <div class="info-movel">
-            
-            <img src="../../img/img-imovel-busca-avanc.jpeg" alt="" id="imagem-venda">
-            <div class="teto" id="info-direita">
-                <div id="imovel-meio">
-                    <h3>{{dataValues.tipo_imovel}}</h3>
-                    <h4 class="escrita-imovel">{{dataValues.bairro}} - {{dataValues.cidade}}</h4>
-                    <h5 class="escrita-imovel escrita-cinza">COD: 789654</h5>
-                    <div id="detalhe-imovel" class="escrita-imovel">
-                        <div class="mini-info">
-                            <iconify-icon icon="cil:room" class="icone"></iconify-icon>
-                            <h6 class="escrita-cinza">{{dataValues.num_quartos}} salas</h6>
+        <section id="imoveis">
+            {{#each imoveis}}
+
+            <div class="info-movel" id="card-imovel">
+                <img src="../../img/img-imovel-busca-avanc.jpeg" alt="" id="imagem-venda">
+                <div class="teto" id="info-direita">
+                    <div id="imovel-meio">
+                        <h3>{{dataValues.tipo_imovel}}</h3>
+                        <h4 class="escrita-imovel">{{dataValues.bairro}} - {{dataValues.cidade}}</h4>
+                        <h5 class="escrita-imovel escrita-cinza">COD: 789654</h5>
+                        <div id="detalhe-imovel" class="escrita-imovel">
+                            <div class="mini-info">
+                                <iconify-icon icon="cil:room" class="icone"></iconify-icon>
+                                <h6 class="escrita-cinza">{{dataValues.num_quartos}} salas</h6>
+                            </div>
+                            <div class="mini-info">
+                                <iconify-icon icon="iconoir:bathroom" class="icone"></iconify-icon>
+                                <h6 class="escrita-cinza">{{dataValues.num_banheiros}} ban.</h6>
+                            </div>
+                            <div class="mini-info">
+                                <iconify-icon icon="majesticons:car-line" class="icone"></iconify-icon>
+                                <h6 class="escrita-cinza">{{dataValues.num_vagas}} vagas</h6>
+                            </div>
+                            <div class="mini-info">
+                                <iconify-icon icon="iconoir:ruler" class="icone"></iconify-icon>
+                                <h6 class="escrita-cinza">{{dataValues.area}}m²</h6>
+                            </div>
                         </div>
-                        <div class="mini-info">
-                            <iconify-icon icon="iconoir:bathroom" class="icone"></iconify-icon>
-                            <h6 class="escrita-cinza">{{dataValues.num_banheiros}} ban.</h6>
+                    </div>
+                    <div class="teto" id="venda-imovel">
+                        <button id="botao-venda">
+                            {{dataValues.operacao}}
+                        </button>
+                        <h3 id="valor">
+                            R${{dataValues.valor}}
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="infoImovelBloco" id="infoImovelBloco">
+                <div class="imgInfoBloco">
+                    {{!-- <img src="../../uploads/{{dataValues.nome_imagem}}" id="imagemImovel"> --}}
+                    <div class="operationBloco">
+                        <p id="operacaoImovel">{{dataValues.operacao}}</p>
+                    </div>
+                </div>
+                <div class="contentInfoBloco">
+                    <div class="lineContent">
+                        <p id="tipoImovel">{{dataValues.tipo_imovel}}</p>
+                        <p id="valorImovel">R$ {{dataValues.valor_imovel}}</p>
+                    </div>
+                    <div class="lineContent">
+                        <div class="enderecoImovel">
+                            <p id="bairroImovel">{{dataValues.bairro}}</p>
+                            <p id="cidade">{{dataValues.cidade}}</p>
                         </div>
-                        <div class="mini-info">
-                            <iconify-icon icon="majesticons:car-line" class="icone"></iconify-icon>
-                            <h6 class="escrita-cinza">{{dataValues.num_vagas}} vagas</h6>
+                        <p id="idImovel">{{dataValues.id}}</p>
+                    </div>
+                    <div class="infoImovel">
+                        <div class="blocoInfo">
+                            <iconify-icon icon="cil:room"></iconify-icon>
+                            <p id="numQuartos">{{dataValues.num_quartos}} salas</p>
                         </div>
-                        <div class="mini-info">
+                        <div class="blocoInfo">
+                            <iconify-icon icon="iconoir:bathroom"></iconify-icon>
+                            <p id="numBanheiros">{{dataValues.num_banheiros}} ban.</p>
+                        </div>
+                        <div class="blocoInfo">
+                            <iconify-icon icon="majesticons:car-line"></iconify-icon>
+                            <p id="numVagas">{{dataValues.num_vagas}} vagas</p>
+                        </div>
+                        <div class="blocoInfo">
                             <iconify-icon icon="iconoir:ruler" class="icone"></iconify-icon>
-                            <h6 class="escrita-cinza">{{dataValues.area}}m²</h6>
+                            <p id="tamArea">{{dataValues.area}}m²</p>
                         </div>
                     </div>
                 </div>
-                <div class="teto" id="venda-imovel">
-                    <button id="botao-venda">
-                        {{dataValues.operacao}}
-                    </button>
-                    <h3 id="valor">
-                        R${{dataValues.valor}}
-                    </h3>
+            </div>
+            
+            <div class="infoImovelBloco" id="infoImovelBloco">
+                <div class="imgInfoBloco">
+                    {{!-- <img src="../../uploads/{{dataValues.nome_imagem}}" id="imagemImovel"> --}}
+                    <div class="operationBloco">
+                        <p id="operacaoImovel">{{dataValues.operacao}}</p>
+                    </div>
+                </div>
+                <div class="contentInfoBloco">
+                    <div class="lineContent">
+                        <p id="tipoImovel">{{dataValues.tipo_imovel}}</p>
+                        <p id="valorImovel">R$ {{dataValues.valor_imovel}}</p>
+                    </div>
+                    <div class="lineContent">
+                        <div class="enderecoImovel">
+                            <p id="bairroImovel">{{dataValues.bairro}}</p>
+                            <p id="cidade">{{dataValues.cidade}}</p>
+                        </div>
+                        <p id="idImovel">{{dataValues.id}}</p>
+                    </div>
+                    <div class="infoImovel">
+                        <div class="blocoInfo">
+                            <iconify-icon icon="cil:room"></iconify-icon>
+                            <p id="numQuartos">{{dataValues.num_quartos}} salas</p>
+                        </div>
+                        <div class="blocoInfo">
+                            <iconify-icon icon="iconoir:bathroom"></iconify-icon>
+                            <p id="numBanheiros">{{dataValues.num_banheiros}} ban.</p>
+                        </div>
+                        <div class="blocoInfo">
+                            <iconify-icon icon="majesticons:car-line"></iconify-icon>
+                            <p id="numVagas">{{dataValues.num_vagas}} vagas</p>
+                        </div>
+                        <div class="blocoInfo">
+                            <iconify-icon icon="iconoir:ruler" class="icone"></iconify-icon>
+                            <p id="tamArea">{{dataValues.area}}m²</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-     
-        </div>
-               {{/each}}
-    </section>
+
+
+            {{/each}}
+
+        </section>
+
+
 </main>
 <script src="../../js/buscaAvancada.js"></script>

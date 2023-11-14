@@ -34,3 +34,43 @@ function ler(botao, grupo) {
     lado = botao;
     grupos = grupo;
 }
+
+// Configurações do display do contêiner
+
+const btnDisplayBloco = document.getElementById('displayBloco');
+const btnDisplayLista = document.getElementById('displayLista')
+
+btnDisplayBloco.addEventListener('click', () => {
+    const conteinerImoveis = document.getElementById('imoveis');
+
+    const cardsLista = document.querySelectorAll('#imoveis > .info-movel')
+    const cardsBloco = document.querySelectorAll('#imoveis > .infoImovelBloco');
+
+    conteinerImoveis.style.flexWrap = 'wrap'
+    conteinerImoveis.style.flexDirection = 'unset'
+    cardsBloco.forEach(element => {
+        element.style.display = "flex"
+    })
+    cardsLista.forEach(element => {
+        element.style.display = "none"
+    })
+
+    console.log("BLOCO")
+})
+
+btnDisplayLista.addEventListener('click',() => {
+    const conteinerImoveis = document.getElementById('imoveis');
+
+    const cardsLista = document.querySelectorAll('#imoveis > .info-movel')
+    const cardsBloco = document.querySelectorAll('#imoveis > .infoImovelBloco');
+
+    conteinerImoveis.style.display = 'flex'
+    // conteinerImoveis.style.flexDirection = 'column'
+    cardsBloco.forEach(element => {
+        element.style.display = "none"
+    })
+    cardsLista.forEach(element => {
+        element.style.display = "flex"
+    })
+    console.log("LISTA")
+})

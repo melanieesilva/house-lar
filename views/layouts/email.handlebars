@@ -15,8 +15,25 @@
             box-sizing: border-box;
         }
 
+        .contato {
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            gap: 24px;
+        }
+        
+        .contatoRow{
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .contatoRow > :first-child{
+            font-size: 20px;
+        }
+
+
         @media only screen and (max-width: 480px) {
-            .header{
+            .header {
                 width: 85%;
                 height: 10%;
                 display: flex;
@@ -25,9 +42,11 @@
                 padding-left: 24px;
                 gap: 16px;
             }
-            .header > img{
+
+            .header>img {
                 width: 10%;
             }
+
             .container1 {
                 background-color: white;
                 width: 100vw;
@@ -38,7 +57,8 @@
                 align-items: center;
                 gap: 40px;
             }
-            .title{
+
+            .title {
                 width: 85%;
                 height: 10%;
                 border-radius: 6px;
@@ -50,9 +70,10 @@
                 font-size: 20px;
                 font-weight: 600;
                 padding-left: 24px;
-                
+
             }
-            .bodyEmail{
+
+            .bodyEmail {
                 width: 85%;
                 display: flex;
                 flex-direction: column;
@@ -60,15 +81,18 @@
                 justify-content: flex-start;
                 padding-left: 24px;
             }
-            .bodyEmail > h1{
+
+            .bodyEmail>h1 {
                 font-size: 24px;
                 color: rgb(29, 29, 29);
             }
+
             .contentEmail {
                 color: rgb(66, 66, 66);
                 padding-right: 24px;
             }
-            .linkImovel{
+
+            .linkImovel {
                 color: white;
                 font-weight: 600;
                 padding: 12px 16px;
@@ -80,7 +104,8 @@
                 text-decoration: none;
                 width: fit-content;
             }
-            .footer{
+
+            .footer {
                 width: 85%;
                 height: 10%;
                 padding-left: 24px;
@@ -89,11 +114,220 @@
                 align-items: center;
                 justify-content: space-between;
             }
-            .footer > p{
+
+            .footer>p {
                 font-size: 14px;
                 color: rgb(80, 80, 80);
             }
-            .ctaSocialMedia{
+
+            .ctaSocialMedia {
+                text-decoration: none;
+                width: fit-content;
+                font-size: 14px;
+                padding: 8px 12px;
+                border-radius: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                border: 1px solid black;
+                color: black !important;
+            }
+        }
+
+        @media only screen and (min-width: 481px) and (max-width: 768px) {
+            .header {
+                width: 85%;
+                height: 10%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding-left: 24px;
+                gap: 16px;
+            }
+
+            .header>img {
+                width: 10%;
+            }
+
+            .container1 {
+                background-color: white;
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+            }
+
+            .title {
+                width: 85%;
+                height: 10%;
+                border-radius: 6px;
+                background-color: #ffe6f4;
+                color: #9D0058;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                font-size: 20px;
+                font-weight: 600;
+                padding-left: 24px;
+
+            }
+
+            .bodyEmail {
+                width: 85%;
+                display: flex;
+                flex-direction: column;
+                gap: 32px;
+                justify-content: flex-start;
+                padding-left: 24px;
+            }
+
+            .bodyEmail>h1 {
+                font-size: 24px;
+                color: rgb(29, 29, 29);
+            }
+
+            .contentEmail {
+                color: rgb(66, 66, 66);
+                padding-right: 24px;
+            }
+
+            .linkImovel {
+                color: white;
+                font-weight: 600;
+                padding: 12px 16px;
+                border-radius: 6px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #9D0058;
+                text-decoration: none;
+                width: fit-content;
+            }
+
+            .footer {
+                width: 85%;
+                height: 10%;
+                padding-left: 24px;
+                padding-top: 32px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .footer>p {
+                font-size: 14px;
+                color: rgb(80, 80, 80);
+            }
+
+            .ctaSocialMedia {
+                text-decoration: none;
+                width: fit-content;
+                font-size: 14px;
+                padding: 8px 12px;
+                border-radius: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                border: 1px solid black;
+                color: black !important;
+            }
+        }
+
+        @media only screen and (min-width: 769px) {
+            .header {
+                width: 85%;
+                height: 10%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding-left: 24px;
+                gap: 16px;
+            }
+
+            .header>img {
+                width: 5%;
+                height: 50%;
+            }
+
+            .container1 {
+                background-color: white;
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+            }
+
+            .title {
+                width: 85%;
+                height: 10%;
+                border-radius: 6px;
+                background-color: #ffe6f4;
+                color: #9D0058;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                font-size: 20px;
+                font-weight: 600;
+                padding-left: 24px;
+
+            }
+
+            .bodyEmail {
+                width: 85%;
+                display: flex;
+                flex-direction: column;
+                gap: 32px;
+                justify-content: flex-start;
+                padding-left: 24px;
+            }
+
+            .bodyEmail>h1 {
+                font-size: 24px;
+                color: rgb(29, 29, 29);
+            }
+
+            .contentEmail {
+                color: rgb(66, 66, 66);
+                padding-right: 24px;
+            }
+
+            .linkImovel {
+                color: white;
+                font-weight: 600;
+                padding: 12px 16px;
+                border-radius: 6px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #9D0058;
+                text-decoration: none;
+                width: fit-content;
+            }
+
+            .footer {
+                width: 85%;
+                height: 10%;
+                padding-left: 24px;
+                padding-top: 32px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .footer>p {
+                font-size: 14px;
+                color: rgb(80, 80, 80);
+            }
+
+            .ctaSocialMedia {
                 text-decoration: none;
                 width: fit-content;
                 font-size: 14px;
@@ -111,7 +345,7 @@
 </head>
 
 <body>
-    {{!-- {{#if solicitacaoPublicada}} --}}
+    {{#if solicitacaoPublicada}}
     <div class="container1">
         <div class="header">
             <img src="../../img/logo_icon.png" alt="">
@@ -122,10 +356,10 @@
         </div>
         <div class="bodyEmail">
             <h1>
-                Olá, {{nome_prop}}.                
+                Olá, {{nome_prop}}.
             </h1>
             <p class="contentEmail">
-                O seu imóvel foi revisado e aceito pela corretora responsável. 
+                O seu imóvel foi revisado e aceito pela corretora responsável.
                 Você já pode vê-lo publicado clicando em Ver Meu Imóvel:
             </p>
             <a class="linkImovel" href="/public/detalheImovel/{{idImovel}}" target="_blank">
@@ -140,16 +374,49 @@
             </a>
         </div>
     </div>
-
-
-    {{!-- {{/if}} --}}
+    {{/if}}
 
 
     {{#if solicitacaoRejeitada}}
-    <h1>Solicitação rejeitada</h1>
+    <div class="container1">
+        <div class="header">
+            <img src="../../img/logo_icon.png" alt="">
+            <h5>House&Lar Imobiliária</h5>
+        </div>
+        <div class="title">
+            Solicitação Rejeitada: {{idSoli}}
+        </div>
+        <div class="bodyEmail">
+            <h1>
+                Olá, {{nome_prop}}.
+            </h1>
+            <p class="contentEmail">
+                O seu imóvel não foi aceito pela corretora responsável.
+                Para mais informações, consulte a corretora através de um dos canais de contato abaixo:
+            </p>
+            <div class="contato">
+                <div class="contatoRow">
+                    <iconify-icon icon="ic:outline-phone"></iconify-icon>
+                    <p>{{telefoneCliente}}</p>
+                </div>
 
+                <div class="contatoRow">
+                    <iconify-icon icon="ic:outline-email"></iconify-icon>
+                    <p>{{emailCliente}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>House&Lar CRECI: 2583</p>
+            <a class="ctaSocialMedia" href="https://www.instagram.com/houselarimoveis/">
+                <iconify-icon icon="mdi:instagram"></iconify-icon>
+                Nos siga
+            </a>
+        </div>
+    </div>
     {{/if}}
 
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
+
 </html>

@@ -3,6 +3,7 @@ const Imagem_Solicitacao = require('../models/Imagens_Solicitacoes')
 const ViewSoliImagem = require('../models/ViewsSolicitacoesImagens')
 const Imovel = require('../models/Imoveis')
 const ImagensImovel = require('../models/Imagens_Imovel')
+const Cliente = require('../models/Clientes')
 const nodemailer = require('../config/nodemailerConfig')
 // const axios = require('axios')
 // const fs = require('fs');
@@ -205,6 +206,8 @@ const publicarSoli = async (req, res) => {
                         }
                     }
                     if (aux === true) {
+                        const infoCliente = await Cliente.findAll()
+                        console.log(infoCliente)
                         console.log("E-mail será enviado para: ")
                         console.log(imovel.email_prop)
                         try {
@@ -214,8 +217,14 @@ const publicarSoli = async (req, res) => {
                                 from: process.env.EMAIL,
                                 template: 'email',
                                 context: {
-                                    nome_completo: `${imovel.nome_prop}`,
-                                    solicitacaoPublicada: true
+                                    nome_prop: `${imovel.nome_prop}`,
+                                    solicitacaoPublicada: true,
+                                    idSoli: req.params.id,
+                                    telefoneCliente: infoCliente.dataValues.telefone_cliente,
+                                    emailCliente: infoCliente.dataValues.email_cliente
+                                },
+                                headers: {
+                                    'Content-Type': 'text/html;charset=utf-8'
                                 }
                             })
                             console.log("O e-mail foi enviado ao proprietário")

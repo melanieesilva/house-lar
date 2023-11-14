@@ -164,7 +164,9 @@ router.get('/corretor/DesativarNoticia/:id', (req, res) => {
     })
 })
 
-router.get('/corretor/publicarNoticia', noticiasController.getCategorias)
+router.get('/corretor/publicarNoticia', (req,res)=>{
+    res.render('pages/Noticias/publicarNoticia')
+})
 
 router.get('/corretor/mensagens', (req, res) => {
     Duvidas.findAll().then((duvidas) => {

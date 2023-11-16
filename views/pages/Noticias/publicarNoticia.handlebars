@@ -33,31 +33,11 @@
                             <iconify-icon icon="ep:arrow-down"></iconify-icon>
                         </div>
                         <div class="bodyDrop" id="bodyDrop">
-                            <div class="optionDrop">
-                                Oportunidade Tenda
+                            {{#each categorias}}
+                            <div class="optionDrop" id="optionDrop" data-corCategoria={{dataValues.cor_categoria}}>
+                                {{dataValues.nome_categoria}}
                             </div>
-                            <div class="optionDrop">
-                                Oportunidade Tenda
-                            </div>
-                            <div class="optionDrop">
-                                Oportunidade Tenda
-                            </div>
-                            <div class="optionDrop">
-                                Oportunidade Tenda
-                            </div>
-                            <div class="optionDrop">
-                                Oportunidade Tenda
-                            </div>
-                            <div class="optionDrop">
-                                Oportunidade Tenda
-                            </div>
-                            <div class="optionDrop">
-                                Oportunidade Tenda
-                            </div>
-                            <div class="optionDrop">
-                                Oportunidade Tenda
-                            </div>
-
+                            {{/each}}
                         </div>
 
                 </div>

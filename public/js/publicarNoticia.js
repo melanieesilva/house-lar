@@ -49,6 +49,26 @@ function openDrop(el) {
 
 window.onload = function() {
     document.getElementById('inputImg').addEventListener('change', getFileName);
+
+    function setColor(back,color){
+        optionMain.style.backgroundColor = back
+        optionMain.style.color = color
+    }
+
+    const optionMain = document.getElementById('optionDrop')
+    const cor = optionMain.getAttribute('data-corCategoria')
+    switch (cor) {
+        case 'Vermelho':
+         
+            setColor('#FFE1E1','#C80000')
+            break;
+        case 'Azul':
+            setColor('rgba(0, 128, 200, 0.12)','#0080C8')
+        break;
+        
+        default:
+            break;
+    }
 }
 const getFileName = (event) => {
     const files = event.target.files;

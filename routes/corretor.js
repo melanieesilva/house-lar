@@ -124,6 +124,8 @@ router.get('/corretor/solicitacoes', (req, res) => {
 
 router.get('/corretor/publicarSolicitacao/:id',soliController.publicarSoli)
 
+router.get('/corretor/rejeitarSolicitacao/:id',soliController.rejeitarSoli)
+
 router.get('/corretor/filtroSolicitacao/:option',soliController.filtrarSolicitacoes)
 
 router.get('/corretor/painelControle',imoveisController.getImoveis)

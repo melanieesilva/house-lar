@@ -17,11 +17,10 @@
         <div class="hero-img" id="heroImg">
             <div id="texto">
                 <h1>Prontos para realizar <span>Sonhos</span></h1>
-                <p>Lorem ipsum dolor sit amet. Lorem ipsum
-                    dolor sit amet. Lorem ipsum dolor sit amet.
+                <p>Cada imóvel tem uma história única para contar. Vamos descobrir a sua?
                 </p>
             </div>
-            <div id="areaPesquisa">
+            <form id="areaPesquisa" action="/public/buscaAvancada" method="get">
                 <div id="escolhas">
                     <input type="button" value="Comprar" id="compra" class="botao" name="Venda"
                         style="    border-top-left-radius: 16px;">
@@ -29,68 +28,68 @@
                         style="    border-top-right-radius: 16px;">
                 </div>
                 <div id="areaForm">
-                    <form action="/public/buscaAvancada" method="get">
-                        <div id="pesquisa">
-                            <input type="text" placeholder="Pesquise por cidade ou bairro!" name="localizacao">
+                    <div id="pesquisa">
+                        <input type="text" placeholder="Pesquise por cidade ou bairro!" name="localizacao">
 
 
-                            <button type="submit" href="/public/buscaAvancada" target="_blank"
-                                rel="noopener noreferrer" id="iconback">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <path fill="#FFFFFF"
-                                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
-                                    <path fill="none" d="M0 0h24v24H0z" />
-                                </svg>
-                            </button>
+                        <button type="submit" href="/public/buscaAvancada" target="_blank" rel="noopener noreferrer"
+                            id="iconback">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="#FFFFFF"
+                                    d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                                <path fill="none" d="M0 0h24v24H0z" />
+                            </svg>
+                        </button>
 
+                    </div>
+
+                    <div id="selecoes">
+                        <div id="select">
+                            <label class="labelde">Tipo do Imóvel</label> <br>
+                            <select name="tipo" id="">
+                                <option value="Apartamento">Apartamento</option>
+                                <option value="Casa">Casa</option>
+                                <option value="Kitnet/Studio">Kitnet/Studio</option>
+                                <option value="Sala Comercial">Sala Comercial</option>
+                                <option value="Lote">Lote</option>
+                            </select>
                         </div>
 
-                        <div id="selecoes">
-                            <div id="select">
-                                <label class="labelde">Tipo do Imóvel</label> <br>
-                                <select name="tipo" id="">
-                                    <option value="Apartamento">Apartamento</option>
-                                    <option value="Casa">Casa</option>
-                                    <option value="Kitnet/Studio">Kitnet/Studio</option>
-                                    <option value="Sala Comercial">Sala Comercial</option>
-                                    <option value="Lote">Lote</option>
-                                </select>
-                            </div>
-
-                            <div id="select">
-                                <label class="labelde">N° de quartos</label> <br>
-                                <select name="quartos" id="">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </div>
-
-                            <div id="select">
-                                <label class="labelde">Preço</label> <br>
-                                <select name="preco" id="">
-                                    <option value="300000">Até 300.000</option>
-                                    <option value="500000">Até 500.000</option>
-                                    <option value="1000000">Até 1.000.000</option>
-                                    <option value="1500000">Acima de 1.500.000</option>
-                                </select>
-                            </div>
-
-                            <div id="select">
-                                <label class="labelde">Área</label> <br>
-                                <select name="area" id="">
-                                    <option value="80">Até 80m²</option>
-                                    <option value="150">Até 150m²</option>
-                                    <option value="200">Até 200m²</option>
-                                    <option value="500">Até 500m²</option>
-                                </select>
-                            </div>
+                        <div id="select">
+                            <label class="labelde">N° de quartos</label> <br>
+                            <select name="quartos" id="">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
                         </div>
-                    </form>
+
+                        <div id="select">
+                            <label class="labelde">Preço</label> <br>
+                            <select name="preco" id="">
+                                <option value="300000">Até 300.000</option>
+                                <option value="500000">Até 500.000</option>
+                                <option value="1000000">Até 1.000.000</option>
+                                <option value="1500000">Acima de 1.500.000</option>
+                            </select>
+                        </div>
+
+                        <div id="select">
+                            <label class="labelde">Área</label> <br>
+                            <select name="area" id="">
+                                <option value="80">Até 80m²</option>
+                                <option value="150">Até 150m²</option>
+                                <option value="200">Até 200m²</option>
+                                <option value="500">Até 500m²</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </form>
+        </div>
+        </div>
         </div>
 
         <section class="imoveis">

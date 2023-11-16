@@ -170,7 +170,8 @@ const getImoveisSelecionados = async (req, res) => {
         imovel.valor_imovel <= req.query.preco &&
         imovel.area <= req.query.area &&
         (imovel.cidade.toLowerCase().includes(req.query.localizacao.toLowerCase()) ||
-          imovel.bairro.toLowerCase().includes(req.query.localizacao.toLowerCase()))
+          imovel.bairro.toLowerCase().includes(req.query.localizacao.toLowerCase())) &&
+        imovel.operacao == req.query.operacao
       );
     });
 

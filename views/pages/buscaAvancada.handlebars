@@ -23,7 +23,7 @@
     </section>
 
     <section id="conteudo">
-        <section id="barra-filtro">
+        <form id="barra-filtro">
             <div id="titulo-conteudo">
                 <iconify-icon icon="system-uicons:filter"></iconify-icon>
                 <label for="">Filtre por</label>
@@ -74,7 +74,7 @@
                     <input type="text" placeholder="Máximo" class="input-quantidade">
                 </div>
             </div>
-        </section>
+        </form>
         <section id="imoveis">
             {{#each imoveis}}
 
@@ -82,9 +82,9 @@
                 <img src="../../img/img-imovel-busca-avanc.jpeg" alt="" id="imagem-venda">
                 <div class="teto" id="info-direita">
                     <div id="imovel-meio">
-                        <h3>{{dataValues.tipo_imovel}}</h3>
-                        <h4 class="escrita-imovel">{{dataValues.bairro}} - {{dataValues.cidade}}</h4>
-                        <h5 class="escrita-imovel escrita-cinza">COD: 789654</h5>
+                        <h4>{{dataValues.tipo_imovel}}</h4>
+                        <h5 class="escrita-imovel">{{dataValues.bairro}} - {{dataValues.cidade}}</h5>
+                        <h6 class="escrita-imovel escrita-cinza">COD: {{dataValues.id}}</h6>
                         <div id="detalhe-imovel" class="escrita-imovel">
                             <div class="mini-info">
                                 <iconify-icon icon="cil:room" class="icone"></iconify-icon>

@@ -232,58 +232,64 @@ const excluirImovel = async (req, res) => {
   }
 };
 
-const desativarImovel = async (req, res) => {
-  try {
+
+const desativarImovel = async (req,res) => {
+  try{
     const id = req.params.id;
     const Imovel = await Imoveis.findOne({
-      where: {
-        id: id
+      where:{
+        id:id
       }
     });
 
-    if (Imovel) {
+    if(Imovel){
       await Imovel.update({
         statusImovel: 'Desativado'
       })
 
-      res.redirect('/corretor/painelControle');
+      res.status(200).render('pages/imoveisPublicados', {
+        layout: 'painelControle',
+        pageTitle: 'Imoveis - Painel De Controle'
+      });
     } else {
       req.flash('error_msg', `Imóvel com ID ${id} não encontrado.`);
       res.status(404).send("Imóvel não encontrado");
     }
 
-  } catch (error) {
-    req.flash('error_msg', 'Erro ao atualizar o status');
-    res.status(500).send("Erro ao atualizar o status");
-  }
+  }  catch (error) {
+  req.flash('error_msg', 'Erro ao atualizar status do imóvel');
+  res.status(500).send("Erro ao atualizar status do imóvel");
+}
 }
 
-const ativarImovel = async (req, res) => {
-  try {
+const ativarImovel = async (req,res) => {
+  try{
     const id = req.params.id;
     const Imovel = await Imoveis.findOne({
-      where: {
-        id: id
+      where:{
+        id:id
       }
     });
 
-    if (Imovel) {
+    if(Imovel){
       await Imovel.update({
-        statusImovel: 'Publicado'
+        statusImovel: 'Publicados'
       })
-      res.redirect('/corretor/painelControle');
+
+      res.status(200).render('pages/imoveisPublicados', {
+        layout: 'painelControle',
+        pageTitle: 'Imoveis - Painel De Controle'
+      });
     } else {
-      req.flash('error_msg', 'Imóvel com ID ${id} não encontrado.');
+      req.flash('error_msg', `Imóvel com ID ${id} não encontrado.`);
       res.status(404).send("Imóvel não encontrado");
     }
 
-  } catch (error) {
-    req.flash('error_msg', 'Erro ao atualizar o status');
-    res.status(500).send("Erro ao atualizar o status");
-  }
+  }  catch (error) {
+  req.flash('error_msg', 'Erro ao atualizar status do imóvel');
+  res.status(500).send("Erro ao atualizar status do imóvel");
 }
-
-
+}
 module.exports = {
   getImoveis,
   excluirImovel,

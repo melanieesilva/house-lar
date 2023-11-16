@@ -1,22 +1,30 @@
 -- Active: 1699926693923@@127.0.0.1@3306@larhouse
--- CREATE DATABASE larhouse;
+CREATE DATABASE larhouse;
 use larhouse;
 
 -- DROPS
+-- drop database larhouse;
 -- drop view viewsolicitacaoimagem;
+-- drop view viewimovelimagem;
+-- drop table imoveis;
+-- drop table noticias;
+-- drop table solicitacoes;
+-- drop table imagenssolicitacoes;
 
 -- DELETES
 -- delete from solicitacoes;
 -- delete from imagensSolicitacoes;
-
 -- delete from duvidas;
--- drop table imoveis;
--- drop table noticias;
+
 
 -- SELECTS
-select * from solicitacoes;
+-- select * from solicitacoes;
 -- select * from imagensSolicitacoes;
 -- select * from viewsolicitacaoimagem;
+
+-- UPDATES
+
+-- update solicitacoes set dataPublicacao = curdate();
 
 -- CREATES
 CREATE TABLE `solicitacoes` (
@@ -39,9 +47,9 @@ CREATE TABLE `solicitacoes` (
   `emCondominio` enum('Sim','Não') DEFAULT NULL,
   `dataPublicacao` date DEFAULT NULL,
   `nomeCliente` varchar(80) DEFAULT NULL,
-  `telefone` varchar(14) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `CPF` varchar(14) DEFAULT NULL,
+  `telefoneCliente` varchar(14) DEFAULT NULL,
+  `emailCliente` varchar(100) DEFAULT NULL,
+  `CPFCliente` varchar(14) DEFAULT NULL,
   `cidade` varchar(80) DEFAULT NULL,
   `bairro` varchar(80) DEFAULT NULL,
   `endereco` varchar(100) DEFAULT NULL,
@@ -76,6 +84,8 @@ CREATE TABLE `imoveis` (
   `construcao` enum('Sim','Não') DEFAULT NULL,
   `cidade` varchar(255) DEFAULT NULL,
   `bairro` varchar(255) DEFAULT NULL,
+  `endereco` varchar(255) DEFAULT NULL,
+  `numero` int DEFAULT NULL,
   `num_andares` int DEFAULT NULL,
   `data_entrega` date DEFAULT NULL,
   `em_condominio` enum('Sim','Não') DEFAULT NULL,
@@ -85,7 +95,7 @@ CREATE TABLE `imoveis` (
   `telefone_prop` varchar(255) DEFAULT NULL,
   `cpf_prop` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENG
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `imagens_imovel` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -95,7 +105,7 @@ CREATE TABLE `imagens_imovel` (
   PRIMARY KEY (`id`),
   KEY `idImovel_FK` (`idImovel_FK`),
   CONSTRAINT `imagens_imovel_ibfk_1` FOREIGN KEY (`idImovel_FK`) REFERENCES `imoveis` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `noticias` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -111,6 +121,13 @@ CREATE TABLE `noticias` (
   `status` enum('Publicada','Desativada') NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `categorias` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome_categoria` VARCHAR(255),
+  `cor_categoria` ENUM('Amarelo', 'Azul', 'Roxo', 'Verde', 'Laranja', 'Vermelho'),
+  PRIMARY KEY(`id`)
+);
 
 CREATE TABLE `duvidas` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -132,9 +149,6 @@ CREATE TABLE `clientes` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- UPDATES
-
--- update solicitacoes set dataPublicacao = curdate();
 
 CREATE VIEW ViewSolicitacaoImagem AS SELECT
 			sol.id as id_soli,
@@ -205,13 +219,19 @@ CREATE VIEW ViewImovelImagem AS SELECT
         WHERE imo.id = imag.`idImovel_FK`;
         
         
-        
 
--- INSERT INTO `larhouse`.`solicitacoes` (`statusSoli`, `tipoImovel`, `operacao`, `descricao`, `numQuartos`, `numBanheiros`, `numVagas`, `areaImovel`, `valorImovel`, `valorCondominio`, `valorIPTU`, `parcelasIPTU`, `construcao`, `numAndares`, `dataEntrega`, `emCondominio`, `nomeCliente`, `telefone`, `email`, `CPF`, `cidade`, `bairro`, `endereco`, `numero`) VALUES ('Solicitado', 'Apartamento', 'Venda', 'Imóvel aa', '2', '2', '2', '48', '480870.25', '1478', '245', '2', 'Sim', '3', '2020-08-09', 'Não', 'Josy Lima', '(71)98564-3211', 'josylima@gmail.com', '125.357.852-99', 'Feira de Santana', 'Conceição', 'Rua dos Vereadores Francisco Dantas', '99');
--- INSERT INTO `larhouse`.`solicitacoes` (`statusSoli`, `tipoImovel`, `operacao`, `descricao`, `numQuartos`, `numBanheiros`, `numVagas`, `areaImovel`, `valorImovel`, `valorCondominio`, `valorIPTU`, `parcelasIPTU`, `construcao`, `numAndares`, `dataEntrega`, `emCondominio`, `nomeCliente`, `telefone`, `email`, `CPF`, `cidade`, `bairro`, `endereco`, `numero`) VALUES ('Solicitado', 'Casa', 'Venda', 'Imóvel aa', '2', '2', '2', '65', '840.00', '1256.00', '456.00', '2', 'Não', '3', '2008-07-06', 'Sim', 'Kelly Dores', '(71)98564-3200', 'kellydores@gmail.com', '495.654.123.22', 'Feira de Santana', 'Conceição', 'Rua dos Vereadores Francisco Dantas', '10');
+-- -------------------- INSERTS --------------------
+
+-- INSERT INTO `larhouse`.`solicitacoes` (`statusSoli`, `tipoImovel`, `operacao`, `descricao`, `numQuartos`, `numBanheiros`, `numVagas`, `areaImovel`, `valorImovel`, `valorCondominio`, `valorIPTU`, `parcelasIPTU`, `construcao`, `numAndares`, `dataEntrega`, `emCondominio`, `nomeCliente`, `telefoneCliente`, `emailCliente`, `CPFCliente`, `cidade`, `bairro`, `endereco`, `numero`) VALUES ('Solicitado', 'Apartamento', 'Venda', 'Imóvel aa', '2', '2', '2', '48', '480870.25', '1478', '245', '2', 'Sim', '3', '2020-08-09', 'Não', 'Josy Lima', '(71)98564-3211', 'josylima@gmail.com', '125.357.852-99', 'Feira de Santana', 'Conceição', 'Rua dos Vereadores Francisco Dantas', '99');
+-- INSERT INTO `larhouse`.`solicitacoes` (`statusSoli`, `tipoImovel`, `operacao`, `descricao`, `numQuartos`, `numBanheiros`, `numVagas`, `areaImovel`, `valorImovel`, `valorCondominio`, `valorIPTU`, `parcelasIPTU`, `construcao`, `numAndares`, `dataEntrega`, `emCondominio`, `nomeCliente`, `telefoneCliente`, `emailCliente`, `CPFCliente`, `cidade`, `bairro`, `endereco`, `numero`) VALUES ('Solicitado', 'Casa', 'Venda', 'Imóvel aa', '2', '2', '2', '65', '840.00', '1256.00', '456.00', '2', 'Não', '3', '2008-07-06', 'Sim', 'Kelly Dores', '(71)98564-3200', 'kellydores@gmail.com', '495.654.123.22', 'Feira de Santana', 'Conceição', 'Rua dos Vereadores Francisco Dantas', '10');
 
 -- INSERT INTO `larhouse`.`imagenssolicitacoes` (`idSolicitacao_FK`, `nomeImagem`, `pathImagem`) VALUES ('18', 'yasin-aribuga-BCp_xuIrYGQ-unsplash.jpg', 'C:\\Users\\melan\\Documents\\GitHub\\house-lar\\public\\uploads\\images_1698407931247_yasin-aribuga-BCp_xuIrYGQ-unsplash.jpg');
 -- INSERT INTO `larhouse`.`imagenssolicitacoes` (`idSolicitacao_FK`, `nomeImagem`, `pathImagem`) VALUES ('19', 'Aula Invertida DS2 - Pesquisa e Roteiro (1).jpg', 'C:\\Users\\melan\\Documents\\GitHub\\house-lar\\public\\uploads\\images_1698407931802_Aula Invertida DS2 - Pesquisa e Roteiro (1).jpg');
 
--- INSERT INTO `larhouse`.`imoveis` (`statusImovel`, `tipo_imovel`, `operacao`, `descricao`, `num_quartos`, `num_banheiros`, `num_vagas`, `area`, `valor`, `valor_condominio`, `iptu`, `parcelas_iptu`, `construcao`, `cidade`, `bairro`, `num_andares`, `data_entrega`, `em_condominio`) VALUES ('Publicado', 'Casa', 'Venda', 'Describe 1', '4', '4', '4', '120', '780000', '890', '560', '4', 'Não', 'Salvador', 'Cajazeiras', '4', '2020-08-12', 'Sim');
--- INSERT INTO `larhouse`.`imoveis` (`statusImovel`, `tipo_imovel`, `operacao`, `descricao`, `num_quartos`, `num_banheiros`, `num_vagas`, `area`, `valor`, `valor_condominio`, `iptu`, `parcelas_iptu`, `construcao`, `cidade`, `bairro`, `num_andares`, `data_entrega`, `em_condominio`) VALUES ('Desativado', 'Apartamento', 'Aluguel', 'Describe 2', '5', '5', '6', '180', '900000', '560', '580', '8', 'Sim', 'Salvador', 'Pituba', '10', '2023-12-01', 'Sim');
+-- INSERT INTO `larhouse`.`imoveis` (`statusImovel`, `tipo_imovel`, `operacao`, `descricao`, `num_quartos`, `num_banheiros`, `num_vagas`, `area`, `valor_imovel`, `valor_condominio`, `valor_iptu`, `parcelas_iptu`, `construcao`, `cidade`, `bairro`, `endereco`, `numero`, `num_andares`, `data_entrega`, `em_condominio`, `nome_prop`, `email_prop`, `telefone_prop`, `cpf_prop`) VALUES ('Publicado', 'Casa', 'Aluguel', 'Um belo imóvel...', '4', '4', '2', '90', '800', '500', '400', '8', 'Não', 'Salvador', 'Pituba', 'Rua dos Marinhos', '74', '8', '2001-01-08', 'Sim', 'Luciana Gimenez', 'houselar7@gmail.com', '(71)99568-4523', '785.654.123-98');
+
+-- INSERT INTO `larhouse`.`imoveis` (`statusImovel`, `tipo_imovel`, `operacao`, `descricao`, `num_quartos`, `num_banheiros`, `num_vagas`, `area`, `valor_imovel`, `valor_condominio`, `valor_iptu`, `parcelas_iptu`, `construcao`, `cidade`, `bairro`, `num_andares`, `data_entrega`, `em_condominio`) VALUES ('Publicado', 'Casa', 'Venda', 'Describe 1', '4', '4', '4', '120', '780000', '890', '560', '4', 'Não', 'Salvador', 'Cajazeiras', '4', '2020-08-12', 'Sim');
+-- INSERT INTO `larhouse`.`imoveis` (`statusImovel`, `tipo_imovel`, `operacao`, `descricao`, `num_quartos`, `num_banheiros`, `num_vagas`, `area`, `valor_imovel`, `valor_condominio`, `valor_iptu`, `parcelas_iptu`, `construcao`, `cidade`, `bairro`, `num_andares`, `data_entrega`, `em_condominio`) VALUES ('Desativado', 'Apartamento', 'Aluguel', 'Describe 2', '5', '5', '6', '180', '900000', '560', '580', '8', 'Sim', 'Salvador', 'Pituba', '10', '2023-12-01', 'Sim');
+
+
+-- INSERT INTO `larhouse`.`clientes` (`nome_cliente`, `email_cliente`, `telefone_cliente`, `senha_cliente`) VALUES ('Islania Silva Souza', 'islaniassouza22@gmail.com', '(71)99873-0593', '123456');

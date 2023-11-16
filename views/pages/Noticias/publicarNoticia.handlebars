@@ -63,7 +63,7 @@
                     </div>
 
 
-                    <button type="button" class="addCategoria">
+                    <button type="button" class="addCategoria" id="addCategoria" onclick="openModal()">
                         <iconify-icon icon="mingcute:add-line"></iconify-icon>
                     </button>
                 </div>
@@ -73,7 +73,7 @@
         <div class="rowForm">
             <div class="labelForm">
                 <label for="descricao">Descrição</label>
-                <textarea placeholder="Escreva uma breve descrição..." id="titulo" name="titulo"></textarea>
+                <textarea placeholder="Escreva uma breve descrição..." id="descricao" name="titulo"></textarea>
             </div>
             <div class="labelForm">
                 <p>Imagem</p>
@@ -99,14 +99,14 @@
 </form>
 
 
-<div class="containerModal">
+<div class="containerModal" id="containerModal">
     <div class="conteudoModal">
         <div class="headerModal">
             <div class="text">
                 <h2>Nova Categoria</h2>
                 <p>Adicione uma nova categoria de notícias. Priorize nomes mais curtos.</p>
             </div>
-            <button type="button">
+            <button type="button" id="closeModal">
                 <iconify-icon icon="mdi:remove"></iconify-icon>
             </button>
         </div>

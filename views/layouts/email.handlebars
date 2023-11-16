@@ -15,22 +15,26 @@
             box-sizing: border-box;
         }
 
+        .footer1 {}
+
+        .footer2 {}
+
         .contato {
             display: flex;
             flex-direction: column;
             justify-content: left;
             gap: 24px;
         }
-        
-        .contatoRow{
+
+        .contatoRow {
             display: flex;
             flex-direction: column;
             gap: 16px;
         }
-        .contatoRow > :first-child{
+
+        .contatoRow> :first-child {
             font-size: 20px;
         }
-
 
         @media only screen and (max-width: 480px) {
             .header {
@@ -342,81 +346,127 @@
             }
         }
     </style>
+    <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
 
 <body>
     {{#if solicitacaoPublicada}}
-    <div class="container1">
-        <div class="header">
-            <img src="../../img/logo_icon.png" alt="">
-            <h5>House&Lar Imobiliária</h5>
-        </div>
-        <div class="title">
-            Solicitação Aceita: {{idSoli}}
-        </div>
-        <div class="bodyEmail">
-            <h1>
-                Olá, {{nome_prop}}.
-            </h1>
-            <p class="contentEmail">
-                O seu imóvel foi revisado e aceito pela corretora responsável.
-                Você já pode vê-lo publicado clicando em Ver Meu Imóvel:
-            </p>
-            <a class="linkImovel" href="/public/detalheImovel/{{idImovel}}" target="_blank">
-                Ver Meu Imóvel
-            </a>
-        </div>
-        <div class="footer">
-            <p>House&Lar CRECI: 2583</p>
-            <a class="ctaSocialMedia" href="https://www.instagram.com/houselarimoveis/">
-                <iconify-icon icon="mdi:instagram"></iconify-icon>
-                Nos siga
-            </a>
-        </div>
-    </div>
+    <table style="width: 100%;">
+        <tr style="width: 100%;">
+            <td style="display: flex; justify-content: center;">
+                <div style="display: flex;align-items: center; width: 80%;margin-top:24px;">
+
+                    <h5 style="font-size: 20px; color:#9D0058; font-style:italic;">House&Lar Imobiliária</h5>
+                </div>
+
+            </td>
+        </tr>
+        <tr style="width: 100%;">
+            <td style="display: flex; justify-content: center;">
+                <div style="width: 100%;background-color: #ffe6f4;
+                color: #9D0058;font-size: 20px; font-weight:600; 
+                padding:24px 40px; width: 80%; margin-top:24px;border-radius:6px;">
+                    Solicitação aceita: {{idSoli}}
+                </div>
+
+            </td>
+        </tr>
+        <tr style="width: 100%;">
+            <td style="display: flex; flex-direction: column;justify-content: center; align-items:center;">
+                <div style="padding:20px 40px; width: 80%;">
+                    <h1>
+                        Olá, {{nome_prop}}.
+                    </h1>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="display: flex; flex-direction: column;justify-content: center; align-items:center;">
+                <div style="width: 80%; padding: 0 40px;">
+                    <p style="color: rgb(29, 29, 29);">
+                        O seu imóvel foi revisado e aceito pela corretora responsável.
+                        Você já pode vê-lo publicado clicando em Ver Meu Imóvel:
+                    </p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="display: flex; flex-direction: column;justify-content: center; align-items:center;">
+                <div style="padding:20px 40px; width: 80%;">
+                    <a class="linkImovel" href="/public/detalheImovel/{{idImovel}}" target="_blank">
+                        Ver Meu Imóvel
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="display:flex;justify-content:center; align-items: center;  gap: 16px;">
+
+                <p style="font-size: 14px;padding:24px;">House&Lar CRECI: 2583</p>
+
+                <a style="padding:24px;" href="https://www.instagram.com/houselarimoveis/">
+                    <iconify-icon icon="mdi:instagram"></iconify-icon>
+                    Siga no Instragam
+                </a>
+            </td>
+
+        </tr>
+    </table>
     {{/if}}
 
 
     {{#if solicitacaoRejeitada}}
-    <div class="container1">
-        <div class="header">
-            <img src="../../img/logo_icon.png" alt="">
-            <h5>House&Lar Imobiliária</h5>
-        </div>
-        <div class="title">
-            Solicitação Rejeitada: {{idSoli}}
-        </div>
-        <div class="bodyEmail">
-            <h1>
-                Olá, {{nome_prop}}.
-            </h1>
-            <p class="contentEmail">
-                O seu imóvel não foi aceito pela corretora responsável.
-                Para mais informações, consulte a corretora através de um dos canais de contato abaixo:
-            </p>
-            <div class="contato">
-                <div class="contatoRow">
-                    <iconify-icon icon="ic:outline-phone"></iconify-icon>
-                    <p>{{telefoneCliente}}</p>
+    <table style="width: 100%;">
+
+        <tr style="width: 100%;">
+            <td style="display: flex; justify-content: center;">
+                <div style="width: 100%;background-color: #ffe6f4;
+                color: #9D0058;font-size: 20px; font-weight:600; 
+                padding:24px 40px; width: 80%; margin-top:24px;border-radius:6px;">
+                    Solicitação rejeitada: {{idSoli}}
                 </div>
 
-                <div class="contatoRow">
-                    <iconify-icon icon="ic:outline-email"></iconify-icon>
-                    <p>{{emailCliente}}</p>
+            </td>
+        </tr>
+        <tr style="width: 100%;">
+            <td style="display: flex; flex-direction: column;justify-content: center; align-items:center;">
+                <div style="padding:20px 40px; width: 80%;">
+                    <h1>
+                        Olá, {{nome_prop}}.
+                    </h1>
                 </div>
-            </div>
-        </div>
-        <div class="footer">
-            <p>House&Lar CRECI: 2583</p>
-            <a class="ctaSocialMedia" href="https://www.instagram.com/houselarimoveis/">
-                <iconify-icon icon="mdi:instagram"></iconify-icon>
-                Nos siga
-            </a>
-        </div>
-    </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="display: flex; flex-direction: column;justify-content: center; align-items:center;">
+                <div style="width: 80%; padding: 0 40px;">
+                    <p style="color: rgb(29, 29, 29);">
+                        O seu imóvel não foi aceito pela corretora responsável.
+                        Para mais informações, consulte a corretora através de um dos canais de contato abaixo:
+                    </p>
+                </div>
+                <div style="width: 80%; padding: 16px 40px; display:flex;flex-direction:column;gap:16px;">
+                    <p>Telefone comercial: {{telefoneCliente}}</p>
+                    <p>E-mail comercial: {{emailCliente}}</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="display:flex;justify-content:center; align-items: center;  gap: 16px;">
+
+                <p style="font-size: 14px;padding: 80px 24px;">House&Lar CRECI: 2583</p>
+
+                <a style="padding:24px; text-decoration:none; color:#9D0058 !important;" href="https://www.instagram.com/houselarimoveis/">
+                    
+                    Siga no Instragam
+                </a>
+            </td>
+
+        </tr>
+    </table>
     {{/if}}
 
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
 </body>
 
 </html>

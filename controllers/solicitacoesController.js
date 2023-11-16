@@ -206,8 +206,6 @@ const publicarSoli = async (req, res) => {
                         }
                     }
                     if (aux === true) {
-                        const infoCliente = await Cliente.findAll()
-                        console.log(infoCliente)
                         console.log("E-mail será enviado para: ")
                         console.log(imovel.email_prop)
                         try {
@@ -220,8 +218,7 @@ const publicarSoli = async (req, res) => {
                                     nome_prop: `${imovel.nome_prop}`,
                                     solicitacaoPublicada: true,
                                     idSoli: req.params.id,
-                                    telefoneCliente: infoCliente.dataValues.telefone_cliente,
-                                    emailCliente: infoCliente.dataValues.email_cliente
+                                    idImovel:imovel.id
                                 },
                                 headers: {
                                     'Content-Type': 'text/html;charset=utf-8'
@@ -237,7 +234,6 @@ const publicarSoli = async (req, res) => {
                         }
 
                     }
-
                 }
             }
         }
@@ -246,6 +242,24 @@ const publicarSoli = async (req, res) => {
     }
 }
 
+const rejeitarSoli = async (req,res) => {
+    //Rejeito
+    //set status
+    //envia email se set status ok
+    //se set status for ok, mas e-mail não, remove atualização
+    //se set status e e-mail for ok, envia pra tela com flash
+    try{
+        const rejeitarSolicitacao = await Solicitacao.update({
+            { statusSoli: 'Recusado' },
+            { where: { id: req.params.id }}
+        });
+
+    } catch (error) {
+        console.log("Não foi possível recusar a solicitação: "+error);
+    }
+    
+
+}
 const filtrarSolicitacoes = async (req, res) => {
     const optionReq = req.params.option
 

@@ -2,7 +2,7 @@ const db = require('../Database/Connection')
 
 //Definindo modelo Categoria_noticia
 
-const Categoria_Noticia = db.connect.define('categoria_noticia',{
+const Categorias = db.connect.define('categorias',{
     nome_categoria: {
         type: db.Sequelize.STRING
     },
@@ -16,6 +16,6 @@ const Categoria_Noticia = db.connect.define('categoria_noticia',{
 //     cor_categoria: "Vermelho"
 // })
 
-// Categoria_Noticia.sync({force:true})
+// Categorias.sync({force:true})
 
-// module.exports = Categoria_Noticia
+module.exports = Categorias

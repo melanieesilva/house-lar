@@ -1,4 +1,4 @@
--- Active: 1698169167496@@127.0.0.1@3306@larhouse
+-- Active: 1698719491905@@127.0.0.1@3306@larhouse
 -- CREATE DATABASE larhouse;
 use larhouse;
 
@@ -354,6 +354,11 @@ CREATE TABLE `clientes` (
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `disponibilidades`(
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `horario` datetime
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- UPDATES

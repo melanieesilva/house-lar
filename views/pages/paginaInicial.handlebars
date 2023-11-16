@@ -22,11 +22,12 @@
             </div>
             <form id="areaPesquisa" action="/public/buscaAvancada" method="get">
                 <div id="escolhas">
-                    <input type="button" value="Comprar" id="compra" class="botao" name="Venda"
+                    <input type="button" value="Venda" id="compra" class="botao" name="operacao"
                         style="    border-top-left-radius: 16px;">
-                    <input type="button" value="Alugar" id="alugar" class="botao" name="Aluguel"
+                    <input type="button" value="Aluguel" id="alugar" class="botao" name="operacao"
                         style="    border-top-right-radius: 16px;">
                 </div>
+                <input type="hidden" name="operacao" id="operacao" value="Venda">
                 <div id="areaForm">
                     <div id="pesquisa">
                         <input type="text" placeholder="Pesquise por cidade ou bairro!" name="localizacao">
@@ -42,7 +43,6 @@
                         </button>
 
                     </div>
-
                     <div id="selecoes">
                         <div id="select">
                             <label class="labelde">Tipo do Imóvel</label> <br>
@@ -88,8 +88,6 @@
                     </div>
                 </div>
             </form>
-        </div>
-        </div>
         </div>
 
         <section class="imoveis">

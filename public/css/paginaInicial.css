@@ -135,7 +135,9 @@ form h4{
     text-align: center;
     border-radius: 100%;
     cursor: pointer;
+    border: none;
 }
+
 #pesquisa{
     display: flex;
     justify-content: space-between;

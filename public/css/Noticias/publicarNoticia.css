@@ -185,13 +185,31 @@ input[type="file"]{
     gap: 16px;
     cursor: pointer;
 }
-
+.change{
+    border-radius: 6px;
+border: 1px solid #CDCDCD;
+background: #FFF;
+cursor: default;
+color: #838383;
+}
+.change > iconify-icon{
+    color: #5E5E5E;
+    font-size: 20px;
+    cursor: pointer;
+}
 .inputArea{
     width: fit-content;
     border-radius: 8px;
     border: 1px solid #B8B8B8;
     background: #F3F3F3;
     padding: 24px;
+}
+
+.labelChange {
+    font-size: 12px;
+    max-height: 20px;
+    max-width: 106px;
+    overflow: hidden;
 }
 
 .bodyForm{

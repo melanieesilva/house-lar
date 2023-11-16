@@ -45,3 +45,46 @@ function openDrop(el) {
     }
 
 }
+
+
+window.onload = function() {
+    document.getElementById('inputImg').addEventListener('change', getFileName);
+}
+const getFileName = (event) => {
+    const files = event.target.files;
+    const fileName = files[0].name;
+    console.log("file name: ", fileName);
+
+
+    const label = document.getElementById('labelInput')
+    label.innerHTML = ''
+    label.classList.add("change")
+    const iconeRemove = document.createElement("iconify-icon")
+    iconeRemove.setAttribute("icon","mdi:remove")
+    const nameFile = document.createElement("p")
+
+    nameFile.classList.add('labelChange')
+
+    nameFile.textContent = fileName
+    label.appendChild(iconeRemove)
+    label.appendChild(nameFile)
+
+    const input = document.getElementById('inputImg')
+    input.setAttribute("disabled","")
+
+    iconeRemove.addEventListener('click',()=>{
+        label.innerHTML = ''
+
+        iconeRemove.setAttribute("icon","material-symbols:upload")
+        nameFile.textContent = "Escolher Imagem"
+
+        label.appendChild(iconeRemove)
+        label.appendChild(nameFile)
+        label.classList.remove('change')
+        nameFile.classList.remove('labelChange')
+        setTimeout(()=>{
+            input.removeAttribute("disabled")
+        },200)
+
+    })
+}

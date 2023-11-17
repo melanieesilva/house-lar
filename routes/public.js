@@ -53,7 +53,7 @@ router.post('/public/EnviarDuvida', async (req, res) => {
             mensagem_cliente: mensagem_cliente
         });
 
-        res.redirect('/'); // Redirecione para a página inicial ou para onde desejar
+        res.redirect('/corretor/mensagens'); // Redirecione para a página inicial ou para onde desejar
     } catch (error) {
         console.error(error);
         res.status(500).send('Ocorreu um erro ao enviar sua dúvida.');

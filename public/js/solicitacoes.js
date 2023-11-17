@@ -189,7 +189,7 @@ function detalharSolicitacao(el) {
                 linkPublicarSoli.textContent = "Publicar Imóvel"
                 linkPublicarSoli.setAttribute("href", `/corretor/publicarSolicitacao/${solicitacaoRecebida[0].id_soli}`)
                 linkRejeitar.textContent = "Rejeitar Solicitação"
-                linkRejeitar.setAttribute("href",`/corretor/rejeitarSolicitacao/:${solicitacaoRecebida[0].id_soli}`)
+                linkRejeitar.setAttribute("href",`/corretor/rejeitarSolicitacao/${solicitacaoRecebida[0].id_soli}`)
 
 
                 document.getElementById('buttonsSideDetalhe').appendChild(linkPublicarSoli)

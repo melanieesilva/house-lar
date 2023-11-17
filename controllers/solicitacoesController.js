@@ -8,9 +8,7 @@ const nodemailer = require('../config/nodemailerConfig')
 // const axios = require('axios')
 // const fs = require('fs');
 
-const imovelController = require('../controllers/imoveisController')
-const Cliente = require('../models/Clientes')
-
+const imovelController = require('../controllers/imoveisController');
 
 async function cadastrarImagens(idSoli, nomeImagem, pathImagem) {
     // const imgBuffer = fs.readFileSync(path);
@@ -252,31 +250,35 @@ const rejeitarSoli = async (req,res) => {
 
         const solicitacaoData = await Solicitacao.findOne({where: {id:req.params.id}})
         const cliente = await Cliente.findOne({where:{id:1}})
+        var auxiliar;
 
         if(solicitacaoRecus){
-            const emailEnviado = await nodemailer.sendEmail({
+            console.log("Solicitação atualizada.")
+            const emailEnviado = nodemailer.sendEmail({
                 subject: "Sua solicitação foi recusada",
                 to: `${solicitacaoData.emailCliente}`,
                 from: process.env.EMAIL,
                 template: 'email',
                 context: {
-                    telefoneCliente: cliente.telefoneCliente,
+                    idSoli: solicitacaoData.id,
+                    nomeProp: solicitacaoData.nomeCliente,
+                    telefoneCliente: cliente.telefone_cliente,
                     emailCliente: cliente.email_cliente,
                     solicitacaoRejeitada: true
                 }
             })
 
-            if(solicitacaoRecus && emailEnviado){
-                console.log("Imóvel recusado e e-mail enviado.")
+            if(emailEnviado){
+                console.log("E-mail enviado.")
                 req.flash("success_msg", "Solicitação recusada com sucesso.")
                 res.redirect("/corretor/solicitacoes")
             }else{
-                console.log("A solicitação ou o e-mail não foram enviados.")
+                console.log("O e-mail não foi enviado.")
                 req.flash("error_msg", "Não foi possível recusar a solicitação")
                 res.redirect("/corretor/solicitacoes")
             }
         }
-
+        
         
 
     } catch (error) {

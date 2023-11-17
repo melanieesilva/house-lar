@@ -415,9 +415,8 @@
     {{/if}}
 
 
-    {{#if solicitacaoRejeitada}}
+    {{!-- {{#if solicitacaoRejeitada}} --}}
     <table style="width: 100%;">
-
         <tr style="width: 100%;">
             <td style="display: flex; justify-content: center;">
                 <div style="width: 100%;background-color: #ffe6f4;
@@ -432,7 +431,7 @@
             <td style="display: flex; flex-direction: column;justify-content: center; align-items:center;">
                 <div style="padding:20px 40px; width: 80%;">
                     <h1>
-                        Olá, {{nome_prop}}.
+                        Olá, {{nomeProp}}.
                     </h1>
                 </div>
             </td>
@@ -445,10 +444,21 @@
                         Para mais informações, consulte a corretora através de um dos canais de contato abaixo:
                     </p>
                 </div>
-                <div style="width: 80%; padding: 16px 40px; display:flex;flex-direction:column;gap:16px;">
+            </td>
+        </tr>
+        <tr>
+            <td style="display: flex; flex-direction: column;justify-content: center; align-items:center;">
+                 <div style="width: 80%; padding: 16px 40px; display:flex;flex-direction:column;gap:16px;">
                     <p>Telefone comercial: {{telefoneCliente}}</p>
+                </div>
+            </td>
+        </tr>
+        <tr style="width: 100%;">
+            <td style="display: flex; flex-direction: column;justify-content: center; align-items:center;">
+                <div style="width: 80%; padding: 0 40px;">
                     <p>E-mail comercial: {{emailCliente}}</p>
                 </div>
+                
             </td>
         </tr>
         <tr>
@@ -456,15 +466,14 @@
 
                 <p style="font-size: 14px;padding: 80px 24px;">House&Lar CRECI: 2583</p>
 
-                <a style="padding:24px; text-decoration:none; color:#9D0058 !important;" href="https://www.instagram.com/houselarimoveis/">
-                    
+                <a style="padding: 80px 24px; text-decoration:none; color:#9D0058 !important;" href="https://www.instagram.com/houselarimoveis/">
                     Siga no Instragam
                 </a>
             </td>
 
         </tr>
     </table>
-    {{/if}}
+    {{!-- {{/if}} --}}
 
 
 </body>

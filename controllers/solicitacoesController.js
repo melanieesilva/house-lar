@@ -9,7 +9,6 @@ const nodemailer = require('../config/nodemailerConfig')
 // const fs = require('fs');
 
 const imovelController = require('../controllers/imoveisController')
-const Cliente = require('../models/Clientes')
 
 
 async function cadastrarImagens(idSoli, nomeImagem, pathImagem) {

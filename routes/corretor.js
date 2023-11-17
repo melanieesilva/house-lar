@@ -12,6 +12,7 @@ const Duvidas = require('../models/Duvidas')
 const viewSolicitacaoImagem = require('../models/ViewsSolicitacoesImagens')
 const viewImovelImagem = require('../models/ViewImovelImagem')
 const Cliente = require('../models/Clientes')
+const Disponivel = require('../models/Disponibilidades')
 //CONTROLLERS
 const noticiasController = require('../controllers/noticiasController')
 const msgController = require('../controllers/mensagensController')
@@ -28,6 +29,21 @@ router.use((req,res,next)=>{
 
 router.get('/corretor/calendario', (req, res) => {
     res.render('pages/calendario')
+})
+
+router.post('/corretor/cadastrarData', multer.uploadSingle, async (req, res) => {
+    try{
+        const{ horario }= req.body;
+
+        await Disponivel.create({
+            selecionar_data: horario
+        });
+
+        res.redirect('/')
+    } catch(error){
+        console.error(error);
+        res.status(500).send('Ocorreu um erro ao cadastrar seu horário.');
+    }
 })
 
 // router.get('/corretor/editarnoticia',(req,res) => {
@@ -107,6 +123,8 @@ router.get('/corretor/solicitacoes', (req, res) => {
 })
 
 router.get('/corretor/publicarSolicitacao/:id',soliController.publicarSoli)
+
+router.get('/corretor/rejeitarSolicitacao/:id',soliController.rejeitarSoli)
 
 router.get('/corretor/filtroSolicitacao/:option',soliController.filtrarSolicitacoes)
 

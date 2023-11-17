@@ -9,6 +9,7 @@ const nodemailer = require('../config/nodemailerConfig')
 // const fs = require('fs');
 
 const imovelController = require('../controllers/imoveisController')
+const Cliente = require('../models/Clientes')
 
 
 async function cadastrarImagens(idSoli, nomeImagem, pathImagem) {
@@ -243,23 +244,46 @@ const publicarSoli = async (req, res) => {
 }
 
 const rejeitarSoli = async (req,res) => {
-    //Rejeito
-    //set status
-    //envia email se set status ok
-    //se set status for ok, mas e-mail não, remove atualização
-    //se set status e e-mail for ok, envia pra tela com flash
-    try{
-        const rejeitarSolicitacao = await Solicitacao.update({
+    try {
+        const solicitacaoRecus = await Solicitacao.update(
             { statusSoli: 'Recusado' },
-            { where: { id: req.params.id }}
-        });
+            { where: { id: req.params.id}}
+        );
+
+        const solicitacaoData = await Solicitacao.findOne({where: {id:req.params.id}})
+        const cliente = await Cliente.findOne({where:{id:1}})
+
+        if(solicitacaoRecus){
+            const emailEnviado = await nodemailer.sendEmail({
+                subject: "Sua solicitação foi recusada",
+                to: `${solicitacaoData.emailCliente}`,
+                from: process.env.EMAIL,
+                template: 'email',
+                context: {
+                    telefoneCliente: cliente.telefoneCliente,
+                    emailCliente: cliente.email_cliente,
+                    solicitacaoRejeitada: true
+                }
+            })
+
+            if(solicitacaoRecus && emailEnviado){
+                console.log("Imóvel recusado e e-mail enviado.")
+                req.flash("success_msg", "Solicitação recusada com sucesso.")
+                res.redirect("/corretor/solicitacoes")
+            }else{
+                console.log("A solicitação ou o e-mail não foram enviados.")
+                req.flash("error_msg", "Não foi possível recusar a solicitação")
+                res.redirect("/corretor/solicitacoes")
+            }
+        }
+
+        
 
     } catch (error) {
-        console.log("Não foi possível recusar a solicitação: "+error);
+        console.log("Não foi possível recusar a solicitação: "+error)
     }
-    
-
 }
+
 const filtrarSolicitacoes = async (req, res) => {
     const optionReq = req.params.option
 
@@ -274,14 +298,75 @@ const filtrarSolicitacoes = async (req, res) => {
                 })
                 if(solicitacoesRecentes){
                     console.log("Solicitações recentes enviadas.")
-                    res.json({solicitacoesRecentes})
+                    res.render('pages/solicitacoes',{views:solicitacoesRecentes})
                 }
                 
             } catch (error) {
+                req.flash("error_msg","Não foi possível filtrar as solicitações recentes.")
+                res.redirect('/corretor/solicitacoes')
                 console.log("Não foi possível filtrar as solicitações recentes.")
             }
-
             break;
+        case "antigo":
+            try {
+                const solicitacoesAntigas = await ViewSoliImagem.findAll({
+                    group: ['id_soli'],
+                    order: [
+                        ['id_soli','ASC']
+                    ]
+                })
+                if(solicitacoesAntigas){
+                    console.log("Solicitações antigas enviadas.")
+                    res.render('pages/solicitacoes',{views:solicitacoesAntigas})
+                }else{
+                    console.log("Solicitações antigas não foram enviadas.")
+                }
+                
+            } catch (error) {
+                req.flash("error_msg","Não foi possível filtrar as solicitações antigas.")
+                res.redirect('/corretor/solicitacoes')
+                console.log("Não foi possível filtrar as solicitações antigas.")
+            }
+        break;
+        case "aluguel":
+            try {
+                const solicitacoesAluguel = await ViewSoliImagem.findAll({
+                    group: ['id_soli'],
+                    where: { operacao: 'Aluguel'}
+                })
+                if(solicitacoesAluguel){
+                    console.log("Solicitações de aluguel enviadas.")
+                    res.render('pages/solicitacoes',{views:solicitacoesAluguel})
+                }else{
+                    console.log("Solicitações de aluguel não foram enviadas.")
+                }
+                
+            } catch (error) {
+                req.flash("error_msg","Não foi possível filtrar as solicitações de aluguel.")
+                res.redirect('/corretor/solicitacoes')
+                console.log("Não foi possível filtrar as solicitações de aluguel.")
+            }
+        break;
+
+        case "venda":
+            try {
+                const solicitacoesVenda = await ViewSoliImagem.findAll({
+                    group: ['id_soli'],
+                    where: { operacao: 'Venda'}
+                })
+                if(solicitacoesVenda){
+                    console.log("Solicitações de venda enviadas.")
+                    res.render('pages/solicitacoes',{views:solicitacoesVenda})
+                }else{
+                    console.log("Solicitações de venda não foram enviadas.")
+                }
+                
+            } catch (error) {
+                req.flash("error_msg","Não foi possível filtrar as solicitações de venda.")
+                res.redirect('/corretor/solicitacoes')
+                console.log("Não foi possível filtrar as solicitações de venda.")
+            }
+        break;
 
         default:
             console.log("Opção incorreta do switch.")
@@ -295,5 +380,6 @@ module.exports = {
     cadastrarImagens,
     getSolicitacao,
     publicarSoli,
-    filtrarSolicitacoes
+    filtrarSolicitacoes,
+    rejeitarSoli
 }

@@ -26,41 +26,21 @@
                 <p>Categoria</p>
                 <div class="areaDrop">
                     <div class="dropdown">
-                        <div class="mainDrop">
+                        <div class="mainDrop" onclick="openDrop(this)" id="mainCategoria">
                             <div class="optionMain">
                                 Oportunidade Tenda
                             </div>
                             <iconify-icon icon="ep:arrow-down"></iconify-icon>
                         </div>
-                        <div class="bodyDrop">
-                            <div class="optionDrop">
-                                Oportunidade Tenda
+                        <div class="bodyDrop" id="bodyDrop">
+                            {{#each categorias}}
+                            <div class="optionDrop" id="optionDrop" data-corCategoria={{dataValues.cor_categoria}}>
+                                {{dataValues.nome_categoria}}
                             </div>
-                            <div class="optionDrop">
-                                Oportunidade Tenda
-                            </div>
-                            <div class="optionDrop">
-                                Oportunidade Tenda
-                            </div>
-                            <div class="optionDrop">
-                                Oportunidade Tenda
-                            </div>
-                            <div class="optionDrop">
-                                Oportunidade Tenda
-                            </div>
-                            <div class="optionDrop">
-                                Oportunidade Tenda
-                            </div>
-                            <div class="optionDrop">
-                                Oportunidade Tenda
-                            </div>
-                            <div class="optionDrop">
-                                Oportunidade Tenda
-                            </div>
-
+                            {{/each}}
                         </div>
 
-                    </div>
+                </div>
 
 
                     <button type="button" class="addCategoria" id="addCategoria" onclick="openModal()">
@@ -78,7 +58,7 @@
             <div class="labelForm">
                 <p>Imagem</p>
                 <div class="inputArea">
-                    <label for="inputImg" class="labelInput">
+                    <label for="inputImg" class="labelInput" id="labelInput">
                         <iconify-icon icon="material-symbols:upload"></iconify-icon>
                         Escolher Imagem
                     </label>
@@ -100,7 +80,7 @@
 
 
 <div class="containerModal" id="containerModal">
-    <div class="conteudoModal">
+    <div class="conteudoModal" id="conteudoModal">
         <div class="headerModal">
             <div class="text">
                 <h2>Nova Categoria</h2>
@@ -119,13 +99,13 @@
                 <p>Cor da categoria</p>
             
             <div class="dropdownModal">
-                <div class="mainDropModal">
+                <div class="mainDropModal" onclick="openDrop(this)" id="mainCategoriaModal">
                     <div class="optionMainModal">
-                        Oportunidade Tenda
+                        Vermelho
                     </div>
                     <iconify-icon icon="ep:arrow-down"></iconify-icon>
                 </div>
-                <div class="bodyDropModal">
+                <div class="bodyDropModal" id="bodyDropModal">
                     <div class="optionDropModal" data-cor="Red">
                         Vermelho
                     </div>

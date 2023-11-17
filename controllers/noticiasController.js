@@ -46,7 +46,9 @@ const getNoticia = async (req,res)=>{
       }
     })
     console.log(Noticia)
-    res.status(200).render('pages/Noticias/artigoNoticia',{noticia:Noticia})
+    res.status(200).render('pages/Noticias/artigoNoticia',{
+      noticia:Noticia
+    })
   } catch (error) {
     console.log("Não foi encontrar a notícia, erro: "+error)
   }

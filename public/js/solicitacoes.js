@@ -3,6 +3,29 @@ const containerIMGS = document.getElementById('containerImgDetalhes')
 var posicaoSlide = 1;
 showSlide(posicaoSlide);
 
+document.addEventListener('DOMContentLoaded',()=>{
+    const areaStatus = document.getElementById('statusSoli');
+    const contentStatus = areaStatus.textContent;
+
+    switch(contentStatus){
+        case 'Aceito':
+            areaStatus.style.border = '2px solid #00833C';
+            areaStatus.style.color = '#00833C';
+        break;
+        case 'Recusado':
+            areaStatus.style.border = '2px solid #C80000';
+            areaStatus.style.color = '#C80000';
+        break;
+        case 'Solicitado':
+            areaStatus.style.border = '2px solid black';
+            areaStatus.style.color = 'black';
+        break;
+        default:
+            console.log("Não foi possível identificar o status.")
+        break;
+    }
+})
+
 function openModal(arrays) {
     //display flex no modal
     //operacao = arrays[0].data
@@ -166,6 +189,7 @@ function detalharSolicitacao(el) {
                 linkPublicarSoli.textContent = "Publicar Imóvel"
                 linkPublicarSoli.setAttribute("href", `/corretor/publicarSolicitacao/${solicitacaoRecebida[0].id_soli}`)
                 linkRejeitar.textContent = "Rejeitar Solicitação"
+                linkRejeitar.setAttribute("href",`/corretor/rejeitarSolicitacao/:${solicitacaoRecebida[0].id_soli}`)
 
 
                 document.getElementById('buttonsSideDetalhe').appendChild(linkPublicarSoli)

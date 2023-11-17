@@ -8,7 +8,8 @@ const nodemailer = require('../config/nodemailerConfig')
 // const axios = require('axios')
 // const fs = require('fs');
 
-const imovelController = require('../controllers/imoveisController');
+const imovelController = require('../controllers/imoveisController')
+
 
 async function cadastrarImagens(idSoli, nomeImagem, pathImagem) {
     // const imgBuffer = fs.readFileSync(path);

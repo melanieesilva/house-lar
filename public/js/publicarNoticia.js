@@ -1,5 +1,13 @@
-//ABRIR MODAL
 const btnAddCategoria = document.getElementById('addCategoria')
+var cliques = 0;
+
+function setCategoria(){
+    const bodyDrop = document.getElementById('bodyDropModal')
+    //para cada elemento, eu adiciono uma função de click que executa algo
+    const optionsDrop = document.querySelector('#bodyDropModal > *')
+    optionsDrop.f
+    
+}
 
 function openModal() {
     const containerModal = document.getElementById('containerModal')
@@ -11,9 +19,9 @@ function openModal() {
     closeModal.addEventListener('click', () => {
         containerModal.style.display = 'none'
     })
-}
 
-var cliques = 0;
+    setCategoria()
+}
 
 function openDrop(el) {
     const elementID = el.getAttribute("id")
@@ -46,29 +54,28 @@ function openDrop(el) {
 
 }
 
-
 window.onload = function() {
     document.getElementById('inputImg').addEventListener('change', getFileName);
 
-    function setColor(back,color){
-        optionMain.style.backgroundColor = back
-        optionMain.style.color = color
-    }
+    // function setColor(back,color){
+    //     optionMain.style.backgroundColor = back
+    //     optionMain.style.color = color
+    // }
 
-    const optionMain = document.getElementById('optionDrop')
-    const cor = optionMain.getAttribute('data-corCategoria')
-    switch (cor) {
-        case 'Vermelho':
+    // const optionMain = document.getElementById('optionDrop')
+    // const cor = optionMain.getAttribute('data-corCategoria')
+    // switch (cor) {
+    //     case 'Vermelho':
          
-            setColor('#FFE1E1','#C80000')
-            break;
-        case 'Azul':
-            setColor('rgba(0, 128, 200, 0.12)','#0080C8')
-        break;
+    //         setColor('#FFE1E1','#C80000')
+    //         break;
+    //     case 'Azul':
+    //         setColor('rgba(0, 128, 200, 0.12)','#0080C8')
+    //     break;
         
-        default:
-            break;
-    }
+    //     default:
+    //         break;
+    // }
 }
 const getFileName = (event) => {
     const files = event.target.files;
@@ -108,3 +115,20 @@ const getFileName = (event) => {
 
     })
 }
+
+function cadastrarCategoria(){
+
+    // fetch('/corretor/addCategoria',{
+    //     headers:{
+    //         'Accept': 'application/json',
+    //         'Content-Type': 'application/json'
+    //     },
+    //     method: "POST",
+    //     body: JSON.stringify({nomeCategoria:,corCategoria:})
+
+    // }).then(response=>{
+
+    // })
+}
+
+

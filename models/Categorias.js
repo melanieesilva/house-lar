@@ -1,3 +1,4 @@
+const { ENUM } = require('sequelize');
 const db = require('../Database/Connection')
 
 //Definindo modelo Categoria_noticia

@@ -1,4 +1,5 @@
 const Noticias = require('../models/Noticias')
+const Categorias = require('../models/Categorias')
 
 async function publicarNoticia(titulo, descricao, artigo, autor,publicadoPor,
     nomeImagem, dataImagem, nomeCategoria, corCategoria, status) {
@@ -72,8 +73,27 @@ const getNoticia = async (req,res)=>{
 //       }
 // }
 
+const addCategoria = async (req,res) => {
+  try {
+    const {
+      nomeCategoria,
+      corCategoria
+    } = req.body
+    const categorias = await Categorias.create({
+      nome_categoria: nomeCategoria,
+      cor_categoria: corCategoria
+    })
+    if(categorias){
+      res.json({categorias})
+    }
+  } catch (error) {
+    console.log("Não foi possível cadastrar a categoria: "+error)
+  }
+}
+
 module.exports = {
     publicarNoticia,
     getNoticias,
-    getNoticia
+    getNoticia,
+    addCategoria
 };

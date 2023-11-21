@@ -100,6 +100,8 @@ router.post('/corretor/CadastrarNoticia', multer.uploadSingle, async (req, res) 
     }
 });
 
+router.post('/corretor/addCategoria',noticiasController.addCategoria)
+
 router.get('/corretor/solicitacoes', (req, res) => {
     viewSolicitacaoImagem.findAll({
         attributes: [

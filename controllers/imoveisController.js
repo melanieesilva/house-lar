@@ -250,10 +250,8 @@ const desativarImovel = async (req, res) => {
         statusImovel: 'Desativado'
       })
 
-      res.status(200).render('pages/imoveisPublicados', {
-        layout: 'painelControle',
-        pageTitle: 'Imoveis - Painel De Controle'
-      });
+      res.redirect('/corretor/painelControle')
+      
     } else {
       req.flash('error_msg', `Imóvel com ID ${id} não encontrado.`);
       res.status(404).send("Imóvel não encontrado");
@@ -279,10 +277,8 @@ const ativarImovel = async (req, res) => {
         statusImovel: 'Publicado'
       })
 
-      res.status(200).render('pages/imoveisPublicados', {
-        layout: 'painelControle',
-        pageTitle: 'Imoveis - Painel De Controle'
-      });
+      res.redirect('/corretor/painelControle')
+
     } else {
       req.flash('error_msg', `Imóvel com ID ${id} não encontrado.`);
       res.status(404).send("Imóvel não encontrado");

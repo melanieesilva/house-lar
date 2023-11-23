@@ -1,3 +1,19 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const botaoBranco = document.getElementById("compra");
+    const botaoCinza = document.getElementById("alugar");
+  
+    botaoCinza.addEventListener("click", function () {
+      console.log("Clique no botão Aluguel");
+      document.getElementById('operacao').value = 'Aluguel';
+      console.log("Valor da operação:", document.getElementById('operacao').value);
+    });
+  
+    botaoBranco.addEventListener("click", function () {
+      document.getElementById('operacao').value = 'Venda';
+      console.log("Valor da operação:", document.getElementById('operacao').value);
+    });
+});
+
 const elementosGrupo1 = document.querySelectorAll('.grupo1');
 const elementosGrupo2 = document.querySelectorAll('.grupo2');
 const elementosGrupo3 = document.querySelectorAll('.grupo3');

@@ -61,6 +61,7 @@ router.post('/public/EnviarDuvida', async (req, res) => {
 })
 
 router.get('/public/buscaAvancada', imoveisController.getImoveisSelecionados);
+router.post('/public/buscaAvancada', imoveisController.getBuscaAvancada);
 
 router.get('/public/publicarImovelCliente', (req, res) => res.render('pages/publicarImovelCliente'));
 

@@ -158,6 +158,30 @@ const getImoveis = async (req, res) => {
   }
 };
 
+const getBuscaAvancada = async (req, res) => {
+  try {
+    const imoveis = await Imoveis.findAll();
+
+    const imoveisFiltrados = imoveis.filter(imovel => {
+      return (
+       /* imovel.tipo_imovel === req.query.tipo &&
+        imovel.num_quartos == req.query.quartos &&
+        imovel.valor_imovel <= req.query.preco &&
+        imovel.area <= req.query.area && 
+        imovel.cidade === req.body.cidade && */
+        imovel.operacao === req.body.operacao
+      );
+    });
+
+    res.status(200).render('pages/buscaAvancada', {
+      imoveis: imoveisFiltrados
+    });
+  } catch (error) {
+    console.log("Complicado!: " + error);
+    throw new Error(error);
+  }
+};
+
 const getImoveisSelecionados = async (req, res) => {
   try {
 
@@ -251,7 +275,7 @@ const desativarImovel = async (req, res) => {
       })
 
       res.redirect('/corretor/painelControle')
-      
+
     } else {
       req.flash('error_msg', `Imóvel com ID ${id} não encontrado.`);
       res.status(404).send("Imóvel não encontrado");
@@ -296,5 +320,6 @@ module.exports = {
   ativarImovel,
   cadastrarImovel,
   getImoveisSelecionados,
-  getDetalheImovel
+  getDetalheImovel,
+  getBuscaAvancada
 }

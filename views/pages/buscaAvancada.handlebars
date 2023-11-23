@@ -24,42 +24,43 @@
     </section>
 
     <section id="conteudo">
-        <form id="barra-filtro">
+        <form id="barra-filtro" action="/public/buscaAvancada" method="post">
             <div id="titulo-conteudo">
                 <iconify-icon icon="system-uicons:filter"></iconify-icon>
                 <label for="">Filtre por</label>
             </div>
             <div id="tipo-botoes">
-                <button class="tipo-botao grupo3 botao-esquerdo" onclick="ler('botao-esquerdo', 'grupo3')">
+                <button type="button" class="tipo-botao grupo3 botao-esquerdo" id="compra" onclick="ler('botao-esquerdo', 'grupo3')">
                     <iconify-icon icon="icons8:buy"></iconify-icon>
                     Comprar
                 </button>
-                <button class="tipo-botao grupo3 botao-direito" onclick="ler('botao-esquerdo', 'grupo3')">
+                <button type="button" class="tipo-botao grupo3 botao-direito" id="alugar" onclick="ler('botao-esquerdo', 'grupo3')">
                     <iconify-icon icon="heroicons:key"></iconify-icon>
                     Alugar
                 </button>
             </div>
-            <div id="pesquisa-cidade">
-                <input type="text" placeholder="Pesquise uma cidade..." class="pesquisa">
-                <button class="pesquisa" id="lupa">
-                    <iconify-icon icon="tabler:search"></iconify-icon>
-                </button>
-            </div>
-
+            <input type="hidden" name="operacao" id="operacao" value="Venda">
             <div id="filtros-opcoes">
-                <select name="Tipo imóvel" id="" class="select-opcao">
-                    <option value="">Tipo imóvel</option>
+                <select name="cidade" id="" class="select-opcao">
+                    <option>Cidade</option>
                 </select>
-                <select name="Tipo imóvel" id="" class="select-opcao">
-                    <option value="">Quartos</option>
+                <select name="tipo" id="" class="select-opcao">
+                    <option value="" selected disabled>Tipo imóvel</option>
+                    <option value="Casa">Casa</option>
+                    <option value="Apartamento">Apartamento</option>
+                    <option value="Lote">Lote</option>
+                    <option value="Kitnet/Studio">Kitnet/Studio</option>
+                    <option value="Sala Comercial">Sala Comercial</option>
                 </select>
-                <select name="Tipo imóvel" id="" class="select-opcao">
-                    <option value="">Banheiro</option>
+                <select name="quartos" id="" class="select-opcao">
+                    <option>Quartos</option>
                 </select>
-                <select name="Tipo imóvel" id="" class="select-opcao">
-                    <option value="">Vagas</option>
+                <select name="banheiros" id="" class="select-opcao">
+                    <option>Banheiros</option>
                 </select>
-
+                <select name="vagas" id="" class="select-opcao">
+                    <option>Vagas</option>
+                </select>
             </div>
             <div class="caixa-quantidade">
                 <label for="" class="label-quantidade">Faixa de preço</label>

@@ -276,7 +276,7 @@ const ativarImovel = async (req, res) => {
 
     if (Imovel) {
       await Imovel.update({
-        statusImovel: 'Publicados'
+        statusImovel: 'Publicado'
       })
 
       res.status(200).render('pages/imoveisPublicados', {

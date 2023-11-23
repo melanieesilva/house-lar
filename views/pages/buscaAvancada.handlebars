@@ -117,10 +117,10 @@
 
             <div class="infoImovelBloco" id="infoImovelBloco">
                 <div class="imgInfoBloco">
-                    {{!-- <img src="../../uploads/{{dataValues.nome_imagem}}" id="imagemImovel"> --}}
-                    <div class="operationBloco">
+                    <img src="../../img/img-imovel-busca-avanc.jpeg" alt="" id="imagem-venda">
+                    <button class="operationBloco">
                         <p id="operacaoImovel">{{dataValues.operacao}}</p>
-                    </div>
+                    </button>
                 </div>
                 <div class="contentInfoBloco">
                     <div class="lineContent">
@@ -154,47 +154,6 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="infoImovelBloco" id="infoImovelBloco">
-                <div class="imgInfoBloco">
-                    {{!-- <img src="../../uploads/{{dataValues.nome_imagem}}" id="imagemImovel"> --}}
-                    <div class="operationBloco">
-                        <p id="operacaoImovel">{{dataValues.operacao}}</p>
-                    </div>
-                </div>
-                <div class="contentInfoBloco">
-                    <div class="lineContent">
-                        <p id="tipoImovel">{{dataValues.tipo_imovel}}</p>
-                        <p id="valorImovel">R$ {{dataValues.valor_imovel}}</p>
-                    </div>
-                    <div class="lineContent">
-                        <div class="enderecoImovel">
-                            <p id="bairroImovel">{{dataValues.bairro}}</p>
-                            <p id="cidade">{{dataValues.cidade}}</p>
-                        </div>
-                        <p id="idImovel">{{dataValues.id}}</p>
-                    </div>
-                    <div class="infoImovel">
-                        <div class="blocoInfo">
-                            <iconify-icon icon="cil:room"></iconify-icon>
-                            <p id="numQuartos">{{dataValues.num_quartos}} salas</p>
-                        </div>
-                        <div class="blocoInfo">
-                            <iconify-icon icon="iconoir:bathroom"></iconify-icon>
-                            <p id="numBanheiros">{{dataValues.num_banheiros}} ban.</p>
-                        </div>
-                        <div class="blocoInfo">
-                            <iconify-icon icon="majesticons:car-line"></iconify-icon>
-                            <p id="numVagas">{{dataValues.num_vagas}} vagas</p>
-                        </div>
-                        <div class="blocoInfo">
-                            <iconify-icon icon="iconoir:ruler" class="icone"></iconify-icon>
-                            <p id="tamArea">{{dataValues.area}}m²</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
 
             {{/each}}
 

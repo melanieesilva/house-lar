@@ -136,6 +136,17 @@ function openDrop(el) {
 window.onload = function () {
     document.getElementById('inputImg').addEventListener('change', getFileName);
     const optionCategoria = document.querySelectorAll('#optionDrop')
+    const optionMain = document.getElementById('optionMain')
+
+    const dataRes = optionMain.getAttribute('data-Res')
+
+    if(dataRes === "true"){
+        optionMain.style.backgroundColor = "#FFE1E1"
+        optionMain.style.color = "#C80000"
+    }else{
+        optionMain.style.backgroundColor = "#ffe1f6"
+        optionMain.style.color = "#c8005d"
+    }
 
     optionCategoria.forEach(option => {
         const data = option.getAttribute('data-corCategoria')
@@ -169,14 +180,57 @@ window.onload = function () {
                 console.log("Não foi possível identificar uma cor de categoria.")
                 break;
         }
+
+        option.addEventListener('click',()=>{
+            const dataCor = option.getAttribute('data-corCategoria')
+            const valueCategoria = option.innerHTML;
+            optionMain.innerHTML = valueCategoria
+            const inputCor = document.getElementById('valueCor')
+            const inputNome = document.getElementById('valueNome')
+            inputCor.value = dataCor
+            inputNome.value = valueCategoria
+
+            switch (dataCor) {
+                case "Vermelho":
+                    optionMain.style.backgroundColor = "#FFE1E1"
+                    optionMain.style.color = "#C80000"
+                    break;
+                case "Azul":
+                    optionMain.style.backgroundColor = "rgba(0, 128, 200, 0.12)"
+                    optionMain.style.color = "#0080C8"
+                    break;
+                case "Verde":
+                    optionMain.style.backgroundColor = "rgba(0, 131, 60, 0.12)"
+                    optionMain.style.color = "#00833C"
+                    break;
+                case "Amarelo":
+                    optionMain.style.backgroundColor = "rgba(223, 147, 0, 0.12)"
+                    optionMain.style.color = "#DF9300"
+                    break;
+                case "Roxo":
+                    optionMain.style.backgroundColor = "rgba(71, 0, 223, 0.12)"
+                    optionMain.style.color = "#4700DF"
+                    break;
+                case "Laranja":
+                    optionMain.style.backgroundColor = "rgba(223, 80, 0, 0.12)"
+                    optionMain.style.color = "#DF5000"
+                    break;
+                default:
+                    console.log("Não foi possível identificar uma cor de categoria.")
+                    break;
+            }
+        })
     })
 
 }
+
 const getFileName = (event) => {
     const files = event.target.files;
     const fileName = files[0].name;
     console.log("file name: ", fileName);
 
+    document.getElementById('inputImgHidden').value = fileName
+    
 
     const label = document.getElementById('labelInput')
     label.innerHTML = ''

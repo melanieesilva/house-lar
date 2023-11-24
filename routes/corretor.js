@@ -52,53 +52,7 @@ router.post('/corretor/cadastrarData', multer.uploadSingle, async (req, res) => 
 
 router.get('/corretor/noticiasCorretor', noticiasController.getNoticias)
 
-router.post('/corretor/CadastrarNoticia', multer.uploadSingle, async (req, res) => {
-    try {
-        const {
-            titulo_noticia,
-            descricao_noticia,
-            artigo_noticia,
-            autor_noticia,
-            publicado_por,
-            nome_imagem,
-            data_imagem,
-            nome_categoria,
-            status
-        } = req.body;
-
-        const imagem = req.file
-
-        const Noticia_Cor = Noticia.findOne({
-            where: {
-                nome_categoria:nome_categoria
-            }
-        })
-
-        const cor_categoria = Noticia_Cor.cor_categoria
-
-        const noticia = await noticiasController.publicarNoticia(
-            titulo_noticia,
-            descricao_noticia,
-            autor_noticia,
-            publicado_por,
-            artigo_noticia,
-            nome_imagem,
-            data_imagem,
-            nome_categoria,
-            cor_categoria,
-            status,
-        )
-        
-        req.flash("success_msg", "Notícia criada com sucesso!")
-        res.redirect(200,'/corretor/noticiasCorretor');
-    } catch (error) {
-        
-        res.redirect(500,'/corretor/noticiasCorretor')
-        console.log(error);
-        req.flash("error_msg", "Não foi possível cadastrar notícia.")
-        console.log("O ERRO: "+error)
-    }
-});
+router.post('/corretor/CadastrarNoticia', multer.uploadSingle,noticiasController.publicarNoticia);
 
 router.post('/corretor/addCategoria',noticiasController.addCategoria)
 

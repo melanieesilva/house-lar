@@ -1,25 +1,40 @@
 const Noticias = require('../models/Noticias')
 const Categorias = require('../models/Categorias')
 
-async function publicarNoticia(titulo, descricao, artigo, autor, publicadoPor,
-  nomeImagem, dataImagem, nomeCategoria, corCategoria, status) {
+const publicarNoticia = async (req,res) =>{
   try {
+    const {
+      titulo, 
+      descricao, 
+      artigo, 
+      autor,
+      nomeCategoria, 
+      nomeImagem,
+      corCategoria
+    } = req.body
+
+
     const noticia = await Noticias.create({
       titulo_noticia: titulo,
       descricao_noticia: descricao,
       autor_noticia: autor,
-      publicado_por: publicadoPor,
+      publicado_por: "House&Lar",
       artigo_noticia: artigo,
       nome_imagem: nomeImagem,
-      data_imagem: dataImagem,
       nome_categoria: nomeCategoria,
       cor_categoria: corCategoria,
-      status: 'Publicada',
+      status: 'Publicada'
     });
 
-    return noticia;
+    if(noticia){
+      console.log("Notícia publicada com sucesso!")
+    }else{
+      console.log("Não foi possível cadastrar a notícia")
+    }
+
+    
   } catch (error) {
-    console.log("erro: " + error)
+    console.log("Erro ao cadastrar notícia: " + error)
     throw new Error('Não foi possível criar a notícia.');
   }
 }
@@ -59,12 +74,14 @@ const getNoticia = async (req, res) => {
 const getCategorias = async (req, res) => {
   try {
     const categorias = await Categorias.findAll();
+    const categoriaDefault = await Categorias.findOne({ where: { cor_categoria: "Vermelho" } })
     if (categorias) {
-      console.log("Todas a categorias foram recuperados.");
+      console.log("Todas a categorias foram recuperadas.");
       res.status(200).render('pages/Noticias/publicarNoticia', {
-        categorias: categorias
+        categorias: categorias,
+        categoriaDefault: categoriaDefault
       });
-    }else{
+    } else {
       console.log("Categorias não foram encontradas.")
     }
 

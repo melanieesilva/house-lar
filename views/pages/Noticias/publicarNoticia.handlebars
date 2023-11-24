@@ -11,7 +11,7 @@
 </div>
 
 
-<form action="/corretor/cadastarNoticia" method="POST">
+<form action="/corretor/CadastrarNoticia" method="POST">
     <div class="headerForm">
         <div class="rowForm">
             <div class="labelForm">
@@ -27,9 +27,15 @@
                 <div class="areaDrop">
                     <div class="dropdown">
                         <div class="mainDrop" onclick="openDrop(this)" id="mainCategoria">
-                            <div class="optionMain">
-                                Oportunidade Tenda
+                            {{#if categoriaDefault}}
+                            <div class="optionMain" id="optionMain" data-Res="true" data-corCategoria={{categoriaDefault.dataValues.cor_categoria}}>
+                                {{categoriaDefault.dataValues.nome_categoria}}
                             </div>
+                            {{else}}
+                            <div class="optionMain" id="optionMain" data-Res="false">
+                                Escolha uma categoria
+                            </div>
+                            {{/if}}
                             <iconify-icon icon="ep:arrow-down"></iconify-icon>
                         </div>
                         <div class="bodyDrop" id="bodyDrop">
@@ -47,13 +53,14 @@
                         <iconify-icon icon="mingcute:add-line"></iconify-icon>
                     </button>
                 </div>
-                <input type="text" id="valueSelect" hidden>
+                <input type="text" name="corCategoria" id="valueCor" hidden>
+                <input type="text" name="nomeCategoria" id="valueNome" hidden>
             </div>
         </div>
         <div class="rowForm">
             <div class="labelForm">
                 <label for="descricao">Descrição</label>
-                <textarea placeholder="Escreva uma breve descrição..." id="descricao" name="titulo"></textarea>
+                <textarea placeholder="Escreva uma breve descrição..." id="descricao" name="descricao"></textarea>
             </div>
             <div class="labelForm">
                 <p>Imagem</p>
@@ -64,6 +71,7 @@
                     </label>
                     <input type="file" id="inputImg" name="imagem" accept="image/*">
                 </div>
+                <input type="text" id="inputImgHidden" name="nomeImagem" hidden>
             </div>
         </div>
     </div>

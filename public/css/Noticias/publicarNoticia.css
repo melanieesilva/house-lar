@@ -128,14 +128,16 @@ form{
     cursor: default;
 }
 .optionMain{
-    padding: 5px 6px;
+    padding: 8px 6px;
     border-radius: 6px;
     font-size: 14px;
     font-weight: 500;
-    background-color: #FFE1E1;
-    color: #C80000;
     width: 160px;
     cursor: default;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .bodyDrop{

@@ -13,6 +13,7 @@ const Cliente = require('../models/Clientes')
 const solicontrol = require('../controllers/solicitacoesController')
 const noticiasControl = require('../controllers/noticiasController')
 const imoveisController = require('../controllers/imoveisController')
+const homeController = require('../controllers/paginaInicialController')
 
 //MIDDLEWARE
 router.use((req, res, next) => {
@@ -21,7 +22,7 @@ router.use((req, res, next) => {
     next()
 })
 
-router.get('/', (req, res) => res.render('pages/paginaInicial'));
+router.get('/', homeController.getImoveiseNoticias);
 
 router.get('/public/sobrenos', function (req, res) {
     res.render('pages/sobrenos')

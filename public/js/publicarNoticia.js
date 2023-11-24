@@ -1,7 +1,6 @@
 const btnAddCategoria = document.getElementById('addCategoria')
 var cliques = 0;
 
-var formData = new FormData();
 var corCategoria;
 
 function setCategoria() {
@@ -53,18 +52,34 @@ function setCategoria() {
                     console.log("Não foi possível identificar uma cor de categoria.")
                     break;
             }
-            
+
         })
     });
 
 }
 
-function sendCategoria(){
+function sendCategoria() {
     var cor = corCategoria;
     console.log(cor)
     var nome = document.getElementById('nomeCategoria').value
     console.log(nome)
+
+    let formData = { corCategoria: cor, nomeCategoria: nome }
+
+    fetch("/corretor/addCategoria", {
+        body: JSON.stringify(formData),
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(response => {
+        if (!response.ok) {
+            console.log("Não foi possível enviar categorias")
+        }
+        return response.json()
+    })
 }
+
 
 function openModal() {
     const containerModal = document.getElementById('containerModal')
@@ -84,7 +99,7 @@ function openModal() {
     optionMain.innerHTML = "Vermelho"
     optionMain.style.backgroundColor = "#FFE1E1"
     optionMain.style.color = "#C80000"
-    optionMain.setAttribute("data-cor","Vermelho")
+    optionMain.setAttribute("data-cor", "Vermelho")
 }
 
 function openDrop(el) {
@@ -120,26 +135,42 @@ function openDrop(el) {
 
 window.onload = function () {
     document.getElementById('inputImg').addEventListener('change', getFileName);
+    const optionCategoria = document.querySelectorAll('#optionDrop')
 
-    // function setColor(back,color){
-    //     optionMain.style.backgroundColor = back
-    //     optionMain.style.color = color
-    // }
+    optionCategoria.forEach(option => {
+        const data = option.getAttribute('data-corCategoria')
 
-    // const optionMain = document.getElementById('optionDrop')
-    // const cor = optionMain.getAttribute('data-corCategoria')
-    // switch (cor) {
-    //     case 'Vermelho':
+        switch (data) {
+            case "Vermelho":
+                option.style.backgroundColor = "#FFE1E1"
+                option.style.color = "#C80000"
+                break;
+            case "Azul":
+                option.style.backgroundColor = "rgba(0, 128, 200, 0.12)"
+                option.style.color = "#0080C8"
+                break;
+            case "Verde":
+                option.style.backgroundColor = "rgba(0, 131, 60, 0.12)"
+                option.style.color = "#00833C"
+                break;
+            case "Amarelo":
+                option.style.backgroundColor = "rgba(223, 147, 0, 0.12)"
+                option.style.color = "#DF9300"
+                break;
+            case "Roxo":
+                option.style.backgroundColor = "rgba(71, 0, 223, 0.12)"
+                option.style.color = "#4700DF"
+                break;
+            case "Laranja":
+                option.style.backgroundColor = "rgba(223, 80, 0, 0.12)"
+                option.style.color = "#DF5000"
+                break;
+            default:
+                console.log("Não foi possível identificar uma cor de categoria.")
+                break;
+        }
+    })
 
-    //         setColor('#FFE1E1','#C80000')
-    //         break;
-    //     case 'Azul':
-    //         setColor('rgba(0, 128, 200, 0.12)','#0080C8')
-    //     break;
-
-    //     default:
-    //         break;
-    // }
 }
 const getFileName = (event) => {
     const files = event.target.files;
@@ -180,19 +211,5 @@ const getFileName = (event) => {
     })
 }
 
-function cadastrarCategoria() {
-
-    // fetch('/corretor/addCategoria',{
-    //     headers:{
-    //         'Accept': 'application/json',
-    //         'Content-Type': 'application/json'
-    //     },
-    //     method: "POST",
-    //     body: JSON.stringify({nomeCategoria:,corCategoria:})
-
-    // }).then(response=>{
-
-    // })
-}
 
 

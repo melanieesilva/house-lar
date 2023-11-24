@@ -134,7 +134,7 @@ form{
     font-weight: 500;
     background-color: #FFE1E1;
     color: #C80000;
-    /* width: 100%; */
+    width: 160px;
     cursor: default;
 }
 
@@ -159,14 +159,17 @@ form{
 }
 
 .optionDrop{
-    font-size: 14px;
+    font-size: 10px;
     font-weight: 500;
-    background-color: #FFE1E1;
-    color: #C80000;
-    width: fit-content;
+    width: 164px;
+    height: 33px;
+    overflow: hidden;
     padding: 6px 8px;
     cursor: default;
     border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 input[type="file"]{

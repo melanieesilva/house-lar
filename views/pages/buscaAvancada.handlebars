@@ -30,19 +30,21 @@
                 <label for="">Filtre por</label>
             </div>
             <div id="tipo-botoes">
-                <button type="button" class="tipo-botao grupo3 botao-esquerdo" id="compra" onclick="ler('botao-esquerdo', 'grupo3')">
+                <button type="button" class="tipo-botao grupo3 botao-esquerdo" id="compra"
+                    onclick="ler('botao-esquerdo', 'grupo3')">
                     <iconify-icon icon="icons8:buy"></iconify-icon>
                     Comprar
                 </button>
-                <button type="button" class="tipo-botao grupo3 botao-direito" id="alugar" onclick="ler('botao-esquerdo', 'grupo3')">
+                <button type="button" class="tipo-botao grupo3 botao-direito" id="alugar"
+                    onclick="ler('botao-esquerdo', 'grupo3')">
                     <iconify-icon icon="heroicons:key"></iconify-icon>
                     Alugar
                 </button>
             </div>
             <input type="hidden" name="operacao" id="operacao" value="Venda">
             <div id="filtros-opcoes">
-                <select name="cidade" id="" class="select-opcao">
-                    <option>Cidade</option>
+                <select name="cidade" id="selectCidade" class="select-opcao">
+                    <option value="" selected disabled>Cidade</option>
                 </select>
                 <select name="tipo" id="" class="select-opcao">
                     <option value="" selected disabled>Tipo imóvel</option>
@@ -53,27 +55,45 @@
                     <option value="Sala Comercial">Sala Comercial</option>
                 </select>
                 <select name="quartos" id="" class="select-opcao">
-                    <option>Quartos</option>
+                    <option value="" selected disabled>Quartos</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
                 </select>
                 <select name="banheiros" id="" class="select-opcao">
-                    <option>Banheiros</option>
+                    <option value="" selected disabled>Banheiros</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
                 </select>
                 <select name="vagas" id="" class="select-opcao">
-                    <option>Vagas</option>
+                    <option value="" selected disabled>Vagas</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
                 </select>
             </div>
             <div class="caixa-quantidade">
-                <label for="" class="label-quantidade">Faixa de preço</label>
+                <label for="faixaPrecoDe" class="label-quantidade">Faixa de preço</label>
                 <div class="inputs-quantidade" id="quantidades-um">
-                    <input type="text" placeholder="De" class="input-quantidade">
-                    <input type="text" placeholder="Até" class="input-quantidade">
+                    <input type="text" name="faixaPrecoDe" id="faixaPrecoDe" placeholder="De" class="input-quantidade">
+                    <input type="text" name="faixaPrecoAte" id="faixaPrecoAte" placeholder="Até"
+                        class="input-quantidade">
                 </div>
             </div>
             <div class="caixa-quantidade">
-                <label for="" class="label-quantidade">Área</label>
+                <label for="faixaAreaMin" class="label-quantidade">Área</label>
                 <div class="inputs-quantidade">
-                    <input type="text" placeholder="Mínimo" class="input-quantidade">
-                    <input type="text" placeholder="Máximo" class="input-quantidade">
+                    <input type="text" name="faixaAreaMin" id="faixaAreaMin" placeholder="Mínimo"
+                        class="input-quantidade">
+                    <input type="text" name="faixaAreaMax" id="faixaAreaMax" placeholder="Máximo"
+                        class="input-quantidade">
                 </div>
             </div>
             <button id="botao-pesq">

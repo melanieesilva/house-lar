@@ -2,7 +2,7 @@ const Imoveis = require('../models/Imoveis')
 const Imagem_Imovel = require('../models/Imagens_Imovel');
 const viewImovel = require('../models/ViewImovelImagem')
 const db = require('../Database/Connection')
-
+const sequelize = require('sequelize');
 
 async function cadImagensImovel(idImovel, nomeImagem, pathImagem) {
 
@@ -163,13 +163,36 @@ const getBuscaAvancada = async (req, res) => {
     const imoveis = await Imoveis.findAll();
 
     const imoveisFiltrados = imoveis.filter(imovel => {
+      const tipoIgual = !req.body.tipo || imovel.tipo_imovel === req.body.tipo;
+      const quartosIguais = !req.body.quartos || imovel.num_quartos == req.body.quartos;
+      const banheirosIguais = !req.body.banheiros || imovel.num_banheiro == req.body.banheiros;
+      const vagasIguais = !req.body.vagas || imovel.num_vagas == req.body.vagas;
+      const cidadeIgual = !req.body.cidade || imovel.cidade === req.body.cidade;
+      const operacaoIgual = !req.body.operacao || imovel.operacao === req.body.operacao;
+
+      let faixaPrecoValida = true;
+      if (req.body.faixaPrecoDe && req.body.faixaPrecoAte) {
+        faixaPrecoValida =
+          imovel.valor_imovel >= parseFloat(req.body.faixaPrecoDe) &&
+          imovel.valor_imovel <= parseFloat(req.body.faixaPrecoAte);
+      }
+
+      let faixaAreaValida = true;
+      if (req.body.faixaAreaMin && req.body.faixaAreaMax) {
+        faixaAreaValida =
+          imovel.area >= parseFloat(req.body.faixaAreaMin) &&
+          imovel.area <= parseFloat(req.body.faixaAreaMax);
+      }
+
       return (
-       /* imovel.tipo_imovel === req.query.tipo &&
-        imovel.num_quartos == req.query.quartos &&
-        imovel.valor_imovel <= req.query.preco &&
-        imovel.area <= req.query.area && 
-        imovel.cidade === req.body.cidade && */
-        imovel.operacao === req.body.operacao
+        tipoIgual &&
+        quartosIguais &&
+        banheirosIguais &&
+        vagasIguais &&
+        cidadeIgual &&
+        operacaoIgual &&
+        faixaPrecoValida &&
+        faixaAreaValida
       );
     });
 
@@ -181,6 +204,20 @@ const getBuscaAvancada = async (req, res) => {
     throw new Error(error);
   }
 };
+
+
+const getCidades = async (req, res) => {
+  try {
+    const cidades = await Imoveis.findAll({
+      attributes: [[sequelize.fn('DISTINCT', sequelize.col('cidade')), 'cidade']]
+    });
+
+    res.json(cidades.map(cidade => cidade.cidade));
+  } catch (error) {
+    console.error('Erro ao buscar cidades:', error);
+    res.status(500).json({ error: 'Erro ao buscar cidades' });
+  }
+}
 
 const getImoveisSelecionados = async (req, res) => {
   try {
@@ -321,5 +358,6 @@ module.exports = {
   cadastrarImovel,
   getImoveisSelecionados,
   getDetalheImovel,
-  getBuscaAvancada
+  getBuscaAvancada,
+  getCidades
 }

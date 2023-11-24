@@ -1,16 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
     const botaoBranco = document.getElementById("compra");
     const botaoCinza = document.getElementById("alugar");
-  
+
     botaoCinza.addEventListener("click", function () {
-      console.log("Clique no botão Aluguel");
-      document.getElementById('operacao').value = 'Aluguel';
-      console.log("Valor da operação:", document.getElementById('operacao').value);
+        console.log("Clique no botão Aluguel");
+        document.getElementById('operacao').value = 'Aluguel';
+        console.log("Valor da operação:", document.getElementById('operacao').value);
     });
-  
+
     botaoBranco.addEventListener("click", function () {
-      document.getElementById('operacao').value = 'Venda';
-      console.log("Valor da operação:", document.getElementById('operacao').value);
+        document.getElementById('operacao').value = 'Venda';
+        console.log("Valor da operação:", document.getElementById('operacao').value);
     });
 });
 
@@ -74,7 +74,7 @@ btnDisplayBloco.addEventListener('click', () => {
     console.log("BLOCO")
 })
 
-btnDisplayLista.addEventListener('click',() => {
+btnDisplayLista.addEventListener('click', () => {
     const conteinerImoveis = document.getElementById('imoveis');
 
     const cardsLista = document.querySelectorAll('#imoveis > .info-movel')
@@ -89,4 +89,24 @@ btnDisplayLista.addEventListener('click',() => {
         element.style.display = "flex"
     })
     console.log("LISTA")
-})
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Use o fetch para obter a lista de cidades do seu servidor
+    fetch('/api/cidades') // Substitua pela rota correta para buscar as cidades
+        .then(response => response.json())
+        .then(cidades => {
+            // Adicione as opções ao menu suspenso
+            const selectCidade = document.getElementById('selectCidade');
+            console.log('Cidades recebidas:', cidades); // Adicione este log
+
+            cidades.forEach(cidade => {
+                const option = document.createElement('option');
+                option.value = cidade; // Use o nome como valor, você pode ajustar conforme necessário
+                option.textContent = cidade;
+                selectCidade.appendChild(option);
+            });
+            console.log('Opções adicionadas ao menu suspenso:', selectCidade); // Adicione este log
+        })
+        .catch(error => console.error('Erro ao buscar cidades:', error));
+});

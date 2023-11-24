@@ -99,9 +99,11 @@ router.post('/public/autenticar', async (req, res) => {
         console.error(error); // Adicione esta linha para ver o erro no console
         console.log(email, senha);
         res.status(500).send('Ocorreu um erro ao autenticar o cliente: ' + error.message); // Envie a mensagem de erro real para o cliente
-    }
+    } 
 
 });
+
+router.get('/api/cidades', imoveisController.getCidades);
 
 router.get('/public/esqueceuSenha', function (req, res) {
     res.render('pages/EsqueceuSenha/esqueceuSenha');

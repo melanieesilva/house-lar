@@ -1,6 +1,8 @@
 const Noticias = require('../models/Noticias')
 const Categorias = require('../models/Categorias')
 
+
+
 const publicarNoticia = async (req,res) =>{
   try {
     const {
@@ -9,10 +11,10 @@ const publicarNoticia = async (req,res) =>{
       artigo, 
       autor,
       nomeCategoria, 
-      nomeImagem,
       corCategoria
     } = req.body
 
+    const imagem = req.file;
 
     const noticia = await Noticias.create({
       titulo_noticia: titulo,
@@ -20,7 +22,7 @@ const publicarNoticia = async (req,res) =>{
       autor_noticia: autor,
       publicado_por: "House&Lar",
       artigo_noticia: artigo,
-      nome_imagem: nomeImagem,
+      nome_imagem: imagem.filename,
       nome_categoria: nomeCategoria,
       cor_categoria: corCategoria,
       status: 'Publicada'
@@ -28,8 +30,12 @@ const publicarNoticia = async (req,res) =>{
 
     if(noticia){
       console.log("Notícia publicada com sucesso!")
+      req.flash("success_msg","Notícia publicada com sucesso!")
+      res.redirect("/corretor/noticiasCorretor")
     }else{
       console.log("Não foi possível cadastrar a notícia")
+      req.flash("error_msg","Não foi possível cadastrar a notícia")
+      res.redirect("/corretor/noticiasCorretor")
     }
 
     

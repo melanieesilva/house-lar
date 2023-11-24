@@ -67,10 +67,9 @@ function openBodyDrop(event){
     
 }
 
+const imgCard = document.getElementById('imgCard')
+const dataIMG = imgCard.getAttribute('data-image')
 
-    const img1 = document.getElementById('img_1')
+imgCard.style.backgroundImage = `url(../../uploads/${dataIMG})`
 
-    const dataIMG = img1.getAttribute('data-image')
-    
-    img1.style.backgroundImage = `url(../../uploads/${dataIMG})`
 

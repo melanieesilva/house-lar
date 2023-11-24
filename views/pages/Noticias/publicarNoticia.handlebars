@@ -11,7 +11,7 @@
 </div>
 
 
-<form action="/corretor/CadastrarNoticia" method="POST">
+<form action="/corretor/CadastrarNoticia" method="POST" enctype="multipart/form-data">
     <div class="headerForm">
         <div class="rowForm">
             <div class="labelForm">
@@ -29,7 +29,7 @@
                         <div class="mainDrop" onclick="openDrop(this)" id="mainCategoria">
                             {{#if categoriaDefault}}
                             <div class="optionMain" id="optionMain" data-Res="true" data-corCategoria={{categoriaDefault.dataValues.cor_categoria}}>
-                                {{categoriaDefault.dataValues.nome_categoria}}
+                                <p id="nomeCategoriaMain">{{categoriaDefault.dataValues.nome_categoria}}</p>
                             </div>
                             {{else}}
                             <div class="optionMain" id="optionMain" data-Res="false">
@@ -41,7 +41,7 @@
                         <div class="bodyDrop" id="bodyDrop">
                             {{#each categorias}}
                             <div class="optionDrop" id="optionDrop" data-corCategoria={{dataValues.cor_categoria}}>
-                                {{dataValues.nome_categoria}}
+                                <p id="nomeCategoriaDrop">{{dataValues.nome_categoria}}</p>
                             </div>
                             {{/each}}
                         </div>
@@ -71,7 +71,7 @@
                     </label>
                     <input type="file" id="inputImg" name="imagem" accept="image/*">
                 </div>
-                <input type="text" id="inputImgHidden" name="nomeImagem" hidden>
+                {{!-- <input type="text" id="inputImgHidden" name="nomeImagem" hidden> --}}
             </div>
         </div>
     </div>

@@ -52,7 +52,7 @@ router.post('/corretor/cadastrarData', multer.uploadSingle, async (req, res) => 
 
 router.get('/corretor/noticiasCorretor', noticiasController.getNoticias)
 
-router.post('/corretor/CadastrarNoticia', multer.uploadSingle,noticiasController.publicarNoticia);
+router.post('/corretor/CadastrarNoticia', multer.,noticiasController.publicarNoticia);
 
 router.post('/corretor/addCategoria',noticiasController.addCategoria)
 

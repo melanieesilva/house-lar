@@ -137,6 +137,12 @@ window.onload = function () {
     document.getElementById('inputImg').addEventListener('change', getFileName);
     const optionCategoria = document.querySelectorAll('#optionDrop')
     const optionMain = document.getElementById('optionMain')
+    const nomeCategoriaMain = document.getElementById('nomeCategoriaMain')
+    var inputCor = document.getElementById('valueCor')
+    var inputNome = document.getElementById('valueNome')
+
+    inputCor.value = optionMain.getAttribute('data-corCategoria')
+    inputNome.value = nomeCategoriaMain.innerHTML
 
     const dataRes = optionMain.getAttribute('data-Res')
 
@@ -183,10 +189,8 @@ window.onload = function () {
 
         option.addEventListener('click',()=>{
             const dataCor = option.getAttribute('data-corCategoria')
-            const valueCategoria = option.innerHTML;
-            optionMain.innerHTML = valueCategoria
-            const inputCor = document.getElementById('valueCor')
-            const inputNome = document.getElementById('valueNome')
+            const valueCategoria = option.querySelector('#nomeCategoriaDrop').innerHTML;
+            nomeCategoriaMain.innerHTML = valueCategoria
             inputCor.value = dataCor
             inputNome.value = valueCategoria
 
@@ -224,13 +228,15 @@ window.onload = function () {
 
 }
 
+
+
 const getFileName = (event) => {
     const files = event.target.files;
     const fileName = files[0].name;
     console.log("file name: ", fileName);
 
-    document.getElementById('inputImgHidden').value = fileName
-    
+    // document.getElementById('inputImgHidden').value = fileName
+
 
     const label = document.getElementById('labelInput')
     label.innerHTML = ''

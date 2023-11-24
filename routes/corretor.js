@@ -102,6 +102,7 @@ router.post('/corretor/CadastrarNoticia', multer.uploadSingle, async (req, res) 
 
 router.post('/corretor/addCategoria',noticiasController.addCategoria)
 
+
 router.get('/corretor/solicitacoes', (req, res) => {
     viewSolicitacaoImagem.findAll({
         attributes: [
@@ -184,9 +185,7 @@ router.get('/corretor/DesativarNoticia/:id', (req, res) => {
     })
 })
 
-router.get('/corretor/publicarNoticia', (req,res)=>{
-    res.render('pages/Noticias/publicarNoticia')
-})
+router.get('/corretor/publicarNoticia', noticiasController.getCategorias)
 
 router.get('/corretor/mensagens', (req, res) => {
     Duvidas.findAll().then((duvidas) => {

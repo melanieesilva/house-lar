@@ -228,11 +228,11 @@ const getImoveisSelecionados = async (req, res) => {
       return (
         imovel.tipo_imovel === req.query.tipo &&
         imovel.num_quartos == req.query.quartos &&
-        imovel.valor_imovel <= req.query.preco &&
-        imovel.area <= req.query.area &&
+        imovel.valor_imovel <= parseFloat(req.query.preco) &&
+        imovel.area <= parseFloat(req.query.area) &&
         (imovel.cidade.toLowerCase().includes(req.query.localizacao.toLowerCase()) ||
           imovel.bairro.toLowerCase().includes(req.query.localizacao.toLowerCase())) &&
-        imovel.operacao === req.query.operacao
+        imovel.operacao === req.query.operacao 
       );
     });
 

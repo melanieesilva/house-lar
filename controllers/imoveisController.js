@@ -116,7 +116,7 @@ const cadastrarImovel = async (req, res) => {
       console.log("Imóvel publicado!")
     }).catch((erro) => {
       console.log("ERRO: " + erro)
-      req.flash("error_msg", "Não foi possível cadastrar a solicitação!")
+      req.flash("error_msg", "Não foi possível cadastrar imóvel: "+erro)
       res.redirect('/corretor/painelControle')
     })
 

@@ -98,6 +98,7 @@
                 </a>
             </div>
             <div class="cards-imoveis" id="cardsImoveis">
+               {{#each publicados}}
                 <div class="cardImovel" id="cardImovel">
                     <div class="img-card">
                         <img src="../../img/img-imovel-busca-avanc.jpeg" alt="">
@@ -106,69 +107,34 @@
                         <div class="header-card">
                             <div class="title-card">
                                 <h5>Apartamento</h5>
-                                <h5>500.000</h5>
+                                <h5>R$ {{dataValues.valor_imovel}}</h5>
                             </div>
                             <div class="subtitle-card">
-                                <p>Pituba - Salvador</p>
-                                <p>ID: 478547</p>
+                                <p>{{dataValues.bairro}} - {{dataValues.cidade}}</p>
+                                <p>COD: {{ dataValues.id }}</p>
                             </div>
                         </div>
                         <div class="dados-card">
                             <div class="icon-dado">
                                 <iconify-icon icon="mdi:bed-outline"></iconify-icon>
-                                <p>14 qua.</p>
+                                <p>{{dataValues.num_quartos }} qua.</p>
                             </div>
                             <div class="icon-dado">
                                 <iconify-icon icon="iconoir:bathroom"></iconify-icon>
-                                <p>2 ban.</p>
+                                <p>{{dataValues.numbanheiros }} ban.</p>
                             </div>
                             <div class="icon-dado">
                                 <iconify-icon icon="majesticons:car-line"></iconify-icon>
-                                <p>2 vagas</p>
+                                <p>{{ dataValues.num_vagas }} vagas</p>
                             </div>
                             <div class="icon-dado">
                                 <iconify-icon icon="iconoir:ruler"></iconify-icon>
-                                <p>108 m²</p>
+                                <p>{{dataValues.area}} m²</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="cardImovel" id="cardImovel">
-                    <div class="img-card">
-                        <img src="../../img/img-imovel-busca-avanc.jpeg" alt="">
-                    </div>
-                    <div class="conteudo-card">
-                        <div class="header-card">
-                            <div class="title-card">
-                                <h5>Apartamento</h5>
-                                <h5>500.000</h5>
-                            </div>
-                            <div class="subtitle-card">
-                                <p>Pituba - Salvador</p>
-                                <p>ID: 478547</p>
-                            </div>
-                        </div>
-                        <div class="dados-card">
-                            <div class="icon-dado">
-                                <iconify-icon icon="mdi:bed-outline"></iconify-icon>
-                                <p>14 qua.</p>
-                            </div>
-                            <div class="icon-dado">
-                                <iconify-icon icon="iconoir:bathroom"></iconify-icon>
-                                <p>2 ban.</p>
-                            </div>
-                            <div class="icon-dado">
-                                <iconify-icon icon="majesticons:car-line"></iconify-icon>
-                                <p>2 vagas</p>
-                            </div>
-                            <div class="icon-dado">
-                                <iconify-icon icon="iconoir:ruler"></iconify-icon>
-                                <p>108 m²</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                {{/each}}
             </div>
         </section>
 
@@ -270,36 +236,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="cardNoticia">
-                    <div class="imageNoticia">
-                        <img src="../../img/img-noticia.png" alt="" srcset="">
-                    </div>
-                    <div class="conteudoCardNoticia">
-                        <div class="headerCardNoticia">
-                            <div class="categoriaNoticia">
-                                Oportunidade Tenda
-                            </div>
-                            <div class="dataPubliNoticia">
-                                <iconify-icon icon="lucide:calendar"></iconify-icon>
-                                22/08/2023
-                            </div>
-                        </div>
 
-                        <div class="conteudoNoticia">
-                            <h3 class="titleNoticia">
-                                Lorem ipsum dolor sit amet consectetur. Eget curabitur nec sit et euismod diam commodo
-                                sed nullam.
-                            </h3>
-                            <p class="descricaoNoticia">
-                                Lorem ipsum dolor sit amet consectetur. Eget curabitur nec sit et euismod diam commodo
-                                sed nullam... </p>
-                        </div>
-                        <a href="/public/artigoNoticia">
-                            Ler Notícia
-                            <iconify-icon icon="ic:round-arrow-circle-right"></iconify-icon>
-                        </a>
-                    </div>
-                </div>
 
             </div>
         </section>

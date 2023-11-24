@@ -9,48 +9,33 @@ const db = require('../Database/Connection')
 const sequelize = require('sequelize');
 
 
-const getNoticias = async (req, res) => {
+
+
+const getImoveiseNoticias = async (req, res) => {
     try {
+        
         const noticias = await Noticias.findAll();
-        console.log(noticias);
-        res.status(200).render('pages/noticiasCorretor', {
-            noticias: noticias,
-            layout: 'painelControle',
-            pageTitle: 'Notícias - Painel De Controle'
-        });
-    } catch (error) {
-
-        throw new Error(error);
-    }
-};
-
-const getImoveis = async (req, res) => {
-    try {
-        const imoveis = await Imoveis.findAll();
+        
         const totalPublicados = await Imoveis.count({
             where: {
                 statusImovel: "Publicado"
-            }
-        })
-        const totalDesativados = await Imoveis.count({
-            where: {
-                statusImovel: "Desativado"
-            }
+            },
         })
 
-        const publicados = imoveis.filter(imovel => imovel.statusImovel === 'Publicado');
-        const desativados = imoveis.filter(imovel => imovel.statusImovel === 'Desativado');
+        const publicados = await Imoveis.findAll({
+            where: {
+                statusImovel: "Publicado"
+            },
+            limit: 4,
+        })
 
         // console.log(imoveis)
-
-        res.status(200).render('pages/imoveisPublicados', {
+        res.status(200).render('pages/paginaInicial', {
             publicados: publicados,
             totalPublicados: totalPublicados,
-            desativados: desativados,
-            totalDesativados: totalDesativados,
-            pageTitle: 'Imoveis - Painel De Controle'
+            pageTitle: 'PAGINA INICIAL'
         });
-        console.log("IMOVEIS ENCONTRADOS")
+        console.log("IMOVEIS ENCONTRADOS NA PAGINA INICIAL")
     } catch (error) {
         console.log("nao encontProu: " + error)
         throw new Error(error);
@@ -58,6 +43,5 @@ const getImoveis = async (req, res) => {
 };
 
 module.exports = {
-    getImoveis,
-    getNoticias
+    getImoveiseNoticias
 }

@@ -364,9 +364,11 @@ color: #838383;
     font-size: 14px;
     padding: 4px 18px;
     border-radius: 4px;
-    background-color: #FFE1E1;
-    color: #C80000;
     font-weight: 500;
+    width:105px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .bodyDropModal{

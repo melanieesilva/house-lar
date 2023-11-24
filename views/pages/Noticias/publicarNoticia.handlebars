@@ -100,28 +100,28 @@
             
             <div class="dropdownModal">
                 <div class="mainDropModal" onclick="openDrop(this)" id="mainCategoriaModal">
-                    <div class="optionMainModal">
+                    <div class="optionMainModal" id="optionMainModal">
                         Vermelho
                     </div>
                     <iconify-icon icon="ep:arrow-down"></iconify-icon>
                 </div>
                 <div class="bodyDropModal" id="bodyDropModal">
-                    <div class="optionDropModal" data-cor="Red">
+                    <div class="optionDropModal" id="optionDropModal" data-cor="Red">
                         Vermelho
                     </div>
-                    <div class="optionDropModal" data-cor="Azul">
+                    <div class="optionDropModal"  id="optionDropModal" data-cor="Azul">
                         Azul
                     </div>
-                    <div class="optionDropModal" data-cor="Verde">
+                    <div class="optionDropModal"  id="optionDropModal" data-cor="Verde">
                         Verde
                     </div>
-                    <div class="optionDropModal" data-cor="Amarelo">
+                    <div class="optionDropModal"  id="optionDropModal" data-cor="Amarelo">
                         Amarelo
                     </div>
-                    <div class="optionDropModal" data-cor="Roxo">
+                    <div class="optionDropModal"  id="optionDropModal" data-cor="Roxo">
                         Roxo
                     </div>
-                    <div class="optionDropModal" data-cor="Laranja">
+                    <div class="optionDropModal"  id="optionDropModal" data-cor="Laranja">
                         Laranja
                     </div>
                 </div>
@@ -130,7 +130,7 @@
             </div>
         </div>
         <div class="btnModal">
-            <button type="button">
+            <button type="button" onclick="sendCategoria()">
                 <iconify-icon icon="uil:save"></iconify-icon>
                 Salvar
             </button>

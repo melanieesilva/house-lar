@@ -1,102 +1,153 @@
-
 <link rel="stylesheet" href="../../css/noticiasCorretor.css">
 
 {{>_msg}}
 
-        <section class="header-area">
-            <div class="title-header">
-                <p>Notícias</p>
-                <a href="/corretor/publicarNoticia">
-                    <iconify-icon icon="mingcute:add-line"></iconify-icon>
-                    Nova Notícia
-                </a>
+<section class="header-area">
+    <div class="title-header">
+        <p>Notícias</p>
+        <a href="/corretor/publicarNoticia">
+            <iconify-icon icon="mingcute:add-line"></iconify-icon>
+            Nova Notícia
+        </a>
+    </div>
+    <div class="navbar-header">
+        <div class="sessions">
+            <div class="session publicadas" id="sessionPublicados" onclick="openViewNoticia(1)">
+                Publicadas <span id="totalPublicadas">{{totalPublicadas}}</span>
             </div>
-            <div class="navbar-header">
-                <div class="sessions">
-                    <div class="session publicadas" id="sessionPublicados" onclick="openViewNoticia(1)">
-                        Publicadas <span id="totalPublicadas">12</span>
-                    </div>
-                    <div class="session desativadas" id="sessionDesativados" onclick="openViewNoticia(2)">
-                        Desativadas <span id="totalDesativadas">12</span>
-                    </div>
+            <div class="session desativadas" id="sessionDesativados" onclick="openViewNoticia(2)">
+                Desativadas <span id="totalDesativadas">{{totalDesativadas}}</span>
+            </div>
+        </div>
+        <div class="search">
+            <div class="input-search">
+                <iconify-icon icon="tabler:search" onclick="buscaInput()"></iconify-icon>
+                <input type="text" name="busca" class="search-input" id="searchInput"
+                    placeholder="Pesquise por código...">
+            </div>
+
+            <div class="dropdown-filter">
+                <div class="main-dropdown">
+                    <iconify-icon icon="system-uicons:filter"></iconify-icon>
+                    Filtre por
                 </div>
-                <div class="search">
-                    <div class="input-search">
-                        <iconify-icon icon="tabler:search" onclick="buscaInput()"></iconify-icon>
-                        <input type="text" name="busca" class="search-input" id="searchInput"
-                            placeholder="Pesquise por código...">
+                <div class="body-dropdown">
+                    <div class="option" onclick="selectFiltro(1)"> Mais Recente </div>
+                    <div class="option" onclick="selectFiltro(2)"> Mais Antigo </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="noticias" id="noticiasPublicadas">
+    {{#each publicadas}}
+    <div class="card-noticia" id="cardNoticia">
+        <div class="img-card" id="imgCard" data-image={{dataValues.nome_img}}></div>
+        <div class="conteudo-card">
+            <div class="header-conteudo">
+                <div class="detalhes-card">
+
+                    <div class="categoria" {{!--data-cor={{dataValues.cor_categoria}}--}}>
+                        <p>{{dataValues.nome_categoria}}</p>
                     </div>
 
-                    <div class="dropdown-filter">
-                        <div class="main-dropdown">
-                            <iconify-icon icon="system-uicons:filter"></iconify-icon>
-                            Filtre por
-                        </div>
-                        <div class="body-dropdown">
-                            <div class="option" onclick="selectFiltro(1)"> Mais Recente </div>
-                            <div class="option" onclick="selectFiltro(2)"> Mais Antigo </div>
-                        </div>
+                    <div class="data-noticia">
+                        <iconify-icon icon="lucide:calendar"></iconify-icon>
+                        <p>{{formatDate dataValues.createdAt}}</p>
                     </div>
                 </div>
-            </div>
-        </section>
-        
-        <section class="noticias" id="noticiasPublicadas">
-                {{#each noticias}}
-                    <div class="card-noticia" id="cardNoticia">
-                        <div class="img-card" id="imgCard" data-image={{dataValues.nome_img}}></div>
-                        <div class="conteudo-card">
-                            <div class="header-conteudo">
-                                <div class="detalhes-card">
-                                
-                                    <div class="categoria" {{!--data-cor={{dataValues.cor_categoria}}--}}>
-                                    <p>{{dataValues.nome_categoria}}</p>
-                                    </div>
-                                    
-                                <div class="data-noticia">
-                                    <iconify-icon icon="lucide:calendar"></iconify-icon>
-                                    <p>{{formatDate dataValues.createdAt}}</p>
-                                </div>
-                                </div>
-                                
-                                <div class="dropdown-more" id="moreDrop">
-                                    <div class="main-dropdown-more">
-                                        <iconify-icon icon="mingcute:more-2-fill" ></iconify-icon>
-                                    </div>
-                                    <div class="body-drop-more" id="bodyDrop">
-                                        <a href="/corretor/DesativarNoticia/{{dataValues.id}}">
-                                            <div class="options-more" id="desativarNoticia">
-                                                <iconify-icon icon="tabler:news-off"></iconify-icon>
-                                                Desativar noticia
-                                            </div>
-                                        </a>
-                                        <a href="/corretor/EditarNoticia/{{dataValues.id}}">
-                                            <div class="options-more">
-                                                <iconify-icon icon="solar:pen-outline"></iconify-icon>
-                                                Editar notícia
-                                            </div>
-                                        </a>
-                                        
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            <div class="conteudo">
-                                <p>{{dataValues.titulo_noticia}}</p>
-                                <p>{{dataValues.artigo_noticia}}</p>
-                            </div>
-                            <div class="link-noticia">
-                                <a href="/public/exibirArtigo/{{dataValues.id}}">
-                                    Ler Notícia
-                                    <iconify-icon icon="ic:round-arrow-circle-right"></iconify-icon>
-                                </a>
-                            </div>
-                        </div>
+
+                <div class="dropdown-more" id="moreDrop">
+                    <div class="main-dropdown-more">
+                        <iconify-icon icon="mingcute:more-2-fill"></iconify-icon>
                     </div>
-                {{/each}}
-        </section>
-        
-        <section class="noticias" id="noticiasDesativadas">
-        </section>
+                    <div class="body-drop-more" id="bodyDrop">
+                        <a href="/corretor/DesativarNoticia/{{dataValues.id}}">
+                            <div class="options-more" id="desativarNoticia">
+                                <iconify-icon icon="tabler:news-off"></iconify-icon>
+                                Desativar noticia
+                            </div>
+                        </a>
+                        <a href="/corretor/EditarNoticia/{{dataValues.id}}">
+                            <div class="options-more">
+                                <iconify-icon icon="solar:pen-outline"></iconify-icon>
+                                Editar notícia
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="conteudo">
+                <p>{{dataValues.titulo_noticia}}</p>
+                <p>{{dataValues.artigo_noticia}}</p>
+            </div>
+            <div class="link-noticia">
+                <a href="/public/exibirArtigo/{{dataValues.id}}">
+                    Ler Notícia
+                    <iconify-icon icon="ic:round-arrow-circle-right"></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</section>
+
+<section class="noticias" id="noticiasDesativadas">
+    {{#each desativadas}}
+    <div class="card-noticia" id="cardNoticia">
+        <div class="img-card" id="imgCard" data-image={{dataValues.nome_img}}></div>
+        <div class="conteudo-card">
+            <div class="header-conteudo">
+                <div class="detalhes-card">
+
+                    <div class="categoria" {{!--data-cor={{dataValues.cor_categoria}}--}}>
+                        <p>{{dataValues.nome_categoria}}</p>
+                    </div>
+
+                    <div class="data-noticia">
+                        <iconify-icon icon="lucide:calendar"></iconify-icon>
+                        <p>{{formatDate dataValues.createdAt}}</p>
+                    </div>
+                </div>
+
+                <div class="dropdown-more" id="moreDrop">
+                    <div class="main-dropdown-more">
+                        <iconify-icon icon="mingcute:more-2-fill"></iconify-icon>
+                    </div>
+                    <div class="body-drop-more" id="bodyDrop">
+                        <a href="/corretor/DesativarNoticia/{{dataValues.id}}">
+                            <div class="options-more" id="desativarNoticia">
+                                <iconify-icon icon="tabler:news-off"></iconify-icon>
+                                Desativar noticia
+                            </div>
+                        </a>
+                        <a href="/corretor/EditarNoticia/{{dataValues.id}}">
+                            <div class="options-more">
+                                <iconify-icon icon="solar:pen-outline"></iconify-icon>
+                                Editar notícia
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="conteudo">
+                <p>{{dataValues.titulo_noticia}}</p>
+                <p>{{dataValues.artigo_noticia}}</p>
+            </div>
+            <div class="link-noticia">
+                <a href="/public/exibirArtigo/{{dataValues.id}}">
+                    Ler Notícia
+                    <iconify-icon icon="ic:round-arrow-circle-right"></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</section>
 
 <script src="../../js/noticiasCorretor.js"></script>

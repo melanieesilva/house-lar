@@ -10,6 +10,8 @@ const Categorias = db.connect.define('categorias',{
     cor_categoria: {
         type: db.Sequelize.ENUM('Amarelo', 'Azul', 'Roxo', 'Verde', 'Laranja', 'Vermelho')
     }
+},{
+    timestamps: false
 });
 
 // Categoria_Noticia.create({

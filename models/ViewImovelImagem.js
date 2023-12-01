@@ -25,8 +25,8 @@ const viewImovelImagem = db.connect.define('ViewImovelImagem',{
         defaultValue: db.Sequelize.NOW
     },
     id_imagem: db.Sequelize.INTEGER,
-    nomeImagem: db.Sequelize.STRING,
-    pathImagem: db.Sequelize.STRING,
+    nome_imagem: db.Sequelize.STRING,
+    path_imagem: db.Sequelize.STRING,
 },{
     freezeTableName: true,
     timestamps: false

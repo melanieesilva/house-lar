@@ -3,6 +3,7 @@ const Imagem_Imovel = require('../models/Imagens_Imovel');
 const viewImovel = require('../models/ViewImovelImagem')
 const db = require('../Database/Connection')
 const sequelize = require('sequelize');
+const painelControleController = require('../controllers/painelControleController')
 
 async function cadImagensImovel(idImovel, nomeImagem, pathImagem) {
 
@@ -149,6 +150,7 @@ const getImoveis = async (req, res) => {
       totalPublicados: totalPublicados,
       desativados: desativados,
       totalDesativados: totalDesativados,
+      id: "1",
       pageTitle: 'Imoveis - Painel De Controle'
     });
     console.log("IMOVEIS ENCONTRADOS")

@@ -49,13 +49,30 @@ const getNoticias = async (req, res) => {
   try {
     const noticias = await Noticias.findAll();
     console.log(noticias);
+    const totalPublicadas = await Noticias.count({
+      where: {
+        status: "Publicada"
+      }
+    })
+    const totalDesativadas = await Noticias.count({
+      where: {
+        status: "Desativada"
+      }
+    })
+
+    const publicadas = noticias.filter(imovel => noticias.status === 'Publicada');
+    const desativadas = noticias.filter(imovel => noticias.status === 'Desativada');
+
     res.status(200).render('pages/noticiasCorretor', {
       noticias: noticias,
+      publicadas:publicadas,
+      desativadas:desativadas,
+      totalPublicadas:totalPublicadas,
+      totalDesativadas:totalDesativadas,
       layout: 'painelControle',
       pageTitle: 'Notícias - Painel De Controle'
     });
   } catch (error) {
-
     throw new Error(error);
   }
 };
@@ -92,7 +109,7 @@ const getCategorias = async (req, res) => {
     }
 
   } catch (erro) {
-    throw new Error('Não foi possível fazer a busca.');
+    throw new Error('Não foi possível fazer a busca.'+erro);
   }
 }
 

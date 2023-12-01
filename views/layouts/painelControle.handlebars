@@ -66,6 +66,7 @@
     <div class="containerPerfil" id="containerPerfil">
         <nav class="mainPerfil" id="mainPerfil">
             <div class="detalhesPerfil" id="detalhesPerfil">
+                  <input type="hidden" id="idCliente" value="{{id}}">
                 <div class="retornoPerfil" onclick="FecharPerfil()">
                     <a>
                         <iconify-icon icon="ep:arrow-left"></iconify-icon>
@@ -86,9 +87,10 @@
     
                 <div class="dadosPerfil">
                     <div class="colunaPerfil">
+                      
                         <div class="infoPerfil">
                             <p>Nome perfil</p>
-                            <p  id="nomePerfil">Islania Silva</p>
+                            <p  id="nomePerfil"></p>
                         </div>
                         <div class="infoPerfil">
                             <p>Telefone</p>

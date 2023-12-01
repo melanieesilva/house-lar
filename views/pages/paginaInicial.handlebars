@@ -101,7 +101,7 @@
                {{#each publicados}}
                 <div class="cardImovel" id="cardImovel">
                     <div class="img-card">
-                        <img src="../../img/img-imovel-busca-avanc.jpeg" alt="">
+                        <img src="../../uploads/{{dataValues.nome_imagem}}" alt="">
                     </div>
                     <div class="conteudo-card">
                         <div class="header-card">
@@ -236,6 +236,36 @@
                         </a>
                     </div>
                 </div>
+                <div class="cardNoticia">
+                    <div class="imageNoticia">
+                        <img src="../../img/img-noticia.png" alt="" srcset="">
+                    </div>
+                    <div class="conteudoCardNoticia">
+                        <div class="headerCardNoticia">
+                            <div class="categoriaNoticia">
+                                Oportunidade Tenda
+                            </div>
+                            <div class="dataPubliNoticia">
+                                <iconify-icon icon="lucide:calendar"></iconify-icon>
+                                22/08/2023
+                            </div>
+                        </div>
+
+                        <div class="conteudoNoticia">
+                            <h3 class="titleNoticia">
+                                Lorem ipsum dolor sit amet consectetur. Eget curabitur nec sit et euismod diam commodo
+                                sed nullam.
+                            </h3>
+                            <p class="descricaoNoticia">
+                                Lorem ipsum dolor sit amet consectetur. Eget curabitur nec sit et euismod diam commodo
+                                sed nullam... </p>
+                        </div>
+                        <a href="/public/artigoNoticia">
+                            Ler Notícia
+                            <iconify-icon icon="ic:round-arrow-circle-right"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
 
 
             </div>
@@ -306,10 +336,10 @@
                     </h3>
                     <p>Lorem ipsum dolor sit amet consectetur. Orci mi consequat consectetur in ut. Augue commodo.</p>
                 </div>
-                <a href="/publicarImovelCliente">
+                <a href="/public/publicarImovelCliente">
                     <div id="txtbot">
                         <button type="button" class="btn btn-primary btn-lg" style="background-color: #9D0058;
-                    color: white; border-color: #9D0058;">Saiba como publicar</button>
+                    color: white; border-color: #9D0058;">Publique Aqui</button>
                     </div>
                 </a>
             </div>

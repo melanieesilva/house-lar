@@ -19,6 +19,7 @@ const msgController = require('../controllers/mensagensController')
 const soliController = require('../controllers/solicitacoesController')
 const imoveisController = require('../controllers/imoveisController')
 
+
 //MIDDLEWARE
 router.use((req,res,next)=>{
     res.locals.layout = 'painelControle'
@@ -52,7 +53,7 @@ router.post('/corretor/cadastrarData', multer.uploadSingle, async (req, res) => 
 
 router.get('/corretor/noticiasCorretor', noticiasController.getNoticias)
 
-router.post('/corretor/CadastrarNoticia', multer.,noticiasController.publicarNoticia);
+router.post('/corretor/CadastrarNoticia', multer.uploadSingle,noticiasController.publicarNoticia);
 
 router.post('/corretor/addCategoria',noticiasController.addCategoria)
 
@@ -160,5 +161,20 @@ router.get('/corretor/publicarImovelCorretor', (req,res)=>{
 })
 
 router.post('/corretor/cadastrarImovelCorretor',multer.uploadArray,imoveisController.cadastrarImovel)
+
+
+
+router.get('/corretor/uploadIMG',(req,res)=>{
+    res.render('pages/uploadImg')
+})
+
+router.post('/corretor/cadImg',multer.uploadArray,(req,res)=>{
+    const imgs = req.files
+    for(const img of imgs){
+        soliController.cadastrarImagens(50,img.filename,img.path)
+    }
+})
+
+
 
 module.exports = router

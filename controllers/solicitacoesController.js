@@ -36,7 +36,7 @@ async function cadastrarImagens(idSoli, nomeImagem, pathImagem) {
         }
 
     } catch (error) {
-        throw new Error('Não foi possível cadastrar imagem.')
+        throw new Error('Não foi possível cadastrar imagem:'+error)
     }
 }
 
@@ -307,7 +307,7 @@ const filtrarSolicitacoes = async (req, res) => {
             } catch (error) {
                 req.flash("error_msg","Não foi possível filtrar as solicitações recentes.")
                 res.redirect('/corretor/solicitacoes')
-                console.log("Não foi possível filtrar as solicitações recentes.")
+                console.log("Não foi possível filtrar as solicitações recentes."+error)
             }
             break;
         case "antigo":
@@ -328,7 +328,7 @@ const filtrarSolicitacoes = async (req, res) => {
             } catch (error) {
                 req.flash("error_msg","Não foi possível filtrar as solicitações antigas.")
                 res.redirect('/corretor/solicitacoes')
-                console.log("Não foi possível filtrar as solicitações antigas.")
+                console.log("Não foi possível filtrar as solicitações antigas."+error)
             }
         break;
         case "aluguel":
@@ -347,7 +347,7 @@ const filtrarSolicitacoes = async (req, res) => {
             } catch (error) {
                 req.flash("error_msg","Não foi possível filtrar as solicitações de aluguel.")
                 res.redirect('/corretor/solicitacoes')
-                console.log("Não foi possível filtrar as solicitações de aluguel.")
+                console.log("Não foi possível filtrar as solicitações de aluguel."+error)
             }
         break;
 
@@ -367,7 +367,7 @@ const filtrarSolicitacoes = async (req, res) => {
             } catch (error) {
                 req.flash("error_msg","Não foi possível filtrar as solicitações de venda.")
                 res.redirect('/corretor/solicitacoes')
-                console.log("Não foi possível filtrar as solicitações de venda.")
+                console.log("Não foi possível filtrar as solicitações de venda."+error)
             }
         break;
 

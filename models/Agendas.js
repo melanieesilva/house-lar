@@ -1,4 +1,4 @@
-const db = require('./db')
+const db = require('../database/Connection')
 
 //Definindo modelo Agenda
 const Agenda = db.connect.define('agendas',{
@@ -10,7 +10,6 @@ const Agenda = db.connect.define('agendas',{
     freezeTableName: true
 });
 
-// Agenda.sync({force:true})
 
 module.exports = Agenda
 

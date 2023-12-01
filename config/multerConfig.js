@@ -9,9 +9,9 @@ var storage = multer.diskStorage({
     }
 })
 
-// const uploadSingle = multer({
-//     storage: storage
-// }).single("imagem")
+const uploadSingle = multer({
+    storage: storage
+}).single("imagem")
 
 const uploadArray = multer({
     storage: storage
@@ -19,6 +19,6 @@ const uploadArray = multer({
 
 
 module.exports = {
-    // uploadSingle,
+    uploadSingle,
     uploadArray
 }

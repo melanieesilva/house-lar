@@ -31,9 +31,6 @@
     "test": "jest",
     "test:watch": "jest --watchAll"
   },
-  "engines": {
-    "node": "18.17.0"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",

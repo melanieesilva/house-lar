@@ -22,11 +22,12 @@ const getImoveiseNoticias = async (req, res) => {
             },
         })
 
-        const publicados = await Imoveis.findAll({
+        const publicados = await viewImovel.findAll({
             where: {
                 statusImovel: "Publicado"
             },
             limit: 4,
+            group: ['id_imovel']
         })
 
         // console.log(imoveis)

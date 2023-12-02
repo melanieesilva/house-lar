@@ -1,29 +1,33 @@
+
 const containerIMGS = document.getElementById('containerImgDetalhes')
 
 var posicaoSlide = 1;
 showSlide(posicaoSlide);
 
-document.addEventListener('DOMContentLoaded',()=>{
-    const areaStatus = document.getElementById('statusSoli');
-    const contentStatus = areaStatus.textContent;
+document.addEventListener('DOMContentLoaded', () => {
+    const areaStatus = document.querySelectorAll('#statusSoli');
+    var contentStatus;
+    areaStatus.forEach(status => {
+        contentStatus = status.textContent;
+        switch (contentStatus) {
+            case 'Aceito':
+                status.style.border = '2px solid #00833C';
+                status.style.color = '#00833C';
+                break;
+            case 'Recusado':
+                status.style.border = '2px solid #C80000';
+                status.style.color = '#C80000';
+                break;
+            case 'Solicitado':
+                status.style.border = '2px solid black';
+                status.style.color = 'black';
+                break;
+            default:
+                console.log("Não foi possível identificar o status.")
+                break;
+        }
+    })
 
-    switch(contentStatus){
-        case 'Aceito':
-            areaStatus.style.border = '2px solid #00833C';
-            areaStatus.style.color = '#00833C';
-        break;
-        case 'Recusado':
-            areaStatus.style.border = '2px solid #C80000';
-            areaStatus.style.color = '#C80000';
-        break;
-        case 'Solicitado':
-            areaStatus.style.border = '2px solid black';
-            areaStatus.style.color = 'black';
-        break;
-        default:
-            console.log("Não foi possível identificar o status.")
-        break;
-    }
 })
 
 function openModal(arrays) {
@@ -105,14 +109,6 @@ function openModal(arrays) {
     document.getElementById('telefonePessoaDetalhe').textContent = arrays[0].telefoneCliente;
     document.getElementById('CPFPessoaDetalhe').textContent = arrays[0].CPFCliente;
 
-    //PUBLICAR SOLICITAÇÃO
-    const linkPublicarSoli = document.getElementById('aceitarSolicitacao')
-   
-
-    //REJEITAR
-    const linkRejeitar = document.getElementById('rejeitarSolicitacao')
-
-    
 
     window.addEventListener('click', (e) => {
         if (e.target == modalSolicitacao) {
@@ -160,45 +156,85 @@ function detalharSolicitacao(el) {
                 console.log("Não foi possível buscar os detalhes da solicitação.")
             }
             return response.json()
-        }).then(data => {
+        })
+        .then(data => {
             console.log(data)
             console.log(data.viewSolicitacao)
             const solicitacaoRecebida = data.viewSolicitacao
             // console.log(solicitacaoRecebida[0])
             openModal(solicitacaoRecebida)
 
+            //PUBLICAR SOLICITAÇÃO
+            const linkPublicarSoli = document.getElementById('aceitarSolicitacao')
+            //REJEITAR
+            const linkRejeitar = document.getElementById('rejeitarSolicitacao')
 
-            const linkPublicarSoli = document.createElement("a")
-            linkPublicarSoli.classList.add("aceitarSolicitacao")
-            linkPublicarSoli.id = "aceitarSolicitacao"
+            //caso status seja aceito = aparece botão de imóvel já foi publicado
+            //caso status seja recusado = aparece botão de imóvel já foi recusado
+            //caso status seja solicitado = as duas opções aparecem
+            const statusSolicitacao = solicitacaoRecebida[0].statusSoli
 
-            const linkRejeitar = document.createElement("a")
-            linkRejeitar.classList.add("rejeitarSolicitacao")
-            linkRejeitar.id = "rejeitarSolicitacao"
+            switch (statusSolicitacao) {
+                case "Solicitado":
+                    linkPublicarSoli.style.display = 'flex'
+                    linkPublicarSoli.setAttribute("href", `/corretor/publicarSolicitacao/${idSoli}`)
+                    linkRejeitar.style.display = 'flex'
+                    linkRejeitar.setAttribute("href", `/corretor/rejeitarSolicitacao/${idSoli}`)
+                    break;
+                case "Aceito":
+                    linkPublicarSoli.style.display = 'flex'
+                    linkRejeitar.style.display = 'none'
+                    linkPublicarSoli.removeAttribute('href')
+                    linkPublicarSoli.style.userSelect = 'none'
+                    linkPublicarSoli.innerText = "Imóvel Publicado"
+                    break;
+                case "Recusado":
+                    linkRejeitar.style.display = 'flex'
+                    linkPublicarSoli.style.display = 'none'
+                    linkRejeitar.removeAttribute('href')
+                    linkRejeitar.style.userSelect = 'none'
+                    linkRejeitar.innerText = "Imóvel Recusado"
+                    break;
 
-            document.getElementById('buttonsSideDetalhe').innerHTML = ""
-
-            if (solicitacaoRecebida[0].statusSoli === "Aceito") {
-                linkPublicarSoli.textContent = "Solicitação Publicada"
-                linkPublicarSoli.removeAttribute("href")
-                linkPublicarSoli.style.cursor = "default"
-                document.getElementById('buttonsSideDetalhe').appendChild(linkPublicarSoli)
-                document.getElementById('buttonsSideDetalhe').removeChild(linkRejeitar)
-            }else if(solicitacaoRecebida[0].statusSoli = "Solicitado"){
-
-                linkPublicarSoli.textContent = "Publicar Imóvel"
-                linkPublicarSoli.setAttribute("href", `/corretor/publicarSolicitacao/${solicitacaoRecebida[0].id_soli}`)
-                linkRejeitar.textContent = "Rejeitar Solicitação"
-                linkRejeitar.setAttribute("href",`/corretor/rejeitarSolicitacao/${solicitacaoRecebida[0].id_soli}`)
-
-
-                document.getElementById('buttonsSideDetalhe').appendChild(linkPublicarSoli)
-                document.getElementById('buttonsSideDetalhe').appendChild(linkRejeitar)
+                default:
+                    console.log("Não foi possível encontrar o status da solicitação.")
+                    break;
             }
+
+
+            // const linkPublicarSoli = document.createElement("a")
+            // linkPublicarSoli.classList.add("aceitarSolicitacao")
+            // linkPublicarSoli.id = "aceitarSolicitacao"
+
+            // const linkRejeitar = document.createElement("a")
+            // linkRejeitar.classList.add("rejeitarSolicitacao")
+            // linkRejeitar.id = "rejeitarSolicitacao"
+
+            // document.getElementById('buttonsSideDetalhe').innerHTML = ""
+
+            // if (solicitacaoRecebida[0].statusSoli === "Aceito") {
+            //     linkPublicarSoli.textContent = "Solicitação Publicada"
+            //     linkPublicarSoli.removeAttribute("href")
+            //     linkPublicarSoli.style.cursor = "default"
+            //     document.getElementById('buttonsSideDetalhe').appendChild(linkPublicarSoli)
+            //     document.getElementById('buttonsSideDetalhe').removeChild(linkRejeitar)
+            // } else if (solicitacaoRecebida[0].statusSoli = "Solicitado") {
+
+            //     linkPublicarSoli.textContent = "Publicar Imóvel"
+            //     linkPublicarSoli.setAttribute("href", `/corretor/publicarSolicitacao/${solicitacaoRecebida[0].id_soli}`)
+            //     linkRejeitar.textContent = "Rejeitar Solicitação"
+            //     linkRejeitar.setAttribute("href", `/corretor/rejeitarSolicitacao/${solicitacaoRecebida[0].id_soli}`)
+
+
+            //     document.getElementById('buttonsSideDetalhe').appendChild(linkPublicarSoli)
+            //     document.getElementById('buttonsSideDetalhe').appendChild(linkRejeitar)
+            // }
 
         }).catch(error => {
             console.error('Erro na requisição:', error)
         })
+
+
 }
 
 const filtroRecente = document.getElementById('filtroRecente')
@@ -206,30 +242,30 @@ const filtroAntigo = document.getElementById('filtroAntigo')
 const filtroAluguel = document.getElementById('filtroAluguel')
 const filtroVenda = document.getElementById('filtroVenda')
 
-filtroRecente.addEventListener('click',()=>{
+filtroRecente.addEventListener('click', () => {
     console.log("Filtro recente")
 
     fetch('/corretor/filtroSolicitacao/recente')
-    .then(response => {
-        if (!response.ok) {
-            console.log("Não foi possível filtrar solicitações mais recentes")
-        }
-        return response.json()
-    }).then(data =>{
-        // console.log(data)
-        console.log(data.solicitacoesRecentes)
-        const arraySolicitacoes = data.solicitacoesRecentes
+        .then(response => {
+            if (!response.ok) {
+                console.log("Não foi possível filtrar solicitações mais recentes")
+            }
+            return response.json()
+        }).then(data => {
+            // console.log(data)
+            console.log(data.solicitacoesRecentes)
+            const arraySolicitacoes = data.solicitacoesRecentes
 
-        for (let i = 0; i < arraySolicitacoes.length; i++) {
-            const element = arraySolicitacoes[i];
-            // console.log(element)
-            console.log(element.id_soli)
-            document.getElementById('imovel').textContent = el.tipoImovel
-            document.getElementById('discri').textContent = el.descricao
-        }
+            for (let i = 0; i < arraySolicitacoes.length; i++) {
+                const element = arraySolicitacoes[i];
+                // console.log(element)
+                console.log(element.id_soli)
+                document.getElementById('imovel').textContent = el.tipoImovel
+                document.getElementById('discri').textContent = el.descricao
+            }
 
-    }).catch(error => {
-        console.error('Erro na requisição:', error)
-    })
- 
+        }).catch(error => {
+            console.error('Erro na requisição:', error)
+        })
+
 })

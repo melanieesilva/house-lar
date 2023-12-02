@@ -647,3 +647,12 @@ img {
     background: none;
 
 }
+
+
+#aceitarSolicitacao{
+    display: none;
+}
+
+#rejeitarSolicitacao{
+    display: none;
+}

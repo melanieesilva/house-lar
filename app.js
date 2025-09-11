@@ -11,5 +11,5 @@ app.get('/template',(req,res)=>{
 
 
 app.listen(PORT,()=>{
-    console.log(`Servidor iniciado na url http://localhost:8080`)
+    console.log(`Servidor iniciado na url http://localhost:${PORT}`)
 })

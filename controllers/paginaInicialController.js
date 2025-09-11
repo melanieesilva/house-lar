@@ -27,7 +27,7 @@ const getImoveiseNoticias = async (req, res) => {
                 statusImovel: "Publicado"
             },
             limit: 4,
-            group: ['id_imovel']
+            group: ['id_imovel', 'id_imagem']
         })
 
         // console.log(imoveis)

@@ -1,6 +1,6 @@
 
 -- Active: 1700955922591@@127.0.0.1@3306@larhouse
--- CREATE DATABASE larhouse;
+CREATE DATABASE larhouse;
 use larhouse;
 
 -- DROPS
@@ -30,9 +30,9 @@ use larhouse;
 -- CREATES
 CREATE TABLE `solicitacoes` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `statusSoli` enum('Solicitado','Aceito','Recusado') DEFAULT NULL,
-  `tipoImovel` enum('Apartamento','Casa','Kitnet/Studio','Lote','Sala Comercial') DEFAULT NULL,
-  `operacao` enum('Venda','Aluguel') DEFAULT NULL,
+  `statusSoli` ENUM('Solicitado','Aceito','Recusado') DEFAULT NULL,
+  `tipoImovel` ENUM('Apartamento','Casa','Kitnet/Studio','Lote','Sala Comercial') DEFAULT NULL,
+  `operacao` ENUM('Venda','Aluguel') DEFAULT NULL,
   `descricao` longtext,
   `numQuartos` int DEFAULT NULL,
   `numBanheiros` int DEFAULT NULL,
@@ -42,10 +42,10 @@ CREATE TABLE `solicitacoes` (
   `valorCondominio` decimal(10,2) DEFAULT NULL,
   `valorIPTU` decimal(10,2) DEFAULT NULL,
   `parcelasIPTU` int DEFAULT NULL,
-  `construcao` enum('Sim','Não') DEFAULT NULL,
+  `construcao` ENUM('Sim','Não') DEFAULT NULL,
   `numAndares` int DEFAULT NULL,
   `dataEntrega` date DEFAULT NULL,
-  `emCondominio` enum('Sim','Não') DEFAULT NULL,
+  `emCondominio` ENUM('Sim','Não') DEFAULT NULL,
   `dataPublicacao` date DEFAULT NULL,
   `nomeCliente` varchar(80) DEFAULT NULL,
   `telefoneCliente` varchar(14) DEFAULT NULL,
@@ -71,9 +71,9 @@ CREATE TABLE `imagenssolicitacoes` (
 
 CREATE TABLE `imoveis` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `statusImovel` enum('Publicado','Desativado') DEFAULT NULL,
-  `tipo_imovel` enum('Casa','Apartamento','Lote','Kitnet/Studio','Sala Comercial') DEFAULT NULL,
-  `operacao` enum('Venda','Aluguel') DEFAULT NULL,
+  `statusImovel` ENUM('Publicado','Desativado') DEFAULT NULL,
+  `tipo_imovel` ENUM('Casa','Apartamento','Lote','Kitnet/Studio','Sala Comercial') DEFAULT NULL,
+  `operacao` ENUM('Venda','Aluguel') DEFAULT NULL,
   `descricao` varchar(255) DEFAULT NULL,
   `num_quartos` int DEFAULT NULL,
   `num_banheiros` int DEFAULT NULL,
@@ -83,14 +83,14 @@ CREATE TABLE `imoveis` (
   `valor_condominio` decimal(10,0) DEFAULT NULL,
   `valor_iptu` decimal(10,0) DEFAULT NULL,
   `parcelas_iptu` int DEFAULT NULL,
-  `construcao` enum('Sim','Não') DEFAULT NULL,
+  `construcao` ENUM('Sim','Não') DEFAULT NULL,
   `cidade` varchar(255) DEFAULT NULL,
   `bairro` varchar(255) DEFAULT NULL,
   `endereco` varchar(255) DEFAULT NULL,
   `numero` int DEFAULT NULL,
   `num_andares` int DEFAULT NULL,
   `data_entrega` date DEFAULT NULL,
-  `em_condominio` enum('Sim','Não') DEFAULT NULL,
+  `em_condominio` ENUM('Sim','Não') DEFAULT NULL,
   `data_publicacao` date DEFAULT NULL,
   `nome_prop` varchar(255) DEFAULT NULL,
   `email_prop` varchar(255) DEFAULT NULL,
@@ -119,8 +119,8 @@ CREATE TABLE `noticias` (
   `nome_imagem` varchar(255) NOT NULL,
   `data_imagem` blob,
   `nome_categoria` varchar(255),
-  `cor_categoria` enum('Amarelo','Azul','Roxo','Verde','Laranja','Vermelho'),
-  `status` enum('Publicada','Desativada') NOT NULL,
+  `cor_categoria` ENUM('Amarelo','Azul','Roxo','Verde','Laranja','Vermelho'),
+  `status` ENUM('Publicada','Desativada') NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -183,7 +183,7 @@ CREATE VIEW ViewSolicitacaoImagem AS SELECT
 			img.nomeImagem,
 			img.pathImagem
 		FROM solicitacoes AS sol
-        INNER JOIN imagensSolicitacoes AS img 
+        INNER JOIN imagenssolicitacoes AS img 
         WHERE sol.id = img.idSolicitacao_FK;
         
 CREATE VIEW ViewImovelImagem AS SELECT

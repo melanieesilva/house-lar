@@ -3,7 +3,7 @@ const db = require('../Database/Connection')
 
 //Definindo modelo Imoveis
 
-const Imovel = db.connect.define('Imoveis',{
+const Imovel = db.connect.define('imoveis',{
     statusImovel: db.Sequelize.ENUM('Publicado','Desativado'),
     tipo_imovel: db.Sequelize.ENUM('Casa','Apartamento','Lote','Kitnet/Studio','Sala Comercial'),
     operacao: db.Sequelize.ENUM('Venda','Aluguel'),
